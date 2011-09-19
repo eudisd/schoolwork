@@ -1,0 +1,15 @@
+vendor_name = ModelSim
+source_file = 1, C:/cygwin/home/prototype/repos/schoolwork/mux_gate.vhd
+source_file = 1, C:/cygwin/home/prototype/repos/schoolwork/VHDLmux.bdf
+source_file = 1, C:/cygwin/home/prototype/repos/schoolwork/mux_gate.vwf
+source_file = 1, C:/cygwin/home/prototype/repos/schoolwork/db/mux_gate.cbx.xml
+design_name = mux_gate
+instance = comp, \I0~I\, I0, mux_gate, 1
+instance = comp, \Sel[1]~I\, Sel[1], mux_gate, 1
+instance = comp, \I1~I\, I1, mux_gate, 1
+instance = comp, \Sel[0]~I\, Sel[0], mux_gate, 1
+instance = comp, \Mux0~2\, Mux0~2, mux_gate, 1
+instance = comp, \I2~I\, I2, mux_gate, 1
+instance = comp, \I3~I\, I3, mux_gate, 1
+instance = comp, \Mux0~3\, Mux0~3, mux_gate, 1
+instance = comp, \Output~I\, Output, mux_gate, 1
