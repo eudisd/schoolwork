@@ -288,7 +288,7 @@ GND*                         : C8        :        :                   :         
 GND*                         : C9        :        :                   :         : 3         :                
 GND*                         : C10       :        :                   :         : 3         :                
 Output                       : C11       : output : 3.3-V LVTTL       :         : 3         : N              
-Select                       : C12       : input  : 3.3-V LVTTL       :         : 3         : N              
+S                            : C12       : input  : 3.3-V LVTTL       :         : 3         : N              
 A                            : C13       : input  : 3.3-V LVTTL       :         : 3         : N              
 GND                          : C14       : gnd    :                   :         :           :                
 GND*                         : C15       :        :                   :         : 4         :                

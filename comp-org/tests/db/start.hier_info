@@ -1,8 +1,8 @@
 |start
 Output <= inst2.DB_MAX_OUTPUT_PORT_TYPE
 B => inst1.IN0
-Select => inst5.IN0
-Select => inst.IN1
+S => inst5.IN0
+S => inst.IN1
 A => inst.IN0
 
 

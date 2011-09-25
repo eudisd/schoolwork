@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II"
 -- VERSION "Version 8.0 Build 215 05/29/2008 SJ Full Version"
 
--- DATE "09/16/2011 11:54:51"
+-- DATE "09/19/2011 13:02:37"
 
 -- 
 -- Device: Altera EP2C35F672C6 Package FBGA672
@@ -34,7 +34,7 @@ ENTITY 	start IS
     PORT (
 	Output : OUT std_logic;
 	B : IN std_logic;
-	\Select\ : IN std_logic;
+	S : IN std_logic;
 	A : IN std_logic
 	);
 END start;
@@ -50,10 +50,10 @@ SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
 SIGNAL ww_Output : std_logic;
 SIGNAL ww_B : std_logic;
-SIGNAL \ww_Select\ : std_logic;
+SIGNAL ww_S : std_logic;
 SIGNAL ww_A : std_logic;
 SIGNAL \A~combout\ : std_logic;
-SIGNAL \Select~combout\ : std_logic;
+SIGNAL \S~combout\ : std_logic;
 SIGNAL \B~combout\ : std_logic;
 SIGNAL \inst2~8_combout\ : std_logic;
 
@@ -61,7 +61,7 @@ BEGIN
 
 Output <= ww_Output;
 ww_B <= B;
-\ww_Select\ <= \Select\;
+ww_S <= S;
 ww_A <= A;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
@@ -92,7 +92,7 @@ PORT MAP (
 	padio => ww_A,
 	combout => \A~combout\);
 
-\Select~I\ : cycloneii_io
+\S~I\ : cycloneii_io
 -- pragma translate_off
 GENERIC MAP (
 	input_async_reset => "none",
@@ -114,8 +114,8 @@ PORT MAP (
 	devpor => ww_devpor,
 	devoe => ww_devoe,
 	oe => GND,
-	padio => \ww_Select\,
-	combout => \Select~combout\);
+	padio => ww_S,
+	combout => \S~combout\);
 
 \B~I\ : cycloneii_io
 -- pragma translate_off
@@ -144,7 +144,7 @@ PORT MAP (
 
 \inst2~8\ : cycloneii_lcell_comb
 -- Equation(s):
--- \inst2~8_combout\ = \Select~combout\ & \A~combout\ # !\Select~combout\ & (\B~combout\)
+-- \inst2~8_combout\ = \S~combout\ & \A~combout\ # !\S~combout\ & (\B~combout\)
 
 -- pragma translate_off
 GENERIC MAP (
@@ -153,7 +153,7 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datab => \A~combout\,
-	datac => \Select~combout\,
+	datac => \S~combout\,
 	datad => \B~combout\,
 	combout => \inst2~8_combout\);
 

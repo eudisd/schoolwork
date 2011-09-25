@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for start
-Fri Sep 16 11:54:48 2011
+Mon Sep 19 13:02:36 2011
 Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
 
 
@@ -33,14 +33,14 @@ applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Timing Analyzer Summary                                                                                                     ;
-+------------------------------+-------+---------------+-------------+--------+--------+------------+----------+--------------+
-; Type                         ; Slack ; Required Time ; Actual Time ; From   ; To     ; From Clock ; To Clock ; Failed Paths ;
-+------------------------------+-------+---------------+-------------+--------+--------+------------+----------+--------------+
-; Worst-case tpd               ; N/A   ; None          ; 9.280 ns    ; Select ; Output ; --         ; --       ; 0            ;
-; Total number of failed paths ;       ;               ;             ;        ;        ;            ;          ; 0            ;
-+------------------------------+-------+---------------+-------------+--------+--------+------------+----------+--------------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                   ;
++------------------------------+-------+---------------+-------------+------+--------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time ; From ; To     ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+-------------+------+--------+------------+----------+--------------+
+; Worst-case tpd               ; N/A   ; None          ; 9.280 ns    ; S    ; Output ; --         ; --       ; 0            ;
+; Total number of failed paths ;       ;               ;             ;      ;        ;            ;          ; 0            ;
++------------------------------+-------+---------------+-------------+------+--------+------------+----------+--------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -60,8 +60,6 @@ applicable agreement for further details.
 ; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
 ; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
 ; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
-; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
-; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
 ; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
 ; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
 ; Number of paths to report                                           ; 200                ;      ;    ;             ;
@@ -74,15 +72,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------+--------------------+------+----+-------------+
 
 
-+---------------------------------------------------------------+
-; tpd                                                           ;
-+-------+-------------------+-----------------+--------+--------+
-; Slack ; Required P2P Time ; Actual P2P Time ; From   ; To     ;
-+-------+-------------------+-----------------+--------+--------+
-; N/A   ; None              ; 9.280 ns        ; Select ; Output ;
-; N/A   ; None              ; 5.406 ns        ; A      ; Output ;
-; N/A   ; None              ; 5.133 ns        ; B      ; Output ;
-+-------+-------------------+-----------------+--------+--------+
++-------------------------------------------------------------+
+; tpd                                                         ;
++-------+-------------------+-----------------+------+--------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From ; To     ;
++-------+-------------------+-----------------+------+--------+
+; N/A   ; None              ; 9.280 ns        ; S    ; Output ;
+; N/A   ; None              ; 5.406 ns        ; A    ; Output ;
+; N/A   ; None              ; 5.133 ns        ; B    ; Output ;
++-------+-------------------+-----------------+------+--------+
 
 
 +--------------------------+
@@ -91,17 +89,17 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
-    Info: Processing started: Fri Sep 16 11:54:47 2011
+    Info: Processing started: Mon Sep 19 13:02:35 2011
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off start -c start --timing_analysis_only
-Info: Longest tpd from source pin "Select" to destination pin "Output" is 9.280 ns
-    Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_C12; Fanout = 1; PIN Node = 'Select'
+Info: Longest tpd from source pin "S" to destination pin "Output" is 9.280 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_C12; Fanout = 1; PIN Node = 'S'
     Info: 2: + IC(4.798 ns) + CELL(0.275 ns) = 5.913 ns; Loc. = LCCOMB_X30_Y35_N0; Fanout = 1; COMB Node = 'inst2~8'
     Info: 3: + IC(0.569 ns) + CELL(2.798 ns) = 9.280 ns; Loc. = PIN_C11; Fanout = 0; PIN Node = 'Output'
     Info: Total cell delay = 3.913 ns ( 42.17 % )
     Info: Total interconnect delay = 5.367 ns ( 57.83 % )
 Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 167 megabytes
-    Info: Processing ended: Fri Sep 16 11:54:48 2011
+    Info: Peak virtual memory: 170 megabytes
+    Info: Processing ended: Mon Sep 19 13:02:36 2011
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

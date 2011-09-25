@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Failed - Fri Sep 16 12:12:28 2011
+Analysis & Synthesis Status : Successful - Mon Sep 19 13:02:22 2011
 Quartus II Version : 8.0 Build 215 05/29/2008 SJ Full Version
 Revision Name : start
 Top-level Entity Name : start
 Family : Cyclone II
-Total logic elements : N/A until Partition Merge
-    Total combinational functions : N/A until Partition Merge
-    Dedicated logic registers : N/A until Partition Merge
-Total registers : N/A until Partition Merge
-Total pins : N/A until Partition Merge
-Total virtual pins : N/A until Partition Merge
-Total memory bits : N/A until Partition Merge
-Embedded Multiplier 9-bit elements : N/A until Partition Merge
-Total PLLs : N/A until Partition Merge
+Total logic elements : 1
+    Total combinational functions : 1
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 4
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

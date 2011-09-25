@@ -1,5 +1,5 @@
 Analysis & Synthesis report for start
-Fri Sep 16 12:12:28 2011
+Mon Sep 19 13:02:22 2011
 Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
 
 
@@ -9,7 +9,11 @@ Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
   1. Legal Notice
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
-  4. Analysis & Synthesis Messages
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. General Register Statistics
+  8. Analysis & Synthesis Messages
 
 
 
@@ -35,20 +39,20 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri Sep 16 12:12:28 2011        ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 19 13:02:22 2011    ;
 ; Quartus II Version                 ; 8.0 Build 215 05/29/2008 SJ Full Version ;
 ; Revision Name                      ; start                                    ;
 ; Top-level Entity Name              ; start                                    ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; N/A until Partition Merge                ;
-;     Total combinational functions  ; N/A until Partition Merge                ;
-;     Dedicated logic registers      ; N/A until Partition Merge                ;
-; Total registers                    ; N/A until Partition Merge                ;
-; Total pins                         ; N/A until Partition Merge                ;
-; Total virtual pins                 ; N/A until Partition Merge                ;
-; Total memory bits                  ; N/A until Partition Merge                ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                ;
-; Total PLLs                         ; N/A until Partition Merge                ;
+; Total logic elements               ; 1                                        ;
+;     Total combinational functions  ; 1                                        ;
+;     Dedicated logic registers      ; 0                                        ;
+; Total registers                    ; 0                                        ;
+; Total pins                         ; 4                                        ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
 +------------------------------------+------------------------------------------+
 
 
@@ -129,28 +133,91 @@ applicable agreement for further details.
 +--------------------------------------------------------------+--------------------+--------------------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                       ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+
+; start.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/tests/start.bdf ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimated Total logic elements              ; 1       ;
+;                                             ;         ;
+; Total combinational functions               ; 1       ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 0       ;
+;     -- 3 input functions                    ; 1       ;
+;     -- <=2 input functions                  ; 0       ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 1       ;
+;     -- arithmetic mode                      ; 0       ;
+;                                             ;         ;
+; Total registers                             ; 0       ;
+;     -- Dedicated logic registers            ; 0       ;
+;     -- I/O registers                        ; 0       ;
+;                                             ;         ;
+; I/O pins                                    ; 4       ;
+; Maximum fan-out node                        ; inst2~8 ;
+; Maximum fan-out                             ; 1       ;
+; Total fan-out                               ; 4       ;
+; Average fan-out                             ; 0.80    ;
++---------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |start                     ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |start              ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
-    Info: Processing started: Fri Sep 16 12:12:28 2011
+    Info: Processing started: Mon Sep 19 13:02:21 2011
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off start -c start
-Info: Found 2 design units, including 1 entities, in source file start.vhd
-    Info: Found design unit 1: start-bdf_type
-    Info: Found entity 1: start
-Error: Can't compile duplicate declarations of entity "start" into library "work"
-    Error: Found entity "start" in file start.vhd File: C:/cygwin/home/prototype/repos/schoolwork/comp-org/tests/start.vhd Line: 23
-    Error: Found entity "start" in file start.bdf
 Info: Found 1 design units, including 1 entities, in source file start.bdf
+    Info: Found entity 1: start
 Info: Found 2 design units, including 1 entities, in source file Vhdl1.vhd
     Info: Found design unit 1: mux_gate-behav
     Info: Found entity 1: mux_gate
-Error: Quartus II Analysis & Synthesis was unsuccessful. 3 errors, 0 warnings
-    Error: Peak virtual memory: 217 megabytes
-    Error: Processing ended: Fri Sep 16 12:12:28 2011
-    Error: Elapsed time: 00:00:00
-    Error: Total CPU time (on all processors): 00:00:01
+Info: Elaborating entity "start" for the top level hierarchy
+Info: Implemented 5 device resources after synthesis - the final resource count might be different
+    Info: Implemented 3 input pins
+    Info: Implemented 1 output pins
+    Info: Implemented 1 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 219 megabytes
+    Info: Processing ended: Mon Sep 19 13:02:22 2011
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

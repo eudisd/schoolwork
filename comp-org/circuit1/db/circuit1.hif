@@ -1,0 +1,48 @@
+Version 8.0 Build 215 05/29/2008 SJ Full Version
+11
+1009
+OFF
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+altsyn.lmf
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+circuit1
+# storage
+db|circuit1.(0).cnf
+db|circuit1.(0).cnf
+# case_insensitive
+# source_file
+circuit1.bdf
+a61d89b1638f528bfd2cc914f677f093
+25
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# lmf
+..|..|..|..|..|..|..|altera|80|quartus|lmf|altsyn.lmf
+32a512b4b4798678355b65114155d5b6
+# macro_sequence
+
+# end
+# complete
+

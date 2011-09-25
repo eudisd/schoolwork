@@ -1,5 +1,5 @@
 Fitter report for start
-Fri Sep 16 11:54:37 2011
+Mon Sep 19 13:02:31 2011
 Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
 
 
@@ -55,7 +55,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +------------------------------------+------------------------------------------+
-; Fitter Status                      ; Successful - Fri Sep 16 11:54:37 2011    ;
+; Fitter Status                      ; Successful - Mon Sep 19 13:02:31 2011    ;
 ; Quartus II Version                 ; 8.0 Build 215 05/29/2008 SJ Full Version ;
 ; Revision Name                      ; start                                    ;
 ; Top-level Entity Name              ; start                                    ;
@@ -80,8 +80,6 @@ applicable agreement for further details.
 ; Option                                                             ; Setting                        ; Default Value                  ;
 +--------------------------------------------------------------------+--------------------------------+--------------------------------+
 ; Device                                                             ; EP2C35F672C6                   ;                                ;
-; Minimum Core Junction Temperature                                  ; 0                              ;                                ;
-; Maximum Core Junction Temperature                                  ; 85                             ;                                ;
 ; Fit Attempts to Skip                                               ; 0                              ; 0.0                            ;
 ; Use smart compilation                                              ; Off                            ; Off                            ;
 ; Maximum processors allowed for parallel compilation                ; 1                              ; 1                              ;
@@ -188,15 +186,15 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                                                                                                                                                   ;
-+--------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; Name   ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
-+--------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; A      ; C13   ; 3        ; 31           ; 36           ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; B      ; D13   ; 3        ; 31           ; 36           ; 3           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; Select ; C12   ; 3        ; 29           ; 36           ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-+--------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                                                                                                                 ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
+; Name ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
+; A    ; C13   ; 3        ; 31           ; 36           ; 2           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; B    ; D13   ; 3        ; 31           ; 36           ; 3           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; S    ; C12   ; 3        ; 29           ; 36           ; 1           ; 1                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -444,7 +442,7 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 ; C9       ; 459        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C10      ; 450        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C11      ; 436        ; 3        ; Output                                   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C12      ; 434        ; 3        ; Select                                   ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; C12      ; 434        ; 3        ; S                                        ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C13      ; 431        ; 3        ; A                                        ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C14      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; C15      ; 421        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -960,7 +958,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Output ; Output   ; --            ; --            ; --                    ; --  ;
 ; A      ; Input    ; 0             ; 0             ; --                    ; --  ;
 ; B      ; Input    ; 0             ; 0             ; --                    ; --  ;
-; Select ; Input    ; 6             ; 6             ; --                    ; --  ;
+; S      ; Input    ; 6             ; 6             ; --                    ; --  ;
 +--------+----------+---------------+---------------+-----------------------+-----+
 
 
@@ -971,7 +969,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+-------------------+---------+
 ; A                   ;                   ;         ;
 ; B                   ;                   ;         ;
-; Select              ;                   ;         ;
+; S                   ;                   ;         ;
 ;      - inst2~8      ; 0                 ; 6       ;
 +---------------------+-------------------+---------+
 
@@ -981,7 +979,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------+-----------------------+
 ; Name    ; Fan-Out               ;
 +---------+-----------------------+
-; Select  ; 1                     ;
+; S       ; 1                     ;
 ; B       ; 1                     ;
 ; A       ; 1                     ;
 ; inst2~8 ; 1                     ;
@@ -1095,11 +1093,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
-    Info: Processing started: Fri Sep 16 11:54:22 2011
+    Info: Processing started: Mon Sep 19 13:02:23 2011
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off start -c start
 Info: Selected device EP2C35F672C6 for design "start"
-Info: Low junction temperature is 0 degrees C
-Info: High junction temperature is 85 degrees C
 Info: Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Info: Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
     Info: Device EP2C50F672C6 is compatible
@@ -1112,7 +1108,7 @@ Warning: No exact pin location assignment(s) for 4 pins of 4 total pins
     Info: Pin Output not assigned to an exact location on the device
     Info: Pin A not assigned to an exact location on the device
     Info: Pin B not assigned to an exact location on the device
-    Info: Pin Select not assigned to an exact location on the device
+    Info: Pin S not assigned to an exact location on the device
 Info: Fitter is using the Classic Timing Analyzer
 Info: Timing requirements not specified -- quality metrics such as performance and power consumption may be sacrificed to reduce compilation time.
 Info: Starting register packing
@@ -1131,7 +1127,7 @@ Info: I/O bank details before I/O pin placement
         Info: I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  58 pins available
         Info: I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  58 pins available
         Info: I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  56 pins available
-Info: Fitter preparation operations ending: elapsed time is 00:00:02
+Info: Fitter preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -1151,10 +1147,10 @@ Info: Delay annotation completed successfully
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info: Generated suppressed messages file C:/cygwin/home/prototype/repos/schoolwork/comp-org/tests/start.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 256 megabytes
-    Info: Processing ended: Fri Sep 16 11:54:38 2011
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 259 megabytes
+    Info: Processing ended: Mon Sep 19 13:02:31 2011
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +----------------------------+

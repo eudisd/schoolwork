@@ -24,7 +24,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "start")
-  (DATE "09/16/2011 11:54:51")
+  (DATE "09/19/2011 13:02:37")
   (VENDOR "Altera")
   (PROGRAM "Quartus II")
   (VERSION "Version 8.0 Build 215 05/29/2008 SJ Full Version")
@@ -42,7 +42,7 @@
   )
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE Select\~I.asynch_inst)
+    (INSTANCE S\~I.asynch_inst)
     (DELAY
       (ABSOLUTE
         (IOPATH padio combout (840:840:840) (840:840:840))

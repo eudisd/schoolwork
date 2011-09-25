@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II"
 // VERSION "Version 8.0 Build 215 05/29/2008 SJ Full Version"
 
-// DATE "09/16/2011 11:54:51"
+// DATE "09/19/2011 13:02:37"
 
 // 
 // Device: Altera EP2C35F672C6 Package FBGA672
@@ -31,11 +31,11 @@
 module start (
 	\Output ,
 	B,
-	Select,
+	S,
 	A);
 output 	\Output ;
 input 	B;
-input 	Select;
+input 	S;
 input 	A;
 
 wire gnd = 1'b0;
@@ -46,7 +46,7 @@ initial $sdf_annotate("start_v.sdo");
 // synopsys translate_on
 
 wire \A~combout ;
-wire \Select~combout ;
+wire \S~combout ;
 wire \B~combout ;
 wire \inst2~8_combout ;
 
@@ -86,7 +86,7 @@ cycloneii_io \A~I (
 // synopsys translate_on
 
 // atom is at PIN_C12
-cycloneii_io \Select~I (
+cycloneii_io \S~I (
 	.datain(gnd),
 	.oe(gnd),
 	.outclk(gnd),
@@ -98,25 +98,25 @@ cycloneii_io \Select~I (
 	.differentialin(gnd),
 	.linkin(gnd),
 	.modesel(26'b00000000000000000000000001),
-	.combout(\Select~combout ),
+	.combout(\S~combout ),
 	.regout(),
 	.differentialout(),
 	.linkout(),
-	.padio(Select));
+	.padio(S));
 // synopsys translate_off
-// defparam \Select~I .input_async_reset = "none";
-// defparam \Select~I .input_power_up = "low";
-// defparam \Select~I .input_register_mode = "none";
-// defparam \Select~I .input_sync_reset = "none";
-// defparam \Select~I .oe_async_reset = "none";
-// defparam \Select~I .oe_power_up = "low";
-// defparam \Select~I .oe_register_mode = "none";
-// defparam \Select~I .oe_sync_reset = "none";
-// defparam \Select~I .operation_mode = "input";
-// defparam \Select~I .output_async_reset = "none";
-// defparam \Select~I .output_power_up = "low";
-// defparam \Select~I .output_register_mode = "none";
-// defparam \Select~I .output_sync_reset = "none";
+// defparam \S~I .input_async_reset = "none";
+// defparam \S~I .input_power_up = "low";
+// defparam \S~I .input_register_mode = "none";
+// defparam \S~I .input_sync_reset = "none";
+// defparam \S~I .oe_async_reset = "none";
+// defparam \S~I .oe_power_up = "low";
+// defparam \S~I .oe_register_mode = "none";
+// defparam \S~I .oe_sync_reset = "none";
+// defparam \S~I .operation_mode = "input";
+// defparam \S~I .output_async_reset = "none";
+// defparam \S~I .output_power_up = "low";
+// defparam \S~I .output_register_mode = "none";
+// defparam \S~I .output_sync_reset = "none";
 // synopsys translate_on
 
 // atom is at PIN_D13
@@ -156,11 +156,11 @@ cycloneii_io \B~I (
 // atom is at LCCOMB_X30_Y35_N0
 cycloneii_lcell_comb \inst2~8 (
 // Equation(s):
-// \inst2~8_combout  = \Select~combout  & \A~combout  # !\Select~combout  & (\B~combout )
+// \inst2~8_combout  = \S~combout  & \A~combout  # !\S~combout  & (\B~combout )
 
 	.dataa(vcc),
 	.datab(\A~combout ),
-	.datac(\Select~combout ),
+	.datac(\S~combout ),
 	.datad(\B~combout ),
 	.cin(gnd),
 	.modesel(4'b1001),
