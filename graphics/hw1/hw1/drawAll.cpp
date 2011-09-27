@@ -27,12 +27,11 @@ int main(int argc, char **argv){
 }
 
 void init() {
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glColor3f(1.0, 1.0, 1.0);
-
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+	glOrtho(0.0, 1.0, 0.0, -1.0, -1.0, 1.0);
 }
 
 void display() {
@@ -41,8 +40,9 @@ void display() {
 	glViewport(0, 0, 200, 200);  // 1
 
 	glBegin(GL_POINTS);
-		for(int i = 0; i < 14; i++)
-			glVertex2fv(points[i]);
+		//for(int i = 0; i < 16; i++)
+		//	glVertex2fv(points[i]);
+		glVertex2f(0.5, 0.0);
 	glEnd();
 	
 	
