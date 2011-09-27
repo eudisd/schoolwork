@@ -72,7 +72,7 @@ void display() {
 	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+	glOrtho(0.0, 1.0, 1.0, 0.0, -1.0, 1.0);
 	
 	glViewport(0, 200, 200, 200); // 4
 	glBegin(GL_LINE_LOOP);
