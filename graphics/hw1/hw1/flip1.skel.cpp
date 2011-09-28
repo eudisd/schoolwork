@@ -39,6 +39,7 @@ main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+
 	glutInitWindowSize(256, 256);
 	glutCreateWindow(argv[0]);
 	init();
@@ -182,7 +183,7 @@ drawLowerRightCorner1(int x, int y)
 	double len = sqrt((double)(x-Margin)*(x-Margin) + dy*dy);
 	if(dy < 0 || len >= w) return;
 
-	//	 ____
+	//	     ____
 	//       \dx|
 	//      b \ | a   Lifted folded triangle above bottom right corner
 	//         \|
@@ -225,33 +226,34 @@ drawLowerRightCorner1(int x, int y)
 
 	// draw page outline
 	if(triangle) {
-		/*
+		
 		// draw main polygon
 		glBegin(GL_POLYGON);
+			glVertex2i(  Margin, H-Margin);
+			glVertex2i(  Margin,   Margin);
+			glVertex2i(W-Margin,   Margin);
+		
+			// draw bottom left, upper left, and upper right corners
 
-		// draw bottom left, upper left, and upper right corners
-		glVertex2f(..., ...);
-		glVertex2f(..., ...);
-		glVertex2f(..., ...);
+			// xsect at right edge
+			glVertex2f(right[0], right[1]);
 
-		// xsect at right edge
-		glVertex2f(..., ...);
-
-		// xsect at bottom edge
-		glVertex2f(..., ...);
+			// xsect at bottom edge
+			glVertex2f(bottom[0], bottom[1]);
 		glEnd();
-
+		
 		// draw lifted triangle
 		glBegin(GL_POLYGON);
-		glVertex2f(..., ...);		// lifted corner point
+			glVertex2f(x, y);		// lifted corner point
 
-		// xsect at right edge
-		glVertex2f(..., ...);
+			// xsect at right edge
+			glVertex2f(right[0], right[1]);
 
-		// xsect at bottom edge
-		glVertex2f(..., ...);
+			// xsect at bottom edge
+			glVertex2f(bottom[0], bottom[1]);
 		glEnd();
 	} else {
+		/*
 		// draw main polygon
 		glBegin(GL_POLYGON);
 
