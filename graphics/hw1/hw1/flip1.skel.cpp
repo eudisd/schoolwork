@@ -86,13 +86,14 @@ display(void)
 
 	// draw page outline
 	glColor3f(1.0, 1.0, 1.0);
+	
 	glBegin(GL_POLYGON);
 		glVertex2i(  Margin,   Margin);
 		glVertex2i(  Margin, H-Margin);
 		glVertex2i(W-Margin, H-Margin);
 		glVertex2i(W-Margin,   Margin);
 	glEnd();
-
+	
 	// flush display
 	glutSwapBuffers();	
 }
@@ -253,35 +254,54 @@ drawLowerRightCorner1(int x, int y)
 			glVertex2f(bottom[0], bottom[1]);
 		glEnd();
 	} else {
-		/*
+		
 		// draw main polygon
 		glBegin(GL_POLYGON);
 
-		// draw bottom left and upper left corners
-		glVertex2i(  Margin, H-Margin);
-		glVertex2i(  Margin,   Margin);
+			// draw bottom left and upper left corners
+			glVertex2i(  Margin, H-Margin);
+			glVertex2i(  Margin,   Margin);
 
-		// xsect at top edge
-		glVertex2f(..., ...);
+			// xsect at top edge
+			glVertex2f(top[0], top[1]);
 
-		// xsect at bottom edge
-		glVertex2f(..., ...);
+			// xsect at bottom edge
+			glVertex2f(bottom[0], bottom[1]);
 		glEnd();
 
 		// draw lifted quadrilateral
+
+			  // D
+		float d = sqrt(dx*dx + a*a),
+			  AE = dx/d*h,
+			  DE = a/d*h,
+			  // H
+			  DG = (y + DE) - top[1],
+			  GH = a/dx * DG,
+
+			  // Coords
+		      Dx = x + AE, 
+			  Dy = y + DE,
+		      Hx = Dx + GH, 
+			  Hy = top[1];
+
+		
+		printf("X: %f, Y: %f\n DE: %f\nDG: %f\n\n w: %f, h: %f\n", (float)x, (float)y, (float) DE, (float) DG, (float)w, (float)h);
+
 		glBegin(GL_POLYGON);
 
-		// draw lifted corner point and next lifted corner
-		glVertex2f(..., ...);
-		glVertex2f(..., ...);
+			// draw lifted corner point and next lifted corner
+			glVertex2f(x, y);  // Correct
+			glVertex2f(Dx, Dy);  // D
 
-		// xsect at right edge
-		glVertex2f(..., ...);
+			// xsect at right edge
+			glVertex2f(Hx, Hy);    // H
+			
+			// xsect at bottom edge
+			glVertex2f(bottom[0], bottom[1]); // Correct
+		glEnd(); 
 
-		// xsect at bottom edge
-		glVertex2f(..., ...);
-		glEnd();
-		*/
+		
 	}
 
 	// flush to display
