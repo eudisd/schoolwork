@@ -258,8 +258,8 @@ drawLowerRightCorner1(int x, int y)
 		glBegin(GL_POLYGON);
 
 		// draw bottom left and upper left corners
-		glVertex2f(..., ...);
-		glVertex2f(..., ...);
+		glVertex2i(  Margin, H-Margin);
+		glVertex2i(  Margin,   Margin);
 
 		// xsect at top edge
 		glVertex2f(..., ...);
