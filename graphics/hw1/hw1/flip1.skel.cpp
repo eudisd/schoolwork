@@ -275,6 +275,7 @@ drawLowerRightCorner1(int x, int y)
 		float d = sqrt(dx*dx + a*a),
 			  AE = dx/d*h,
 			  DE = a/d*h,
+
 			  // H
 			  DG = (y + DE) - top[1],
 			  GH = a/dx * DG,
@@ -285,20 +286,17 @@ drawLowerRightCorner1(int x, int y)
 		      Hx = Dx + GH, 
 			  Hy = top[1];
 
-		
-		printf("X: %f, Y: %f\n DE: %f\nDG: %f\n\n w: %f, h: %f\n", (float)x, (float)y, (float) DE, (float) DG, (float)w, (float)h);
-
 		glBegin(GL_POLYGON);
 
 			// draw lifted corner point and next lifted corner
-			glVertex2f(x, y);  // Correct
+			glVertex2f(x, y);  
 			glVertex2f(Dx, Dy);  // D
 
 			// xsect at right edge
 			glVertex2f(Hx, Hy);    // H
 			
 			// xsect at bottom edge
-			glVertex2f(bottom[0], bottom[1]); // Correct
+			glVertex2f(bottom[0], bottom[1]); 
 		glEnd(); 
 
 		
@@ -338,11 +336,11 @@ drawLowerRightCorner2(int x, int y)
 	double len = sqrt((x-Margin)*(x-Margin) + dy*dy);
 	if(dy > 0 || len >= w) return;
 
-	//	  a
-	//	____
-	//	|  /
+	//	     a
+	//	    ____
+	//	    |  /
 	//   dy | / b	  Lifted folded triangle below bottom right corner
-	//	|/
+	//	    |/
 	//
 	// Note: a + b = dx (distance from left of triangle to right paper edge)
 	// Plug  a = dx - b into:
@@ -352,17 +350,18 @@ drawLowerRightCorner2(int x, int y)
 	// 
 	double b = (dx*dx + dy*dy) / (2*dx);
 	double a =  dx - b;
+	
+	float DF = dy/b*h,
+		  AF = a/b*h;
 
 	// eval intersection on bottom edge
-	/*
-	bottom[0] = ...
-	bottom[1] = ...
+	bottom[0] = x + a;       // Ex
+	bottom[1] = h + Margin;  // Ey
 
 	// eval position of lifted top right corner
-	corner[0] = ...
-	corner[1] = ...
-	*/
-
+	corner[0] = x + DF;  // Dx
+	corner[1] = y + AF;  // Dy
+	
 	dx = (W-Margin) - corner[0];
 	dy =  corner[1] - Margin;
 	b  = (dx*dx + dy*dy) / (2*dx);
@@ -378,30 +377,38 @@ drawLowerRightCorner2(int x, int y)
 		top[0] = Margin;		// clamp top x to spine
 	}
 
+	float Dx = corner[0],
+		  Dy = corner[1],
+		  Ex = bottom[0],
+		  Ey = bottom[1],
+		  Hx = (Dx - Margin) + a,
+		  Hy = top[1];
+	
 	// draw page outline
 	glBegin(GL_POLYGON);
-	/*
-	// draw bottom left / upper left corners, and top / bottom xsects
-	glVertex2f(...,  ...);
-	glVertex2f(...,  ...);
-	glVertex2f(...,  ...);
-	glVertex2f(...,  ...);
+	
+		// draw bottom left / upper left corners, and top / bottom xsects
+		glVertex2i(  Margin, H-Margin);
+		glVertex2i(  Margin,   Margin);
+		glVertex2f(Hx, Hy);
+		glVertex2f(Ex, Ey);
+
 	glEnd();
 
 	// draw lifted quadrilateral
+	/*
 	glBegin(GL_POLYGON);
 
-	// draw lifted corner point and next lifted corner
-	glVertex2f(..., ...);
-	glVertex2f(..., ...);
+		// draw lifted corner point and next lifted corner
+		glVertex2f(x, y);
+		glVertex2f(Dx, Dy);
 
-	// xsect at right edge
-	glVertex2f(..., ...);
+		// xsect at right edge
+		glVertex2f(Hx, Hy);
 
-	// xsect at bottom edge
-	glVertex2f(..., ...);
-	*/
-	glEnd();
+		// xsect at bottom edge
+		glVertex2f(Ex, Ey);
+	glEnd();*/
 
 	// flush to display
 	glutSwapBuffers();

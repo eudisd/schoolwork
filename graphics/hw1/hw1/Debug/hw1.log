@@ -1,6 +1,4 @@
 ﻿  flip1.skel.cpp
-c:\cygwin\home\prototype\repos\schoolwork\graphics\hw1\hw1\flip1.skel.cpp(322): warning C4101: 'bottom' : unreferenced local variable
-c:\cygwin\home\prototype\repos\schoolwork\graphics\hw1\hw1\flip1.skel.cpp(322): warning C4101: 'right' : unreferenced local variable
-c:\cygwin\home\prototype\repos\schoolwork\graphics\hw1\hw1\flip1.skel.cpp(366): warning C4700: uninitialized local variable 'corner' used
+c:\cygwin\home\prototype\repos\schoolwork\graphics\hw1\hw1\flip1.skel.cpp(320): warning C4101: 'right' : unreferenced local variable
   LINK : C:\cygwin\home\prototype\repos\schoolwork\graphics\hw1\Debug\hw1.exe not found or not built by the last incremental link; performing full link
   hw1.vcxproj -> C:\cygwin\home\prototype\repos\schoolwork\graphics\hw1\Debug\hw1.exe
