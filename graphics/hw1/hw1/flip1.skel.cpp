@@ -290,7 +290,7 @@ drawLowerRightCorner1(int x, int y)
 
 			// draw lifted corner point and next lifted corner
 			glVertex2f(x, y);  
-			glVertex2f(Dx, Dy);  // D
+			glVertex2f(Dx, Dy);    // D
 
 			// xsect at right edge
 			glVertex2f(Hx, Hy);    // H
@@ -298,7 +298,6 @@ drawLowerRightCorner1(int x, int y)
 			// xsect at bottom edge
 			glVertex2f(bottom[0], bottom[1]); 
 		glEnd(); 
-
 		
 	}
 
@@ -317,7 +316,7 @@ drawLowerRightCorner1(int x, int y)
 static void
 drawLowerRightCorner2(int x, int y)
 {
-	float	bottom[2], right[2], top[2], corner[2];
+	float	bottom[2], top[2], corner[2];
 
 	// clear color and depth buffer to background values
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -383,7 +382,7 @@ drawLowerRightCorner2(int x, int y)
 		   Ey = bottom[1],
 		   Hx = (Dx) + a,  // Dx = x + DF
 		   Hy = top[1];
-	printf("Dx: %f, Dy: %f (x: %f, DF: %f) - h: %f, w: %f\n", (float)Dx, (float) Dy, (float)x, (float)Dx, (float)h, (float)w);
+
 	// draw page outline
 	glBegin(GL_POLYGON);
 	
