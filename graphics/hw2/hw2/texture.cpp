@@ -180,13 +180,10 @@ drawLowerRightCorner1(int x, int y)
 	// draw page outline
 	if(triangle) {
 
-		float txt_right[2] = {right[0]/w, right[1]/h}, 
-			txt_bottom[2] = {bottom[0]/w, bottom[1]/h};
-
-		printf("txt_right[0][1]/W/H: %f, %f\n", txt_right[0]/w, txt_right[1]/w); 
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, TexId1);
 
+		// Draw the base image (monkey)
 		glBegin(GL_POLYGON);
 			glTexCoord2f(0, 1); glVertex2i(  Margin, H-Margin);
 			glTexCoord2f(0, 0); glVertex2i(  Margin,   Margin);
@@ -196,19 +193,28 @@ drawLowerRightCorner1(int x, int y)
 		
 		glDisable(GL_TEXTURE_2D);
 
+		// Draw the opposite side now (the vegetables)
 		// draw lifted triangle
+		float txt_right[2] = {right[0]/((float)W), (right[1]/(float)H)}, 
+			txt_bottom[2] = {bottom[0]/((float)W), (bottom[1]/(float)H)};
+
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, TexId2);
 		glBegin(GL_POLYGON);
-			glVertex2f(x, y);		// lifted corner point
+			glTexCoord2f(0, 1); glVertex2f(x, y);		// lifted corner point
 			// xsect at right edge
-			glVertex2f(right[0], right[1]);
+			glTexCoord2f(0, txt_right[1]); glVertex2f(right[0], right[1]);
 			// xsect at bottom edge
-			glVertex2f(bottom[0], bottom[1]);
+			glTexCoord2f(txt_bottom[0], 1); glVertex2f(bottom[0], bottom[1]);
 		glEnd();
+		glDisable(GL_TEXTURE_2D);
 
 		// draw lifted triangle
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glColor3f(0.0, 0.0, 0.0);
+
 		// Clear out the lifted polygon initial space
+
 		glBegin(GL_POLYGON);
 			glVertex2f(W-Margin, H-Margin);		// lifted corner point
 			// xsect at right edge
@@ -220,6 +226,7 @@ drawLowerRightCorner1(int x, int y)
 		glColor3f(1.0, 1.0, 1.0);
 
 		
+
 
 
 	} else {
@@ -411,7 +418,6 @@ drawLowerRightCorner2(int x, int y)
 		glVertex2i(  W-Margin, H-Margin);
 		glVertex2i(  W-Margin,   Margin);
 
-	glEnd();
 	glEnd();
 	glColor3f(1.0, 1.0, 1.0);
 
