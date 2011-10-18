@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="texture.cpp">
+    <ClCompile Include="fcts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fcts.cpp">
+    <ClCompile Include="cube.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

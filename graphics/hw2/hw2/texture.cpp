@@ -195,8 +195,18 @@ drawLowerRightCorner1(int x, int y)
 
 		// Draw the opposite side now (the vegetables)
 		// draw lifted triangle
-		float txt_right[2] = {right[0]/((float)W), (right[1]/(float)H)}, 
-			txt_bottom[2] = {bottom[0]/((float)W), (bottom[1]/(float)H)};
+		float _H = H;
+		float _W = W;
+
+		float txt_right[2] = {right[0]/(_W), (right[1]/_H)}, 
+			  txt_bottom[2] = {bottom[0]/(_W), (bottom[1]/_H)};
+
+		printf("\nH: %f, W: %f\n"
+			   "right[0]: %f, right[1]: %f\n" 
+			   "bottom[0]: %f bottom[1]: %f\n"
+			   "txt_right[0]: %f, txt_right[1]: %f \n"
+			   "txt_bottom[0]: %f, txt_bottom[1]: %f\n",
+			   _H, _W, right[0], right[1], bottom[0], bottom[1], txt_right[0], txt_right[1], txt_bottom[0], txt_bottom[1]);
 
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, TexId2);
