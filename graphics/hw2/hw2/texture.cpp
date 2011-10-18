@@ -379,17 +379,7 @@ drawLowerRightCorner2(int x, int y)
 	glEnd();
 
 	glDisable(GL_TEXTURE_2D);
-	// draw page outline
-	glBegin(GL_POLYGON);
 	
-		// draw bottom left / upper left corners, and top / bottom xsects
-		glVertex2i(  Margin, H-Margin);
-		glVertex2i(  Margin,   Margin);
-		glVertex2f(Hx, Hy);
-		glVertex2f(Ex, Ey);
-
-	glEnd();
-
 	// draw lifted quadrilateral
 	
 	glBegin(GL_POLYGON);
@@ -404,6 +394,26 @@ drawLowerRightCorner2(int x, int y)
 		// xsect at bottom edge
 		glVertex2f(Ex, Ey);
 	glEnd();
+
+	// Clear out the initial lifted polygon area with black
+
+	glPolygonMode(GL_FRONT, GL_FILL);
+	glColor3f(0.0, 0.0, 0.0);
+	glBegin(GL_POLYGON);
+		// draw page outline
+	glBegin(GL_POLYGON);
+	
+		// draw bottom left / upper left corners, and top / bottom xsects
+		
+		glVertex2f(Hx, Hy);
+		glVertex2f(Ex, Ey);
+
+		glVertex2i(  W-Margin, H-Margin);
+		glVertex2i(  W-Margin,   Margin);
+
+	glEnd();
+	glEnd();
+	glColor3f(1.0, 1.0, 1.0);
 
 	// flush to display
 	glutSwapBuffers();
