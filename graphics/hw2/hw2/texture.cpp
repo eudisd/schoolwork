@@ -27,6 +27,7 @@ static void drawLowerRightCorner2(int, int);
 
 // global variables
 extern int	W, H, Margin;
+extern GLuint TexId1, TexId2;
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,58 +51,6 @@ main(int argc, char **argv)
 	glutMainLoop();
 	return 0;
 }
-
-
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// init:
-//
-// Initialization routine before display loop.
-
-/*
-static void
-init(void)
-{
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	glColor3f    (1.0, 1.0, 1.0);
-	glClearColor (0.0, 0.0, 0.0, 1.0);
-
-	// init global vars
-	W = 0;
-	H = 0;
-	Margin = 40;
-}
-
-*/
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// display:
-//
-// Display handler routine.
-//
-/*
-static void
-display(void)
-{
-	// clear color and depth buffer to background values
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	// draw page outline
-	glColor3f(1.0, 1.0, 1.0);
-	
-	glBegin(GL_POLYGON);
-		glVertex2i(  Margin,   Margin);
-		glVertex2i(  Margin, H-Margin);
-		glVertex2i(W-Margin, H-Margin);
-		glVertex2i(W-Margin,   Margin);
-	glEnd();
-	
-	// flush display
-	glutSwapBuffers();	
-}
-*/
-
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // reshape:
@@ -230,47 +179,80 @@ drawLowerRightCorner1(int x, int y)
 
 	// draw page outline
 	if(triangle) {
-		
-		// draw main polygon
+
+		float txt_right[2] = {right[0]/w, right[1]/h}, 
+			txt_bottom[2] = {bottom[0]/w, bottom[1]/h};
+
+		printf("txt_right[0][1]/W/H: %f, %f\n", txt_right[0]/w, txt_right[1]/w); 
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, TexId1);
+
 		glBegin(GL_POLYGON);
-			glVertex2i(  Margin, H-Margin);
-			glVertex2i(  Margin,   Margin);
-			glVertex2i(W-Margin,   Margin);
-		
-			// draw bottom left, upper left, and upper right corners
-
-			// xsect at right edge
-			glVertex2f(right[0], right[1]);
-
-			// xsect at bottom edge
-			glVertex2f(bottom[0], bottom[1]);
+			glTexCoord2f(0, 1); glVertex2i(  Margin, H-Margin);
+			glTexCoord2f(0, 0); glVertex2i(  Margin,   Margin);
+			glTexCoord2f(1, 0); glVertex2i(W-Margin,   Margin);
+			glTexCoord2f(1, 1); glVertex2i(W-Margin, H-Margin);
 		glEnd();
 		
+		glDisable(GL_TEXTURE_2D);
+
 		// draw lifted triangle
 		glBegin(GL_POLYGON);
 			glVertex2f(x, y);		// lifted corner point
-
 			// xsect at right edge
 			glVertex2f(right[0], right[1]);
-
 			// xsect at bottom edge
 			glVertex2f(bottom[0], bottom[1]);
 		glEnd();
+
+		// draw lifted triangle
+		glPolygonMode(GL_FRONT, GL_FILL);
+		glColor3f(0.0, 0.0, 0.0);
+		// Clear out the lifted polygon initial space
+		glBegin(GL_POLYGON);
+			glVertex2f(W-Margin, H-Margin);		// lifted corner point
+			// xsect at right edge
+			glVertex2f(right[0], right[1]);
+			// xsect at bottom edge
+			glVertex2f(bottom[0], bottom[1]);
+		glEnd();
+
+		glColor3f(1.0, 1.0, 1.0);
+
+		
+
+
 	} else {
 		
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, TexId1);
 		// draw main polygon
 		glBegin(GL_POLYGON);
+			glTexCoord2f(0, 1); glVertex2i(  Margin, H-Margin);
+			glTexCoord2f(0, 0); glVertex2i(  Margin,   Margin);
+			glTexCoord2f(1, 0); glVertex2i(W-Margin,   Margin);
+			glTexCoord2f(1, 1); glVertex2i(W-Margin, H-Margin);
+		glEnd();
 
-			// draw bottom left and upper left corners
-			glVertex2i(  Margin, H-Margin);
-			glVertex2i(  Margin,   Margin);
+		glDisable(GL_TEXTURE_2D);
 
+		// Clear out the lifted polygon initial space
+
+		glPolygonMode(GL_FRONT, GL_FILL);
+		glColor3f(0.0, 0.0, 0.0);
+		glBegin(GL_POLYGON);
+			
 			// xsect at top edge
 			glVertex2f(top[0], top[1]);
-
 			// xsect at bottom edge
 			glVertex2f(bottom[0], bottom[1]);
+
+			glVertex2i(  W-Margin, H-Margin);
+			glVertex2i(  W-Margin,   Margin);
 		glEnd();
+
+		glColor3f(1.0, 1.0, 1.0);
+
 
 		// draw lifted quadrilateral
 
@@ -386,6 +368,17 @@ drawLowerRightCorner2(int x, int y)
 		   Hx = (Dx) + a,  // Dx = x + DF
 		   Hy = top[1];
 
+
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, TexId1);
+	glBegin(GL_POLYGON);
+		glTexCoord2f(0, 1); glVertex2i(  Margin, H-Margin);
+		glTexCoord2f(0, 0); glVertex2i(  Margin,   Margin);
+		glTexCoord2f(1, 0); glVertex2i(W-Margin,   Margin);
+		glTexCoord2f(1, 1); glVertex2i(W-Margin, H-Margin);
+	glEnd();
+
+	glDisable(GL_TEXTURE_2D);
 	// draw page outline
 	glBegin(GL_POLYGON);
 	

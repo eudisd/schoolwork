@@ -31,7 +31,7 @@ void init(void)
 
 	// read first texture that will map onto first page
 	int ww, hh;
-	unsigned char *texData;
+	unsigned char *texData, *texData2;
 	readPPM("page1.ppm", ww, hh, texData);
 
 	// init texture parameters
@@ -45,8 +45,8 @@ void init(void)
 			GL_UNSIGNED_BYTE, texData);
 
 	// read second texture that will map onto second page
-	readPPM("page2.ppm", ww, hh, texData);
-
+	readPPM("page2.ppm", ww, hh, texData2);
+	/*
 	// init texture parameters
 	glGenTextures  (1,&TexId2);
 	glBindTexture  (GL_TEXTURE_2D, TexId2);
@@ -55,7 +55,8 @@ void init(void)
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexImage2D   (GL_TEXTURE_2D, 0, 3, ww, hh, 0, GL_RGB,
-			GL_UNSIGNED_BYTE, texData);
+			GL_UNSIGNED_BYTE, texData2); */
+	
 }
 
 
@@ -82,6 +83,20 @@ void display(void)
 		glTexCoord2f(1, 1);	glVertex2i(W-Margin, H-Margin);
 		glTexCoord2f(1, 0);	glVertex2i(W-Margin,   Margin);
 	glEnd();
+
+	/*
+	// Draw second image
+	glBindTexture(GL_TEXTURE_2D, TexId2);
+
+	// draw page outline
+	glColor3f(1.0, 1.0, 1.0);
+	glBegin(GL_POLYGON);
+		glTexCoord2f(1, 0);	glVertex2i(W-Margin,   Margin);
+		glTexCoord2f(1, 1);	glVertex2i(W-Margin, H-Margin);
+		glTexCoord2f(0, 1);	glVertex2i(  Margin, H-Margin);
+		glTexCoord2f(0, 0);	glVertex2i(  Margin,   Margin);
+	glEnd();
+	*/
 
 	// disable texture mapping
 	glDisable(GL_TEXTURE_2D);

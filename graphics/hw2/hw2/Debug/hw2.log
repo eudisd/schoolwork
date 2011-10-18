@@ -1,5 +1,3 @@
 ﻿  texture.cpp
-c:\program files (x86)\microsoft visual studio 10.0\vc\include\xlocnum(133): error C2129: static function 'void display(void)' declared but not defined
-          c:\cygwin\home\prototype\repos\schoolwork\graphics\hw2\hw2\fcts.h(21) : see declaration of 'display'
-  fcts.cpp
-  Generating Code...
+  LINK : C:\cygwin\home\prototype\repos\schoolwork\graphics\hw2\Debug\hw2.exe not found or not built by the last incremental link; performing full link
+  hw2.vcxproj -> C:\cygwin\home\prototype\repos\schoolwork\graphics\hw2\Debug\hw2.exe
