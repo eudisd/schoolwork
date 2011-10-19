@@ -2,44 +2,50 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 
-	GLfloat vertices[] = {-1.0,-1.0,-1.0,1.0,-1.0,-1.0,
-	1.0,1.0,-1.0, -1.0,1.0,-1.0, -1.0,-1.0,1.0, 
-	1.0,-1.0,1.0, 1.0,1.0,1.0, -1.0,1.0,1.0};
+	GLfloat vertices[] = { -1.0,-1.0,-1.0,1.0,-1.0,-1.0,
+							1.0,1.0,-1.0, -1.0,1.0,-1.0, -1.0,-1.0,1.0, 
+							1.0,-1.0,1.0, 1.0,1.0,1.0, -1.0,1.0,1.0};
 
-	GLfloat colors[] = {0.0,0.0,0.0,1.0,0.0,0.0,
-	1.0,1.0,0.0, 0.0,1.0,0.0, 0.0,0.0,1.0, 
-	1.0,0.0,1.0, 1.0,1.0,1.0, 0.0,1.0,1.0};
+	GLfloat colors[] = {0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
+						1.0,1.0,0.0, 0.0,1.0,0.0, 0.0,0.0,1.0, 
+						1.0,0.0,1.0, 1.0,1.0,1.0, 0.0,1.0,1.0};
 
 	GLfloat bcolors[] = {0.0,0.0,0.0,0.0,0.0,0.0,
-	0.0,0.0,0.0, 0.0,0.0,0.0, 0.0,0.0,0.0, 
-	0.0,0.0,0.0, 0.0,0.0,0.0, 0.0,0.0,0.0};
+						 0.0,0.0,0.0, 0.0,0.0,0.0, 0.0,0.0,0.0, 
+						 0.0,0.0,0.0, 0.0,0.0,0.0, 0.0,0.0,0.0};
 
     GLubyte cubeIndices[]={0,3,2,1,2,3,7,6,0,4,7,3,1,2,6,5,4,5,6,7,0,1,5,4};
 
 
 
-static GLfloat theta[] = {0.0,0.0,0.0};
+static GLfloat theta[] = {0.0, 0.0, 0.0};
 static GLint axis = 2;
 
 void display(void)
 {
 
-	GLfloat light[3]={0.0, 20.0, 0.0};
+	GLfloat light[3] = {0.0, 20.0, 0.0};
 	GLfloat m[16];
 
     int i,j;
-	for(i=0;i<16;i++) m[i]=0.0;
+	for(i = 0; i < 16; i++) {
+		m[i] = 0.0;
+	}
 
-    m[0]=m[5]=m[10]=1.0;
-	m[7]=-1.0/light[1];
+    m[0] = m[5] = m[10] = 1.0;
+	m[7] = -1.0/light[1];
 
-/* display callback, clear frame buffer and z buffer,
-   rotate cube and draw, swap buffers */
+	/* display callback, clear frame buffer and z buffer,
+       rotate cube and draw, swap buffers */
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glLoadIdentity();
-	gluLookAt(1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0);
+	gluLookAt(1.0,1.0,1.0, // eye
+			  0.0,0.0,0.0, // reference point
+			  0.0,1.0,0.0  // up vector
+			  );
+
 	glPushMatrix();
 	glTranslatef(0.0, 3.0, 0.0);
 	glRotatef(theta[0], 1.0, 0.0, 0.0);
