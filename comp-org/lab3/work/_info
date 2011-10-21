@@ -1,0 +1,187 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\prototype\Desktop\CompOrg\lab3
+Ed_flip_flop_en
+Z1 w1315530170
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 dC:\Users\prototype\Desktop\CompOrg\lab3
+Z4 8C:/Users/prototype/Desktop/CompOrg/lab3/d_enable.vhd
+Z5 FC:/Users/prototype/Desktop/CompOrg/lab3/d_enable.vhd
+l0
+L20
+V4320RfH=]NAMkbU;AkMMh2
+Z6 OV;C;6.6d;45
+32
+Z7 o-work work -O0
+Z8 tExplicit 1
+!s100 08MaFcdOc:W[N>04R^g@A2
+Ad_enable_arch
+R2
+DEx4 work 14 d_flip_flop_en 0 22 4320RfH=]NAMkbU;AkMMh2
+l39
+L25
+V=kIPjW;ZNdzH@Pn2D^HPz0
+R6
+32
+Z9 Mx1 4 ieee 14 std_logic_1164
+R7
+R8
+!s100 8>@Kz>o`0X`@OSJZ681JY3
+Ed_latch
+Z10 w1315520793
+R2
+R3
+Z11 8C:/Users/prototype/Desktop/CompOrg/lab3/d_latch.vhd
+Z12 FC:/Users/prototype/Desktop/CompOrg/lab3/d_latch.vhd
+l0
+L4
+VEa^Bo4_>F=iXaDiRE_hQE2
+R6
+32
+R7
+R8
+!s100 >KEfTnMT@W<4EFeD_E0oi3
+Aarch
+R2
+DEx4 work 7 d_latch 0 22 Ea^Bo4_>F=iXaDiRE_hQE2
+l11
+L10
+Vd@fMLOCZS<TI:5o0;1dKl0
+R6
+32
+R9
+R7
+R8
+!s100 Ak=h<d2X:N0:V6>bb_Z_30
+Emaster_slave
+Z13 w1315525123
+R2
+R3
+Z14 8C:/Users/prototype/Desktop/CompOrg/lab3/master_slave.vhd
+Z15 FC:/Users/prototype/Desktop/CompOrg/lab3/master_slave.vhd
+l0
+L4
+V_l;^IM@gnKZJTC7H7[4?c0
+R6
+32
+R7
+R8
+!s100 610Wf2j<2@>U1dZKA2he?2
+Aarch
+R2
+DEx4 work 12 master_slave 0 22 _l;^IM@gnKZJTC7H7[4?c0
+l18
+L10
+VENFdLS5`=:5<CbY:OFCZ]2
+R6
+32
+R9
+R7
+R8
+!s100 5l7V?1aJfP:1cNdhOUNkg2
+Emux_2_to_1
+R1
+R2
+R3
+R4
+R5
+l0
+L4
+VWF5mOQPbG^j@IlPX;l<0Q1
+R6
+32
+R7
+R8
+!s100 NV^;0QKoX68T6SJ9DWT6;0
+Amux_2_to_1_arch
+R2
+DEx4 work 10 mux_2_to_1 0 22 WF5mOQPbG^j@IlPX;l<0Q1
+l12
+L10
+VbS;^b6gQ<W<kS1U6B>ak?3
+R6
+32
+R9
+R7
+R8
+!s100 hmZiQjNi];RG<Z<iR<;bO3
+Epart_i
+Z16 w1316488051
+R2
+R3
+Z17 8C:/Users/prototype/Desktop/CompOrg/lab3/Part_I.vhd
+Z18 FC:/Users/prototype/Desktop/CompOrg/lab3/Part_I.vhd
+l0
+L3
+V6h5h8I>4;0WAgBI1mPSgG3
+R6
+32
+R7
+R8
+!s100 Uk9WUJ`3?aiYh=:?9MNhj2
+Abehavior
+R2
+DEx4 work 6 part_i 0 22 6h5h8I>4;0WAgBI1mPSgG3
+l13
+L9
+V19eFXRO2RCHKo6?TH3ZeR1
+R6
+32
+R9
+R7
+R8
+!s100 89ig;CYfCUm>k[^aWM6on2
+Epart_ii
+Z19 w1316549163
+R2
+R3
+Z20 8C:/Users/prototype/Desktop/CompOrg/lab3/part_II.vhd
+Z21 FC:/Users/prototype/Desktop/CompOrg/lab3/part_II.vhd
+l0
+L3
+VlIIYN_kDES0XkFL8KT[Zj3
+!s100 CKb>4A]jcJDl8<zT3Ia`V3
+R6
+32
+R7
+R8
+Abehavior
+R2
+Z22 DEx4 work 7 part_ii 0 22 lIIYN_kDES0XkFL8KT[Zj3
+l15
+L9
+Vem4zHLecBSO<SkHJb`S;=3
+!s100 ><UzGU1_b2fg5hM]G4UnD1
+R6
+32
+R9
+R7
+R8
+Eregister_four_bit
+Z23 w1315537675
+R2
+R3
+Z24 8C:/Users/prototype/Desktop/CompOrg/lab3/register.vhd
+Z25 FC:/Users/prototype/Desktop/CompOrg/lab3/register.vhd
+l0
+L4
+VfMd=h3J4ec[0_hdXQm=5B2
+R6
+32
+R7
+R8
+!s100 cH^f0AzHHl3oOKG8am6^o3
+Aarch
+R2
+DEx4 work 17 register_four_bit 0 22 fMd=h3J4ec[0_hdXQm=5B2
+l16
+L10
+VXjYEl@ago_ENTO^CNZ0?>0
+R6
+32
+R9
+R7
+R8
+!s100 adJ:aOhJY<P5I^j98CiAH0

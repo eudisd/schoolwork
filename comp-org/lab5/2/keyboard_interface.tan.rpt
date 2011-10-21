@@ -1,0 +1,437 @@
+Classic Timing Analyzer report for keyboard_interface
+Thu Oct 20 13:44:26 2011
+Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clock'
+  6. Clock Hold: 'clock'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                                 ;
++------------------------------+------------------------------------------+---------------+----------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                                             ; To                                               ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 6.223 ns                         ; en                                               ; ps2_rec:rec|current_state.receive                ; --         ; clock    ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 12.218 ns                        ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; display[8]                                       ; clock      ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 0.432 ns                         ; en                                               ; ps2_rec:rec|current_state.done                   ; --         ; clock    ; 0            ;
+; Clock Setup: 'clock'         ; N/A                                      ; None          ; 110.28 MHz ( period = 9.068 ns ) ; ps2_rec:rec|current_filter[7]                    ; ps2_rec:rec|current_state.receive                ; clock      ; clock    ; 0            ;
+; Clock Hold: 'clock'          ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; ps2_rec:rec|current_data[1]                      ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0] ; clock      ; clock    ; 2            ;
+; Total number of failed paths ;                                          ;               ;                                  ;                                                  ;                                                  ;            ;          ; 2            ;
++------------------------------+------------------------------------------+---------------+----------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C35F672C6       ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clock           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clock'                                                                                                                                                                                                                       ;
++-------+------------------------------------------------+-----------------------------------+-----------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                              ; To                                ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-----------------------------------+-----------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 110.28 MHz ( period = 9.068 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 8.854 ns                ;
+; N/A   ; 112.04 MHz ( period = 8.925 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 8.711 ns                ;
+; N/A   ; 112.04 MHz ( period = 8.925 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 8.711 ns                ;
+; N/A   ; 112.25 MHz ( period = 8.909 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 8.695 ns                ;
+; N/A   ; 112.55 MHz ( period = 8.885 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 8.671 ns                ;
+; N/A   ; 115.93 MHz ( period = 8.626 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 8.412 ns                ;
+; N/A   ; 116.43 MHz ( period = 8.589 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 9.197 ns                ;
+; N/A   ; 117.76 MHz ( period = 8.492 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 8.278 ns                ;
+; N/A   ; 118.40 MHz ( period = 8.446 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 9.054 ns                ;
+; N/A   ; 118.40 MHz ( period = 8.446 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 9.054 ns                ;
+; N/A   ; 118.62 MHz ( period = 8.430 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 9.038 ns                ;
+; N/A   ; 118.96 MHz ( period = 8.406 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 9.014 ns                ;
+; N/A   ; 121.64 MHz ( period = 8.221 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 8.006 ns                ;
+; N/A   ; 122.74 MHz ( period = 8.147 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 8.755 ns                ;
+; N/A   ; 123.50 MHz ( period = 8.097 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.882 ns                ;
+; N/A   ; 123.59 MHz ( period = 8.091 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.876 ns                ;
+; N/A   ; 123.64 MHz ( period = 8.088 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 7.874 ns                ;
+; N/A   ; 123.64 MHz ( period = 8.088 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.873 ns                ;
+; N/A   ; 124.36 MHz ( period = 8.041 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.826 ns                ;
+; N/A   ; 124.80 MHz ( period = 8.013 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 8.621 ns                ;
+; N/A   ; 125.57 MHz ( period = 7.964 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.749 ns                ;
+; N/A   ; 125.66 MHz ( period = 7.958 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.743 ns                ;
+; N/A   ; 125.72 MHz ( period = 7.954 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.739 ns                ;
+; N/A   ; 125.98 MHz ( period = 7.938 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.723 ns                ;
+; N/A   ; 126.26 MHz ( period = 7.920 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.705 ns                ;
+; N/A   ; 126.45 MHz ( period = 7.908 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.693 ns                ;
+; N/A   ; 127.57 MHz ( period = 7.839 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 7.624 ns                ;
+; N/A   ; 127.86 MHz ( period = 7.821 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.606 ns                ;
+; N/A   ; 128.12 MHz ( period = 7.805 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.590 ns                ;
+; N/A   ; 128.27 MHz ( period = 7.796 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.581 ns                ;
+; N/A   ; 128.37 MHz ( period = 7.790 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.575 ns                ;
+; N/A   ; 129.20 MHz ( period = 7.740 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.525 ns                ;
+; N/A   ; 129.62 MHz ( period = 7.715 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 7.500 ns                ;
+; N/A   ; 129.72 MHz ( period = 7.709 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 7.494 ns                ;
+; N/A   ; 130.40 MHz ( period = 7.669 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.454 ns                ;
+; N/A   ; 130.57 MHz ( period = 7.659 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 7.444 ns                ;
+; N/A   ; 130.67 MHz ( period = 7.653 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.438 ns                ;
+; N/A   ; 130.94 MHz ( period = 7.637 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.422 ns                ;
+; N/A   ; 131.42 MHz ( period = 7.609 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 8.217 ns                ;
+; N/A   ; 131.98 MHz ( period = 7.577 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 7.363 ns                ;
+; N/A   ; 132.07 MHz ( period = 7.572 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 7.357 ns                ;
+; N/A   ; 132.35 MHz ( period = 7.556 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 7.341 ns                ;
+; N/A   ; 132.45 MHz ( period = 7.550 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.335 ns                ;
+; N/A   ; 132.70 MHz ( period = 7.536 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.321 ns                ;
+; N/A   ; 134.83 MHz ( period = 7.417 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 7.202 ns                ;
+; N/A   ; 135.72 MHz ( period = 7.368 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.153 ns                ;
+; N/A   ; 136.56 MHz ( period = 7.323 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 7.108 ns                ;
+; N/A   ; 137.23 MHz ( period = 7.287 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 7.072 ns                ;
+; N/A   ; 137.95 MHz ( period = 7.249 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 7.034 ns                ;
+; N/A   ; 139.08 MHz ( period = 7.190 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 6.975 ns                ;
+; N/A   ; 139.51 MHz ( period = 7.168 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 6.953 ns                ;
+; N/A   ; 140.33 MHz ( period = 7.126 ns )               ; ps2_rec:rec|current_state.idle    ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 6.912 ns                ;
+; N/A   ; 140.88 MHz ( period = 7.098 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 7.706 ns                ;
+; N/A   ; 142.41 MHz ( period = 7.022 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 6.807 ns                ;
+; N/A   ; 144.07 MHz ( period = 6.941 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 6.726 ns                ;
+; N/A   ; 145.52 MHz ( period = 6.872 ns )               ; ps2_rec:rec|current_state.idle    ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 6.657 ns                ;
+; N/A   ; 148.39 MHz ( period = 6.739 ns )               ; ps2_rec:rec|current_state.idle    ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 6.524 ns                ;
+; N/A   ; 150.44 MHz ( period = 6.647 ns )               ; ps2_rec:rec|current_state.idle    ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 7.255 ns                ;
+; N/A   ; 152.18 MHz ( period = 6.571 ns )               ; ps2_rec:rec|current_state.idle    ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 6.356 ns                ;
+; N/A   ; 154.08 MHz ( period = 6.490 ns )               ; ps2_rec:rec|current_state.idle    ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 6.275 ns                ;
+; N/A   ; 172.18 MHz ( period = 5.808 ns )               ; ps2_rec:rec|current_state.receive ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 5.594 ns                ;
+; N/A   ; 187.65 MHz ( period = 5.329 ns )               ; ps2_rec:rec|current_state.receive ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 5.937 ns                ;
+; N/A   ; 198.10 MHz ( period = 5.048 ns )               ; ps2_rec:rec|current_n[0]          ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 4.835 ns                ;
+; N/A   ; 208.59 MHz ( period = 4.794 ns )               ; ps2_rec:rec|current_n[0]          ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 4.580 ns                ;
+; N/A   ; 214.55 MHz ( period = 4.661 ns )               ; ps2_rec:rec|current_n[0]          ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 4.447 ns                ;
+; N/A   ; 218.87 MHz ( period = 4.569 ns )               ; ps2_rec:rec|current_n[0]          ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 5.178 ns                ;
+; N/A   ; 218.96 MHz ( period = 4.567 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 4.352 ns                ;
+; N/A   ; 222.52 MHz ( period = 4.494 ns )               ; ps2_rec:rec|current_n[1]          ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 4.280 ns                ;
+; N/A   ; 226.04 MHz ( period = 4.424 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 4.209 ns                ;
+; N/A   ; 226.04 MHz ( period = 4.424 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 4.209 ns                ;
+; N/A   ; 226.65 MHz ( period = 4.412 ns )               ; ps2_rec:rec|current_n[0]          ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 4.198 ns                ;
+; N/A   ; 226.86 MHz ( period = 4.408 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 4.193 ns                ;
+; N/A   ; 228.10 MHz ( period = 4.384 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 4.169 ns                ;
+; N/A   ; 233.64 MHz ( period = 4.280 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 4.066 ns                ;
+; N/A   ; 241.72 MHz ( period = 4.137 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 3.923 ns                ;
+; N/A   ; 241.72 MHz ( period = 4.137 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 3.923 ns                ;
+; N/A   ; 242.42 MHz ( period = 4.125 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 3.910 ns                ;
+; N/A   ; 242.66 MHz ( period = 4.121 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 3.907 ns                ;
+; N/A   ; 244.08 MHz ( period = 4.097 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 3.883 ns                ;
+; N/A   ; 250.56 MHz ( period = 3.991 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 3.776 ns                ;
+; N/A   ; 253.74 MHz ( period = 3.941 ns )               ; ps2_rec:rec|current_n[1]          ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 3.728 ns                ;
+; N/A   ; 260.55 MHz ( period = 3.838 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 3.624 ns                ;
+; N/A   ; 269.98 MHz ( period = 3.704 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 3.490 ns                ;
+; N/A   ; 278.78 MHz ( period = 3.587 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 3.372 ns                ;
+; N/A   ; 281.14 MHz ( period = 3.557 ns )               ; ps2_rec:rec|current_n[2]          ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 3.343 ns                ;
+; N/A   ; 281.14 MHz ( period = 3.557 ns )               ; ps2_rec:rec|current_n[2]          ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 3.343 ns                ;
+; N/A   ; 288.85 MHz ( period = 3.462 ns )               ; ps2_rec:rec|current_n[1]          ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 4.071 ns                ;
+; N/A   ; 293.60 MHz ( period = 3.406 ns )               ; ps2_rec:rec|current_n[3]          ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 3.192 ns                ;
+; N/A   ; 302.57 MHz ( period = 3.305 ns )               ; ps2_rec:rec|current_n[1]          ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 3.091 ns                ;
+; N/A   ; 303.03 MHz ( period = 3.300 ns )               ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 3.086 ns                ;
+; N/A   ; 332.89 MHz ( period = 3.004 ns )               ; ps2_rec:rec|current_n[2]          ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 2.791 ns                ;
+; N/A   ; 345.90 MHz ( period = 2.891 ns )               ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 2.677 ns                ;
+; N/A   ; 346.74 MHz ( period = 2.884 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 2.669 ns                ;
+; N/A   ; 363.90 MHz ( period = 2.748 ns )               ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 2.534 ns                ;
+; N/A   ; 363.90 MHz ( period = 2.748 ns )               ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 2.534 ns                ;
+; N/A   ; 366.03 MHz ( period = 2.732 ns )               ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 2.518 ns                ;
+; N/A   ; 366.43 MHz ( period = 2.729 ns )               ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 2.515 ns                ;
+; N/A   ; 369.28 MHz ( period = 2.708 ns )               ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 2.494 ns                ;
+; N/A   ; 385.06 MHz ( period = 2.597 ns )               ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 2.383 ns                ;
+; N/A   ; 396.04 MHz ( period = 2.525 ns )               ; ps2_rec:rec|current_n[2]          ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 3.134 ns                ;
+; N/A   ; 405.02 MHz ( period = 2.469 ns )               ; ps2_rec:rec|current_n[3]          ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 2.255 ns                ;
+; N/A   ; 405.02 MHz ( period = 2.469 ns )               ; ps2_rec:rec|current_n[3]          ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 2.255 ns                ;
+; N/A   ; 408.33 MHz ( period = 2.449 ns )               ; ps2_rec:rec|current_filter[0]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 2.235 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[2]          ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 2.154 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_state.receive ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 2.103 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[3]          ; ps2_rec:rec|current_state.receive ; clock      ; clock    ; None                        ; None                      ; 1.703 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 1.697 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[1]     ; ps2_rec:rec|current_filter[0]     ; clock      ; clock    ; None                        ; None                      ; 1.667 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[5]     ; ps2_rec:rec|current_filter[4]     ; clock      ; clock    ; None                        ; None                      ; 1.569 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_state.done    ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 0.737 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_state.done    ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 0.550 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[1]          ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 1.344 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[3]          ; ps2_rec:rec|current_state.done    ; clock      ; clock    ; None                        ; None                      ; 2.046 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_state.receive ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 1.167 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_state.receive ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 1.166 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_state.receive ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 1.166 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[2]     ; ps2_rec:rec|current_filter[1]     ; clock      ; clock    ; None                        ; None                      ; 1.092 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[7]     ; ps2_rec:rec|current_filter[6]     ; clock      ; clock    ; None                        ; None                      ; 1.090 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[3]     ; ps2_rec:rec|current_filter[2]     ; clock      ; clock    ; None                        ; None                      ; 0.992 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[6]     ; ps2_rec:rec|current_filter[5]     ; clock      ; clock    ; None                        ; None                      ; 0.691 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter[4]     ; ps2_rec:rec|current_filter[3]     ; clock      ; clock    ; None                        ; None                      ; 0.549 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_data[1]       ; ps2_rec:rec|current_data[1]       ; clock      ; clock    ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_filter_clock  ; ps2_rec:rec|current_filter_clock  ; clock      ; clock    ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[1]          ; ps2_rec:rec|current_n[1]          ; clock      ; clock    ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[0]          ; ps2_rec:rec|current_n[0]          ; clock      ; clock    ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[3]          ; ps2_rec:rec|current_n[3]          ; clock      ; clock    ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_n[2]          ; ps2_rec:rec|current_n[2]          ; clock      ; clock    ; None                        ; None                      ; 0.407 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; ps2_rec:rec|current_state.idle    ; ps2_rec:rec|current_state.idle    ; clock      ; clock    ; None                        ; None                      ; 0.407 ns                ;
++-------+------------------------------------------------+-----------------------------------+-----------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clock'                                                                                                                                                                                                                    ;
++------------------------------------------+-----------------------------+--------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                        ; To                                               ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-----------------------------+--------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; ps2_rec:rec|current_data[1] ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0] ; clock      ; clock    ; None                       ; None                       ; 0.588 ns                 ;
+; Not operational: Clock Skew > Data Delay ; ps2_rec:rec|current_data[1] ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; clock      ; clock    ; None                       ; None                       ; 0.592 ns                 ;
++------------------------------------------+-----------------------------+--------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; tsu                                                                                     ;
++-------+--------------+------------+------+-----------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From ; To                                ; To Clock ;
++-------+--------------+------------+------+-----------------------------------+----------+
+; N/A   ; None         ; 6.223 ns   ; en   ; ps2_rec:rec|current_state.receive ; clock    ;
+; N/A   ; None         ; 5.969 ns   ; en   ; ps2_rec:rec|current_n[2]          ; clock    ;
+; N/A   ; None         ; 5.836 ns   ; en   ; ps2_rec:rec|current_n[1]          ; clock    ;
+; N/A   ; None         ; 5.744 ns   ; en   ; ps2_rec:rec|current_state.done    ; clock    ;
+; N/A   ; None         ; 5.668 ns   ; en   ; ps2_rec:rec|current_n[0]          ; clock    ;
+; N/A   ; None         ; 5.587 ns   ; en   ; ps2_rec:rec|current_n[3]          ; clock    ;
+; N/A   ; None         ; 3.433 ns   ; ps2d ; ps2_rec:rec|current_data[1]       ; clock    ;
+; N/A   ; None         ; 3.325 ns   ; ps2c ; ps2_rec:rec|current_filter[7]     ; clock    ;
+; N/A   ; None         ; 0.661 ns   ; en   ; ps2_rec:rec|current_data[1]       ; clock    ;
+; N/A   ; None         ; 0.374 ns   ; en   ; ps2_rec:rec|current_state.idle    ; clock    ;
++-------+--------------+------------+------+-----------------------------------+----------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                             ;
++-------+--------------+------------+--------------------------------------------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From                                             ; To          ; From Clock ;
++-------+--------------+------------+--------------------------------------------------+-------------+------------+
+; N/A   ; None         ; 12.218 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; display[10] ; clock      ;
+; N/A   ; None         ; 12.218 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; display[8]  ; clock      ;
+; N/A   ; None         ; 12.213 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; display[9]  ; clock      ;
+; N/A   ; None         ; 12.213 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; display[3]  ; clock      ;
+; N/A   ; None         ; 12.213 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; display[2]  ; clock      ;
+; N/A   ; None         ; 11.858 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5] ; display[1]  ; clock      ;
+; N/A   ; None         ; 10.503 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0] ; display[13] ; clock      ;
+; N/A   ; None         ; 10.473 ns  ; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0] ; display[6]  ; clock      ;
++-------+--------------+------------+--------------------------------------------------+-------------+------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; th                                                                                            ;
++---------------+-------------+-----------+------+-----------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From ; To                                ; To Clock ;
++---------------+-------------+-----------+------+-----------------------------------+----------+
+; N/A           ; None        ; 0.432 ns  ; en   ; ps2_rec:rec|current_state.done    ; clock    ;
+; N/A           ; None        ; -0.144 ns ; en   ; ps2_rec:rec|current_state.idle    ; clock    ;
+; N/A           ; None        ; -0.431 ns ; en   ; ps2_rec:rec|current_data[1]       ; clock    ;
+; N/A           ; None        ; -0.505 ns ; en   ; ps2_rec:rec|current_n[1]          ; clock    ;
+; N/A           ; None        ; -0.505 ns ; en   ; ps2_rec:rec|current_n[0]          ; clock    ;
+; N/A           ; None        ; -0.506 ns ; en   ; ps2_rec:rec|current_n[3]          ; clock    ;
+; N/A           ; None        ; -0.728 ns ; en   ; ps2_rec:rec|current_state.receive ; clock    ;
+; N/A           ; None        ; -1.442 ns ; en   ; ps2_rec:rec|current_n[2]          ; clock    ;
+; N/A           ; None        ; -3.095 ns ; ps2c ; ps2_rec:rec|current_filter[7]     ; clock    ;
+; N/A           ; None        ; -3.203 ns ; ps2d ; ps2_rec:rec|current_data[1]       ; clock    ;
++---------------+-------------+-----------+------+-----------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
+    Info: Processing started: Thu Oct 20 13:44:25 2011
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off keyboard_interface -c keyboard_interface --timing_analysis_only
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5]" is a latch
+    Warning: Node "hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0]" is a latch
+Warning: Found combinational loop of 9 nodes
+    Warning: Node "ps2_rec:rec|Equal2~15"
+    Warning: Node "ps2_rec:rec|Selector10~294"
+    Warning: Node "ps2_rec:rec|Selector11~173"
+    Warning: Node "ps2_rec:rec|Add0~110"
+    Warning: Node "ps2_rec:rec|Add0~109"
+    Warning: Node "ps2_rec:rec|Selector10~295"
+    Warning: Node "ps2_rec:rec|Selector13~187"
+    Warning: Node "ps2_rec:rec|Add0~111"
+    Warning: Node "ps2_rec:rec|Selector12~174"
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clock" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "ps2_rec:rec|current_state.done" as buffer
+Info: Clock "clock" has Internal fmax of 110.28 MHz between source register "ps2_rec:rec|current_filter[7]" and destination register "ps2_rec:rec|current_state.receive" (period= 9.068 ns)
+    Info: + Longest register to register delay is 8.854 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X31_Y33_N23; Fanout = 3; REG Node = 'ps2_rec:rec|current_filter[7]'
+        Info: 2: + IC(0.316 ns) + CELL(0.150 ns) = 0.466 ns; Loc. = LCCOMB_X31_Y33_N16; Fanout = 1; COMB Node = 'ps2_rec:rec|Equal1~58'
+        Info: 3: + IC(0.444 ns) + CELL(0.393 ns) = 1.303 ns; Loc. = LCCOMB_X31_Y33_N30; Fanout = 3; COMB Node = 'ps2_rec:rec|Equal1~60'
+        Info: 4: + IC(1.147 ns) + CELL(0.420 ns) = 2.870 ns; Loc. = LCCOMB_X31_Y33_N6; Fanout = 10; COMB Node = 'ps2_rec:rec|process2~0'
+        Info: 5: + IC(0.000 ns) + CELL(5.298 ns) = 8.168 ns; Loc. = LCCOMB_X31_Y33_N8; Fanout = 3; COMB LOOP Node = 'ps2_rec:rec|Equal2~15'
+            Info: Loc. = LCCOMB_X30_Y33_N2; Node "ps2_rec:rec|Selector11~173"
+            Info: Loc. = LCCOMB_X31_Y33_N8; Node "ps2_rec:rec|Equal2~15"
+            Info: Loc. = LCCOMB_X30_Y33_N14; Node "ps2_rec:rec|Selector12~174"
+            Info: Loc. = LCCOMB_X30_Y33_N20; Node "ps2_rec:rec|Selector10~295"
+            Info: Loc. = LCCOMB_X30_Y33_N0; Node "ps2_rec:rec|Add0~111"
+            Info: Loc. = LCCOMB_X30_Y33_N30; Node "ps2_rec:rec|Selector10~294"
+            Info: Loc. = LCCOMB_X30_Y33_N8; Node "ps2_rec:rec|Add0~109"
+            Info: Loc. = LCCOMB_X30_Y33_N26; Node "ps2_rec:rec|Selector13~187"
+            Info: Loc. = LCCOMB_X30_Y33_N12; Node "ps2_rec:rec|Add0~110"
+        Info: 6: + IC(0.452 ns) + CELL(0.150 ns) = 8.770 ns; Loc. = LCCOMB_X31_Y33_N2; Fanout = 1; COMB Node = 'ps2_rec:rec|current_state.receive~152'
+        Info: 7: + IC(0.000 ns) + CELL(0.084 ns) = 8.854 ns; Loc. = LCFF_X31_Y33_N3; Fanout = 8; REG Node = 'ps2_rec:rec|current_state.receive'
+        Info: Total cell delay = 6.495 ns ( 73.36 % )
+        Info: Total interconnect delay = 2.359 ns ( 26.64 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clock" to destination register is 2.695 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'clock'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 16; COMB Node = 'clock~clkctrl'
+            Info: 3: + IC(1.041 ns) + CELL(0.537 ns) = 2.695 ns; Loc. = LCFF_X31_Y33_N3; Fanout = 8; REG Node = 'ps2_rec:rec|current_state.receive'
+            Info: Total cell delay = 1.536 ns ( 56.99 % )
+            Info: Total interconnect delay = 1.159 ns ( 43.01 % )
+        Info: - Longest clock path from clock "clock" to source register is 2.695 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'clock'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 16; COMB Node = 'clock~clkctrl'
+            Info: 3: + IC(1.041 ns) + CELL(0.537 ns) = 2.695 ns; Loc. = LCFF_X31_Y33_N23; Fanout = 3; REG Node = 'ps2_rec:rec|current_filter[7]'
+            Info: Total cell delay = 1.536 ns ( 56.99 % )
+            Info: Total interconnect delay = 1.159 ns ( 43.01 % )
+    Info: + Micro clock to output delay of source is 0.250 ns
+    Info: + Micro setup delay of destination is -0.036 ns
+Warning: Circuit may not operate. Detected 2 non-operational path(s) clocked by clock "clock" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "ps2_rec:rec|current_data[1]" and destination pin or register "hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0]" for clock "clock" (Hold time is 2.544 ns)
+    Info: + Largest clock skew is 3.382 ns
+        Info: + Longest clock path from clock "clock" to destination register is 6.076 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'clock'
+            Info: 2: + IC(1.981 ns) + CELL(0.787 ns) = 3.767 ns; Loc. = LCFF_X30_Y33_N19; Fanout = 3; REG Node = 'ps2_rec:rec|current_state.done'
+            Info: 3: + IC(0.801 ns) + CELL(0.000 ns) = 4.568 ns; Loc. = CLKCTRL_G10; Fanout = 2; COMB Node = 'ps2_rec:rec|current_state.done~clkctrl'
+            Info: 4: + IC(1.358 ns) + CELL(0.150 ns) = 6.076 ns; Loc. = LCCOMB_X30_Y33_N22; Fanout = 2; REG Node = 'hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0]'
+            Info: Total cell delay = 1.936 ns ( 31.86 % )
+            Info: Total interconnect delay = 4.140 ns ( 68.14 % )
+        Info: - Shortest clock path from clock "clock" to source register is 2.694 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'clock'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 16; COMB Node = 'clock~clkctrl'
+            Info: 3: + IC(1.040 ns) + CELL(0.537 ns) = 2.694 ns; Loc. = LCFF_X30_Y33_N25; Fanout = 3; REG Node = 'ps2_rec:rec|current_data[1]'
+            Info: Total cell delay = 1.536 ns ( 57.02 % )
+            Info: Total interconnect delay = 1.158 ns ( 42.98 % )
+    Info: - Micro clock to output delay of source is 0.250 ns
+    Info: - Shortest register to register delay is 0.588 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X30_Y33_N25; Fanout = 3; REG Node = 'ps2_rec:rec|current_data[1]'
+        Info: 2: + IC(0.317 ns) + CELL(0.271 ns) = 0.588 ns; Loc. = LCCOMB_X30_Y33_N22; Fanout = 2; REG Node = 'hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0]'
+        Info: Total cell delay = 0.271 ns ( 46.09 % )
+        Info: Total interconnect delay = 0.317 ns ( 53.91 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "ps2_rec:rec|current_state.receive" (data pin = "en", clock pin = "clock") is 6.223 ns
+    Info: + Longest pin to register delay is 8.954 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_C13; Fanout = 2; PIN Node = 'en'
+        Info: 2: + IC(0.665 ns) + CELL(0.420 ns) = 2.064 ns; Loc. = LCCOMB_X31_Y33_N20; Fanout = 1; COMB Node = 'ps2_rec:rec|Selector10~292'
+        Info: 3: + IC(0.278 ns) + CELL(0.438 ns) = 2.780 ns; Loc. = LCCOMB_X31_Y33_N0; Fanout = 9; COMB Node = 'ps2_rec:rec|Selector10~293'
+        Info: 4: + IC(0.000 ns) + CELL(5.488 ns) = 8.268 ns; Loc. = LCCOMB_X31_Y33_N8; Fanout = 3; COMB LOOP Node = 'ps2_rec:rec|Equal2~15'
+            Info: Loc. = LCCOMB_X30_Y33_N2; Node "ps2_rec:rec|Selector11~173"
+            Info: Loc. = LCCOMB_X31_Y33_N8; Node "ps2_rec:rec|Equal2~15"
+            Info: Loc. = LCCOMB_X30_Y33_N14; Node "ps2_rec:rec|Selector12~174"
+            Info: Loc. = LCCOMB_X30_Y33_N20; Node "ps2_rec:rec|Selector10~295"
+            Info: Loc. = LCCOMB_X30_Y33_N0; Node "ps2_rec:rec|Add0~111"
+            Info: Loc. = LCCOMB_X30_Y33_N30; Node "ps2_rec:rec|Selector10~294"
+            Info: Loc. = LCCOMB_X30_Y33_N8; Node "ps2_rec:rec|Add0~109"
+            Info: Loc. = LCCOMB_X30_Y33_N26; Node "ps2_rec:rec|Selector13~187"
+            Info: Loc. = LCCOMB_X30_Y33_N12; Node "ps2_rec:rec|Add0~110"
+        Info: 5: + IC(0.452 ns) + CELL(0.150 ns) = 8.870 ns; Loc. = LCCOMB_X31_Y33_N2; Fanout = 1; COMB Node = 'ps2_rec:rec|current_state.receive~152'
+        Info: 6: + IC(0.000 ns) + CELL(0.084 ns) = 8.954 ns; Loc. = LCFF_X31_Y33_N3; Fanout = 8; REG Node = 'ps2_rec:rec|current_state.receive'
+        Info: Total cell delay = 7.559 ns ( 84.42 % )
+        Info: Total interconnect delay = 1.395 ns ( 15.58 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "clock" to destination register is 2.695 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'clock'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 16; COMB Node = 'clock~clkctrl'
+        Info: 3: + IC(1.041 ns) + CELL(0.537 ns) = 2.695 ns; Loc. = LCFF_X31_Y33_N3; Fanout = 8; REG Node = 'ps2_rec:rec|current_state.receive'
+        Info: Total cell delay = 1.536 ns ( 56.99 % )
+        Info: Total interconnect delay = 1.159 ns ( 43.01 % )
+Info: tco from clock "clock" to destination pin "display[10]" through register "hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5]" is 12.218 ns
+    Info: + Longest clock path from clock "clock" to source register is 6.076 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'clock'
+        Info: 2: + IC(1.981 ns) + CELL(0.787 ns) = 3.767 ns; Loc. = LCFF_X30_Y33_N19; Fanout = 3; REG Node = 'ps2_rec:rec|current_state.done'
+        Info: 3: + IC(0.801 ns) + CELL(0.000 ns) = 4.568 ns; Loc. = CLKCTRL_G10; Fanout = 2; COMB Node = 'ps2_rec:rec|current_state.done~clkctrl'
+        Info: 4: + IC(1.358 ns) + CELL(0.150 ns) = 6.076 ns; Loc. = LCCOMB_X30_Y33_N28; Fanout = 6; REG Node = 'hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5]'
+        Info: Total cell delay = 1.936 ns ( 31.86 % )
+        Info: Total interconnect delay = 4.140 ns ( 68.14 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Longest register to pin delay is 6.142 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X30_Y33_N28; Fanout = 6; REG Node = 'hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5]'
+        Info: 2: + IC(3.344 ns) + CELL(2.798 ns) = 6.142 ns; Loc. = PIN_AD11; Fanout = 0; PIN Node = 'display[10]'
+        Info: Total cell delay = 2.798 ns ( 45.56 % )
+        Info: Total interconnect delay = 3.344 ns ( 54.44 % )
+Info: th for register "ps2_rec:rec|current_state.done" (data pin = "en", clock pin = "clock") is 0.432 ns
+    Info: + Longest clock path from clock "clock" to destination register is 3.517 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 2; CLK Node = 'clock'
+        Info: 2: + IC(1.981 ns) + CELL(0.537 ns) = 3.517 ns; Loc. = LCFF_X30_Y33_N19; Fanout = 3; REG Node = 'ps2_rec:rec|current_state.done'
+        Info: Total cell delay = 1.536 ns ( 43.67 % )
+        Info: Total interconnect delay = 1.981 ns ( 56.33 % )
+    Info: + Micro hold delay of destination is 0.266 ns
+    Info: - Shortest pin to register delay is 3.351 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_C13; Fanout = 2; PIN Node = 'en'
+        Info: 2: + IC(0.659 ns) + CELL(0.271 ns) = 1.909 ns; Loc. = LCCOMB_X31_Y33_N6; Fanout = 10; COMB Node = 'ps2_rec:rec|process2~0'
+        Info: 3: + IC(0.960 ns) + CELL(0.398 ns) = 3.267 ns; Loc. = LCCOMB_X30_Y33_N18; Fanout = 1; COMB Node = 'ps2_rec:rec|Selector16~18'
+        Info: 4: + IC(0.000 ns) + CELL(0.084 ns) = 3.351 ns; Loc. = LCFF_X30_Y33_N19; Fanout = 3; REG Node = 'ps2_rec:rec|current_state.done'
+        Info: Total cell delay = 1.732 ns ( 51.69 % )
+        Info: Total interconnect delay = 1.619 ns ( 48.31 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 171 megabytes
+    Info: Processing ended: Thu Oct 20 13:44:26 2011
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

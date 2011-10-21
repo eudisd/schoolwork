@@ -1,0 +1,372 @@
+Analysis & Synthesis report for reg8x8
+Fri Oct 07 12:39:18 2011
+Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. General Register Statistics
+  8. Multiplexer Restructuring Statistics (Restructuring Performed)
+  9. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Oct 07 12:39:18 2011    ;
+; Quartus II Version                 ; 8.0 Build 215 05/29/2008 SJ Full Version ;
+; Revision Name                      ; reg8x8                                   ;
+; Top-level Entity Name              ; registerfile                             ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 50                                       ;
+;     Total combinational functions  ; 50                                       ;
+;     Dedicated logic registers      ; 0                                        ;
+; Total registers                    ; 0                                        ;
+; Total pins                         ; 19                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                          ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Option                                                       ; Setting            ; Default Value      ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Device                                                       ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                        ; registerfile       ; reg8x8             ;
+; Family name                                                  ; Cyclone II         ; Stratix II         ;
+; Type of Retiming Performed During Resynthesis                ; Full               ;                    ;
+; Resynthesis Optimization Effort                              ; Normal             ;                    ;
+; Physical Synthesis Level for Resynthesis                     ; Normal             ;                    ;
+; Use Generated Physical Constraints File                      ; On                 ;                    ;
+; Use smart compilation                                        ; Off                ; Off                ;
+; Maximum processors allowed for parallel compilation          ; 1                  ; 1                  ;
+; Restructure Multiplexers                                     ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                          ; Off                ; Off                ;
+; Preserve fewer node names                                    ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                    ; Off                ; Off                ;
+; Verilog Version                                              ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                 ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                     ; Auto               ; Auto               ;
+; Safe State Machine                                           ; Off                ; Off                ;
+; Extract Verilog State Machines                               ; On                 ; On                 ;
+; Extract VHDL State Machines                                  ; On                 ; On                 ;
+; Ignore Verilog initial constructs                            ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                   ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops               ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On                 ; On                 ;
+; Parallel Synthesis                                           ; Off                ; Off                ;
+; DSP Block Balancing                                          ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                           ; On                 ; On                 ;
+; Power-Up Don't Care                                          ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                 ; Off                ; Off                ;
+; Remove Duplicate Registers                                   ; On                 ; On                 ;
+; Ignore CARRY Buffers                                         ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                       ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                    ; Off                ; Off                ;
+; Ignore LCELL Buffers                                         ; Off                ; Off                ;
+; Ignore SOFT Buffers                                          ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                               ; Off                ; Off                ;
+; Optimization Technique                                       ; Balanced           ; Balanced           ;
+; Carry Chain Length                                           ; 70                 ; 70                 ;
+; Auto Carry Chains                                            ; On                 ; On                 ;
+; Auto Open-Drain Pins                                         ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                        ; Off                ; Off                ;
+; Perform gate-level register retiming                         ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax       ; On                 ; On                 ;
+; Auto ROM Replacement                                         ; On                 ; On                 ;
+; Auto RAM Replacement                                         ; On                 ; On                 ;
+; Auto Shift Register Replacement                              ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                ; On                 ; On                 ;
+; Strict RAM Replacement                                       ; Off                ; Off                ;
+; Allow Synchronous Control Signals                            ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                       ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                            ; Off                ; Off                ;
+; Auto Resource Sharing                                        ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                           ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                           ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                ; Off                ; Off                ;
+; Ignore translate_off and synthesis_off directives            ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report           ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                           ; Off                ; Off                ;
+; Synchronization Register Chain Length                        ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                 ; Normal compilation ; Normal compilation ;
+; HDL message level                                            ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages              ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100                ; 100                ;
+; Clock MUX Protection                                         ; On                 ; On                 ;
+; Block Design Naming                                          ; Auto               ; Auto               ;
+; SDC constraint protection                                    ; Off                ; Off                ;
+; Synthesis Effort                                             ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On                 ; On                 ;
++--------------------------------------------------------------+--------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                       ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+
+; registerfile.vhd                 ; yes             ; User VHDL File  ; C:/Users/prototype/Desktop/CompOrg/lab4/registerfile/registerfile.vhd ;
+; d_enable.vhd                     ; yes             ; User VHDL File  ; C:/Users/prototype/Desktop/CompOrg/lab4/registerfile/d_enable.vhd     ;
+; d_latch.vhd                      ; yes             ; User VHDL File  ; C:/Users/prototype/Desktop/CompOrg/lab4/registerfile/d_latch.vhd      ;
+; decoder.vhd                      ; yes             ; User VHDL File  ; C:/Users/prototype/Desktop/CompOrg/lab4/registerfile/decoder.vhd      ;
+; master_slave.vhd                 ; yes             ; User VHDL File  ; C:/Users/prototype/Desktop/CompOrg/lab4/registerfile/master_slave.vhd ;
+; multiplexer4.vhd                 ; yes             ; User VHDL File  ; C:/Users/prototype/Desktop/CompOrg/lab4/registerfile/multiplexer4.vhd ;
+; reg.vhd                          ; yes             ; User VHDL File  ; C:/Users/prototype/Desktop/CompOrg/lab4/registerfile/reg.vhd          ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 50        ;
+;                                             ;           ;
+; Total combinational functions               ; 50        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 48        ;
+;     -- 3 input functions                    ; 0         ;
+;     -- <=2 input functions                  ; 2         ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 50        ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 0         ;
+;     -- Dedicated logic registers            ; 0         ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 19        ;
+; Maximum fan-out node                        ; w_addr[1] ;
+; Maximum fan-out                             ; 32        ;
+; Total fan-out                               ; 204       ;
+; Average fan-out                             ; 2.96      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                               ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                     ; Library Name ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------+--------------+
+; |registerfile                ; 50 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |registerfile                                                           ; work         ;
+;    |and_gate:AND1|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|and_gate:AND1                                             ; work         ;
+;    |decoder:DEC|             ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|decoder:DEC                                               ; work         ;
+;    |multiplexer4:MUXA|       ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|multiplexer4:MUXA                                         ; work         ;
+;    |multiplexer4:MUXB|       ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|multiplexer4:MUXB                                         ; work         ;
+;    |reg:R1|                  ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1                                                    ; work         ;
+;       |d_flip_flop_en:r0|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r0                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r0|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r0|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r0|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r1|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r1                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r1|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r2|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r2                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r2|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r2|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r2|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r3|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r3                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r3|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r3|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R1|d_flip_flop_en:r3|master_slave:d_ff|d_latch:slave  ; work         ;
+;    |reg:R2|                  ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2                                                    ; work         ;
+;       |d_flip_flop_en:r0|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r0                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r0|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r0|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r0|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r1|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r1                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r1|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r2|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r2                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r2|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r2|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r2|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r3|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r3                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r3|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r3|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R2|d_flip_flop_en:r3|master_slave:d_ff|d_latch:slave  ; work         ;
+;    |reg:R3|                  ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3                                                    ; work         ;
+;       |d_flip_flop_en:r0|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r0                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r0|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r0|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r0|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r1|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r1                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r1|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r2|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r2                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r2|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r2|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r2|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r3|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r3                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r3|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r3|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R3|d_flip_flop_en:r3|master_slave:d_ff|d_latch:slave  ; work         ;
+;    |reg:R4|                  ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4                                                    ; work         ;
+;       |d_flip_flop_en:r0|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r0                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r0|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r0|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r0|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r1|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r1                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r1|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r2|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r2                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r2|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r2|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r2|master_slave:d_ff|d_latch:slave  ; work         ;
+;       |d_flip_flop_en:r3|    ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r3                                  ; work         ;
+;          |master_slave:d_ff| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r3|master_slave:d_ff                ; work         ;
+;             |d_latch:master| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r3|master_slave:d_ff|d_latch:master ; work         ;
+;             |d_latch:slave|  ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |registerfile|reg:R4|d_flip_flop_en:r3|master_slave:d_ff|d_latch:slave  ; work         ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |registerfile|multiplexer4:MUXA|o[0]~2 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |registerfile|multiplexer4:MUXB|o[0]~2 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
+    Info: Processing started: Fri Oct 07 12:39:15 2011
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off reg8x8 -c reg8x8
+Warning: Ignored assignments for entity "reg8x8" -- entity does not exist in design
+    Warning: Assignment of entity set_global_assignment -name LL_ROOT_REGION ON -entity reg8x8 -section_id "Root Region" is ignored
+    Warning: Assignment of entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity reg8x8 -section_id "Root Region" is ignored
+Warning: Ignored assignments for entity "registerfile" -- entity does not exist in design
+    Warning: Assignment of entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_COLOR 14622752 -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -section_id Top is ignored
+    Warning: Assignment of entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -section_id Top is ignored
+Info: Found 4 design units, including 2 entities, in source file registerfile.vhd
+    Info: Found design unit 1: and_gate-arch_and_gate
+    Info: Found design unit 2: registerfile-struct
+    Info: Found entity 1: and_gate
+    Info: Found entity 2: registerfile
+Info: Found 4 design units, including 2 entities, in source file d_enable.vhd
+    Info: Found design unit 1: mux_2_to_1-mux_2_to_1_arch
+    Info: Found design unit 2: d_flip_flop_en-d_enable_arch
+    Info: Found entity 1: mux_2_to_1
+    Info: Found entity 2: d_flip_flop_en
+Info: Found 2 design units, including 1 entities, in source file d_latch.vhd
+    Info: Found design unit 1: d_latch-arch
+    Info: Found entity 1: d_latch
+Info: Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info: Found design unit 1: decoder-arch
+    Info: Found entity 1: decoder
+Info: Found 2 design units, including 1 entities, in source file master_slave.vhd
+    Info: Found design unit 1: master_slave-arch
+    Info: Found entity 1: master_slave
+Info: Found 2 design units, including 1 entities, in source file multiplexer4.vhd
+    Info: Found design unit 1: multiplexer4-arch
+    Info: Found entity 1: multiplexer4
+Info: Found 2 design units, including 1 entities, in source file reg.vhd
+    Info: Found design unit 1: reg-arch
+    Info: Found entity 1: reg
+Info: Found 2 design units, including 1 entities, in source file test_registerfile.vhd
+    Info: Found design unit 1: Test_registerfile-arch_test
+    Info: Found entity 1: Test_registerfile
+Info: Elaborating entity "registerfile" for the top level hierarchy
+Info: Elaborating entity "decoder" for hierarchy "decoder:DEC"
+Info: Elaborating entity "and_gate" for hierarchy "and_gate:AND1"
+Info: Elaborating entity "reg" for hierarchy "reg:R1"
+Info: Elaborating entity "d_flip_flop_en" for hierarchy "reg:R1|d_flip_flop_en:r0"
+Info: Elaborating entity "mux_2_to_1" for hierarchy "reg:R1|d_flip_flop_en:r0|mux_2_to_1:enable"
+Info: Elaborating entity "master_slave" for hierarchy "reg:R1|d_flip_flop_en:r0|master_slave:d_ff"
+Info: Elaborating entity "d_latch" for hierarchy "reg:R1|d_flip_flop_en:r0|master_slave:d_ff|d_latch:master"
+Info: Elaborating entity "multiplexer4" for hierarchy "multiplexer4:MUXA"
+Warning (10631): VHDL Process Statement warning at multiplexer4.vhd(15): inferring latch(es) for signal or variable "o", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "o[0]" at multiplexer4.vhd(15)
+Info (10041): Inferred latch for "o[1]" at multiplexer4.vhd(15)
+Info (10041): Inferred latch for "o[2]" at multiplexer4.vhd(15)
+Info (10041): Inferred latch for "o[3]" at multiplexer4.vhd(15)
+Warning: LATCH primitive "multiplexer4:MUXB|o[0]" is permanently enabled
+Warning: LATCH primitive "multiplexer4:MUXB|o[1]" is permanently enabled
+Warning: LATCH primitive "multiplexer4:MUXB|o[2]" is permanently enabled
+Warning: LATCH primitive "multiplexer4:MUXB|o[3]" is permanently enabled
+Warning: LATCH primitive "multiplexer4:MUXA|o[0]" is permanently enabled
+Warning: LATCH primitive "multiplexer4:MUXA|o[1]" is permanently enabled
+Warning: LATCH primitive "multiplexer4:MUXA|o[2]" is permanently enabled
+Warning: LATCH primitive "multiplexer4:MUXA|o[3]" is permanently enabled
+Warning: Ignored assignments for entity "reg8x8" -- entity does not exist in design
+    Warning: Assignment of entity set_global_assignment -name LL_ROOT_REGION ON -entity reg8x8 -section_id "Root Region" is ignored
+    Warning: Assignment of entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity reg8x8 -section_id "Root Region" is ignored
+Info: Implemented 69 device resources after synthesis - the final resource count might be different
+    Info: Implemented 11 input pins
+    Info: Implemented 8 output pins
+    Info: Implemented 50 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 220 megabytes
+    Info: Processing ended: Fri Oct 07 12:39:18 2011
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

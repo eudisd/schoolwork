@@ -1,8 +1,0 @@
-|circuit1
-Output <= inst2.DB_MAX_OUTPUT_PORT_TYPE
-S => inst5.IN0
-S => inst.IN1
-B => inst1.IN1
-A => inst.IN0
-
-

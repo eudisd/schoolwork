@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Oct 20 13:43:28 2011
+Quartus II Version : 8.0 Build 215 05/29/2008 SJ Full Version
+Revision Name : keyboard_interface
+Top-level Entity Name : keyboard_interface
+Family : Cyclone II
+Total logic elements : 25
+    Total combinational functions : 25
+    Dedicated logic registers : 17
+Total registers : 17
+Total pins : 61
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

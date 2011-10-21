@@ -1,0 +1,135 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\prototype\Desktop\CompOrg\MuxAndAdder
+Efour_bit_adder
+Z1 w1315352148
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 dC:\Users\prototype\Desktop\CompOrg\MuxAndAdder
+Z4 8C:/Users/prototype/Desktop/CompOrg/MuxAndAdder/four_bit_adder.vhd
+Z5 FC:/Users/prototype/Desktop/CompOrg/MuxAndAdder/four_bit_adder.vhd
+l0
+L3
+V4hF1[7W8NKF]KiP]0K=>F3
+Z6 OV;C;6.6d;45
+32
+Z7 o-work work -O0
+Z8 tExplicit 1
+!s100 M7KA=SoGadjiU:_CL;=_`0
+Aarch
+R2
+DEx4 work 14 four_bit_adder 0 22 4hF1[7W8NKF]KiP]0K=>F3
+l18
+L10
+VDV4;<zgQ1:f0X_bTz^WOd2
+R6
+32
+Z9 Mx1 4 ieee 14 std_logic_1164
+R7
+R8
+!s100 YVQiaf0O88Kk<oZ4WcKBb2
+Efull_adder
+Z10 w1315343005
+R2
+R3
+Z11 8C:/Users/prototype/Desktop/CompOrg/MuxAndAdder/full_adder.vhd
+Z12 FC:/Users/prototype/Desktop/CompOrg/MuxAndAdder/full_adder.vhd
+l0
+L3
+VbEVmPz4[n1zm1_Ca1Oh=O0
+R6
+32
+R7
+R8
+!s100 DOPNAAOj4gzm[G0Nd39iE0
+Aarch
+R2
+DEx4 work 10 full_adder 0 22 bEVmPz4[n1zm1_Ca1Oh=O0
+l11
+L10
+V@H>`Z0Fo=:SDzZH3S_Wa`2
+R6
+32
+R9
+R7
+R8
+!s100 KKC01b47<IaSY89SFK;J?3
+Emultiplexer_4_to_1_four_bit
+Z13 w1315407534
+R2
+R3
+Z14 8C:/Users/prototype/Desktop/CompOrg/MuxAndAdder/multiplexer_and_adder.vhd
+Z15 FC:/Users/prototype/Desktop/CompOrg/MuxAndAdder/multiplexer_and_adder.vhd
+l0
+L4
+VF4NP?fL0]P3[L8kmK<H<o0
+R6
+32
+R7
+R8
+!s100 D0cEgUZaFkHM266Ln]UdF1
+Abehav
+R2
+DEx4 work 27 multiplexer_4_to_1_four_bit 0 22 F4NP?fL0]P3[L8kmK<H<o0
+l11
+L10
+VU2;TMaI3j^E]D>chAJGnM1
+!s100 Y1hYaRoPJPA]mROj3PjCI0
+R6
+32
+R9
+R7
+R8
+Emultiplexer_and_adder
+R13
+R2
+R3
+R14
+R15
+l0
+L29
+Vn15Zc^VUcOfeRNBAB?oSC2
+R6
+32
+R7
+R8
+!s100 6C__;U`dDnGR;bjzI5<<h1
+Aarch
+R2
+DEx4 work 21 multiplexer_and_adder 0 22 n15Zc^VUcOfeRNBAB?oSC2
+l49
+L36
+VL67GMfZFZgUI04cCBl]`c1
+!s100 M_^PFY=zFE3ZVS6E6;W^E1
+R6
+32
+R9
+R7
+R8
+Etest_multiplexer_and_adder
+Z16 w1315425637
+R2
+R3
+Z17 8C:/Users/prototype/Desktop/CompOrg/MuxAndAdder/test_multiplexer_and_adder.vhd
+Z18 FC:/Users/prototype/Desktop/CompOrg/MuxAndAdder/test_multiplexer_and_adder.vhd
+l0
+L4
+VdJ>ki>cR3>^ozl6>Z8W]F2
+!s100 0Uo7KmH]gbH_]]1<0L_181
+R6
+32
+R7
+R8
+Aarch
+R2
+Z19 DEx4 work 26 test_multiplexer_and_adder 0 22 dJ>ki>cR3>^ozl6>Z8W]F2
+l21
+L7
+VSV@0[UaW[RM5diA01Y2MJ2
+!s100 1M<Al]b;hV4Tio3_1HkBi0
+R6
+32
+R9
+R7
+R8

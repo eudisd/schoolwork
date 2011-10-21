@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Oct 20 13:44:07 2011
+Quartus II Version : 8.0 Build 215 05/29/2008 SJ Full Version
+Revision Name : keyboard_interface
+Top-level Entity Name : keyboard_interface
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 28 / 33,216 ( < 1 % )
+    Total combinational functions : 25 / 33,216 ( < 1 % )
+    Dedicated logic registers : 17 / 33,216 ( < 1 % )
+Total registers : 17
+Total pins : 61 / 475 ( 13 % )
+Total virtual pins : 0
+Total memory bits : 0 / 483,840 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 70 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

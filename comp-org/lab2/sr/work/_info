@@ -1,0 +1,31 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\prototype\Desktop\CompOrg\lab 2\sr
+Esr_latch
+Z1 w1315492716
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 dC:\Users\prototype\Desktop\CompOrg\lab 2\sr
+Z4 8C:/Users/prototype/Desktop/CompOrg/lab 2/sr/sr_latch.vhd
+Z5 FC:/Users/prototype/Desktop/CompOrg/lab 2/sr/sr_latch.vhd
+l0
+L4
+VfYfaOFGTjC[jXl;T2d>@d2
+!s100 ece0QcIf>jBYeZRj6kd:_2
+Z6 OV;C;6.6d;45
+32
+Z7 o-work work -O0
+Z8 tExplicit 1
+Aarch
+R2
+DEx4 work 8 sr_latch 0 22 fYfaOFGTjC[jXl;T2d>@d2
+l11
+L10
+VL]m?JCkLY6Kg>R2ai<mNl1
+!s100 1[^_V0UhcS_k;^dCCzYmH1
+R6
+32
+Z9 Mx1 4 ieee 14 std_logic_1164
+R7
+R8

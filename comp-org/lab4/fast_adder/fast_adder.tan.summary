@@ -1,0 +1,146 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 12.099 ns
+From           : address_user[2]
+To             : adder:a|buf[7]
+From Clock     : --
+To Clock       : clock_50_mhz
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 7.702 ns
+From           : adder:a|output[6]
+To             : sev_seg_output_2[2]
+From Clock     : clock_50_mhz
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -0.038 ns
+From           : en
+To             : adder:a|cur_s.h
+From Clock     : --
+To Clock       : clock_50_mhz
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clock_50_mhz'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 62.08 MHz ( period = 16.109 ns )
+From           : adder:a|buf[5]
+To             : adder:a|output[7]
+From Clock     : clock_50_mhz
+To Clock       : clock_50_mhz
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clock_user'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 420.17 MHz ( period = 2.380 ns )
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : clock_user
+To Clock       : clock_user
+Failed Paths   : 0
+
+Type           : Clock Setup: 'address_user[1]'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 450.05 MHz ( period = 2.222 ns )
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : address_user[1]
+To Clock       : address_user[1]
+Failed Paths   : 0
+
+Type           : Clock Setup: 'address_user[0]'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 450.05 MHz ( period = 2.222 ns )
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : address_user[0]
+To Clock       : address_user[0]
+Failed Paths   : 0
+
+Type           : Clock Setup: 'address_user[2]'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 450.05 MHz ( period = 2.222 ns )
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r1|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : address_user[2]
+To Clock       : address_user[2]
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clock_50_mhz'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : adder:a|cur_s.a
+To             : adder:a|next_s.b_2403
+From Clock     : clock_50_mhz
+To Clock       : clock_50_mhz
+Failed Paths   : 7
+
+Type           : Clock Hold: 'address_user[2]'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : address_user[2]
+To Clock       : address_user[2]
+Failed Paths   : 1
+
+Type           : Clock Hold: 'address_user[0]'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : address_user[0]
+To Clock       : address_user[0]
+Failed Paths   : 1
+
+Type           : Clock Hold: 'clock_user'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : clock_user
+To Clock       : clock_user
+Failed Paths   : 1
+
+Type           : Clock Hold: 'address_user[1]'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:master|q~65
+To             : registerfile_8_by_8:rf|reg:R8|d_flip_flop_en:r7|master_slave:d_ff|d_latch:slave|q~64
+From Clock     : address_user[1]
+To Clock       : address_user[1]
+Failed Paths   : 1
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 11
+
+--------------------------------------------------------------------------------------
+

@@ -1,0 +1,27 @@
+|Part_I
+w => Selector2.IN5
+w => y_d.i.DATAB
+w => y_d.h.DATAB
+w => y_d.g.DATAB
+w => y_d.f.DATAA
+w => Selector1.IN0
+w => y_d.d.DATAB
+w => y_d.c.DATAB
+w => Selector0.IN0
+w => Selector2.IN1
+w => Selector2.IN2
+reset => y_q~8.OUTPUTSELECT
+reset => y_q~7.OUTPUTSELECT
+reset => y_q~6.OUTPUTSELECT
+reset => y_q~5.OUTPUTSELECT
+reset => y_q~4.OUTPUTSELECT
+reset => y_q~3.OUTPUTSELECT
+reset => y_q~2.OUTPUTSELECT
+reset => y_q~1.OUTPUTSELECT
+reset => y_q~0.OUTPUTSELECT
+reset => z~reg0.ENA
+clock => z~reg0.CLK
+clock => y_q~9.IN1
+z <= z~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

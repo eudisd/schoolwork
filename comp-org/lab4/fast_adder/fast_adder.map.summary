@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Oct 11 13:57:26 2011
+Quartus II Version : 8.0 Build 215 05/29/2008 SJ Full Version
+Revision Name : fast_adder
+Top-level Entity Name : fast_adder
+Family : Cyclone II
+Total logic elements : 544
+    Total combinational functions : 544
+    Dedicated logic registers : 61
+Total registers : 61
+Total pins : 26
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

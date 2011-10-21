@@ -1,0 +1,57 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\prototype\Desktop\CompOrg\2BitAdder
+Efull_adder
+Z1 w1315343005
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 dC:\Users\prototype\Desktop\CompOrg\2BitAdder
+Z4 8C:/Users/prototype/Desktop/CompOrg/2BitAdder/full_adder.vhd
+Z5 FC:/Users/prototype/Desktop/CompOrg/2BitAdder/full_adder.vhd
+l0
+L3
+VbEVmPz4[n1zm1_Ca1Oh=O0
+Z6 OV;C;6.6d;45
+32
+Z7 o-work work -O0
+Z8 tExplicit 1
+!s100 DOPNAAOj4gzm[G0Nd39iE0
+Aarch
+R2
+DEx4 work 10 full_adder 0 22 bEVmPz4[n1zm1_Ca1Oh=O0
+l11
+L10
+V@H>`Z0Fo=:SDzZH3S_Wa`2
+R6
+32
+Z9 Mx1 4 ieee 14 std_logic_1164
+R7
+R8
+!s100 KKC01b47<IaSY89SFK;J?3
+Etwo_bit_adder
+Z10 w1315342482
+R2
+R3
+Z11 8C:/Users/prototype/Desktop/CompOrg/2BitAdder/two_bit_adder.vhd
+Z12 FC:/Users/prototype/Desktop/CompOrg/2BitAdder/two_bit_adder.vhd
+l0
+L4
+V@KUR7ADL97?eV5I22?]J:2
+!s100 ae05z5]i:]bgOIZzMVczb1
+R6
+32
+R7
+R8
+Aarch
+R2
+DEx4 work 13 two_bit_adder 0 22 @KUR7ADL97?eV5I22?]J:2
+l23
+L13
+V;UBaK8AMEATkMX;l8hamS2
+!s100 =m:0H`NEF>zM;Tz<KJ90b1
+R6
+32
+R9
+R7
+R8

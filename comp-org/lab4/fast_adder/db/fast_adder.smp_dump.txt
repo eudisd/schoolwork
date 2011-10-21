@@ -1,0 +1,11 @@
+
+State Machine - |fast_adder|adder:a|cur_s
+Name cur_s.h cur_s.g cur_s.f cur_s.e cur_s.d cur_s.c cur_s.b cur_s.a 
+cur_s.a 0 0 0 0 0 0 0 0 
+cur_s.b 0 0 0 0 0 0 1 1 
+cur_s.c 0 0 0 0 0 1 0 1 
+cur_s.d 0 0 0 0 1 0 0 1 
+cur_s.e 0 0 0 1 0 0 0 1 
+cur_s.f 0 0 1 0 0 0 0 1 
+cur_s.g 0 1 0 0 0 0 0 1 
+cur_s.h 1 0 0 0 0 0 0 1 

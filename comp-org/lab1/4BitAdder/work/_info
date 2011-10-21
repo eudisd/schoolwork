@@ -1,0 +1,83 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\prototype\Desktop\CompOrg\4BitAdder
+Efour_bit_adder
+Z1 w1315352148
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 dC:\Users\prototype\Desktop\CompOrg\4BitAdder
+Z4 8C:/Users/prototype/Desktop/CompOrg/4BitAdder/four_bit_adder.vhd
+Z5 FC:/Users/prototype/Desktop/CompOrg/4BitAdder/four_bit_adder.vhd
+l0
+L3
+V4hF1[7W8NKF]KiP]0K=>F3
+Z6 OV;C;6.6d;45
+32
+Z7 o-work work -O0
+Z8 tExplicit 1
+!s100 M7KA=SoGadjiU:_CL;=_`0
+Aarch
+R2
+DEx4 work 14 four_bit_adder 0 22 4hF1[7W8NKF]KiP]0K=>F3
+l18
+L10
+VDV4;<zgQ1:f0X_bTz^WOd2
+R6
+32
+Z9 Mx1 4 ieee 14 std_logic_1164
+R7
+R8
+!s100 YVQiaf0O88Kk<oZ4WcKBb2
+Efull_adder
+Z10 w1315343005
+R2
+R3
+Z11 8C:/Users/prototype/Desktop/CompOrg/4BitAdder/full_adder.vhd
+Z12 FC:/Users/prototype/Desktop/CompOrg/4BitAdder/full_adder.vhd
+l0
+L3
+VbEVmPz4[n1zm1_Ca1Oh=O0
+R6
+32
+R7
+R8
+!s100 DOPNAAOj4gzm[G0Nd39iE0
+Aarch
+R2
+DEx4 work 10 full_adder 0 22 bEVmPz4[n1zm1_Ca1Oh=O0
+l11
+L10
+V@H>`Z0Fo=:SDzZH3S_Wa`2
+!s100 KKC01b47<IaSY89SFK;J?3
+R6
+32
+R9
+R7
+R8
+Etest_four_bit_adder
+Z13 w1315351931
+R2
+R3
+Z14 8C:/Users/prototype/Desktop/CompOrg/4BitAdder/test_four_bit_adder.vhd
+Z15 FC:/Users/prototype/Desktop/CompOrg/4BitAdder/test_four_bit_adder.vhd
+l0
+L4
+Va:>2VleC>e9[HjOG:2bP<1
+!s100 3UR32f9WH4DB7bo5hH[[;2
+R6
+32
+R7
+R8
+Aarch_test
+R2
+Z16 DEx4 work 19 test_four_bit_adder 0 22 a:>2VleC>e9[HjOG:2bP<1
+l19
+L7
+Z17 Vz8E[zBX7`j15mg<M:1;3_1
+Z18 !s100 7^PQ44ci]WU6gA7gk_em^0
+R6
+32
+R9
+R7
+R8

@@ -67,9 +67,8 @@ void display(void)
 		glColorPointer(3, GL_FLOAT, 0, colors); 
 		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
-
-	glPushMatrix();
 	
+	glPushMatrix();
 	glColor3f(0.8, 0.5, 0.0);
 	glBegin(GL_POLYGON);
 		glVertex3f(-2.0, 0.0, -2.0);
@@ -93,6 +92,7 @@ void display(void)
 		glVertex3f(-2.0, 4.0, -2.0);
 		glVertex3f(-2.0, 4.0, 4.0);
 	glEnd();
+	glPopMatrix();
 	
 	glPushMatrix();
 	glTranslatef(light[0], light[1],light[2]);
