@@ -35,6 +35,7 @@ void display(void)
 
 	GLfloat light[3] = {0.0, 20.0, 0.0};
 	GLfloat light1[3] = {20.0, 0.0, 0.0};
+	GLfloat light2[3] = {0.0, 0.0, 20.0};
 	GLfloat m[16];
 
     int i;
@@ -101,7 +102,7 @@ void display(void)
 		glEnd();
 	glPopMatrix();
 	
-	/*
+	
 	glPushMatrix();
 		glTranslatef(light[0], light[1],light[2]);
 		glMultMatrixf(m);
@@ -114,8 +115,7 @@ void display(void)
 		glColorPointer(3,GL_FLOAT, 0, bcolors); 
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
-	*/
-	/*
+
 	m[7] = 0.0;
 	m[3] = -1/light1[0];
 	glPushMatrix();
@@ -130,13 +130,14 @@ void display(void)
 		glColorPointer(3,GL_FLOAT, 0, bcolors); 
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
-	*/
 	
-	/*
+	m[7] = 0.0;
+	m[3] = 0.0;
+	m[11] = -1/light2[2];
 	glPushMatrix();
-		glTranslatef(light1[0], light1[1],light1[2]);
+		glTranslatef(light2[0], light2[1],light2[2]);
 		glMultMatrixf(m);
-		glTranslatef(-light1[0], -light1[1],-light1[2]);
+		glTranslatef(-light2[0], -light2[1],-light2[2]);
 		glColor3f(0.0,0.0,0.0);
 		glRotatef(theta[0], 1.0, 0.0, 0.0);
 		glRotatef(theta[1], 0.0, 1.0, 0.0);
@@ -145,7 +146,7 @@ void display(void)
 		glColorPointer(3,GL_FLOAT, 0, bcolors); 
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
-	*/
+	
 	glutSwapBuffers(); 
 }
 
