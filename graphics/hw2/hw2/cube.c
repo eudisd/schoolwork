@@ -2,9 +2,14 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 
-	GLfloat vertices[] = { -1.0,-1.0,-1.0,1.0,-1.0,-1.0,
-							1.0,1.0,-1.0, -1.0,1.0,-1.0, -1.0,-1.0,1.0, 
-							1.0,-1.0,1.0, 1.0,1.0,1.0, -1.0,1.0,1.0};
+	GLfloat vertices[] = {  -1.0,-1.0,-1.0,
+							 1.0,-1.0,-1.0,
+							 1.0,1.0,-1.0, 
+							-1.0,1.0,-1.0, 
+							-1.0,-1.0,1.0, 
+							 1.0,-1.0,1.0, 
+							 1.0,1.0,1.0, 
+							-1.0,1.0,1.0};
 
 	GLfloat colors[] = {0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
 						1.0,1.0,0.0, 0.0,1.0,0.0, 0.0,0.0,1.0, 
@@ -33,7 +38,15 @@ void display(void)
 	}
 
     m[0] = m[5] = m[10] = 1.0;
+	//m[3] = -1.0/light[0];
 	m[7] = -1.0/light[1];
+	//m[11] = -1.0/light[2];
+	/*
+	0 4 8  12
+	1 5 9  13
+	2 6 10 14
+	3 7 11 15
+	*/
 
 	/* display callback, clear frame buffer and z buffer,
        rotate cube and draw, swap buffers */
@@ -47,16 +60,41 @@ void display(void)
 			  );
 
 	glPushMatrix();
-	glTranslatef(0.0, 3.0, 0.0);
-	glRotatef(theta[0], 1.0, 0.0, 0.0);
-	glRotatef(theta[1], 0.0, 1.0, 0.0);
-	glRotatef(theta[2], 0.0, 0.0, 1.0);
-    
-    glColorPointer(3,GL_FLOAT, 0, colors); 
-    glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
-
-
+		glTranslatef(0.0, 3.0, 0.0);
+		glRotatef(theta[0], 1.0, 0.0, 0.0);
+		glRotatef(theta[1], 0.0, 1.0, 0.0);
+		glRotatef(theta[2], 0.0, 0.0, 1.0);
+		glColorPointer(3, GL_FLOAT, 0, colors); 
+		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
+
+	glPushMatrix();
+	
+	glColor3f(0.8, 0.5, 0.0);
+	glBegin(GL_POLYGON);
+		glVertex3f(-2.0, 0.0, -2.0);
+		glVertex3f(-2.0, 0.0, 4.0);
+		glVertex3f(4.0, 0.0, -2.0);
+		glVertex3f(4.0, 0.0, 4.0);
+	glEnd();
+
+	glColor3f(0.0, 0.8, 0.5);
+	glBegin(GL_POLYGON);
+		glVertex3f(-2.0, 0.0, -2.0);
+		glVertex3f(-2.0, 4.0, -2.0);
+		glVertex3f(4.0, 0.0, -2.0);
+		glVertex3f(4.0, 4.0, -2.0);
+	glEnd();
+
+	glColor3f(0.5, 0.0, 0.8);
+	glBegin(GL_POLYGON);
+		glVertex3f(-2.0, 0.0, -2.0);
+		glVertex3f(-2.0, 0.0, 4.0);
+		glVertex3f(-2.0, 4.0, -2.0);
+		glVertex3f(-2.0, 4.0, 4.0);
+	glEnd();
+	
+	glPushMatrix();
 	glTranslatef(light[0], light[1],light[2]);
 	glMultMatrixf(m);
 	glTranslatef(-light[0], -light[1],-light[2]);
@@ -67,7 +105,7 @@ void display(void)
 
     glColorPointer(3,GL_FLOAT, 0, bcolors); 
  	glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
-
+	glPopMatrix();
 	glutSwapBuffers(); 
 }
 
@@ -76,7 +114,7 @@ void spinCube()
 
 /* Idle callback, spin cube 2 degrees about selected axis */
 
-	theta[axis] += 2.0;
+	theta[axis] += 0.5;
 	if( theta[axis] > 360.0 ) theta[axis] -= 360.0;
 	glutPostRedisplay();
 }
