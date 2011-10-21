@@ -19,7 +19,11 @@
 						 0.0,0.0,0.0, 0.0,0.0,0.0, 0.0,0.0,0.0, 
 						 0.0,0.0,0.0, 0.0,0.0,0.0, 0.0,0.0,0.0};
 
-    GLubyte cubeIndices[]={0,3,2,1,2,3,7,6,0,4,7,3,1,2,6,5,4,5,6,7,0,1,5,4};
+    GLubyte cubeIndices[]={0,3,2,1,
+		                   2,3,7,6,0,
+						   4,7,3,1,2,
+						   6,5,4,5,6,
+						   7,0,1,5,4};
 
 
 
@@ -30,9 +34,10 @@ void display(void)
 {
 
 	GLfloat light[3] = {0.0, 20.0, 0.0};
+	GLfloat light1[3] = {20.0, 0.0, 0.0};
 	GLfloat m[16];
 
-    int i,j;
+    int i;
 	for(i = 0; i < 16; i++) {
 		m[i] = 0.0;
 	}
@@ -58,7 +63,7 @@ void display(void)
 			  0.0,0.0,0.0, // reference point
 			  0.0,1.0,0.0  // up vector
 			  );
-
+	
 	glPushMatrix();
 		glTranslatef(0.0, 3.0, 0.0);
 		glRotatef(theta[0], 1.0, 0.0, 0.0);
@@ -69,43 +74,78 @@ void display(void)
 	glPopMatrix();
 	
 	glPushMatrix();
-	glColor3f(0.8, 0.5, 0.0);
-	glBegin(GL_POLYGON);
-		glVertex3f(-2.0, 0.0, -2.0);
-		glVertex3f(-2.0, 0.0, 4.0);
-		glVertex3f(4.0, 0.0, -2.0);
-		glVertex3f(4.0, 0.0, 4.0);
-	glEnd();
+		glColor3f(0.8, 0.5, 0.0);
+		glPolygonMode(GL_FRONT, GL_FILL);
+		glBegin(GL_QUADS);
+			glVertex3f(-2.0, 0.0, 4.0);
+			glVertex3f(-2.0, 0.0, -2.0);
+			
+			glVertex3f(4.0, 0.0, -2.0);
+			glVertex3f(4.0, 0.0, 4.0);
+		glEnd();
 
-	glColor3f(0.0, 0.8, 0.5);
-	glBegin(GL_POLYGON);
-		glVertex3f(-2.0, 0.0, -2.0);
-		glVertex3f(-2.0, 4.0, -2.0);
-		glVertex3f(4.0, 0.0, -2.0);
-		glVertex3f(4.0, 4.0, -2.0);
-	glEnd();
+		glColor3f(0.0, 0.8, 0.5);
+		glBegin(GL_QUADS);
+			glVertex3f(-2.0, 6.0, -2.0);
+			glVertex3f(-2.0, 0.0, -2.0);
+			glVertex3f(4.0, 0.0, -2.0);
+			glVertex3f(4.0, 6.0, -2.0);
+		glEnd();
 
-	glColor3f(0.5, 0.0, 0.8);
-	glBegin(GL_POLYGON);
-		glVertex3f(-2.0, 0.0, -2.0);
-		glVertex3f(-2.0, 0.0, 4.0);
-		glVertex3f(-2.0, 4.0, -2.0);
-		glVertex3f(-2.0, 4.0, 4.0);
-	glEnd();
+		glColor3f(0.5, 0.0, 0.8);
+		glBegin(GL_QUADS);
+			glVertex3f(-2.0, 0.0, 4.0);
+			glVertex3f(-2.0, 0.0, -2.0);
+			glVertex3f(-2.0, 6.0, -2.0);
+			glVertex3f(-2.0, 6.0, 4.0);
+		glEnd();
 	glPopMatrix();
 	
+	/*
 	glPushMatrix();
-	glTranslatef(light[0], light[1],light[2]);
-	glMultMatrixf(m);
-	glTranslatef(-light[0], -light[1],-light[2]);
-	glColor3f(0.0,0.0,0.0);
-	glRotatef(theta[0], 1.0, 0.0, 0.0);
-	glRotatef(theta[1], 0.0, 1.0, 0.0);
-	glRotatef(theta[2], 0.0, 0.0, 1.0);
+		glTranslatef(light[0], light[1],light[2]);
+		glMultMatrixf(m);
+		glTranslatef(-light[0], -light[1],-light[2]);
+		glColor3f(0.0,0.0,0.0);
+		glRotatef(theta[0], 1.0, 0.0, 0.0);
+		glRotatef(theta[1], 0.0, 1.0, 0.0);
+		glRotatef(theta[2], 0.0, 0.0, 1.0);
 
-    glColorPointer(3,GL_FLOAT, 0, bcolors); 
- 	glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
+		glColorPointer(3,GL_FLOAT, 0, bcolors); 
+ 		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
+	*/
+	/*
+	m[7] = 0.0;
+	m[3] = -1/light1[0];
+	glPushMatrix();
+		glTranslatef(light1[0], light1[1],light1[2]);
+		glMultMatrixf(m);
+		glTranslatef(-light1[0], -light1[1],-light1[2]);
+		glColor3f(0.0,0.0,0.0);
+		glRotatef(theta[0], 1.0, 0.0, 0.0);
+		glRotatef(theta[1], 0.0, 1.0, 0.0);
+		glRotatef(theta[2], 0.0, 0.0, 1.0);
+
+		glColorPointer(3,GL_FLOAT, 0, bcolors); 
+ 		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
+	glPopMatrix();
+	*/
+	
+	/*
+	glPushMatrix();
+		glTranslatef(light1[0], light1[1],light1[2]);
+		glMultMatrixf(m);
+		glTranslatef(-light1[0], -light1[1],-light1[2]);
+		glColor3f(0.0,0.0,0.0);
+		glRotatef(theta[0], 1.0, 0.0, 0.0);
+		glRotatef(theta[1], 0.0, 1.0, 0.0);
+		glRotatef(theta[2], 0.0, 0.0, 1.0);
+
+		glColorPointer(3,GL_FLOAT, 0, bcolors); 
+ 		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
+	glPopMatrix();
+	*/
 	glutSwapBuffers(); 
 }
 
