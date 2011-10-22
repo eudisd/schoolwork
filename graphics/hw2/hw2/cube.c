@@ -44,9 +44,7 @@ void display(void)
 	}
 
     m[0] = m[5] = m[10] = 1.0;
-	//m[3] = -1.0/light[0];
 	m[7] = -1.0/light[1];
-	//m[11] = -1.0/light[2];
 	/*
 	0 4 8  12
 	1 5 9  13
@@ -65,6 +63,7 @@ void display(void)
 			  0.0,1.0,0.0  // up vector
 			  );
 	
+	// Draw the CUBE
 	glPushMatrix();
 		glTranslatef(0.0, 3.0, 0.0);
 		glRotatef(theta[0], 1.0, 0.0, 0.0);
@@ -74,9 +73,10 @@ void display(void)
 		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
 	
+	// Draw the walls first
 	glPushMatrix();
+		// ZX Plane
 		glColor3f(0.8, 0.5, 0.0);
-		glPolygonMode(GL_FRONT, GL_FILL);
 		glBegin(GL_QUADS);
 			glVertex3f(-2.0, 0.0, 4.0);
 			glVertex3f(-2.0, 0.0, -2.0);
@@ -85,6 +85,7 @@ void display(void)
 			glVertex3f(4.0, 0.0, 4.0);
 		glEnd();
 
+		// XY Plane
 		glColor3f(0.0, 0.8, 0.5);
 		glBegin(GL_QUADS);
 			glVertex3f(-2.0, 6.0, -2.0);
@@ -93,6 +94,7 @@ void display(void)
 			glVertex3f(4.0, 6.0, -2.0);
 		glEnd();
 
+		// YZ Plane
 		glColor3f(0.5, 0.0, 0.8);
 		glBegin(GL_QUADS);
 			glVertex3f(-2.0, 0.0, 4.0);
@@ -102,7 +104,8 @@ void display(void)
 		glEnd();
 	glPopMatrix();
 	
-	
+	// Draw ZX Plane shadow
+	/*
 	glPushMatrix();
 		glTranslatef(light[0], light[1],light[2]);
 		glMultMatrixf(m);
@@ -116,12 +119,15 @@ void display(void)
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
 
+	*/
+	// Draw the ZY Plane
 	m[7] = 0.0;
 	m[3] = -1/light1[0];
+	
 	glPushMatrix();
 		glTranslatef(light1[0], light1[1],light1[2]);
 		glMultMatrixf(m);
-		glTranslatef(-light1[0], -light1[1],-light1[2]);
+		glTranslatef(-light1[0], -light1[1], -light1[2]);
 		glColor3f(0.0,0.0,0.0);
 		glRotatef(theta[0], 1.0, 0.0, 0.0);
 		glRotatef(theta[1], 0.0, 1.0, 0.0);
@@ -131,9 +137,11 @@ void display(void)
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
 	
+	// Draw the XY Plane
 	m[7] = 0.0;
 	m[3] = 0.0;
 	m[11] = -1/light2[2];
+	/*
 	glPushMatrix();
 		glTranslatef(light2[0], light2[1],light2[2]);
 		glMultMatrixf(m);
@@ -146,6 +154,7 @@ void display(void)
 		glColorPointer(3,GL_FLOAT, 0, bcolors); 
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
+	*/
 	
 	glutSwapBuffers(); 
 }
