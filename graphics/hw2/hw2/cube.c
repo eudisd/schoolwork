@@ -2,14 +2,17 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 
-	GLfloat vertices[] = {  -1.0,-1.0,-1.0,
-							 1.0,-1.0,-1.0,
-							 1.0,1.0,-1.0, 
-							-1.0,1.0,-1.0, 
-							-1.0,-1.0,1.0, 
-							 1.0,-1.0,1.0, 
-							 1.0,1.0,1.0, 
-							-1.0,1.0,1.0};
+
+#define RANGE 2
+
+	GLfloat vertices[] = {  -1.0,-1.0,-1.0, // 0
+							 1.0,-1.0,-1.0, // 1
+							 1.0,1.0,-1.0,  // 2
+							-1.0,1.0,-1.0,  // 3
+							-1.0,-1.0,1.0,  // 4
+							 1.0,-1.0,1.0,  // 5
+							 1.0,1.0,1.0,   // 6 
+							-1.0,1.0,1.0};  // 7
 
 	GLfloat colors[] = {0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
 						1.0,1.0,0.0, 0.0,1.0,0.0, 0.0,0.0,1.0, 
@@ -20,10 +23,11 @@
 						 0.0,0.0,0.0, 0.0,0.0,0.0, 0.0,0.0,0.0};
 
     GLubyte cubeIndices[]={0,3,2,1,
-		                   2,3,7,6,0,
-						   4,7,3,1,2,
-						   6,5,4,5,6,
-						   7,0,1,5,4};
+						   2,3,7,6,
+						   0,4,7,3,
+						   1,2,6,5,
+						   4,5,6,7,
+						   0,1,5,4};
 
 
 
@@ -43,17 +47,12 @@ void display(void)
 		m[i] = 0.0;
 	}
 
-    m[0] = m[5] = m[10] = 1.0;
+	m[0] = m[5] = m[10] = 1.0;
 	m[7] = -1.0/light[1];
-	/*
-	0 4 8  12
-	1 5 9  13
-	2 6 10 14
-	3 7 11 15
-	*/
 
 	/* display callback, clear frame buffer and z buffer,
        rotate cube and draw, swap buffers */
+
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -80,7 +79,6 @@ void display(void)
 		glBegin(GL_QUADS);
 			glVertex3f(-2.0, 0.0, 4.0);
 			glVertex3f(-2.0, 0.0, -2.0);
-			
 			glVertex3f(4.0, 0.0, -2.0);
 			glVertex3f(4.0, 0.0, 4.0);
 		glEnd();
@@ -104,9 +102,10 @@ void display(void)
 		glEnd();
 	glPopMatrix();
 	
-	// Draw ZX Plane shadow
-	/*
+	// Draw shadow on the XZ plane
+	
 	glPushMatrix();
+		glTranslatef(0.0, 0.1, 0.0);
 		glTranslatef(light[0], light[1],light[2]);
 		glMultMatrixf(m);
 		glTranslatef(-light[0], -light[1],-light[2]);
@@ -119,12 +118,13 @@ void display(void)
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
 
-	*/
-	// Draw the ZY Plane
+	
+	// Draw shadow on the ZY Plane
 	m[7] = 0.0;
 	m[3] = -1/light1[0];
 	
 	glPushMatrix();
+		glTranslatef(-1.9, 3.0, 0.0);
 		glTranslatef(light1[0], light1[1],light1[2]);
 		glMultMatrixf(m);
 		glTranslatef(-light1[0], -light1[1], -light1[2]);
@@ -137,12 +137,13 @@ void display(void)
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
 	
-	// Draw the XY Plane
+	// Draw shadow on the XY Plane
 	m[7] = 0.0;
 	m[3] = 0.0;
 	m[11] = -1/light2[2];
-	/*
+	
 	glPushMatrix();
+		glTranslatef(0.0, 3.0, -1.9);
 		glTranslatef(light2[0], light2[1],light2[2]);
 		glMultMatrixf(m);
 		glTranslatef(-light2[0], -light2[1],-light2[2]);
@@ -154,7 +155,7 @@ void display(void)
 		glColorPointer(3,GL_FLOAT, 0, bcolors); 
  		glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, cubeIndices);
 	glPopMatrix();
-	*/
+	
 	
 	glutSwapBuffers(); 
 }
