@@ -190,32 +190,86 @@ drawLowerRightCorner1(int x, int y)
 			glTexCoord2f(1, 0); glVertex2i(W-Margin,   Margin);
 			glTexCoord2f(1, 1); glVertex2i(W-Margin, H-Margin);
 		glEnd();
-		
+
 		glDisable(GL_TEXTURE_2D);
+
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, TexId2);
+
 
 		// Draw the opposite side now (the vegetables)
 		// draw lifted triangle
-		float _H = H;
-		float _W = W;
+		float _H = h;
+		float _W = w;
 
 		float txt_right[2] = {right[0]/(_W), (right[1]/_H)}, 
 			  txt_bottom[2] = {bottom[0]/(_W), (bottom[1]/_H)};
 
-		printf("\nH: %f, W: %f\n"
+		printf("\nx: %d, y: %d\nH: %f, W: %f\n"
 			   "right[0]: %f, right[1]: %f\n" 
 			   "bottom[0]: %f bottom[1]: %f\n"
 			   "txt_right[0]: %f, txt_right[1]: %f \n"
 			   "txt_bottom[0]: %f, txt_bottom[1]: %f\n",
-			   _H, _W, right[0], right[1], bottom[0], bottom[1], txt_right[0], txt_right[1], txt_bottom[0], txt_bottom[1]);
+			   x, y, _H, _W, right[0], right[1], bottom[0], bottom[1], txt_right[0], txt_right[1], txt_bottom[0], txt_bottom[1]);
+
+		
+
+
+
+		float i0, i1, 
+			  a0, a1, 
+			  b0, b1, 
+			  A0, A1,
+			  B0, B1;
+
+		float j, g, p;
+
+
+		// Distance from click point to bottom intersection
+		i0 = sqrt((bottom[0] - x)*(bottom[0] - x) + 
+				 (bottom[1] - y)*(bottom[1] - y));
+
+		b0 = x - bottom[0];
+		a0 = H - Margin - y;
+		B0 = h * (b0/i0);
+		A0 = B0*a0/b0;
+
+		// Distance from click point to right intersection
+		i1 = sqrt((right[0] - x)*(right[0] - x) + 
+			      (right[1] - y)*(right[1] - y));
+
+		b1 = (right[1] - y);
+		a1 = W - Margin - x;
+
+		B1 = (b1/i1)*w;
+		A1 = (a1*B1)/b1;
+		
+
+		// Last point of the quad
+		p = B1 + A1;
+		j = sqrt((float)h*h + (float)w*w);
+		g = sqrt(j*j - p*p);
 
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, TexId2);
 		glBegin(GL_POLYGON);
-			glTexCoord2f(0, 1); glVertex2f(x, y);		// lifted corner point
+
+			
+			glTexCoord2f(0, 0);  glVertex2f(x, y); // Top Left
+			glTexCoord2f(0, 1); glVertex2f(x - B0, y + A0);  // Bottom Left
+			glTexCoord2f(1, 1); glVertex2f(x + g, y + p); // Bottom Right
+			glTexCoord2f(1, 0); glVertex2f(x + A1, y + B1); // Top Right
+			
+			
+			/*
 			// xsect at right edge
-			glTexCoord2f(0, txt_right[1]); glVertex2f(right[0], right[1]);
+			glTexCoord2f(0, txt_right[1]);  glVertex2f(right[0], right[1]);
+
+			glTexCoord2f(0, 1); glVertex2f(x, y);		// lifted corner point
+			
 			// xsect at bottom edge
 			glTexCoord2f(txt_bottom[0], 1); glVertex2f(bottom[0], bottom[1]);
+			*/
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
 
@@ -226,11 +280,16 @@ drawLowerRightCorner1(int x, int y)
 		// Clear out the lifted polygon initial space
 
 		glBegin(GL_POLYGON);
-			glVertex2f(W-Margin, H-Margin);		// lifted corner point
+			
 			// xsect at right edge
 			glVertex2f(right[0], right[1]);
 			// xsect at bottom edge
 			glVertex2f(bottom[0], bottom[1]);
+
+			glVertex2f(x - B0, y + A0);  // Left
+			glVertex2f(x + g, y + p); // bottom
+			glVertex2f(x + A1, y + B1); // Right
+			
 		glEnd();
 
 		glColor3f(1.0, 1.0, 1.0);
@@ -270,7 +329,6 @@ drawLowerRightCorner1(int x, int y)
 
 		glColor3f(1.0, 1.0, 1.0);
 
-
 		// draw lifted quadrilateral
 
 			  // D
@@ -287,6 +345,7 @@ drawLowerRightCorner1(int x, int y)
 			  Dy = y + DE,
 		      Hx = Dx + GH, 
 			  Hy = top[1];
+
 
 		glBegin(GL_POLYGON);
 

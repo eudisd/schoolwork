@@ -50,10 +50,12 @@ void init(void)
 	// init texture parameters
 	glGenTextures  (1,&TexId2);
 	glBindTexture  (GL_TEXTURE_2D, TexId2);
+
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
 	glTexImage2D   (GL_TEXTURE_2D, 0, 3, ww, hh, 0, GL_RGB,
 			GL_UNSIGNED_BYTE, texData2); 
 	
