@@ -196,26 +196,6 @@ drawLowerRightCorner1(int x, int y)
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, TexId2);
 
-
-		// Draw the opposite side now (the vegetables)
-		// draw lifted triangle
-		float _H = h;
-		float _W = w;
-
-		float txt_right[2] = {right[0]/(_W), (right[1]/_H)}, 
-			  txt_bottom[2] = {bottom[0]/(_W), (bottom[1]/_H)};
-
-		printf("\nx: %d, y: %d\nH: %f, W: %f\n"
-			   "right[0]: %f, right[1]: %f\n" 
-			   "bottom[0]: %f bottom[1]: %f\n"
-			   "txt_right[0]: %f, txt_right[1]: %f \n"
-			   "txt_bottom[0]: %f, txt_bottom[1]: %f\n",
-			   x, y, _H, _W, right[0], right[1], bottom[0], bottom[1], txt_right[0], txt_right[1], txt_bottom[0], txt_bottom[1]);
-
-		
-
-
-
 		float i0, i1, 
 			  a0, a1, 
 			  b0, b1, 
@@ -294,10 +274,6 @@ drawLowerRightCorner1(int x, int y)
 
 		glColor3f(1.0, 1.0, 1.0);
 
-		
-
-
-
 	} else {
 		
 		glEnable(GL_TEXTURE_2D);
@@ -311,23 +287,6 @@ drawLowerRightCorner1(int x, int y)
 		glEnd();
 
 		glDisable(GL_TEXTURE_2D);
-
-		// Clear out the lifted polygon initial space
-
-		glPolygonMode(GL_FRONT, GL_FILL);
-		glColor3f(0.0, 0.0, 0.0);
-		glBegin(GL_POLYGON);
-			
-			// xsect at top edge
-			glVertex2f(top[0], top[1]);
-			// xsect at bottom edge
-			glVertex2f(bottom[0], bottom[1]);
-
-			glVertex2i(  W-Margin, H-Margin);
-			glVertex2i(  W-Margin,   Margin);
-		glEnd();
-
-		glColor3f(1.0, 1.0, 1.0);
 
 		// draw lifted quadrilateral
 
@@ -346,19 +305,70 @@ drawLowerRightCorner1(int x, int y)
 		      Hx = Dx + GH, 
 			  Hy = top[1];
 
+		float p2, j2, g2, b2, c2, B2, C2, A2;
+
+
+		b2 = sqrt((Hx - Dx)*(Hx - Dx) + (Hy - Dy)*(Hy - Dy));
+		B2 = w;
+		c2 = Hy - Dy;
+		C2 = B2*c2/b2;
+
+
+		printf("\nw: %f, h: %f\n", (float)w, (float)h);
+		A2 = sqrt(B2*B2 - C2*C2);
+		p2 = C2 + A2;
+		j2 = sqrt((float)w*w + (float)h*h);
+
+		g2 = sqrt(j2*j2 - p2*p2);
+		
 
 		glBegin(GL_POLYGON);
 
-			// draw lifted corner point and next lifted corner
+			// draw lifted corner point and next lifted corner (Bottom Left)
 			glVertex2f(x, y);  
-			glVertex2f(Dx, Dy);    // D
+
+			glVertex2f(Dx, Dy);    // Top Left
+
+			glVertex2f(Dx + A2, Dy + C2); // Top Right
+
+			glVertex2f(Dx + g2, Dy + p2); // Bottom right
 
 			// xsect at right edge
-			glVertex2f(Hx, Hy);    // H
+			//glVertex2f(Hx, Hy);    
 			
 			// xsect at bottom edge
-			glVertex2f(bottom[0], bottom[1]); 
+			//glVertex2f(bottom[0], bottom[1]);  
 		glEnd(); 
+
+
+		// Clear out the lifted polygon initial space
+
+		glPolygonMode(GL_FRONT, GL_FILL);
+		glColor3f(0.0, 0.0, 0.0);
+		glBegin(GL_POLYGON);
+			
+			// xsect at top left edge
+			glVertex2f(top[0], top[1]);
+			// xsect at bottom left edge
+			glVertex2f(bottom[0], bottom[1]);
+
+			glVertex2f(Dx + g2, Dy + p2); // Bottom right
+			glVertex2f(Dx + A2, Dy + C2); // Top Right
+			
+		glEnd();
+
+		glBegin(GL_POLYGON);
+			
+			// xsect at top left edge
+			glVertex2f(Hx, Hy);
+			// xsect at bottom left edge
+			glVertex2f(Dx + A2, Hy);
+
+			glVertex2f(Dx + A2, Dy + C2);
+
+		glEnd();
+
+		glColor3f(1.0, 1.0, 1.0);
 		
 	}
 
