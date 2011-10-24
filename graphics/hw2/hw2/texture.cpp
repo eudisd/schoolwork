@@ -233,23 +233,12 @@ drawLowerRightCorner1(int x, int y)
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, TexId2);
 		glBegin(GL_POLYGON);
-
 			
-			glTexCoord2f(0, 0);  glVertex2f(x, y); // Top Left
-			glTexCoord2f(0, 1); glVertex2f(x - B0, y + A0);  // Bottom Left
-			glTexCoord2f(1, 1); glVertex2f(x + g, y + p); // Bottom Right
-			glTexCoord2f(1, 0); glVertex2f(x + A1, y + B1); // Top Right
+			glTexCoord2f(0, 1); glVertex2f(x, y); // Top left V, Bottom Left of Pic 
+			glTexCoord2f(1, 1); glVertex2f(x - B0, y + A0);  // Bottom Left V, Bottom Right of Pic
+			glTexCoord2f(1, 0); glVertex2f(x + g, y + p); // Bottom Right of V, Top Right of Pic
+			glTexCoord2f(0, 0); glVertex2f(x + A1, y + B1); // Top Right, Top Left of Pic
 			
-			
-			/*
-			// xsect at right edge
-			glTexCoord2f(0, txt_right[1]);  glVertex2f(right[0], right[1]);
-
-			glTexCoord2f(0, 1); glVertex2f(x, y);		// lifted corner point
-			
-			// xsect at bottom edge
-			glTexCoord2f(txt_bottom[0], 1); glVertex2f(bottom[0], bottom[1]);
-			*/
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
 
@@ -307,37 +296,28 @@ drawLowerRightCorner1(int x, int y)
 
 		float p2, j2, g2, b2, c2, B2, C2, A2;
 
-
-		b2 = sqrt((Hx - Dx)*(Hx - Dx) + (Hy - Dy)*(Hy - Dy));
+		b2 = fabs(sqrt((Hx - Dx)*(Hx - Dx) + (Hy - Dy)*(Hy - Dy)));
 		B2 = w;
-		c2 = Hy - Dy;
-		C2 = B2*c2/b2;
+		c2 = fabs(Hy - Dy);
+		C2 = fabs(B2*c2/b2);
 
-
-		printf("\nw: %f, h: %f\n", (float)w, (float)h);
 		A2 = sqrt(B2*B2 - C2*C2);
-		p2 = C2 + A2;
+		p2 = fabs(C2 + A2);
 		j2 = sqrt((float)w*w + (float)h*h);
 
 		g2 = sqrt(j2*j2 - p2*p2);
 		
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, TexId2);
 
 		glBegin(GL_POLYGON);
 
 			// draw lifted corner point and next lifted corner (Bottom Left)
-			glVertex2f(x, y);  
-
-			glVertex2f(Dx, Dy);    // Top Left
-
-			glVertex2f(Dx + A2, Dy + C2); // Top Right
-
-			glVertex2f(Dx + g2, Dy + p2); // Bottom right
-
-			// xsect at right edge
-			//glVertex2f(Hx, Hy);    
-			
-			// xsect at bottom edge
-			//glVertex2f(bottom[0], bottom[1]);  
+			glTexCoord2f(0, 1); glVertex2f(x, y);  // Bottom Left V, 
+			glTexCoord2f(0, 0); glVertex2f(Dx, Dy);  // Top Left
+			glTexCoord2f(1, 0); glVertex2f(Dx + A2, Dy + C2); // Top Right
+			glTexCoord2f(1, 1); glVertex2f(Dx + g2, Dy + p2); // Bottom right
+ 
 		glEnd(); 
 
 
@@ -356,17 +336,16 @@ drawLowerRightCorner1(int x, int y)
 			glVertex2f(Dx + A2, Dy + C2); // Top Right
 			
 		glEnd();
-
+		/*
 		glBegin(GL_POLYGON);
 			
 			// xsect at top left edge
 			glVertex2f(Hx, Hy);
 			// xsect at bottom left edge
 			glVertex2f(Dx + A2, Hy);
-
 			glVertex2f(Dx + A2, Dy + C2);
-
-		glEnd();
+		
+		glEnd();*/
 
 		glColor3f(1.0, 1.0, 1.0);
 		
