@@ -320,7 +320,6 @@ drawLowerRightCorner1(int x, int y)
  
 		glEnd(); 
 
-
 		// Clear out the lifted polygon initial space
 
 		glPolygonMode(GL_FRONT, GL_FILL);
@@ -333,8 +332,16 @@ drawLowerRightCorner1(int x, int y)
 			glVertex2f(bottom[0], bottom[1]);
 
 			glVertex2f(Dx + g2, Dy + p2); // Bottom right
+			glVertex2f((Dx + g2)+ 80, (Dy + p2));
+			glVertex2f((Dx + A2)+ 80, (Dy + C2)); 
 			glVertex2f(Dx + A2, Dy + C2); // Top Right
 			
+		glEnd();
+
+		glBegin(GL_POLYGON);/*
+			glVertex2f(Dx, Dy);
+			glVertex2f(W-Margin, Margin);
+			glVertex2f(Dx + A2 + 80, Dy + C2 - 80);*/
 		glEnd();
 		/*
 		glBegin(GL_POLYGON);
