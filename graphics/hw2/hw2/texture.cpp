@@ -453,20 +453,32 @@ drawLowerRightCorner2(int x, int y)
 	glDisable(GL_TEXTURE_2D);
 	
 	// draw lifted quadrilateral
-	
+
+	float b3, c3, A3, B3, C3, Tx, Ty;
+
+	b3 = Hy - Dy;
+	c3 = sqrt((Hx - Dx)*(Hx - Dy) + (Hy - Dy)*(Hy - Dy));
+	C3 = w;
+	B3 = C3*b3/c3;
+
+	A3 = sqrt(C3*C3 - B3*B3);
+
+	Tx = x + (y - Dy);
+	Ty = y - (x - Dx);
+
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, TexId2);
 	glBegin(GL_POLYGON);
 
 		// draw lifted corner point and next lifted corner
-		glVertex2f(x, y);
-		glVertex2f(Dx, Dy);
+		glTexCoord2f(0, 1); glVertex2f(x, y); // Bottom Left V
+		glTexCoord2f(0, 0); glVertex2f(Dx, Dy); // Top Left V
 
-		// xsect at right edge
-		glVertex2f(Hx, Hy);
-
-		// xsect at bottom edge
-		glVertex2f(Ex, Ey);
+		glTexCoord2f(1, 0); glVertex2f(Tx - (x - Dx), Ty - (Tx - x)); // Top Right V
+		glTexCoord2f(1, 1); glVertex2f(Tx, Ty); // Bottom Right V
 	glEnd();
 
+	glDisable(GL_TEXTURE_2D);
 	// Clear out the initial lifted polygon area with black
 
 	glPolygonMode(GL_FRONT, GL_FILL);
