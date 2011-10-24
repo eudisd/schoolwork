@@ -294,7 +294,7 @@ drawLowerRightCorner1(int x, int y)
 		      Hx = Dx + GH, 
 			  Hy = top[1];
 
-		float p2, j2, g2, b2, c2, B2, C2, A2;
+		float p2, j2, g2, b2, c2, B2, C2, A2, Ix, Iy;
 
 		b2 = fabs(sqrt((Hx - Dx)*(Hx - Dx) + (Hy - Dy)*(Hy - Dy)));
 		B2 = w;
@@ -307,6 +307,8 @@ drawLowerRightCorner1(int x, int y)
 
 		g2 = sqrt(j2*j2 - p2*p2);
 		
+		Ix = x + (y - Dy);
+		Iy = y + (Dx - x);
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, TexId2);
 
@@ -316,7 +318,7 @@ drawLowerRightCorner1(int x, int y)
 			glTexCoord2f(0, 1); glVertex2f(x, y);  // Bottom Left V, 
 			glTexCoord2f(0, 0); glVertex2f(Dx, Dy);  // Top Left
 			glTexCoord2f(1, 0); glVertex2f(Dx + A2, Dy + C2); // Top Right
-			glTexCoord2f(1, 1); glVertex2f(Dx + g2, Dy + p2); // Bottom right
+			glTexCoord2f(1, 1); glVertex2f(Ix, Iy); // Bottom right
  
 		glEnd(); 
 
@@ -325,16 +327,15 @@ drawLowerRightCorner1(int x, int y)
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glColor3f(0.0, 0.0, 0.0);
 		glBegin(GL_POLYGON);
-			
+			/*
 			// xsect at top left edge
 			glVertex2f(top[0], top[1]);
 			// xsect at bottom left edge
 			glVertex2f(bottom[0], bottom[1]);
 
 			glVertex2f(Dx + g2, Dy + p2); // Bottom right
-			glVertex2f((Dx + g2)+ 80, (Dy + p2));
-			glVertex2f((Dx + A2)+ 80, (Dy + C2)); 
-			glVertex2f(Dx + A2, Dy + C2); // Top Right
+			
+			glVertex2f(Dx + A2, Dy + C2); // Top Right */
 			
 		glEnd();
 
