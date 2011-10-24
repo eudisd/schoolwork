@@ -327,22 +327,24 @@ drawLowerRightCorner1(int x, int y)
 		glPolygonMode(GL_FRONT, GL_FILL);
 		glColor3f(0.0, 0.0, 0.0);
 		glBegin(GL_POLYGON);
-			/*
+			
 			// xsect at top left edge
 			glVertex2f(top[0], top[1]);
 			// xsect at bottom left edge
 			glVertex2f(bottom[0], bottom[1]);
 
-			glVertex2f(Dx + g2, Dy + p2); // Bottom right
+			glVertex2f(Ix, Iy); // Bottom right
 			
-			glVertex2f(Dx + A2, Dy + C2); // Top Right */
+			glVertex2f(Dx + A2, Dy + C2); // Top Right 
 			
 		glEnd();
 
-		glBegin(GL_POLYGON);/*
-			glVertex2f(Dx, Dy);
-			glVertex2f(W-Margin, Margin);
-			glVertex2f(Dx + A2 + 80, Dy + C2 - 80);*/
+		glBegin(GL_POLYGON);
+			glVertex2f(top[0], top[1]);
+			// xsect at bottom left edge
+			glVertex2f(bottom[0], bottom[1]);
+			glVertex2f(W-Margin, H-Margin); // Bottom right
+			glVertex2f(W-Margin, Margin); // Top Right 
 		glEnd();
 		/*
 		glBegin(GL_POLYGON);
@@ -495,7 +497,17 @@ drawLowerRightCorner2(int x, int y)
 
 		glVertex2i(  W-Margin, H-Margin);
 		glVertex2i(  W-Margin,   Margin);
+	glEnd();
 
+	glBegin(GL_POLYGON);
+	
+		// draw bottom left / upper left corners, and top / bottom xsects
+		
+		glVertex2f(Hx, Hy);
+		glVertex2f(Ex, Ey);
+
+		glTexCoord2f(1, 1); glVertex2f(Tx, Ty); // Bottom Right V
+		glTexCoord2f(1, 0); glVertex2f(Tx - (x - Dx), Ty - (Tx - x)); // Top Right V
 	glEnd();
 	glColor3f(1.0, 1.0, 1.0);
 
