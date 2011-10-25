@@ -1,8 +1,9 @@
 #include "rational.hpp"
 
-void Rational::Rational(Rational a, Rational b)
+void Rational::Rational(int a, int b)
 {
-
+	num1 = a;
+	denom1 = b;
 }
 Rational Rational::operator +(Rational &a)
 {

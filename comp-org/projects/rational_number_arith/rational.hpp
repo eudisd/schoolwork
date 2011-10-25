@@ -13,7 +13,7 @@ private:
 
 public:
 
-	Rational(Rational a, Rational b);
+	Rational(int a, int b);
 	// overloaded operators 
 
 	Rational & operator +(Rational &a);
