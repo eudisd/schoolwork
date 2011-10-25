@@ -14,10 +14,10 @@ public:
 	Rational(int a, int b);
 	// overloaded operators 
 
-	Rational & operator +(Rational &a);
-	Rational & operator -(Rational &a);
-	Rational & operator /(Rational &a);
-	Rational & operator *(Rational &a);
+	Rational & operator +(Rational &x);
+	Rational & operator -(Rational &x);
+	Rational & operator /(Rational &x);
+	Rational & operator *(Rational &x);
 	friend std::ostream & operator <<( std::ostream &o, const Rational &r);
 
 	// Setters

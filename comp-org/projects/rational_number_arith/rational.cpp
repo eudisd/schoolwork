@@ -5,22 +5,45 @@ Rational::Rational(int a, int b)
 	num1 = a;
 	denom1 = b;
 }
-Rational & Rational::operator +(Rational &a)
+Rational & Rational::operator +(Rational &x)
 {
-	Rational res(a.getNum1() + num1, a.getDenom1() + denom1);
-	return *this;
+	int a = num1,
+		b = denom1,
+		c = x.getNum1(),
+		d = x.getDenom1();
+
+	Rational *res = new Rational(a*d + b*c, b*d);
 }
-Rational & Rational::operator -(Rational &a)
+Rational & Rational::operator -(Rational &x)
 {
-	return a;
+	int a = num1,
+		b = denom1,
+		c = x.getNum1(),
+		d = x.getDenom1();
+
+	Rational *res = new Rational(a*d - b*c, b*d);
+
+	return *res;
 }
-Rational & Rational::operator /(Rational &a)
+Rational & Rational::operator /(Rational &x)
 {
-	return a;
+	int a = num1,
+		b = denom1,
+		c = x.getNum1(),
+		d = x.getDenom1();
+	Rational *res = new Rational(a*d, b*c);
+
+	return *res;
 }
-Rational & Rational::operator *(Rational &a)
+Rational & Rational::operator *(Rational &x)
 {
-	return a;
+	int a = num1,
+		b = denom1,
+		c = x.getNum1(),
+		d = x.getDenom1();
+	Rational *res = new Rational(a*c, b*d);
+
+	return *res;
 }
 
 std::ostream & operator <<(std::ostream &o, const Rational &r)
