@@ -1,23 +1,23 @@
 #include "rational.hpp"
 
-void Rational::Rational(int a, int b)
+Rational::Rational(int a, int b)
 {
 	num1 = a;
 	denom1 = b;
 }
-Rational Rational::operator +(Rational &a)
+Rational & Rational::operator +(Rational &a)
 {
 	return a;
 }
-Rational Rational::operator -(Rational &a)
+Rational & Rational::operator -(Rational &a)
 {
 	return a;
 }
-Rational Rational::operator /(Rational &a)
+Rational & Rational::operator /(Rational &a)
 {
 	return a;
 }
-Rational Rational::operator *(Rational &a)
+Rational & Rational::operator *(Rational &a)
 {
 	return a;
 }
@@ -34,7 +34,7 @@ int Rational::getDenomResult(int n){ this->denomResult = n; }
 	// Getters
 int Rational::getNum1(void){ return this->num1; }
 int Rational::getNum2(void){ return this->num2; }
-int Rational::getDenom1(void){ return this->Denom1; }
-int Rational::getDenom2(void){ return this->Denom2; }
+int Rational::getDenom1(void){ return this->denom1; }
+int Rational::getDenom2(void){ return this->denom2; }
 int Rational::getNumResult(void){ return this->numResult; }
-int Rational::getDenomResult(void){ return this->numDenomResult; }
+int Rational::getDenomResult(void){ return this->denomResult; }

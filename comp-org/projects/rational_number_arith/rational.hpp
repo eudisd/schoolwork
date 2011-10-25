@@ -1,5 +1,3 @@
-
-
 #ifndef _RATIONAL_H_
 #define _RATIONAL_H_
 
