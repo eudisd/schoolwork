@@ -1,6 +1,9 @@
 #ifndef _RATIONAL_H_
 #define _RATIONAL_H_
 
+#include <iostream>
+#include <fstream>
+
 class Rational {
 private:
 	int num1, num2;
@@ -18,6 +21,7 @@ public:
 	Rational & operator -(Rational &a);
 	Rational & operator /(Rational &a);
 	Rational & operator *(Rational &a);
+	friend std::ostream & operator <<( std::ostream &o, const Rational &r);
 
 	// Setters
 	int getNum1(int n);

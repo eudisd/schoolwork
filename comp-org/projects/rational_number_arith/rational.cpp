@@ -7,8 +7,8 @@ Rational::Rational(int a, int b)
 }
 Rational & Rational::operator +(Rational &a)
 {
-	Rational res = new Rational(a.getNum1() + num1, a.getDenom1() + denom1);
-	return res;
+	Rational res(a.getNum1() + num1, a.getDenom1() + denom1);
+	return *this;
 }
 Rational & Rational::operator -(Rational &a)
 {
@@ -21,6 +21,12 @@ Rational & Rational::operator /(Rational &a)
 Rational & Rational::operator *(Rational &a)
 {
 	return a;
+}
+
+std::ostream & operator <<(std::ostream &o, const Rational &r)
+{
+	o << r.num1 << "/" << r.denom1;
+	return o;
 }
 
 int Rational::getNum1(int n){ this->num1 = n; }
