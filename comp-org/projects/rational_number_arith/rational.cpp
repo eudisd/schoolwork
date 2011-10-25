@@ -7,7 +7,8 @@ Rational::Rational(int a, int b)
 }
 Rational & Rational::operator +(Rational &a)
 {
-	return a;
+	Rational res = new Rational(a.getNum1() + num1, a.getDenom1() + denom1);
+	return res;
 }
 Rational & Rational::operator -(Rational &a)
 {
@@ -21,8 +22,6 @@ Rational & Rational::operator *(Rational &a)
 {
 	return a;
 }
-
-
 
 int Rational::getNum1(int n){ this->num1 = n; }
 int Rational::getNum2(int n){ this->num2 = n; }
