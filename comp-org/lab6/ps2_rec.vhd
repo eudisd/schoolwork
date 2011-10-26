@@ -71,7 +71,7 @@ begin
 							next_state <= done;
 						else
 							next_data <= ps2data & current_data(10 downto 1);
-							next_n <= next_n - 1;
+							next_n <= current_n - 1;
 						end if;
 				when done =>
 					next_state <= idle;

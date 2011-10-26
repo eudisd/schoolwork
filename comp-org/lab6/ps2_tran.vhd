@@ -106,16 +106,16 @@ begin
 				end if;
 				
 			when transmit =>
-			
-				ps2_data_out <= '0';--enter you code here;
+
+				ps2_data_out <= current_data(0);--enter you code here;
 				tri_data <= '1';
 				
 				if (fall_edge = '1') then
-					next_data <= '0' & "00000000";--enter you code here;
+					next_data <= '0' & current_data(8 downto 1);--enter you code here;
 					if current_n = 0 then
-						next_state <= idle;--enter you code here;
+						next_state <= done;--enter you code here;
 					else
-						next_n <= "1001";--enter you code here;
+						next_n <= current_n - 1;--enter you code here;
 					end if;
 				end if;
 				
