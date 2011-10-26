@@ -111,11 +111,11 @@ begin
 				tri_data <= '1';
 				
 				if (fall_edge = '1') then
-					next_data <= '0' & '0';--enter you code here;
+					next_data <= '0' & "00000000";--enter you code here;
 					if current_n = 0 then
 						next_state <= idle;--enter you code here;
 					else
-						next_n <= idle;--enter you code here;
+						next_n <= "1001";--enter you code here;
 					end if;
 				end if;
 				
@@ -127,7 +127,7 @@ begin
 		end case;
 	end process;
 	
-	ps2_clk <= ps2_clk_out when tri_clk = '1' else 'z';
-	ps2_data <= ps2_data_out when tri_data = '1' else 'z';
+	ps2_clk <= ps2_clk_out when tri_clk = '1' else 'Z';
+	ps2_data <= ps2_data_out when tri_data = '1' else 'Z';
 	
 end arch;

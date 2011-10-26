@@ -59,11 +59,6 @@ begin
 		next_state <= current_state;
 		next_n <= current_n;
 		next_data <= current_data;
-			--write the code for idle and receive states
-			--in idle state, when the receiver is enabled and on falling edge of the ps2
-			--clock (fall_edge = '1'), shift the (current)data to the right and set the most
-			--significant bit of the (next)data to ps2 data. also set n to be equal to nine.
-			--remember to decrement n in the receive state.
 		if( fall_edge = '1' and rec_en = '1' ) then
 			case current_state is
 				when idle =>
