@@ -90,14 +90,14 @@ begin
 					next_state <= request;
 				end if;
 			when request =>
-				ps2_clk_out <= --enter you code here;
+				ps2_clk_out <= '0'; --enter you code here;
 				tri_clk <= '1';
 				next_counter <= current_counter - 1;
 				if (current_counter = 0) then
 					next_state <= start;
 				end if;
 			when start =>
-				ps2_data_out <= --enter you code here;
+				ps2_data_out <= '0';--enter you code here;
 				tri_data <= '1';
 				
 				if (fall_edge = '1') then
@@ -107,15 +107,15 @@ begin
 				
 			when transmit =>
 			
-				ps2_data_out <= --enter you code here;
+				ps2_data_out <= '0';--enter you code here;
 				tri_data <= '1';
 				
 				if (fall_edge = '1') then
-					next_data <= '0' & --enter you code here;
+					next_data <= '0' & '0';--enter you code here;
 					if current_n = 0 then
-						next_state <= --enter you code here;
+						next_state <= idle;--enter you code here;
 					else
-						next_n <= --enter you code here;
+						next_n <= idle;--enter you code here;
 					end if;
 				end if;
 				

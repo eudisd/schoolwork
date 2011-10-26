@@ -39,6 +39,33 @@ architecture arch of ps2_rt is
 		dout: out std_logic_vector( 7 downto 0)
 		);
 	end component;
+	
+	signal ps2_clk : std_logic;
+	signal ps2_data : std_logic;
+	signal tran_idle : std_logic;
+	signal trans_done : std_logic;
+	signal rec_done : std_logic;
+	signal dout : std_logic_vector( 7 downto 0 );
 begin
-	--enter your code here
+
+	tran: ps2_tran port map(
+		clk => clk,
+		reset => reset,
+		en => write_en,
+		din => din,
+		ps2_data => ps2_data,
+		ps2_clk => ps2_clk,
+		tran_done => tran_done,
+		tran_idle => tran_idle
+	)
+	
+	rec: ps2_rec port map(
+		clk => clk,
+		reset => reset,
+		ps2data => ps2_data,
+		ps2clock => ps2_clk,
+		rec_en => tran_idle,
+		rec_done => rec_done,
+		dout => dout
+	);
 end arch;
