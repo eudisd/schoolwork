@@ -2,6 +2,7 @@
 #define _RATIONAL_H_
 
 #include <iostream>
+#include <cstdlib>
 #include <fstream>
 
 class Rational {

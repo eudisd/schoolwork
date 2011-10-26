@@ -11,8 +11,14 @@ Rational & Rational::operator +(Rational &x)
 		b = denom1,
 		c = x.getNum1(),
 		d = x.getDenom1();
-
 	Rational *res = new Rational(a*d + b*c, b*d);
+
+	if(res->getDenom1() == 0){
+		std::cout << "Cannot divide by ZERO!  Error!" << std::endl;
+		exit(-1);
+	}
+
+	return *res;
 }
 Rational & Rational::operator -(Rational &x)
 {
@@ -22,6 +28,11 @@ Rational & Rational::operator -(Rational &x)
 		d = x.getDenom1();
 
 	Rational *res = new Rational(a*d - b*c, b*d);
+
+	if(res->getDenom1() == 0){
+		std::cout << "Cannot divide by ZERO!  Error!" << std::endl;
+		exit(-1);
+	}
 
 	return *res;
 }
@@ -33,6 +44,11 @@ Rational & Rational::operator /(Rational &x)
 		d = x.getDenom1();
 	Rational *res = new Rational(a*d, b*c);
 
+	if(res->getDenom1() == 0){
+		std::cout << "Cannot divide by ZERO!  Error!" << std::endl;
+		exit(-1);
+	}
+
 	return *res;
 }
 Rational & Rational::operator *(Rational &x)
@@ -42,6 +58,11 @@ Rational & Rational::operator *(Rational &x)
 		c = x.getNum1(),
 		d = x.getDenom1();
 	Rational *res = new Rational(a*c, b*d);
+
+	if(res->getDenom1() == 0){
+		std::cout << "Cannot divide by ZERO!  Error!" << std::endl;
+		exit(-1);
+	}
 
 	return *res;
 }
