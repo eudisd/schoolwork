@@ -37,9 +37,11 @@ begin
 	end process;
 	
 	next_filter <= ps2_clk & current_filter(7 downto 1);
+	
 	next_filter_clock <= '1' when current_filter = "11111111" else
 	'0' when current_filter = "00000000" else
 	current_filter_clock;
+	
 	fall_edge <= current_filter_clock and (not next_filter_clock);
 	
 	process (clk, reset)
@@ -106,7 +108,6 @@ begin
 				end if;
 				
 			when transmit =>
-
 				ps2_data_out <= current_data(0);--enter you code here;
 				tri_data <= '1';
 				
