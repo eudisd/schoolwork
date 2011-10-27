@@ -21,8 +21,9 @@ architecture arch_test of test_ps2_tran is
 	
 	signal clk: std_logic := '0';
 	signal ps2_data, ps2_clk: std_logic;
-	signal din: std_logic_vector(7 downto 0);
-	signal data : std_logic_vector(8 downto 0) := "011010000";
+	signal din: std_logic_vector(7 downto 0) = X"F4"; -- Initialization Code To Send To Mouse
+	
+	signal error : std_logic;
 	
 begin
 	rec: ps2_tran port map(
@@ -123,7 +124,7 @@ begin
 		wait for 35 us;
 		ps2clock <= '1';
 		wait for 35 us;
-		if (data(7 downto 0) = dout) then
+		if (if trans_done = '1' and ) then
 			report "no error detected. simulation successful" severity failure;
 		else
 			report "error detected" severity failure;
