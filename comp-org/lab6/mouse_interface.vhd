@@ -97,19 +97,19 @@ begin
 				end if;
 			when pack1 =>
 				if (rec_done = '1') then
-					next_y(8) <= --enter you code here;
-					next_x(8) <= --enter you code here;
+					next_y(8) <= '1'; --enter you code here;
+					next_x(8) <= '1'; --enter you code here;
 					next_btn <= rec_data(2 downto 0);
 					next_state <= pack2;
 				end if;
 			when pack2 =>
 				if (rec_done = '1') then
-					next_x(7 downto 0) <= --enter you code here;
+					next_x(7 downto 0) <= (others => '0'); --enter you code here;
 					next_state <= pack3;
 				end if;
 			when pack3 =>
 				if (rec_done = '1') then
-					next_y(7 downto 0) <= --enter you code here;
+					next_y(7 downto 0) <= (others => '0'); --enter you code here;
 					next_state <= done;
 				end if;
 			when done =>

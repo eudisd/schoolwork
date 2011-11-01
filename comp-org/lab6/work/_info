@@ -3,87 +3,235 @@ K3
 13
 cModel Technology
 Z0 dC:\cygwin\home\prototype\repos\schoolwork\comp-org\lab6
-Eps2_rec
-Z1 w1319593843
-Z2 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
-Z4 dC:\cygwin\home\prototype\repos\schoolwork\comp-org\lab6
-Z5 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rec.vhd
-Z6 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rec.vhd
+Edec_7seg_hex
+Z1 w1318910802
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z3 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z4 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z5 dC:\cygwin\home\prototype\repos\schoolwork\comp-org\lab6
+Z6 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/dec_7seg_hex.vhd
+Z7 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/dec_7seg_hex.vhd
 l0
-L4
-VN42nnIjR7>LJ31dSaRBQf3
-Z7 OV;C;6.6d;45
+L6
+VdHdlN4HYMG;naLEh0_QC@1
+Z8 OV;C;6.6d;45
 32
-Z8 o-work work -O0
-Z9 tExplicit 1
-!s100 hM:6U]CBiY7X71[hd>A9f0
-Aarch
-R2
-R3
-DEx4 work 7 ps2_rec 0 22 N42nnIjR7>LJ31dSaRBQf3
-l24
-L16
-Vdbjf?HAO9k5d_6c]eZXLo3
-R7
-32
-Z10 Mx2 4 ieee 14 std_logic_1164
-Z11 Mx1 4 ieee 11 numeric_std
-R8
-R9
-!s100 JiMLd^o>;U9;PmaTkTG?d0
-Eps2_tran
-Z12 w1320092945
+Z9 o-work work -O0
+Z10 tExplicit 1
+!s100 _bV:fad8dQjZXzXIzLbAO2
+Aa
 R2
 R3
 R4
-Z13 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_tran.vhd
-Z14 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_tran.vhd
+DEx4 work 12 dec_7seg_hex 0 22 dHdlN4HYMG;naLEh0_QC@1
+l15
+L13
+VET?H1OY5V0PESzYSP3kCf0
+R8
+32
+Z11 Mx3 4 ieee 14 std_logic_1164
+Z12 Mx2 4 ieee 15 std_logic_arith
+Z13 Mx1 4 ieee 18 std_logic_unsigned
+R9
+R10
+!s100 5BNAThSI=O>I;TnIz=ZYC3
+Edisplay_mouse
+Z14 w1320121079
+R4
+R5
+Z15 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/display_mouse.vhd
+Z16 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/display_mouse.vhd
+l0
+L4
+VICT@e:QWB2KKC85cz14Xn1
+R8
+32
+R9
+R10
+!s100 z]A2EN0D9FPP0MU>HUk7Z2
+Aarch
+R4
+DEx4 work 13 display_mouse 0 22 ICT@e:QWB2KKC85cz14Xn1
+l46
+L16
+VEkbZGa>83GL^e1OobOb6j3
+R8
+32
+Z17 Mx1 4 ieee 14 std_logic_1164
+R9
+R10
+!s100 >hzhTde:C5i461UoQc^n_2
+Ehex_to_seven
+Z18 w1319141966
+R2
+R3
+R4
+R5
+Z19 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/hex_to_seven.vhd
+Z20 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/hex_to_seven.vhd
+l0
+L6
+VgFSCE9O2<KzBF`:gdCA?32
+R8
+32
+R9
+R10
+!s100 _oWa7[mhXb^9JnJc7gdX>2
+Aa
+R2
+R3
+R4
+DEx4 work 12 hex_to_seven 0 22 gFSCE9O2<KzBF`:gdCA?32
+l21
+L13
+VfcgfU=<lUPfOeS^0gXf8A3
+R8
+32
+R11
+R12
+R13
+R9
+R10
+!s100 geKiTo2Hn]W]?lJ;:V=3k0
+Emouse
+Z21 w1320120906
+Z22 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+R4
+R5
+Z23 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/mouse_interface.vhd
+Z24 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/mouse_interface.vhd
+l0
+L5
+V4E^WONdK]1Vgd>V@Y^m;?0
+R8
+32
+R9
+R10
+!s100 1MEUDQPb8PZcK@<kMOfA[2
+Aarch
+R22
+R4
+DEx4 work 5 mouse 0 22 4E^WONdK]1Vgd>V@Y^m;?0
+l43
+L17
+VZh=lg:32<4^j33T1A7ojB2
+R8
+32
+Z25 Mx2 4 ieee 14 std_logic_1164
+Z26 Mx1 4 ieee 11 numeric_std
+R9
+R10
+!s100 QoFKIS:md1k94Ig2^Vada2
+Eps2_rec
+Z27 w1319596426
+R22
+R4
+R5
+Z28 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rec.vhd
+Z29 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rec.vhd
+l0
+L4
+VN42nnIjR7>LJ31dSaRBQf3
+R8
+32
+R9
+R10
+!s100 hM:6U]CBiY7X71[hd>A9f0
+Aarch
+R22
+R4
+DEx4 work 7 ps2_rec 0 22 N42nnIjR7>LJ31dSaRBQf3
+l24
+L16
+V84iBff]JI<9Y]KA3h2kQa2
+R8
+32
+R25
+R26
+R9
+R10
+!s100 jOUdfBhQgISI45n0D8jQc1
+Eps2_rt
+Z30 w1320121569
+R22
+R4
+R5
+Z31 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rt.vhd
+Z32 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rt.vhd
+l0
+L5
+VYR;CNRHOGW:e60G<:@FN00
+R8
+32
+R9
+R10
+!s100 TO4RmeRlh`?GK?mWGFU6b1
+Aarch
+R22
+R4
+DEx4 work 6 ps2_rt 0 22 YR;CNRHOGW:e60G<:@FN00
+l45
+L18
+V15V:hQgZc2`?O9_FoOY4^2
+R8
+32
+R25
+R26
+R9
+R10
+!s100 NoT2V[SZ<9c@A[ahE;ZIV0
+Eps2_tran
+Z33 w1320093805
+R22
+R4
+R5
+Z34 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_tran.vhd
+Z35 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_tran.vhd
 l0
 L5
 VOc>RBWlC5FC13h[@TdRZS3
-R7
-32
 R8
+32
 R9
+R10
 !s100 0PmeFRZZALWggK^FXaJW`2
 Aarch
-R2
-R3
+R22
+R4
 DEx4 work 8 ps2_tran 0 22 Oc>RBWlC5FC13h[@TdRZS3
 l27
 L15
 V<SdDaM?g^k]@zgO;hnCDa1
-R7
-32
-R10
-R11
-R8
-R9
 !s100 zI2>>gj`UceC_<Yj4dgW;0
+R8
+32
+R25
+R26
+R9
+R10
 Etest_ps2_tran
-Z15 w1320116582
-R3
+Z36 w1320116679
 R4
-Z16 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/test_ps2_tran.vhd
-Z17 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/test_ps2_tran.vhd
+R5
+Z37 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/test_ps2_tran.vhd
+Z38 FC:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/test_ps2_tran.vhd
 l0
 L4
 Va=1?Pc1DbAT?XA?]Xo5z41
 !s100 919fL@DCTTZLJmQ65[EaY0
-R7
-32
 R8
+32
 R9
+R10
 Aarch_test
-R3
-DEx4 work 13 test_ps2_tran 0 22 a=1?Pc1DbAT?XA?]Xo5z41
+R4
+Z39 DEx4 work 13 test_ps2_tran 0 22 a=1?Pc1DbAT?XA?]Xo5z41
 l25
 L7
-VodBnBzYJzIIN>KEhO<5Jj3
-R7
-32
-Z18 Mx1 4 ieee 14 std_logic_1164
+Z40 V>zcI0R>I=Vm0aQDEGY@c71
+Z41 !s100 ?:QMHE4T52[FFXZD?U8Mf3
 R8
+32
+R17
 R9
-!s100 eFNI`l>eT;GPW@OVa47lL1
+R10

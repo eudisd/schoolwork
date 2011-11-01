@@ -40,12 +40,8 @@ architecture arch of ps2_rt is
 		);
 	end component;
 	
-	signal ps2_clk : std_logic;
-	signal ps2_data : std_logic;
 	signal tran_idle : std_logic;
-	signal trans_done : std_logic;
-	signal rec_done : std_logic;
-	signal dout : std_logic_vector( 7 downto 0 );
+
 begin
 
 	tran: ps2_tran port map(
@@ -57,7 +53,7 @@ begin
 		ps2_clk => ps2_clk,
 		tran_done => tran_done,
 		tran_idle => tran_idle
-	)
+	);
 	
 	rec: ps2_rec port map(
 		clk => clk,

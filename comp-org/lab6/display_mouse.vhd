@@ -3,9 +3,12 @@ use ieee.std_logic_1164.all;
 
 entity display_mouse is
 	port(
-		clk ,reset: in std_logic;
-		x : std_logic_vector( 8 downto 0)
-		);
+		clock : in std_logic;
+		reset : in std_logic;
+		en : in std_logic;
+		display: out std_logic_vector(55 downto 0);
+		ps2d : inout std_logic;
+		ps2c : inout std_logic
 	);
 end display_mouse;
 
@@ -35,20 +38,36 @@ architecture arch of display_mouse is
 		hex7 : out std_logic_vector(6 downto 0));
 	end component;
 	
-	signal clk, reset : std_logic;
+	signal m_done : std_logic;
+	signal x, y : std_logic_vector (8 downto 0);
+	signal btn : std_logic_vector( 2 downto 0);
+	signal dis_input : std_logic_vector(31 downto 0);
 	
 begin
 
+	dis_input <= "00000000000000000000000000000000";
 	
-	m : port map (
-		clk => clk,
+	m : mouse port map (
+		clk => clock,
 		reset => reset,
-		ps2_data => ps2_data,
-		ps2_clk => ps2_data,
+		ps2_data => ps2d,
+		ps2_clk => ps2c,
 		m_done => m_done,
 		x => x, 
 		y => y,
 		btn => btn
 		);
 
+	sev : hex_to_seven port map(
+		en => m_done,
+		input => dis_input,
+		hex0 => display(6 downto 0),
+		hex1 => display(13 downto 7),
+		hex2 => display(20 downto 14),
+		hex3 => display(27 downto 21),
+		hex4 => display(34 downto 28),
+		hex5 => display(41 downto 35),
+		hex6 => display(48 downto 42),
+		hex7 => display(55 downto 49)
+	);
 end arch;
