@@ -85,7 +85,7 @@ begin
 		
 		case current_state is
 			when idle =>
-				tran_idle <='1';
+				tran_idle <= '1';
 				if(en = '1') then
 					next_data <= parity & din;
 					next_counter <= (others => '1');
@@ -103,7 +103,7 @@ begin
 				tri_data <= '1';
 				
 				if (fall_edge = '1') then
-					next_n <= "1000";
+					next_n <= "1000";			
 					next_state <= transmit;
 				end if;
 				

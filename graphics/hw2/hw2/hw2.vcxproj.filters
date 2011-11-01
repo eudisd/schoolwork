@@ -18,7 +18,7 @@
     <ClCompile Include="fcts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="texture.cpp">
+    <ClCompile Include="cube.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

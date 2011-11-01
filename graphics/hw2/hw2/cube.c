@@ -165,7 +165,7 @@ void spinCube()
 
 /* Idle callback, spin cube 2 degrees about selected axis */
 
-	theta[axis] += 0.5;
+	theta[axis] += 0.2;
 	if( theta[axis] > 360.0 ) theta[axis] -= 360.0;
 	glutPostRedisplay();
 }

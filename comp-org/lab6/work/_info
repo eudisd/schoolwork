@@ -33,7 +33,7 @@ R8
 R9
 !s100 JiMLd^o>;U9;PmaTkTG?d0
 Eps2_tran
-Z12 w1319597198
+Z12 w1320092945
 R2
 R3
 R4
@@ -53,16 +53,16 @@ R3
 DEx4 work 8 ps2_tran 0 22 Oc>RBWlC5FC13h[@TdRZS3
 l27
 L15
-VMXaRA:S=:3`V0Di]hGU<e1
+V<SdDaM?g^k]@zgO;hnCDa1
 R7
 32
 R10
 R11
 R8
 R9
-!s100 [=[ONVn?D6P2c<cR@A4Z]0
+!s100 zI2>>gj`UceC_<Yj4dgW;0
 Etest_ps2_tran
-Z15 w1319740366
+Z15 w1320116582
 R3
 R4
 Z16 8C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/test_ps2_tran.vhd
@@ -77,13 +77,13 @@ R8
 R9
 Aarch_test
 R3
-Z18 DEx4 work 13 test_ps2_tran 0 22 a=1?Pc1DbAT?XA?]Xo5z41
+DEx4 work 13 test_ps2_tran 0 22 a=1?Pc1DbAT?XA?]Xo5z41
 l25
 L7
-VVlfY32M@8[faKgje[_J?H1
-!s100 RgzG3^O;LclPJcNz3D<jb3
+VodBnBzYJzIIN>KEhO<5Jj3
 R7
 32
-Z19 Mx1 4 ieee 14 std_logic_1164
+Z18 Mx1 4 ieee 14 std_logic_1164
 R8
 R9
+!s100 eFNI`l>eT;GPW@OVa47lL1

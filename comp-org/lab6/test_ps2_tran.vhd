@@ -15,8 +15,8 @@ architecture arch_test of test_ps2_tran is
 			  din: in std_logic_vector( 7 downto 0));
 	end component;
 	
-	signal clk: std_logic := '0';
-	signal ps2_data, ps2_clk: std_logic;
+	signal clk, ps2_clk: std_logic := '0';
+	signal ps2_data: std_logic;
 	signal tran_done, tran_idle : std_logic;
 	signal din: std_logic_vector(7 downto 0) := X"F4"; -- Initialization Code To Send To Mouse
 	
@@ -33,53 +33,16 @@ begin
 				tran_idle => tran_idle,
 				din => din
 				);
-	process
-	begin
-		wait for 50 ns;
-		clk <= not clk;
-	end process;
+	
 	
 	process
 	begin
 		
-		clk <= not ps2_clk;
-		wait for 50 ns;
+		din <= "11110100";
 		
-		clk <= not ps2_clk;
-		wait for 50 ns;
+		clk <= not clk;
+		wait for 20 ns;
 		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
-		
-		clk <= not ps2_clk;
-		wait for 50 ns;
 		if ( error /= '0') then
 			report "no error detected. simulation successful" severity failure;
 		else

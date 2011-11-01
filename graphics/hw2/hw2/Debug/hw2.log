@@ -1,3 +1,4 @@
-﻿  texture.cpp
+﻿  cube.c
+c:\cygwin\home\prototype\repos\schoolwork\graphics\hw2\hw2\cube.c(210): warning C4113: 'void (__cdecl *)()' differs in parameter lists from 'void (__cdecl *)(void)'
   LINK : C:\cygwin\home\prototype\repos\schoolwork\graphics\hw2\Debug\hw2.exe not found or not built by the last incremental link; performing full link
   hw2.vcxproj -> C:\cygwin\home\prototype\repos\schoolwork\graphics\hw2\Debug\hw2.exe
