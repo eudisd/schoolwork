@@ -36,12 +36,16 @@ begin
 	
 	
 	process
+		variable i : integer := 0;
 	begin
 		
 		din <= "11110100";
 		
-		clk <= not clk;
-		wait for 20 ns;
+		while( i < 1000 ) loop
+			clk <= not clk;
+			wait for 20 ns;
+			i := i + 1;
+		end loop;
 		
 		if ( error /= '0') then
 			report "no error detected. simulation successful" severity failure;

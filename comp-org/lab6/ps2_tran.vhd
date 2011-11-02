@@ -103,7 +103,7 @@ begin
 				tri_data <= '1';
 				
 				if (fall_edge = '1') then
-					next_n <= "1000";			
+					next_n <= "1000";	
 					next_state <= transmit;
 				end if;
 				
@@ -114,7 +114,7 @@ begin
 				if (fall_edge = '1') then
 					next_data <= '0' & current_data(8 downto 1);--enter you code here;
 					if current_n = 0 then
-						next_state <= done;--enter you code here;
+				 		next_state <= done;--enter you code here;
 					else
 						next_n <= current_n - 1;--enter you code here;
 					end if;
