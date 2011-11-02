@@ -1,0 +1,491 @@
+Analysis & Synthesis report for mouse_display
+Wed Nov 02 16:16:31 2011
+Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |display_mouse|mouse:m|current_state
+  8. State Machine - |display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state
+  9. State Machine - |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Nov 02 16:16:31 2011    ;
+; Quartus II Version                 ; 8.0 Build 215 05/29/2008 SJ Full Version ;
+; Revision Name                      ; mouse_display                            ;
+; Top-level Entity Name              ; display_mouse                            ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 110                                      ;
+;     Total combinational functions  ; 110                                      ;
+;     Dedicated logic registers      ; 72                                       ;
+; Total registers                    ; 72                                       ;
+; Total pins                         ; 61                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                          ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Option                                                       ; Setting            ; Default Value      ;
++--------------------------------------------------------------+--------------------+--------------------+
+; Device                                                       ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                        ; display_mouse      ; mouse_display      ;
+; Family name                                                  ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                      ; Off                ;                    ;
+; Use smart compilation                                        ; Off                ; Off                ;
+; Maximum processors allowed for parallel compilation          ; 1                  ; 1                  ;
+; Restructure Multiplexers                                     ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                          ; Off                ; Off                ;
+; Preserve fewer node names                                    ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                    ; Off                ; Off                ;
+; Verilog Version                                              ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                 ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                     ; Auto               ; Auto               ;
+; Safe State Machine                                           ; Off                ; Off                ;
+; Extract Verilog State Machines                               ; On                 ; On                 ;
+; Extract VHDL State Machines                                  ; On                 ; On                 ;
+; Ignore Verilog initial constructs                            ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                   ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops               ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On                 ; On                 ;
+; Parallel Synthesis                                           ; Off                ; Off                ;
+; DSP Block Balancing                                          ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                           ; On                 ; On                 ;
+; Power-Up Don't Care                                          ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                 ; Off                ; Off                ;
+; Remove Duplicate Registers                                   ; On                 ; On                 ;
+; Ignore CARRY Buffers                                         ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                       ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                    ; Off                ; Off                ;
+; Ignore LCELL Buffers                                         ; Off                ; Off                ;
+; Ignore SOFT Buffers                                          ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                               ; Off                ; Off                ;
+; Optimization Technique                                       ; Balanced           ; Balanced           ;
+; Carry Chain Length                                           ; 70                 ; 70                 ;
+; Auto Carry Chains                                            ; On                 ; On                 ;
+; Auto Open-Drain Pins                                         ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                        ; Off                ; Off                ;
+; Perform gate-level register retiming                         ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax       ; On                 ; On                 ;
+; Auto ROM Replacement                                         ; On                 ; On                 ;
+; Auto RAM Replacement                                         ; On                 ; On                 ;
+; Auto Shift Register Replacement                              ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                ; On                 ; On                 ;
+; Strict RAM Replacement                                       ; Off                ; Off                ;
+; Allow Synchronous Control Signals                            ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                       ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                            ; Off                ; Off                ;
+; Auto Resource Sharing                                        ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                           ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                           ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                ; Off                ; Off                ;
+; Ignore translate_off and synthesis_off directives            ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report           ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                           ; Off                ; Off                ;
+; Synchronization Register Chain Length                        ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                 ; Normal compilation ; Normal compilation ;
+; HDL message level                                            ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages              ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100                ; 100                ;
+; Clock MUX Protection                                         ; On                 ; On                 ;
+; Block Design Naming                                          ; Auto               ; Auto               ;
+; SDC constraint protection                                    ; Off                ; Off                ;
+; Synthesis Effort                                             ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On                 ; On                 ;
++--------------------------------------------------------------+--------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+
+; display_mouse.vhd                ; yes             ; User VHDL File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/display_mouse.vhd   ;
+; dec_7seg_hex.vhd                 ; yes             ; User VHDL File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/dec_7seg_hex.vhd    ;
+; hex_to_seven.vhd                 ; yes             ; User VHDL File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/hex_to_seven.vhd    ;
+; mouse_interface.vhd              ; yes             ; User VHDL File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/mouse_interface.vhd ;
+; ps2_rec.vhd                      ; yes             ; User VHDL File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rec.vhd         ;
+; ps2_rt.vhd                       ; yes             ; User VHDL File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_rt.vhd          ;
+; ps2_tran.vhd                     ; yes             ; User VHDL File  ; C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/ps2_tran.vhd        ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 110   ;
+;                                             ;       ;
+; Total combinational functions               ; 110   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 46    ;
+;     -- 3 input functions                    ; 30    ;
+;     -- <=2 input functions                  ; 34    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 98    ;
+;     -- arithmetic mode                      ; 12    ;
+;                                             ;       ;
+; Total registers                             ; 72    ;
+;     -- Dedicated logic registers            ; 72    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 61    ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 72    ;
+; Total fan-out                               ; 635   ;
+; Average fan-out                             ; 2.61  ;
++---------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                     ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; |display_mouse             ; 110 (0)           ; 72 (0)       ; 0           ; 0            ; 0       ; 0         ; 61   ; 0            ; |display_mouse                                  ; work         ;
+;    |hex_to_seven:sev|      ; 29 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|hex_to_seven:sev                 ; work         ;
+;       |dec_7seg_hex:d0|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|hex_to_seven:sev|dec_7seg_hex:d0 ; work         ;
+;       |dec_7seg_hex:d1|    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|hex_to_seven:sev|dec_7seg_hex:d1 ; work         ;
+;       |dec_7seg_hex:d2|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|hex_to_seven:sev|dec_7seg_hex:d2 ; work         ;
+;    |mouse:m|               ; 81 (8)            ; 72 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|mouse:m                          ; work         ;
+;       |ps2_rt:rt|          ; 73 (0)            ; 56 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|mouse:m|ps2_rt:rt                ; work         ;
+;          |ps2_rec:rec|     ; 17 (17)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec    ; work         ;
+;          |ps2_tran:tran|   ; 56 (56)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran  ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |display_mouse|mouse:m|current_state                                                                                                                         ;
++---------------------+--------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; Name                ; current_state.done ; current_state.pack3 ; current_state.pack2 ; current_state.pack1 ; current_state.init3 ; current_state.init2 ; current_state.init1 ;
++---------------------+--------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; current_state.init1 ; 0                  ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ;
+; current_state.init2 ; 0                  ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ; 1                   ;
+; current_state.init3 ; 0                  ; 0                   ; 0                   ; 0                   ; 1                   ; 0                   ; 1                   ;
+; current_state.pack1 ; 0                  ; 0                   ; 0                   ; 1                   ; 0                   ; 0                   ; 1                   ;
+; current_state.pack2 ; 0                  ; 0                   ; 1                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; current_state.pack3 ; 0                  ; 1                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; current_state.done  ; 1                  ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
++---------------------+--------------------+---------------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------+
+; State Machine - |display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state              ;
++-----------------------+--------------------+-----------------------+--------------------+
+; Name                  ; current_state.done ; current_state.receive ; current_state.idle ;
++-----------------------+--------------------+-----------------------+--------------------+
+; current_state.idle    ; 0                  ; 0                     ; 0                  ;
+; current_state.receive ; 0                  ; 1                     ; 1                  ;
+; current_state.done    ; 1                  ; 0                     ; 1                  ;
++-----------------------+--------------------+-----------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state                                                            ;
++------------------------+--------------------+------------------------+---------------------+-----------------------+--------------------+
+; Name                   ; current_state.done ; current_state.transmit ; current_state.start ; current_state.request ; current_state.idle ;
++------------------------+--------------------+------------------------+---------------------+-----------------------+--------------------+
+; current_state.idle     ; 0                  ; 0                      ; 0                   ; 0                     ; 0                  ;
+; current_state.request  ; 0                  ; 0                      ; 0                   ; 1                     ; 1                  ;
+; current_state.start    ; 0                  ; 0                      ; 1                   ; 0                     ; 1                  ;
+; current_state.transmit ; 0                  ; 1                      ; 0                   ; 0                     ; 1                  ;
+; current_state.done     ; 1                  ; 0                      ; 0                   ; 0                     ; 1                  ;
++------------------------+--------------------+------------------------+---------------------+-----------------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                       ;
++-----------------------------------------------------+----------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal        ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------------+------------------------+
+; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[6]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[4]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[3]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[2]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[1]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d0|segment_data[0]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[6]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[5]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[4]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[3]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[2]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[1]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[0]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d2|segment_data[6]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d2|segment_data[3]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d2|segment_data[2]    ; mouse:m|current_state.done ; yes                    ;
+; hex_to_seven:sev|dec_7seg_hex:d2|segment_data[1]    ; mouse:m|current_state.done ; yes                    ;
+; Number of user-specified and inferred latches = 18  ;                            ;                        ;
++-----------------------------------------------------+----------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                    ;
++------------------------------------------------------+----------------------------------------------------------------+
+; Register name                                        ; Reason for Removal                                             ;
++------------------------------------------------------+----------------------------------------------------------------+
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[8]      ; Stuck at GND due to stuck port data_in                         ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[7]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[6]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[6]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[5]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[5]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[4]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[4]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[3]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[3]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[2]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[2]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[1]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[1]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[0]    ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[0]    ;
+; mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter_clock ; Merged with mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter_clock ;
+; Total Number of Removed Registers = 10               ;                                                                ;
++------------------------------------------------------+----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 72    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 13    ;
+; Number of registers using Asynchronous Clear ; 72    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 48    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; 4:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[8] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[7]    ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[0]       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[0]         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |display_mouse|mouse:m|Selector0                                  ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|Selector26         ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; No         ; |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|Selector25         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
+    Info: Processing started: Wed Nov 02 16:16:28 2011
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mouse_display -c mouse_display
+Warning: Ignored assignments for entity "mouse_display" -- entity does not exist in design
+    Warning: Assignment of entity set_global_assignment -name LL_ROOT_REGION ON -entity mouse_display -section_id "Root Region" is ignored
+    Warning: Assignment of entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity mouse_display -section_id "Root Region" is ignored
+Info: Found 2 design units, including 1 entities, in source file display_mouse.vhd
+    Info: Found design unit 1: display_mouse-arch
+    Info: Found entity 1: display_mouse
+Info: Found 2 design units, including 1 entities, in source file dec_7seg_hex.vhd
+    Info: Found design unit 1: dec_7seg_hex-a
+    Info: Found entity 1: dec_7seg_hex
+Info: Found 2 design units, including 1 entities, in source file hex_to_seven.vhd
+    Info: Found design unit 1: hex_to_seven-a
+    Info: Found entity 1: hex_to_seven
+Info: Found 2 design units, including 1 entities, in source file mouse_interface.vhd
+    Info: Found design unit 1: mouse-arch
+    Info: Found entity 1: mouse
+Info: Found 2 design units, including 1 entities, in source file ps2_rec.vhd
+    Info: Found design unit 1: ps2_rec-arch
+    Info: Found entity 1: ps2_rec
+Info: Found 2 design units, including 1 entities, in source file ps2_rt.vhd
+    Info: Found design unit 1: ps2_rt-arch
+    Info: Found entity 1: ps2_rt
+Info: Found 2 design units, including 1 entities, in source file ps2_tran.vhd
+    Info: Found design unit 1: ps2_tran-arch
+    Info: Found entity 1: ps2_tran
+Info: Found 2 design units, including 1 entities, in source file test_ps2_tran.vhd
+    Info: Found design unit 1: test_ps2_tran-arch_test
+    Info: Found entity 1: test_ps2_tran
+Info: Found 1 design units, including 1 entities, in source file mouse_display.bdf
+    Info: Found entity 1: mouse_display
+Info: Elaborating entity "display_mouse" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at display_mouse.vhd(42): object "y" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at display_mouse.vhd(43): object "btn" assigned a value but never read
+Info: Elaborating entity "mouse" for hierarchy "mouse:m"
+Info: Elaborating entity "ps2_rt" for hierarchy "mouse:m|ps2_rt:rt"
+Info: Elaborating entity "ps2_tran" for hierarchy "mouse:m|ps2_rt:rt|ps2_tran:tran"
+Info: Elaborating entity "ps2_rec" for hierarchy "mouse:m|ps2_rt:rt|ps2_rec:rec"
+Warning (10492): VHDL Process Statement warning at ps2_rec.vhd(62): signal "rec_en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Elaborating entity "hex_to_seven" for hierarchy "hex_to_seven:sev"
+Info: Elaborating entity "dec_7seg_hex" for hierarchy "hex_to_seven:sev|dec_7seg_hex:d0"
+Warning (10492): VHDL Process Statement warning at dec_7seg_hex.vhd(19): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at dec_7seg_hex.vhd(16): inferring latch(es) for signal or variable "segment_data", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "segment_data[0]" at dec_7seg_hex.vhd(16)
+Info (10041): Inferred latch for "segment_data[1]" at dec_7seg_hex.vhd(16)
+Info (10041): Inferred latch for "segment_data[2]" at dec_7seg_hex.vhd(16)
+Info (10041): Inferred latch for "segment_data[3]" at dec_7seg_hex.vhd(16)
+Info (10041): Inferred latch for "segment_data[4]" at dec_7seg_hex.vhd(16)
+Info (10041): Inferred latch for "segment_data[5]" at dec_7seg_hex.vhd(16)
+Info (10041): Inferred latch for "segment_data[6]" at dec_7seg_hex.vhd(16)
+Warning (14130): Reduced register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[8]" with stuck data_in port to stuck value GND
+Info: State machine "|display_mouse|mouse:m|current_state" contains 7 states
+Info: State machine "|display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state" contains 3 states
+Info: State machine "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state" contains 5 states
+Info: Selected Auto state machine encoding method for state machine "|display_mouse|mouse:m|current_state"
+Info: Encoding result for state machine "|display_mouse|mouse:m|current_state"
+    Info: Completed encoding using 7 state bits
+        Info: Encoded state bit "mouse:m|current_state.done"
+        Info: Encoded state bit "mouse:m|current_state.pack3"
+        Info: Encoded state bit "mouse:m|current_state.pack2"
+        Info: Encoded state bit "mouse:m|current_state.pack1"
+        Info: Encoded state bit "mouse:m|current_state.init3"
+        Info: Encoded state bit "mouse:m|current_state.init2"
+        Info: Encoded state bit "mouse:m|current_state.init1"
+    Info: State "|display_mouse|mouse:m|current_state.init1" uses code string "0000000"
+    Info: State "|display_mouse|mouse:m|current_state.init2" uses code string "0000011"
+    Info: State "|display_mouse|mouse:m|current_state.init3" uses code string "0000101"
+    Info: State "|display_mouse|mouse:m|current_state.pack1" uses code string "0001001"
+    Info: State "|display_mouse|mouse:m|current_state.pack2" uses code string "0010001"
+    Info: State "|display_mouse|mouse:m|current_state.pack3" uses code string "0100001"
+    Info: State "|display_mouse|mouse:m|current_state.done" uses code string "1000001"
+Info: Selected Auto state machine encoding method for state machine "|display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state"
+Info: Encoding result for state machine "|display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state"
+    Info: Completed encoding using 3 state bits
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.done"
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.receive"
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.idle"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.idle" uses code string "000"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.receive" uses code string "011"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.done" uses code string "101"
+Info: Selected Auto state machine encoding method for state machine "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state"
+Info: Encoding result for state machine "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state"
+    Info: Completed encoding using 5 state bits
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.done"
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.transmit"
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.start"
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request"
+        Info: Encoded state bit "mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.idle"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.idle" uses code string "00000"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request" uses code string "00011"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.start" uses code string "00101"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.transmit" uses code string "01001"
+    Info: State "|display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.done" uses code string "10001"
+Info: Duplicate LATCH primitives merged into single LATCH primitive
+    Info: Duplicate LATCH primitive "hex_to_seven:sev|dec_7seg_hex:d2|segment_data[3]" merged with LATCH primitive "hex_to_seven:sev|dec_7seg_hex:d2|segment_data[6]"
+    Info: Duplicate LATCH primitive "hex_to_seven:sev|dec_7seg_hex:d2|segment_data[2]" merged with LATCH primitive "hex_to_seven:sev|dec_7seg_hex:d2|segment_data[6]"
+    Info: Duplicate LATCH primitive "hex_to_seven:sev|dec_7seg_hex:d2|segment_data[1]" merged with LATCH primitive "hex_to_seven:sev|dec_7seg_hex:d2|segment_data[6]"
+Info: Duplicate registers merged to single register
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[7]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[6]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[6]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[5]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[5]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[4]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[4]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[3]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[3]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[2]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[2]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[1]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[1]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter[0]" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[0]"
+    Info (13350): Duplicate register "mouse:m|ps2_rt:rt|ps2_tran:tran|current_filter_clock" merged to single register "mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter_clock"
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "display[15]" is stuck at GND
+    Warning (13410): Pin "display[16]" is stuck at GND
+    Warning (13410): Pin "display[20]" is stuck at VCC
+    Warning (13410): Pin "display[21]" is stuck at GND
+    Warning (13410): Pin "display[22]" is stuck at GND
+    Warning (13410): Pin "display[23]" is stuck at GND
+    Warning (13410): Pin "display[24]" is stuck at GND
+    Warning (13410): Pin "display[25]" is stuck at GND
+    Warning (13410): Pin "display[26]" is stuck at GND
+    Warning (13410): Pin "display[27]" is stuck at VCC
+    Warning (13410): Pin "display[28]" is stuck at GND
+    Warning (13410): Pin "display[29]" is stuck at GND
+    Warning (13410): Pin "display[30]" is stuck at GND
+    Warning (13410): Pin "display[31]" is stuck at GND
+    Warning (13410): Pin "display[32]" is stuck at GND
+    Warning (13410): Pin "display[33]" is stuck at GND
+    Warning (13410): Pin "display[34]" is stuck at VCC
+    Warning (13410): Pin "display[35]" is stuck at GND
+    Warning (13410): Pin "display[36]" is stuck at GND
+    Warning (13410): Pin "display[37]" is stuck at GND
+    Warning (13410): Pin "display[38]" is stuck at GND
+    Warning (13410): Pin "display[39]" is stuck at GND
+    Warning (13410): Pin "display[40]" is stuck at GND
+    Warning (13410): Pin "display[41]" is stuck at VCC
+    Warning (13410): Pin "display[42]" is stuck at GND
+    Warning (13410): Pin "display[43]" is stuck at GND
+    Warning (13410): Pin "display[44]" is stuck at GND
+    Warning (13410): Pin "display[45]" is stuck at GND
+    Warning (13410): Pin "display[46]" is stuck at GND
+    Warning (13410): Pin "display[47]" is stuck at GND
+    Warning (13410): Pin "display[48]" is stuck at VCC
+    Warning (13410): Pin "display[49]" is stuck at GND
+    Warning (13410): Pin "display[50]" is stuck at GND
+    Warning (13410): Pin "display[51]" is stuck at GND
+    Warning (13410): Pin "display[52]" is stuck at GND
+    Warning (13410): Pin "display[53]" is stuck at GND
+    Warning (13410): Pin "display[54]" is stuck at GND
+    Warning (13410): Pin "display[55]" is stuck at VCC
+Critical Warning: Ignored Power-Up Level option on the following registers
+    Critical Warning: Register mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[3] will power up to Low
+    Critical Warning: Register mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[0] will power up to Low
+Warning: Ignored assignments for entity "mouse_display" -- entity does not exist in design
+    Warning: Assignment of entity set_global_assignment -name LL_ROOT_REGION ON -entity mouse_display -section_id "Root Region" is ignored
+    Warning: Assignment of entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity mouse_display -section_id "Root Region" is ignored
+Warning: Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "en"
+Info: Implemented 202 device resources after synthesis - the final resource count might be different
+    Info: Implemented 3 input pins
+    Info: Implemented 56 output pins
+    Info: Implemented 2 bidirectional pins
+    Info: Implemented 141 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 56 warnings
+    Info: Peak virtual memory: 226 megabytes
+    Info: Processing ended: Wed Nov 02 16:16:31 2011
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

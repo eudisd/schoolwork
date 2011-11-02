@@ -45,7 +45,7 @@ architecture arch of display_mouse is
 	
 begin
 
-	dis_input <= "00000000000000000000000" & x;
+	dis_input <= "000000000000000000000000" & x;
 	
 	m : mouse port map (
 		clk => clock,
