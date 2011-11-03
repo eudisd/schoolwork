@@ -22,39 +22,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-display_mouse
-# storage
-db|mouse_display.(0).cnf
-db|mouse_display.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-display_mouse.vhd
-87708b6cc22cc69bd3d07a3d9b2ea765
-4
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-|
-}
-# lmf
-..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
 mouse
 # storage
 db|mouse_display.(1).cnf
@@ -93,7 +60,7 @@ PARAMETER_STRING
 USR
 }
 # hierarchies {
-mouse:m
+display_mouse:inst|mouse:m
 }
 # lmf
 ..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
@@ -136,7 +103,7 @@ PARAMETER_STRING
 USR
 }
 # hierarchies {
-mouse:m|ps2_rt:rt
+display_mouse:inst|mouse:m|ps2_rt:rt
 }
 # lmf
 ..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
@@ -175,46 +142,7 @@ PARAMETER_STRING
 USR
 }
 # hierarchies {
-mouse:m|ps2_rt:rt|ps2_tran:tran
-}
-# lmf
-..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
-9a59d39b0706640b4b2718e8a1ff1f
-# macro_sequence
-
-# end
-# entity
-ps2_rec
-# storage
-db|mouse_display.(4).cnf
-db|mouse_display.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-ps2_rec.vhd
-24f2ca2896dd8ebcbf2fac8053cbcac8
-4
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# user_parameter {
- constraint(dout)
-7 downto 0
-PARAMETER_STRING
-USR
-}
-# hierarchies {
-mouse:m|ps2_rt:rt|ps2_rec:rec
+display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran
 }
 # lmf
 ..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
@@ -285,7 +213,7 @@ PARAMETER_STRING
 USR
 }
 # hierarchies {
-hex_to_seven:sev
+display_mouse:inst|hex_to_seven:sev
 }
 # lmf
 ..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
@@ -324,14 +252,106 @@ PARAMETER_STRING
 USR
 }
 # hierarchies {
-hex_to_seven:sev|dec_7seg_hex:d0
-hex_to_seven:sev|dec_7seg_hex:d1
-hex_to_seven:sev|dec_7seg_hex:d2
-hex_to_seven:sev|dec_7seg_hex:d3
-hex_to_seven:sev|dec_7seg_hex:d4
-hex_to_seven:sev|dec_7seg_hex:d5
-hex_to_seven:sev|dec_7seg_hex:d6
-hex_to_seven:sev|dec_7seg_hex:d7
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d0
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d1
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d2
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d3
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d4
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d5
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d6
+display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d7
+}
+# lmf
+..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+Block
+# storage
+db|mouse_display.(7).cnf
+db|mouse_display.(7).cnf
+# case_insensitive
+# source_file
+Block.bdf
+3984f65baeea735d4b61a70ab7c985
+25
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+ps2_rec
+# storage
+db|mouse_display.(4).cnf
+db|mouse_display.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+ps2_rec.vhd
+d11bb4a1fdab736c6bda0c6c8c9d9
+4
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(dout)
+7 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec
+}
+# lmf
+..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+display_mouse
+# storage
+db|mouse_display.(0).cnf
+db|mouse_display.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+display_mouse.vhd
+245c4c39ecf0dd5d8fc252628b1bb9ae
+4
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+display_mouse:inst
 }
 # lmf
 ..|..|..|..|..|..|..|altera|80|quartus|lmf|maxplus2.lmf

@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed Nov 02 16:16:31 2011
+Analysis & Synthesis Status : Successful - Wed Nov 02 23:02:36 2011
 Quartus II Version : 8.0 Build 215 05/29/2008 SJ Full Version
 Revision Name : mouse_display
-Top-level Entity Name : display_mouse
+Top-level Entity Name : Block
 Family : Cyclone II
-Total logic elements : 110
-    Total combinational functions : 110
+Total logic elements : 117
+    Total combinational functions : 117
     Dedicated logic registers : 72
 Total registers : 72
 Total pins : 61

@@ -22,7 +22,7 @@ applicable agreement for further details.
 (header "graphic" (version "1.3"))
 (pin
 	(input)
-	(rect 8 96 176 112)
+	(rect 64 24 232 40)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "clk" (rect 5 0 19 12)(font "Arial" ))
 	(pt 168 8)
@@ -38,7 +38,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 8 112 176 128)
+	(rect 64 40 232 56)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "reset" (rect 5 0 29 12)(font "Arial" ))
 	(pt 168 8)
@@ -54,7 +54,7 @@ applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 8 128 176 144)
+	(rect 64 56 232 72)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "write_en" (rect 5 0 45 12)(font "Arial" ))
 	(pt 168 8)
@@ -70,7 +70,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 360 96 536 112)
+	(rect 408 24 584 40)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "display[55..0]" (rect 90 0 157 12)(font "Arial" ))
 	(pt 0 8)
@@ -86,24 +86,7 @@ applicable agreement for further details.
 )
 (pin
 	(bidir)
-	(rect 360 128 536 144)
-	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
-	(text "ps2c" (rect 90 0 113 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 56 4)(pt 78 4)(line_width 1))
-		(line (pt 0 8)(pt 52 8)(line_width 1))
-		(line (pt 56 12)(pt 78 12)(line_width 1))
-		(line (pt 78 4)(pt 82 8)(line_width 1))
-		(line (pt 78 12)(pt 82 8)(line_width 1))
-		(line (pt 56 4)(pt 52 8)(line_width 1))
-		(line (pt 52 8)(pt 56 12)(line_width 1))
-	)
-	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
-)
-(pin
-	(bidir)
-	(rect 360 112 536 128)
+	(rect 408 40 584 56)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "ps2d" (rect 90 0 113 12)(font "Arial" ))
 	(pt 0 8)
@@ -118,8 +101,25 @@ applicable agreement for further details.
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
 )
+(pin
+	(bidir)
+	(rect 408 56 584 72)
+	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
+	(text "ps2c" (rect 90 0 113 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 56 4)(pt 78 4)(line_width 1))
+		(line (pt 0 8)(pt 52 8)(line_width 1))
+		(line (pt 56 12)(pt 78 12)(line_width 1))
+		(line (pt 78 4)(pt 82 8)(line_width 1))
+		(line (pt 78 12)(pt 82 8)(line_width 1))
+		(line (pt 56 4)(pt 52 8)(line_width 1))
+		(line (pt 52 8)(pt 56 12)(line_width 1))
+	)
+	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
+)
 (symbol
-	(rect 200 72 344 168)
+	(rect 240 0 384 96)
 	(text "display_mouse" (rect 5 0 79 12)(font "Arial" ))
 	(text "inst" (rect 8 80 25 92)(font "Arial" ))
 	(port
@@ -169,27 +169,27 @@ applicable agreement for further details.
 	)
 )
 (connector
-	(pt 360 104)
-	(pt 344 104)
+	(pt 232 32)
+	(pt 240 32)
+)
+(connector
+	(pt 232 48)
+	(pt 240 48)
+)
+(connector
+	(pt 232 64)
+	(pt 240 64)
+)
+(connector
+	(pt 408 32)
+	(pt 384 32)
 	(bus)
 )
 (connector
-	(pt 360 120)
-	(pt 344 120)
+	(pt 408 48)
+	(pt 384 48)
 )
 (connector
-	(pt 360 136)
-	(pt 344 136)
-)
-(connector
-	(pt 176 104)
-	(pt 200 104)
-)
-(connector
-	(pt 176 120)
-	(pt 200 120)
-)
-(connector
-	(pt 176 136)
-	(pt 200 136)
+	(pt 408 64)
+	(pt 384 64)
 )

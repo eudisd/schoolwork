@@ -59,13 +59,15 @@ begin
 		next_state <= current_state;
 		next_n <= current_n;
 		next_data <= current_data;
-		if( fall_edge = '1' and rec_en = '1' ) then
 			case current_state is
 				when idle =>
+					if( fall_edge = '1' and rec_en = '1' ) then
 						next_data <= ps2data & current_data(10 downto 1);
 						next_state <= receive;
 						next_n <= "1001";
+					end if;
 				when receive =>
+					if(fall_edge = '1') then
 						if ( current_n = "0000" ) then
 							next_data <= ps2data & current_data(10 downto 1);
 							next_state <= done;
@@ -73,11 +75,11 @@ begin
 							next_data <= ps2data & current_data(10 downto 1);
 							next_n <= current_n - 1;
 						end if;
+					end if;
 				when done =>
 					next_state <= idle;
 					rec_done <= '1';
 			end case;
-		end if;
 	end process;
 	dout <= current_data(8 downto 1);
 

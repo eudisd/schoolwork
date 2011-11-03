@@ -1,5 +1,5 @@
 
-State Machine - |display_mouse|mouse:m|current_state
+State Machine - |Block|display_mouse:inst|mouse:m|current_state
 Name current_state.done current_state.pack3 current_state.pack2 current_state.pack1 current_state.init3 current_state.init2 current_state.init1 
 current_state.init1 0 0 0 0 0 0 0 
 current_state.init2 0 0 0 0 0 1 1 
@@ -9,13 +9,13 @@ current_state.pack2 0 0 1 0 0 0 1
 current_state.pack3 0 1 0 0 0 0 1 
 current_state.done 1 0 0 0 0 0 1 
 
-State Machine - |display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state
+State Machine - |Block|display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state
 Name current_state.done current_state.receive current_state.idle 
 current_state.idle 0 0 0 
 current_state.receive 0 1 1 
 current_state.done 1 0 1 
 
-State Machine - |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state
+State Machine - |Block|display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state
 Name current_state.done current_state.transmit current_state.start current_state.request current_state.idle 
 current_state.idle 0 0 0 0 0 
 current_state.request 0 0 0 1 1 

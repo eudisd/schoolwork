@@ -1,5 +1,5 @@
 Flow report for mouse_display
-Wed Nov 02 16:16:46 2011
+Wed Nov 02 23:02:50 2011
 Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
 
 
@@ -37,16 +37,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Wed Nov 02 16:16:46 2011    ;
+; Flow Status                        ; Successful - Wed Nov 02 23:02:50 2011    ;
 ; Quartus II Version                 ; 8.0 Build 215 05/29/2008 SJ Full Version ;
 ; Revision Name                      ; mouse_display                            ;
-; Top-level Entity Name              ; display_mouse                            ;
+; Top-level Entity Name              ; Block                                    ;
 ; Family                             ; Cyclone II                               ;
 ; Device                             ; EP2C35F672C6                             ;
 ; Timing Models                      ; Final                                    ;
 ; Met timing requirements            ; No                                       ;
-; Total logic elements               ; 124 / 33,216 ( < 1 % )                   ;
-;     Total combinational functions  ; 111 / 33,216 ( < 1 % )                   ;
+; Total logic elements               ; 131 / 33,216 ( < 1 % )                   ;
+;     Total combinational functions  ; 118 / 33,216 ( < 1 % )                   ;
 ;     Dedicated logic registers      ; 72 / 33,216 ( < 1 % )                    ;
 ; Total registers                    ; 72                                       ;
 ; Total pins                         ; 61 / 475 ( 13 % )                        ;
@@ -62,23 +62,23 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/02/2011 16:16:29 ;
+; Start date & time ; 11/02/2011 23:02:34 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mouse_display       ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                 ;
-+------------------------------------+--------------------------------+---------------+---------------+------------+
-; Assignment Name                    ; Value                          ; Default Value ; Entity Name   ; Section Id ;
-+------------------------------------+--------------------------------+---------------+---------------+------------+
-; COMPILER_SIGNATURE_ID              ; 27438040119725.132026498905532 ; --            ; --            ; --         ;
-; PARTITION_COLOR                    ; 14622752                       ; --            ; display_mouse ; Top        ;
-; PARTITION_NETLIST_TYPE             ; SOURCE                         ; --            ; display_mouse ; Top        ;
-; TOP_LEVEL_ENTITY                   ; display_mouse                  ; mouse_display ; --            ; --         ;
-; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                            ; --            ; --            ; eda_palace ;
-+------------------------------------+--------------------------------+---------------+---------------+------------+
++----------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                               ;
++------------------------------------+--------------------------------+---------------+-------------+------------+
+; Assignment Name                    ; Value                          ; Default Value ; Entity Name ; Section Id ;
++------------------------------------+--------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID              ; 27438040119725.132028935406328 ; --            ; --          ; --         ;
+; PARTITION_COLOR                    ; 14622752                       ; --            ; Block       ; Top        ;
+; PARTITION_NETLIST_TYPE             ; SOURCE                         ; --            ; Block       ; Top        ;
+; TOP_LEVEL_ENTITY                   ; Block                          ; mouse_display ; --          ; --         ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                            ; --            ; --          ; eda_palace ;
++------------------------------------+--------------------------------+---------------+-------------+------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -86,11 +86,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 226 MB              ; 00:00:02                           ;
+; Analysis & Synthesis    ; 00:00:02     ; 1.0                     ; 226 MB              ; 00:00:02                           ;
 ; Fitter                  ; 00:00:08     ; 1.0                     ; 260 MB              ; 00:00:08                           ;
-; Assembler               ; 00:00:04     ; 1.0                     ; 251 MB              ; 00:00:03                           ;
+; Assembler               ; 00:00:03     ; 1.0                     ; 251 MB              ; 00:00:03                           ;
 ; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 157 MB              ; 00:00:00                           ;
-; Total                   ; 00:00:16     ; --                      ; --                  ; 00:00:13                           ;
+; Total                   ; 00:00:14     ; --                      ; --                  ; 00:00:13                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

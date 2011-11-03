@@ -1,5 +1,5 @@
 Fitter report for mouse_display
-Wed Nov 02 16:16:40 2011
+Wed Nov 02 23:02:45 2011
 Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
 
 
@@ -59,15 +59,15 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +------------------------------------+------------------------------------------+
-; Fitter Status                      ; Successful - Wed Nov 02 16:16:40 2011    ;
+; Fitter Status                      ; Successful - Wed Nov 02 23:02:45 2011    ;
 ; Quartus II Version                 ; 8.0 Build 215 05/29/2008 SJ Full Version ;
 ; Revision Name                      ; mouse_display                            ;
-; Top-level Entity Name              ; display_mouse                            ;
+; Top-level Entity Name              ; Block                                    ;
 ; Family                             ; Cyclone II                               ;
 ; Device                             ; EP2C35F672C6                             ;
 ; Timing Models                      ; Final                                    ;
-; Total logic elements               ; 124 / 33,216 ( < 1 % )                   ;
-;     Total combinational functions  ; 111 / 33,216 ( < 1 % )                   ;
+; Total logic elements               ; 131 / 33,216 ( < 1 % )                   ;
+;     Total combinational functions  ; 118 / 33,216 ( < 1 % )                   ;
 ;     Dedicated logic registers      ; 72 / 33,216 ( < 1 % )                    ;
 ; Total registers                    ; 72                                       ;
 ; Total pins                         ; 61 / 475 ( 13 % )                        ;
@@ -130,7 +130,7 @@ applicable agreement for further details.
 +------+-------------------+---------+------------------------------+------------------------+-----------+
 ; Name ; # Preserved Nodes ; # Nodes ; Preservation Level Requested ; Netlist Type Used      ; Hierarchy ;
 +------+-------------------+---------+------------------------------+------------------------+-----------+
-; Top  ; 0                 ; 243     ; Placement and Routing        ; Post-Synthesis Netlist ;           ;
+; Top  ; 0                 ; 250     ; Placement and Routing        ; Post-Synthesis Netlist ;           ;
 +------+-------------------+---------+------------------------------+------------------------+-----------+
 
 
@@ -145,26 +145,26 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 124 / 33,216 ( < 1 % ) ;
-;     -- Combinational with no register       ; 52                     ;
+; Total logic elements                        ; 131 / 33,216 ( < 1 % ) ;
+;     -- Combinational with no register       ; 59                     ;
 ;     -- Register only                        ; 13                     ;
 ;     -- Combinational with a register        ; 59                     ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 46                     ;
-;     -- 3 input functions                    ; 30                     ;
-;     -- <=2 input functions                  ; 35                     ;
+;     -- 4 input functions                    ; 52                     ;
+;     -- 3 input functions                    ; 32                     ;
+;     -- <=2 input functions                  ; 34                     ;
 ;     -- Register only                        ; 13                     ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 99                     ;
-;     -- arithmetic mode                      ; 12                     ;
+;     -- normal mode                          ; 98                     ;
+;     -- arithmetic mode                      ; 20                     ;
 ;                                             ;                        ;
 ; Total registers*                            ; 72 / 34,593 ( < 1 % )  ;
 ;     -- Dedicated logic registers            ; 72 / 33,216 ( < 1 % )  ;
 ;     -- I/O registers                        ; 0 / 1,377 ( 0 % )      ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 22 / 2,076 ( 1 % )     ;
+; Total LABs:  partially or completely used   ; 11 / 2,076 ( < 1 % )   ;
 ; User inserted logic elements                ; 0                      ;
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 61 / 475 ( 13 % )      ;
@@ -183,22 +183,22 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 ; Maximum fan-out                             ; 72                     ;
 ; Highest non-global fan-out signal           ; reset                  ;
 ; Highest non-global fan-out                  ; 72                     ;
-; Total fan-out                               ; 642                    ;
+; Total fan-out                               ; 668                    ;
 ; Average fan-out                             ; 2.54                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                                                                                                                                                  ;
-+-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
-+-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; clock ; P2    ; 1        ; 0            ; 18           ; 2           ; 2                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; en    ; AD6   ; 8        ; 5            ; 0            ; 3           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; reset ; G26   ; 5        ; 65           ; 27           ; 1           ; 72                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-+-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                                                                                                                     ;
++----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
+; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
++----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
+; clk      ; N2    ; 2        ; 0            ; 18           ; 0           ; 2                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; reset    ; G26   ; 5        ; 65           ; 27           ; 1           ; 72                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; write_en ; N23   ; 5        ; 65           ; 20           ; 2           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
++----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -280,14 +280,14 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1        ; 18 / 64 ( 28 % ) ; 3.3V          ; --           ;
-; 2        ; 13 / 59 ( 22 % ) ; 3.3V          ; --           ;
+; 1        ; 17 / 64 ( 27 % ) ; 3.3V          ; --           ;
+; 2        ; 14 / 59 ( 24 % ) ; 3.3V          ; --           ;
 ; 3        ; 0 / 56 ( 0 % )   ; 3.3V          ; --           ;
 ; 4        ; 0 / 58 ( 0 % )   ; 3.3V          ; --           ;
-; 5        ; 3 / 65 ( 5 % )   ; 3.3V          ; --           ;
+; 5        ; 4 / 65 ( 6 % )   ; 3.3V          ; --           ;
 ; 6        ; 22 / 59 ( 37 % ) ; 3.3V          ; --           ;
 ; 7        ; 0 / 58 ( 0 % )   ; 3.3V          ; --           ;
-; 8        ; 8 / 56 ( 14 % )  ; 3.3V          ; --           ;
+; 8        ; 7 / 56 ( 13 % )  ; 3.3V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -403,7 +403,7 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 ; AD3      ; 123        ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; AD4      ; 135        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AD5      ; 136        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AD6      ; 139        ; 8        ; en                                       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AD6      ; 139        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AD7      ; 140        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AD8      ; 149        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AD9      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -761,7 +761,7 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 ; M25      ; 312        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; M26      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; N1       ; 65         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; N2       ; 64         ; 2        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
+; N2       ; 64         ; 2        ; clk                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; N3       ; 62         ; 2        ; ^DATA0                                   ; input  ;              ;         ; --         ;                 ; --       ; --           ;
 ; N4       ; 63         ; 2        ; ^nCE                                     ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; N5       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -782,12 +782,12 @@ The pin-out file can be found in C:/cygwin/home/prototype/repos/schoolwork/comp-
 ; N20      ; 315        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N21      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; N22      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; N23      ; 311        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; N23      ; 311        ; 5        ; write_en                                 ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; N24      ; 310        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; N25      ; 309        ; 5        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; N26      ; 308        ; 5        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; P1       ; 68         ; 1        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; P2       ; 67         ; 1        ; clock                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P2       ; 67         ; 1        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; P3       ; 69         ; 1        ; display[44]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; P4       ; 70         ; 1        ; display[43]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; P5       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -1009,21 +1009,22 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                       ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                             ; Library Name ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
-; |display_mouse             ; 124 (0)     ; 72 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 61   ; 0            ; 52 (0)       ; 13 (0)            ; 59 (0)           ; |display_mouse                                  ; work         ;
-;    |hex_to_seven:sev|      ; 29 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 21 (0)       ; 0 (0)             ; 8 (0)            ; |display_mouse|hex_to_seven:sev                 ; work         ;
-;       |dec_7seg_hex:d0|    ; 14 (14)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 4 (4)            ; |display_mouse|hex_to_seven:sev|dec_7seg_hex:d0 ; work         ;
-;       |dec_7seg_hex:d1|    ; 14 (14)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 10 (10)      ; 0 (0)             ; 4 (4)            ; |display_mouse|hex_to_seven:sev|dec_7seg_hex:d1 ; work         ;
-;       |dec_7seg_hex:d2|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; |display_mouse|hex_to_seven:sev|dec_7seg_hex:d2 ; work         ;
-;    |mouse:m|               ; 103 (18)    ; 72 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 31 (2)       ; 13 (1)            ; 59 (15)          ; |display_mouse|mouse:m                          ; work         ;
-;       |ps2_rt:rt|          ; 85 (0)      ; 56 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 29 (0)       ; 12 (0)            ; 44 (0)           ; |display_mouse|mouse:m|ps2_rt:rt                ; work         ;
-;          |ps2_rec:rec|     ; 32 (32)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 12 (12)           ; 14 (14)          ; |display_mouse|mouse:m|ps2_rt:rt|ps2_rec:rec    ; work         ;
-;          |ps2_tran:tran|   ; 56 (56)     ; 30 (30)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 23 (23)      ; 0 (0)             ; 33 (33)          ; |display_mouse|mouse:m|ps2_rt:rt|ps2_tran:tran  ; work         ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+-------------------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                   ;
++-----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node  ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                                        ; Library Name ;
++-----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------+--------------+
+; |Block                      ; 131 (0)     ; 72 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 61   ; 0            ; 59 (0)       ; 13 (0)            ; 59 (0)           ; |Block                                                     ; work         ;
+;    |display_mouse:inst|     ; 131 (9)     ; 72 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 59 (0)       ; 13 (0)            ; 59 (9)           ; |Block|display_mouse:inst                                  ; work         ;
+;       |hex_to_seven:sev|    ; 29 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 29 (0)       ; 0 (0)             ; 0 (0)            ; |Block|display_mouse:inst|hex_to_seven:sev                 ; work         ;
+;          |dec_7seg_hex:d0|  ; 14 (14)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 0 (0)            ; |Block|display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d0 ; work         ;
+;          |dec_7seg_hex:d1|  ; 14 (14)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 0 (0)            ; |Block|display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d1 ; work         ;
+;          |dec_7seg_hex:d2|  ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; |Block|display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d2 ; work         ;
+;       |mouse:m|             ; 102 (16)    ; 72 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 30 (0)       ; 13 (1)            ; 59 (16)          ; |Block|display_mouse:inst|mouse:m                          ; work         ;
+;          |ps2_rt:rt|        ; 86 (0)      ; 56 (0)                    ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 30 (0)       ; 12 (0)            ; 44 (0)           ; |Block|display_mouse:inst|mouse:m|ps2_rt:rt                ; work         ;
+;             |ps2_rec:rec|   ; 33 (33)     ; 26 (26)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 12 (12)           ; 14 (14)          ; |Block|display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec    ; work         ;
+;             |ps2_tran:tran| ; 54 (54)     ; 30 (30)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 23 (23)      ; 0 (0)             ; 31 (31)          ; |Block|display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran  ; work         ;
++-----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -1034,242 +1035,240 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------+----------+---------------+---------------+-----------------------+-----+
 ; ps2d        ; Bidir    ; 6             ; 6             ; --                    ; --  ;
 ; ps2c        ; Bidir    ; 6             ; 6             ; --                    ; --  ;
-; en          ; Input    ; 0             ; 0             ; --                    ; --  ;
-; display[0]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[1]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[2]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[3]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[4]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[5]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[6]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[7]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[8]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[9]  ; Output   ; --            ; --            ; --                    ; --  ;
-; display[10] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[11] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[12] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[13] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[14] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[15] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[16] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[17] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[18] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[19] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[20] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[21] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[22] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[23] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[24] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[25] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[26] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[27] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[28] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[29] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[30] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[31] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[32] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[33] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[34] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[35] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[36] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[37] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[38] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[39] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[40] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[41] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[42] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[43] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[44] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[45] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[46] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[47] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[48] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[49] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[50] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[51] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[52] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[53] ; Output   ; --            ; --            ; --                    ; --  ;
-; display[54] ; Output   ; --            ; --            ; --                    ; --  ;
+; write_en    ; Input    ; 0             ; 0             ; --                    ; --  ;
 ; display[55] ; Output   ; --            ; --            ; --                    ; --  ;
-; clock       ; Input    ; 0             ; 0             ; --                    ; --  ;
+; display[54] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[53] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[52] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[51] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[50] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[49] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[48] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[47] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[46] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[45] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[44] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[43] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[42] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[41] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[40] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[39] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[38] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[37] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[36] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[35] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[34] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[33] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[32] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[31] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[30] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[29] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[28] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[27] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[26] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[25] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[24] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[23] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[22] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[21] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[20] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[19] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[18] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[17] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[16] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[15] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[14] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[13] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[12] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[11] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[10] ; Output   ; --            ; --            ; --                    ; --  ;
+; display[9]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[8]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[7]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[6]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[5]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[4]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[3]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[2]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[1]  ; Output   ; --            ; --            ; --                    ; --  ;
+; display[0]  ; Output   ; --            ; --            ; --                    ; --  ;
+; clk         ; Input    ; 0             ; 0             ; --                    ; --  ;
 ; reset       ; Input    ; 6             ; 6             ; --                    ; --  ;
 +-------------+----------+---------------+---------------+-----------------------+-----+
 
 
-+---------------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                              ;
-+---------------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                           ; Pad To Core Index ; Setting ;
-+---------------------------------------------------------------+-------------------+---------+
-; ps2d                                                          ;                   ;         ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[10]         ; 0                 ; 6       ;
-; ps2c                                                          ;                   ;         ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]        ; 0                 ; 6       ;
-; en                                                            ;                   ;         ;
-; clock                                                         ;                   ;         ;
-; reset                                                         ;                   ;         ;
-;      - mouse:m|current_x[8]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[7]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[6]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[5]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[4]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[3]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[2]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[1]                                   ; 0                 ; 6       ;
-;      - mouse:m|current_x[0]                                   ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[1]          ; 0                 ; 6       ;
-;      - mouse:m|current_state.done                             ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[0]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[1]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[2]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[3]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[4]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[5]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[6]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[7]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[8]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[9]     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[10]    ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[11]    ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[12]    ; 0                 ; 6       ;
-;      - mouse:m|current_state.pack2                            ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.done       ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter_clock     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[6]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[3]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[2]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[1]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[0]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.idle     ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[5]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[4]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[2]          ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[3]          ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[4]          ; 0                 ; 6       ;
-;      - mouse:m|current_state.pack3                            ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[5]          ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[6]          ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[7]          ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[8]          ; 0                 ; 6       ;
-;      - mouse:m|current_state.pack1                            ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[0]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.transmit ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.start    ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request  ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.receive    ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[2]             ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[1]             ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[0]             ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[3]             ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.done     ; 0                 ; 6       ;
-;      - mouse:m|current_state.init1                            ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[9]          ; 0                 ; 6       ;
-;      - mouse:m|current_state.init3                            ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[1]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[3]           ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[2]           ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[1]           ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[0]           ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.idle       ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[10]         ; 0                 ; 6       ;
-;      - mouse:m|current_state.init2                            ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[2]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[3]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[4]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[5]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[6]        ; 0                 ; 6       ;
-;      - mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[7]        ; 0                 ; 6       ;
-+---------------------------------------------------------------+-------------------+---------+
++----------------------------------------------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                                                                 ;
++----------------------------------------------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                                                              ; Pad To Core Index ; Setting ;
++----------------------------------------------------------------------------------+-------------------+---------+
+; ps2d                                                                             ;                   ;         ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[10]~feeder  ; 0                 ; 6       ;
+; ps2c                                                                             ;                   ;         ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]        ; 0                 ; 6       ;
+; write_en                                                                         ;                   ;         ;
+; clk                                                                              ;                   ;         ;
+; reset                                                                            ;                   ;         ;
+;      - display_mouse:inst|mouse:m|current_x[8]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[7]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[6]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[5]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[4]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[3]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[2]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[1]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_x[0]                                   ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_state.pack3                            ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_state.done                             ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.done       ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[0]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[1]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[2]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[3]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[4]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[5]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[6]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[7]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[8]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[9]     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[10]    ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[11]    ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[12]    ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[0]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.transmit ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.start    ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request  ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[5]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_state.pack1                            ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[8]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_state.pack2                            ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[7]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[6]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[4]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[3]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[2]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[1]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[3]             ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[2]             ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[1]             ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[0]             ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.receive    ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter_clock     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[6]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[3]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[2]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[1]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[0]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[5]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[4]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[1]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_state.init1                            ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.idle     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.done     ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[3]           ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[2]           ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[1]           ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[0]           ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_state.init3                            ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[9]          ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.idle       ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[2]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|current_state.init2                            ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[10]         ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[3]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[4]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[5]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[6]        ; 1                 ; 6       ;
+;      - display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[7]        ; 1                 ; 6       ;
++----------------------------------------------------------------------------------+-------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                      ;
-+--------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
-; Name                                                   ; Location           ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+--------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
-; clock                                                  ; PIN_P2             ; 2       ; Clock         ; no     ; --                   ; --               ; --                        ;
-; clock                                                  ; PIN_P2             ; 71      ; Clock         ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; mouse:m|Selector1~36                                   ; LCCOMB_X48_Y25_N16 ; 2       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; mouse:m|current_state.done                             ; LCFF_X48_Y23_N25   ; 15      ; Latch enable  ; yes    ; Global Clock         ; GCLK7            ; --                        ;
-; mouse:m|current_x[3]~236                               ; LCCOMB_X47_Y25_N2  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[4]~103      ; LCCOMB_X47_Y25_N20 ; 12      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|process2~0               ; LCCOMB_X47_Y25_N22 ; 9       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|rec_done~16              ; LCCOMB_X47_Y25_N16 ; 5       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|WideOr2~11             ; LCCOMB_X48_Y25_N6  ; 1       ; Output enable ; no     ; --                   ; --               ; --                        ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[8]~177 ; LCCOMB_X48_Y25_N0  ; 13      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[7]~173    ; LCCOMB_X47_Y25_N8  ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request  ; LCFF_X47_Y26_N27   ; 18      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
-; reset                                                  ; PIN_G26            ; 72      ; Async. clear  ; no     ; --                   ; --               ; --                        ;
-+--------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                         ;
++---------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                      ; Location           ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
+; clk                                                                       ; PIN_N2             ; 2       ; Clock         ; no     ; --                   ; --               ; --                        ;
+; clk                                                                       ; PIN_N2             ; 71      ; Clock         ; yes    ; Global Clock         ; GCLK2            ; --                        ;
+; display_mouse:inst|mouse:m|current_state.done                             ; LCFF_X44_Y16_N25   ; 15      ; Latch enable  ; yes    ; Global Clock         ; GCLK5            ; --                        ;
+; display_mouse:inst|mouse:m|current_x[7]~150                               ; LCCOMB_X44_Y16_N20 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[8]~134      ; LCCOMB_X44_Y16_N30 ; 10      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.done       ; LCFF_X45_Y16_N25   ; 9       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|WideOr2~11             ; LCCOMB_X43_Y16_N22 ; 1       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[4]~192 ; LCCOMB_X44_Y16_N12 ; 13      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[7]~173    ; LCCOMB_X44_Y16_N22 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request  ; LCFF_X43_Y16_N25   ; 18      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
+; reset                                                                     ; PIN_G26            ; 72      ; Async. clear  ; no     ; --                   ; --               ; --                        ;
++---------------------------------------------------------------------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                                   ;
-+----------------------------+------------------+---------+----------------------+------------------+---------------------------+
-; Name                       ; Location         ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+----------------------------+------------------+---------+----------------------+------------------+---------------------------+
-; clock                      ; PIN_P2           ; 71      ; Global Clock         ; GCLK3            ; --                        ;
-; mouse:m|current_state.done ; LCFF_X48_Y23_N25 ; 15      ; Global Clock         ; GCLK7            ; --                        ;
-+----------------------------+------------------+---------+----------------------+------------------+---------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                                                      ;
++-----------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
+; Name                                          ; Location         ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
+; clk                                           ; PIN_N2           ; 71      ; Global Clock         ; GCLK2            ; --                        ;
+; display_mouse:inst|mouse:m|current_state.done ; LCFF_X44_Y16_N25 ; 15      ; Global Clock         ; GCLK5            ; --                        ;
++-----------------------------------------------+------------------+---------+----------------------+------------------+---------------------------+
 
 
-+------------------------------------------------------------------+
-; Non-Global High Fan-Out Signals                                  ;
-+--------------------------------------------------------+---------+
-; Name                                                   ; Fan-Out ;
-+--------------------------------------------------------+---------+
-; reset                                                  ; 72      ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.transmit ; 19      ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request  ; 18      ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[8]~177 ; 13      ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[4]~103      ; 12      ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|process2~0               ; 9       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[7]~173    ; 8       ;
-; mouse:m|current_x[3]~236                               ; 8       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.done       ; 7       ;
-; mouse:m|current_x[7]                                   ; 7       ;
-; mouse:m|current_x[6]                                   ; 7       ;
-; mouse:m|current_x[5]                                   ; 7       ;
-; mouse:m|current_x[4]                                   ; 7       ;
-; mouse:m|current_x[3]                                   ; 7       ;
-; mouse:m|current_x[2]                                   ; 7       ;
-; mouse:m|current_x[1]                                   ; 7       ;
-; mouse:m|current_x[0]                                   ; 7       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|fall_edge              ; 6       ;
-; mouse:m|current_state.init1                            ; 6       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.start    ; 6       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[4]        ; 6       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[5]        ; 6       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter_clock     ; 6       ;
-; hex_to_seven:sev|dec_7seg_hex:d2|segment_data[6]       ; 5       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[0]           ; 5       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.receive    ; 5       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|rec_done~16              ; 5       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.idle     ; 5       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|Equal0~66                ; 5       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|Equal0~65                ; 5       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[0]~674       ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|Selector26~449         ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[1]           ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|tran_done~22           ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.done     ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[3]             ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|Equal2~19                ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[0]             ; 4       ;
-; mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[2]           ; 3       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[1]             ; 3       ;
-; mouse:m|current_state.pack1                            ; 3       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[5]          ; 3       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[1]        ; 3       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[2]        ; 3       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[3]        ; 3       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[6]        ; 3       ;
-; mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]        ; 3       ;
-; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[0]       ; 2       ;
-; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[1]       ; 2       ;
-; hex_to_seven:sev|dec_7seg_hex:d1|segment_data[2]       ; 2       ;
-+--------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------+
+; Non-Global High Fan-Out Signals                                                     ;
++---------------------------------------------------------------------------+---------+
+; Name                                                                      ; Fan-Out ;
++---------------------------------------------------------------------------+---------+
+; reset                                                                     ; 72      ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.transmit ; 20      ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request  ; 18      ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_counter[4]~192 ; 13      ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|fall_edge                ; 13      ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[8]~134      ; 10      ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.idle     ; 9       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.done       ; 9       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_data[7]~173    ; 8       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_state.receive    ; 8       ;
+; display_mouse:inst|mouse:m|current_x[7]~150                               ; 8       ;
+; display_mouse:inst|dis_input[7]~32                                        ; 8       ;
+; display_mouse:inst|dis_input[6]~30                                        ; 8       ;
+; display_mouse:inst|dis_input[5]~28                                        ; 8       ;
+; display_mouse:inst|dis_input[4]~26                                        ; 8       ;
+; display_mouse:inst|dis_input[3]~24                                        ; 8       ;
+; display_mouse:inst|dis_input[2]~22                                        ; 8       ;
+; display_mouse:inst|dis_input[1]~20                                        ; 8       ;
+; display_mouse:inst|dis_input[0]~18                                        ; 8       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.done     ; 6       ;
+; display_mouse:inst|mouse:m|current_state.init1                            ; 6       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.start    ; 6       ;
+; display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d2|segment_data[1]       ; 5       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[0]           ; 5       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[0]             ; 5       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[3]~674       ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[0]~813         ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|Selector26~449         ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[1]           ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|Equal1~73                ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|Equal1~72                ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|Equal0~67                ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter_clock     ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[1]             ; 4       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_n[2]           ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[4]        ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[5]        ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[1]        ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[2]        ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[3]        ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[6]        ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_filter[7]        ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|Equal2~33                ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_n[2]             ; 3       ;
+; display_mouse:inst|mouse:m|current_state.pack1                            ; 3       ;
+; display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_data[5]          ; 3       ;
+; display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d0|segment_data[6]       ; 2       ;
+; display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d0|segment_data[5]       ; 2       ;
+; display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d0|segment_data[4]       ; 2       ;
+; display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d0|segment_data[3]       ; 2       ;
++---------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -1277,142 +1276,143 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------+------------------------+
 ; Interconnect Resource Type ; Usage                  ;
 +----------------------------+------------------------+
-; Block interconnects        ; 150 / 94,460 ( < 1 % ) ;
+; Block interconnects        ; 135 / 94,460 ( < 1 % ) ;
 ; C16 interconnects          ; 5 / 3,315 ( < 1 % )    ;
-; C4 interconnects           ; 109 / 60,840 ( < 1 % ) ;
-; Direct links               ; 40 / 94,460 ( < 1 % )  ;
+; C4 interconnects           ; 68 / 60,840 ( < 1 % )  ;
+; Direct links               ; 46 / 94,460 ( < 1 % )  ;
 ; Global clocks              ; 2 / 16 ( 13 % )        ;
-; Local interconnects        ; 103 / 33,216 ( < 1 % ) ;
-; R24 interconnects          ; 12 / 3,091 ( < 1 % )   ;
-; R4 interconnects           ; 121 / 81,294 ( < 1 % ) ;
+; Local interconnects        ; 101 / 33,216 ( < 1 % ) ;
+; R24 interconnects          ; 13 / 3,091 ( < 1 % )   ;
+; R4 interconnects           ; 103 / 81,294 ( < 1 % ) ;
 +----------------------------+------------------------+
 
 
-+---------------------------------------------------------------------------+
-; LAB Logic Elements                                                        ;
-+--------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 5.64) ; Number of LABs  (Total = 22) ;
-+--------------------------------------------+------------------------------+
-; 1                                          ; 13                           ;
-; 2                                          ; 0                            ;
-; 3                                          ; 0                            ;
-; 4                                          ; 0                            ;
-; 5                                          ; 0                            ;
-; 6                                          ; 2                            ;
-; 7                                          ; 0                            ;
-; 8                                          ; 0                            ;
-; 9                                          ; 1                            ;
-; 10                                         ; 0                            ;
-; 11                                         ; 0                            ;
-; 12                                         ; 0                            ;
-; 13                                         ; 2                            ;
-; 14                                         ; 0                            ;
-; 15                                         ; 0                            ;
-; 16                                         ; 4                            ;
-+--------------------------------------------+------------------------------+
++----------------------------------------------------------------------------+
+; LAB Logic Elements                                                         ;
++---------------------------------------------+------------------------------+
+; Number of Logic Elements  (Average = 11.91) ; Number of LABs  (Total = 11) ;
++---------------------------------------------+------------------------------+
+; 1                                           ; 1                            ;
+; 2                                           ; 0                            ;
+; 3                                           ; 1                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 0                            ;
+; 6                                           ; 0                            ;
+; 7                                           ; 0                            ;
+; 8                                           ; 1                            ;
+; 9                                           ; 1                            ;
+; 10                                          ; 0                            ;
+; 11                                          ; 0                            ;
+; 12                                          ; 0                            ;
+; 13                                          ; 0                            ;
+; 14                                          ; 1                            ;
+; 15                                          ; 0                            ;
+; 16                                          ; 6                            ;
++---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 22) ;
+; LAB-wide Signals  (Average = 1.82) ; Number of LABs  (Total = 11) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 8                            ;
-; 1 Clock                            ; 7                            ;
-; 1 Clock enable                     ; 3                            ;
+; 1 Async. clear                     ; 7                            ;
+; 1 Clock                            ; 6                            ;
+; 1 Clock enable                     ; 4                            ;
 ; 1 Sync. load                       ; 1                            ;
-; 2 Clock enables                    ; 2                            ;
+; 2 Clock enables                    ; 1                            ;
 ; 2 Clocks                           ; 1                            ;
 +------------------------------------+------------------------------+
 
 
-+----------------------------------------------------------------------------+
-; LAB Signals Sourced                                                        ;
-+---------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 8.50) ; Number of LABs  (Total = 22) ;
-+---------------------------------------------+------------------------------+
-; 0                                           ; 0                            ;
-; 1                                           ; 13                           ;
-; 2                                           ; 0                            ;
-; 3                                           ; 0                            ;
-; 4                                           ; 0                            ;
-; 5                                           ; 0                            ;
-; 6                                           ; 1                            ;
-; 7                                           ; 0                            ;
-; 8                                           ; 0                            ;
-; 9                                           ; 0                            ;
-; 10                                          ; 1                            ;
-; 11                                          ; 0                            ;
-; 12                                          ; 0                            ;
-; 13                                          ; 0                            ;
-; 14                                          ; 0                            ;
-; 15                                          ; 0                            ;
-; 16                                          ; 0                            ;
-; 17                                          ; 0                            ;
-; 18                                          ; 1                            ;
-; 19                                          ; 1                            ;
-; 20                                          ; 0                            ;
-; 21                                          ; 0                            ;
-; 22                                          ; 1                            ;
-; 23                                          ; 1                            ;
-; 24                                          ; 1                            ;
-; 25                                          ; 0                            ;
-; 26                                          ; 2                            ;
-+---------------------------------------------+------------------------------+
++-----------------------------------------------------------------------------+
+; LAB Signals Sourced                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Signals Sourced  (Average = 17.91) ; Number of LABs  (Total = 11) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 1                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 0                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 0                            ;
+; 8                                            ; 1                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 0                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 0                            ;
+; 13                                           ; 0                            ;
+; 14                                           ; 2                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 0                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 1                            ;
+; 19                                           ; 0                            ;
+; 20                                           ; 0                            ;
+; 21                                           ; 0                            ;
+; 22                                           ; 0                            ;
+; 23                                           ; 0                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 1                            ;
+; 26                                           ; 0                            ;
+; 27                                           ; 0                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 1                            ;
+; 30                                           ; 1                            ;
+; 31                                           ; 1                            ;
++----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 3.82) ; Number of LABs  (Total = 22) ;
+; Number of Signals Sourced Out  (Average = 6.91) ; Number of LABs  (Total = 11) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 13                           ;
-; 2                                               ; 1                            ;
-; 3                                               ; 1                            ;
-; 4                                               ; 2                            ;
+; 1                                               ; 2                            ;
+; 2                                               ; 0                            ;
+; 3                                               ; 0                            ;
+; 4                                               ; 1                            ;
 ; 5                                               ; 1                            ;
 ; 6                                               ; 0                            ;
-; 7                                               ; 0                            ;
-; 8                                               ; 0                            ;
-; 9                                               ; 0                            ;
-; 10                                              ; 1                            ;
+; 7                                               ; 2                            ;
+; 8                                               ; 1                            ;
+; 9                                               ; 2                            ;
+; 10                                              ; 0                            ;
 ; 11                                              ; 0                            ;
-; 12                                              ; 0                            ;
+; 12                                              ; 1                            ;
 ; 13                                              ; 1                            ;
-; 14                                              ; 1                            ;
-; 15                                              ; 0                            ;
-; 16                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                        ;
 +---------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 5.59) ; Number of LABs  (Total = 22) ;
+; Number of Distinct Inputs  (Average = 8.36) ; Number of LABs  (Total = 11) ;
 +---------------------------------------------+------------------------------+
 ; 0                                           ; 0                            ;
 ; 1                                           ; 0                            ;
-; 2                                           ; 13                           ;
+; 2                                           ; 1                            ;
 ; 3                                           ; 0                            ;
-; 4                                           ; 1                            ;
-; 5                                           ; 1                            ;
-; 6                                           ; 1                            ;
-; 7                                           ; 1                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 3                            ;
+; 6                                           ; 2                            ;
+; 7                                           ; 0                            ;
 ; 8                                           ; 1                            ;
 ; 9                                           ; 0                            ;
-; 10                                          ; 0                            ;
+; 10                                          ; 1                            ;
 ; 11                                          ; 0                            ;
-; 12                                          ; 0                            ;
+; 12                                          ; 1                            ;
 ; 13                                          ; 1                            ;
 ; 14                                          ; 0                            ;
-; 15                                          ; 1                            ;
+; 15                                          ; 0                            ;
 ; 16                                          ; 0                            ;
 ; 17                                          ; 0                            ;
-; 18                                          ; 1                            ;
+; 18                                          ; 0                            ;
 ; 19                                          ; 0                            ;
-; 20                                          ; 0                            ;
-; 21                                          ; 1                            ;
+; 20                                          ; 1                            ;
 +---------------------------------------------+------------------------------+
 
 
@@ -1451,7 +1451,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
-    Info: Processing started: Wed Nov 02 16:16:32 2011
+    Info: Processing started: Wed Nov 02 23:02:37 2011
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off mouse_display -c mouse_display
 Info: Selected device EP2C35F672C6 for design "mouse_display"
 Info: Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
@@ -1462,55 +1462,59 @@ Info: Fitter converted 3 user pins into dedicated programming pins
     Info: Pin ~ASDO~ is reserved at location E3
     Info: Pin ~nCSO~ is reserved at location D3
     Info: Pin ~LVDS150p/nCEO~ is reserved at location AE24
-Warning: No exact pin location assignment(s) for 2 pins of 61 total pins
-    Info: Pin en not assigned to an exact location on the device
-    Info: Pin clock not assigned to an exact location on the device
 Info: Fitter is using the Classic Timing Analyzer
 Info: Timing requirements not specified -- quality metrics such as performance and power consumption may be sacrificed to reduce compilation time.
-Info: Automatically promoted node clock (placed in PIN P2 (CLK2, LVDSCLK1p, Input))
-    Info: Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
+Info: Automatically promoted node clk (placed in PIN N2 (CLK0, LVDSCLK0p, Input))
+    Info: Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
     Info: Following destination nodes may be non-global or may not use global or regional clocks
-        Info: Destination node mouse:m|current_state.done
-Info: Automatically promoted node mouse:m|current_state.done 
+        Info: Destination node display_mouse:inst|mouse:m|current_state.done
+Info: Automatically promoted node display_mouse:inst|mouse:m|current_state.done 
     Info: Automatically promoted destinations to use location or clock signal Global Clock
     Info: Following destination nodes may be non-global or may not use global or regional clocks
-        Info: Destination node mouse:m|Selector3~118
+        Info: Destination node display_mouse:inst|mouse:m|Selector3~33
 Info: Starting register packing
 Info: Finished register packing
     Extra Info: No registers were packed into other blocks
-Info: Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info: Number of I/O pins in group: 1 (unused VREF, 3.3V VCCIO, 1 input, 0 output, 0 bidirectional)
-        Info: I/O standards used: 3.3-V LVTTL.
-Info: I/O bank details before I/O pin placement
-    Info: Statistics of I/O banks
-        Info: I/O bank number 1 does not use VREF pins and has 3.3V VCCIO pins. 18 total pin(s) used --  46 pins available
-        Info: I/O bank number 2 does not use VREF pins and has 3.3V VCCIO pins. 13 total pin(s) used --  46 pins available
-        Info: I/O bank number 3 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  56 pins available
-        Info: I/O bank number 4 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  58 pins available
-        Info: I/O bank number 5 does not use VREF pins and has 3.3V VCCIO pins. 3 total pin(s) used --  62 pins available
-        Info: I/O bank number 6 does not use VREF pins and has 3.3V VCCIO pins. 22 total pin(s) used --  37 pins available
-        Info: I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  58 pins available
-        Info: I/O bank number 8 does not use VREF pins and has 3.3V VCCIO pins. 7 total pin(s) used --  49 pins available
-Warning: Ignored locations or region assignments to the following nodes
-    Warning: Node "clk" is assigned to location or region, but does not exist in design
-    Warning: Node "write_en" is assigned to location or region, but does not exist in design
-Info: Fitter preparation operations ending: elapsed time is 00:00:00
+Info: Fitter preparation operations ending: elapsed time is 00:00:01
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
 Info: Fitter placement was successful
 Info: Fitter placement operations ending: elapsed time is 00:00:00
-Info: Estimated most critical path is register to register delay of 3.298 ns
-    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LAB_X48_Y25; Fanout = 5; REG Node = 'mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.idle'
-    Info: 2: + IC(0.376 ns) + CELL(0.398 ns) = 0.774 ns; Loc. = LAB_X47_Y25; Fanout = 1; COMB Node = 'mouse:m|ps2_rt:rt|ps2_rec:rec|process2~26'
-    Info: 3: + IC(0.415 ns) + CELL(0.150 ns) = 1.339 ns; Loc. = LAB_X47_Y25; Fanout = 9; COMB Node = 'mouse:m|ps2_rt:rt|ps2_rec:rec|process2~0'
-    Info: 4: + IC(0.290 ns) + CELL(0.275 ns) = 1.904 ns; Loc. = LAB_X47_Y25; Fanout = 8; COMB Node = 'mouse:m|current_x[3]~236'
-    Info: 5: + IC(0.734 ns) + CELL(0.660 ns) = 3.298 ns; Loc. = LAB_X47_Y23; Fanout = 7; REG Node = 'mouse:m|current_x[0]'
-    Info: Total cell delay = 1.483 ns ( 44.97 % )
-    Info: Total interconnect delay = 1.815 ns ( 55.03 % )
+Info: Estimated most critical path is register to register delay of 17.945 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LAB_X45_Y9; Fanout = 3; REG Node = 'display_mouse:inst|mouse:m|current_x[0]'
+    Info: 2: + IC(0.000 ns) + CELL(1.237 ns) = 1.237 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[0]~18'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[0]~18"
+    Info: 3: + IC(0.415 ns) + CELL(0.393 ns) = 2.045 ns; Loc. = LAB_X45_Y9; Fanout = 3; COMB Node = 'display_mouse:inst|dis_input[0]~19'
+    Info: 4: + IC(0.000 ns) + CELL(1.210 ns) = 3.255 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[1]~20'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[1]~20"
+    Info: 5: + IC(0.415 ns) + CELL(0.393 ns) = 4.063 ns; Loc. = LAB_X45_Y9; Fanout = 3; COMB Node = 'display_mouse:inst|dis_input[1]~21'
+    Info: 6: + IC(0.000 ns) + CELL(1.210 ns) = 5.273 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[2]~22'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[2]~22"
+    Info: 7: + IC(0.415 ns) + CELL(0.393 ns) = 6.081 ns; Loc. = LAB_X45_Y9; Fanout = 3; COMB Node = 'display_mouse:inst|dis_input[2]~23'
+    Info: 8: + IC(0.000 ns) + CELL(1.210 ns) = 7.291 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[3]~24'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[3]~24"
+    Info: 9: + IC(0.415 ns) + CELL(0.393 ns) = 8.099 ns; Loc. = LAB_X45_Y9; Fanout = 3; COMB Node = 'display_mouse:inst|dis_input[3]~25'
+    Info: 10: + IC(0.000 ns) + CELL(1.210 ns) = 9.309 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[4]~26'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[4]~26"
+    Info: 11: + IC(0.415 ns) + CELL(0.393 ns) = 10.117 ns; Loc. = LAB_X45_Y9; Fanout = 3; COMB Node = 'display_mouse:inst|dis_input[4]~27'
+    Info: 12: + IC(0.000 ns) + CELL(1.210 ns) = 11.327 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[5]~28'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[5]~28"
+    Info: 13: + IC(0.415 ns) + CELL(0.393 ns) = 12.135 ns; Loc. = LAB_X45_Y9; Fanout = 3; COMB Node = 'display_mouse:inst|dis_input[5]~29'
+    Info: 14: + IC(0.000 ns) + CELL(1.210 ns) = 13.345 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[6]~30'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[6]~30"
+    Info: 15: + IC(0.415 ns) + CELL(0.393 ns) = 14.153 ns; Loc. = LAB_X45_Y9; Fanout = 3; COMB Node = 'display_mouse:inst|dis_input[6]~31'
+    Info: 16: + IC(0.000 ns) + CELL(1.210 ns) = 15.363 ns; Loc. = LAB_X45_Y9; Fanout = 9; COMB LOOP Node = 'display_mouse:inst|dis_input[7]~32'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[7]~32"
+    Info: 17: + IC(0.415 ns) + CELL(0.393 ns) = 16.171 ns; Loc. = LAB_X45_Y9; Fanout = 2; COMB Node = 'display_mouse:inst|dis_input[7]~33'
+    Info: 18: + IC(0.000 ns) + CELL(1.210 ns) = 17.381 ns; Loc. = LAB_X45_Y9; Fanout = 2; COMB LOOP Node = 'display_mouse:inst|dis_input[8]~34'
+        Info: Loc. = LAB_X45_Y9; Node "display_mouse:inst|dis_input[8]~34"
+    Info: 19: + IC(0.145 ns) + CELL(0.419 ns) = 17.945 ns; Loc. = LAB_X45_Y9; Fanout = 4; REG Node = 'display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d2|segment_data[1]'
+    Info: Total cell delay = 14.480 ns ( 80.69 % )
+    Info: Total interconnect delay = 3.465 ns ( 19.31 % )
 Info: Fitter routing operations beginning
 Info: Average interconnect usage is 0% of the available device resources
-    Info: Peak interconnect usage is 0% of the available device resources in the region that extends from location X44_Y12 to location X54_Y23
+    Info: Peak interconnect usage is 0% of the available device resources in the region that extends from location X44_Y0 to location X54_Y11
 Info: Fitter routing operations ending: elapsed time is 00:00:00
 Info: The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info: Optimizations that may affect the design's routability were skipped
@@ -1519,112 +1523,112 @@ Info: Started post-fitting delay annotation
 Warning: Found 58 output pins without output pin load capacitance assignment
     Info: Pin "ps2d" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "ps2c" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[10]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[11]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[12]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[13]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[14]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[15]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[16]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[17]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[18]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[19]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[20]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[21]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[22]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[23]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[24]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[25]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[26]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[27]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[28]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[29]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[30]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[31]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[32]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[33]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[34]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[35]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[36]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[37]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[38]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[39]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[40]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[41]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[42]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[43]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[44]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[45]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[46]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[47]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[48]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[49]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[50]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[51]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[52]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[53]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "display[54]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "display[55]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[54]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[53]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[52]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[51]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[50]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[49]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[48]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[47]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[46]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[45]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[44]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[43]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[42]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[41]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[40]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[39]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[38]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[37]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[36]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[35]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[34]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[33]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[32]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[31]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[30]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[29]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[28]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[27]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[26]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[25]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[24]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[23]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[22]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[21]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[20]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[19]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[18]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[17]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[16]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[15]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[14]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[13]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[12]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[11]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[10]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "display[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info: Delay annotation completed successfully
 Warning: Following 38 pins have nothing, GND, or VCC driving datain port -- changes to this connectivity may change fitting results
-    Info: Pin display[15] has GND driving its datain port
-    Info: Pin display[16] has GND driving its datain port
-    Info: Pin display[20] has VCC driving its datain port
-    Info: Pin display[21] has GND driving its datain port
-    Info: Pin display[22] has GND driving its datain port
-    Info: Pin display[23] has GND driving its datain port
-    Info: Pin display[24] has GND driving its datain port
-    Info: Pin display[25] has GND driving its datain port
-    Info: Pin display[26] has GND driving its datain port
-    Info: Pin display[27] has VCC driving its datain port
-    Info: Pin display[28] has GND driving its datain port
-    Info: Pin display[29] has GND driving its datain port
-    Info: Pin display[30] has GND driving its datain port
-    Info: Pin display[31] has GND driving its datain port
-    Info: Pin display[32] has GND driving its datain port
-    Info: Pin display[33] has GND driving its datain port
-    Info: Pin display[34] has VCC driving its datain port
-    Info: Pin display[35] has GND driving its datain port
-    Info: Pin display[36] has GND driving its datain port
-    Info: Pin display[37] has GND driving its datain port
-    Info: Pin display[38] has GND driving its datain port
-    Info: Pin display[39] has GND driving its datain port
-    Info: Pin display[40] has GND driving its datain port
-    Info: Pin display[41] has VCC driving its datain port
-    Info: Pin display[42] has GND driving its datain port
-    Info: Pin display[43] has GND driving its datain port
-    Info: Pin display[44] has GND driving its datain port
-    Info: Pin display[45] has GND driving its datain port
-    Info: Pin display[46] has GND driving its datain port
-    Info: Pin display[47] has GND driving its datain port
-    Info: Pin display[48] has VCC driving its datain port
-    Info: Pin display[49] has GND driving its datain port
-    Info: Pin display[50] has GND driving its datain port
-    Info: Pin display[51] has GND driving its datain port
-    Info: Pin display[52] has GND driving its datain port
-    Info: Pin display[53] has GND driving its datain port
-    Info: Pin display[54] has GND driving its datain port
     Info: Pin display[55] has VCC driving its datain port
+    Info: Pin display[54] has GND driving its datain port
+    Info: Pin display[53] has GND driving its datain port
+    Info: Pin display[52] has GND driving its datain port
+    Info: Pin display[51] has GND driving its datain port
+    Info: Pin display[50] has GND driving its datain port
+    Info: Pin display[49] has GND driving its datain port
+    Info: Pin display[48] has VCC driving its datain port
+    Info: Pin display[47] has GND driving its datain port
+    Info: Pin display[46] has GND driving its datain port
+    Info: Pin display[45] has GND driving its datain port
+    Info: Pin display[44] has GND driving its datain port
+    Info: Pin display[43] has GND driving its datain port
+    Info: Pin display[42] has GND driving its datain port
+    Info: Pin display[41] has VCC driving its datain port
+    Info: Pin display[40] has GND driving its datain port
+    Info: Pin display[39] has GND driving its datain port
+    Info: Pin display[38] has GND driving its datain port
+    Info: Pin display[37] has GND driving its datain port
+    Info: Pin display[36] has GND driving its datain port
+    Info: Pin display[35] has GND driving its datain port
+    Info: Pin display[34] has VCC driving its datain port
+    Info: Pin display[33] has GND driving its datain port
+    Info: Pin display[32] has GND driving its datain port
+    Info: Pin display[31] has GND driving its datain port
+    Info: Pin display[30] has GND driving its datain port
+    Info: Pin display[29] has GND driving its datain port
+    Info: Pin display[28] has GND driving its datain port
+    Info: Pin display[27] has VCC driving its datain port
+    Info: Pin display[26] has GND driving its datain port
+    Info: Pin display[25] has GND driving its datain port
+    Info: Pin display[24] has GND driving its datain port
+    Info: Pin display[23] has GND driving its datain port
+    Info: Pin display[22] has GND driving its datain port
+    Info: Pin display[21] has GND driving its datain port
+    Info: Pin display[20] has VCC driving its datain port
+    Info: Pin display[16] has GND driving its datain port
+    Info: Pin display[15] has GND driving its datain port
 Info: Following groups of pins have the same output enable
-    Info: Following pins have the same output enable: mouse:m|ps2_rt:rt|ps2_tran:tran|WideOr2~11
+    Info: Following pins have the same output enable: display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|WideOr2~11
         Info: Type bidirectional pin ps2d uses the 3.3-V LVTTL I/O standard
-    Info: Following pins have the same output enable: mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request
+    Info: Following pins have the same output enable: display_mouse:inst|mouse:m|ps2_rt:rt|ps2_tran:tran|current_state.request
         Info: Type bidirectional pin ps2c uses the 3.3-V LVTTL I/O standard
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info: Generated suppressed messages file C:/cygwin/home/prototype/repos/schoolwork/comp-org/lab6/mouse_display.fit.smsg
-Info: Quartus II Fitter was successful. 0 errors, 7 warnings
+Info: Quartus II Fitter was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 260 megabytes
-    Info: Processing ended: Wed Nov 02 16:16:40 2011
+    Info: Processing ended: Wed Nov 02 23:02:45 2011
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:08
 

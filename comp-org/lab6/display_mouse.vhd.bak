@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity display_mouse is
 	port(
@@ -20,7 +21,7 @@ architecture arch of display_mouse is
 		ps2_data : inout std_logic;
 		ps2_clk : inout std_logic;
 		m_done : out std_logic;
-		x, y: out std_logic_vector( 8 downto 0);
+		x, y: out std_logic_vector(8 downto 0);
 		btn: out std_logic_vector( 2 downto 0)
 		);
 	end component;
@@ -43,9 +44,19 @@ architecture arch of display_mouse is
 	signal btn : std_logic_vector( 2 downto 0);
 	signal dis_input : std_logic_vector(31 downto 0);
 	
+	signal s_x : signed(8 downto 0);
+	
 begin
 
-	dis_input <= "000000000000000000000000" & x;
+	process(x)
+	begin
+		s_x <= s_x + signed(x);
+	end process;
+
+	process(s_x)
+	begin
+		dis_input <= "00000000000000000000000" & s_x;
+	end process;
 	
 	m : mouse port map (
 		clk => clock,
