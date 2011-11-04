@@ -43,8 +43,8 @@ architecture arch of display_mouse is
 	signal x, y : std_logic_vector (8 downto 0);
 	signal btn : std_logic_vector( 2 downto 0);
 	signal dis_input : std_logic_vector(31 downto 0);
-	
-	signal s_x : signed(8 downto 0);
+	signal notreset : std_logic;
+	signal s_x : signed(8 downto 0) := "000000000";
 	
 begin
 
@@ -55,12 +55,14 @@ begin
 
 	process(s_x)
 	begin
-		dis_input <= "00000000000000000000000" & s_x;
+		dis_input <= "00000000000000000000000" & std_logic_vector(s_x);
 	end process;
+	
+	notreset <= not(reset);
 	
 	m : mouse port map (
 		clk => clock,
-		reset => reset,
+		reset => noreset,
 		ps2_data => ps2d,
 		ps2_clk => ps2c,
 		m_done => m_done,

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mouse_display
-Wed Nov 02 23:02:36 2011
+Thu Nov 03 00:34:29 2011
 Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
 
 
@@ -46,7 +46,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Nov 02 23:02:36 2011    ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 03 00:34:29 2011    ;
 ; Quartus II Version                 ; 8.0 Build 215 05/29/2008 SJ Full Version ;
 ; Revision Name                      ; mouse_display                            ;
 ; Top-level Entity Name              ; Block                                    ;
@@ -348,7 +348,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
-    Info: Processing started: Wed Nov 02 23:02:34 2011
+    Info: Processing started: Thu Nov 03 00:34:27 2011
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mouse_display -c mouse_display
 Info: Found 2 design units, including 1 entities, in source file display_mouse.vhd
     Info: Found design unit 1: display_mouse-arch
@@ -505,7 +505,7 @@ Info: Implemented 207 device resources after synthesis - the final resource coun
     Info: Implemented 146 logic cells
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 51 warnings
     Info: Peak virtual memory: 226 megabytes
-    Info: Processing ended: Wed Nov 02 23:02:36 2011
+    Info: Processing ended: Thu Nov 03 00:34:29 2011
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

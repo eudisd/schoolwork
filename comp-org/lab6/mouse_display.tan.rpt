@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for mouse_display
-Wed Nov 02 23:02:50 2011
+Thu Nov 03 00:34:49 2011
 Quartus II Version 8.0 Build 215 05/29/2008 SJ Full Version
 
 
@@ -430,7 +430,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 8.0 Build 215 05/29/2008 SJ Full Version
-    Info: Processing started: Wed Nov 02 23:02:49 2011
+    Info: Processing started: Thu Nov 03 00:34:49 2011
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off mouse_display -c mouse_display --timing_analysis_only
 Warning: Timing Analysis is analyzing one or more combinational loops as latches
     Warning: Node "display_mouse:inst|hex_to_seven:sev|dec_7seg_hex:d2|segment_data[1]" is a latch
@@ -590,8 +590,8 @@ Info: th for register "display_mouse:inst|mouse:m|ps2_rt:rt|ps2_rec:rec|current_
         Info: Total interconnect delay = 6.075 ns ( 84.49 % )
 Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 37 warnings
     Info: Peak virtual memory: 171 megabytes
-    Info: Processing ended: Wed Nov 02 23:02:50 2011
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Thu Nov 03 00:34:49 2011
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
 
