@@ -16,6 +16,7 @@ using namespace std;
 // user-defined datatypes
 typedef float vector3f[3];
 typedef struct {
+	int		flag;
 	int		width;
 	int		height;
 	GLuint		texId;
@@ -113,7 +114,7 @@ void initRecords(int recordCount)
 		// save dimensions
 		_records[i].width  = 5;
 		_records[i].height = 5;
-
+		_records[i].flag = 0;
 		// save image filenames
 		sprintf(_records[i].imageFilename, "%s/%s", imageDir,
 		imageFilename[i % albumCount]);
@@ -261,10 +262,12 @@ void scrollTimer(int value)
 	// last iteration
 	if(fabs(_scrollOffset) >= 1 ||
 	   counter >= _scrollTime/(_scrollUpdateInterval)) {
-		if(_scrollDir < 0)
+
+		if(_scrollDir < 0 && middle < _recordCount)
 			middle += 1;
-		else 
+		else if (middle > 0)
 			middle -= 1;
+
 		 counter	= 0;
 		_scrollDir	= 0;
 		_scrollOffset	= 0;
@@ -285,7 +288,6 @@ void scrollTimer(int value)
 //
 void drawRecords()
 {
-	//static int middle = _recordCount / 2;
 	int	 i, incoming, outgoing;
 	float	 front, center_dist, w2;
 	vector3f pos;
@@ -299,11 +301,10 @@ void drawRecords()
 	glTranslatef(pos[0], pos[1], pos[2]);
 	front	    = 2.0;
 	center_dist = 5.0;
-	//middle	    = _recordCount  / 2;
 	if(_scrollOffset > 0) {		// scroll right
 		incoming = middle-1;
 		outgoing = middle;		
-	} else {			// scroll left
+	} else {					// scroll left
 		incoming = middle+1;
 		outgoing = middle;
 	}
@@ -314,19 +315,22 @@ void drawRecords()
 	pos[1] =  0;
 	pos[2] =  0;
 	glPushMatrix();
-	glTranslatef(pos[0], pos[1], pos[2]);
+		glTranslatef(pos[0], pos[1], pos[2]);
 
-	// draw all shifting (non-rotating) records
-	for(i= 0; i < _recordCount; i++) {
-		// move over records that do not purely translate
-		if(i == incoming || i == outgoing) {
-			glTranslatef(1 + center_dist, 0, 0);
-			continue;
+		// draw all shifting (non-rotating) records
+		for(i= 0; i < _recordCount; i++) {
+			// move over records that do not purely translate
+			if(i == incoming || i == outgoing) {
+				glTranslatef(1 + center_dist, 0, 0);
+				continue;
+			}
+
+			glTranslatef(1, 0, 0);
+			if(i < middle){
+				_records[i].flag = 1;
+			} 
+			drawRecord(&_records[i]);
 		}
-
-		glTranslatef(1, 0, 0);
-		drawRecord(&_records[i]);
-	}
 	glPopMatrix();
 
 	// draw central incoming rotating record
@@ -343,17 +347,17 @@ void drawRecords()
 		pos[2] = (1-_scrollOffset) * front;
 	}
 	glPushMatrix();
-	glTranslatef(pos[0], pos[1], pos[2]);
+		glTranslatef(pos[0], pos[1], pos[2]);
 
-	// rotate it between 90 and 180 degrees if scrollOffset < 0
-	// rotate it between 90 and  0  degrees if scrollOffset > 0
-	glRotatef(90.0 * (1-_scrollOffset), 0, 1, 0);
+		// rotate it between 90 and 180 degrees if scrollOffset < 0
+		// rotate it between 90 and  0  degrees if scrollOffset > 0
+		glRotatef(90.0 * (1-_scrollOffset), 0, 1, 0);
 
-	// translate so that it rotates around the other edge
-	if(_scrollOffset <= 0)
-		glTranslatef(0, 0, _records[middle].width);
+		// translate so that it rotates around the other edge
+		if(_scrollOffset <= 0)
+			glTranslatef(0, 0, _records[middle].width);
 
-	drawRecord(&_records[middle]);
+		drawRecord(&_records[middle]);
 	glPopMatrix();
 
 	// draw central outgoing rotating record
@@ -366,6 +370,7 @@ void drawRecords()
 		glTranslatef(pos[0], pos[1], pos[2]);
 		glRotatef(-90.0*_scrollOffset, 0, 1, 0);
 		drawRecord(&_records[incoming]);
+		glPopMatrix();
 	} else {
 		pos[0] = -w2*_scrollOffset - (center_dist+1)*(1-_scrollOffset);
 		pos[1] =  0;
@@ -375,6 +380,7 @@ void drawRecords()
 		glTranslatef(pos[0], pos[1], pos[2]);
 		glRotatef(-90.0*_scrollOffset, 0, 1, 0);
 		drawRecord(&_records[outgoing]);
+		glPopMatrix();
 	}
 	
 }
@@ -396,10 +402,18 @@ void drawRecord(Record *record)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glColor3f(.8, .8, .7);
 	glBegin(GL_QUADS);
-		glTexCoord2f(1, 1);	glVertex3f(0, 0, 0);
-		glTexCoord2f(0, 1);	glVertex3f(0, 0, -record->width);
-		glTexCoord2f(0, 0);	glVertex3f(0, record->width, -record->width);
-		glTexCoord2f(1, 0);	glVertex3f(0, record->width, 0);
+		if(record->flag == 0){
+			glTexCoord2f(1, 1);	glVertex3f(0, 0, 0);
+			glTexCoord2f(0, 1);	glVertex3f(0, 0, -record->width);
+			glTexCoord2f(0, 0);	glVertex3f(0, record->width, -record->width);
+			glTexCoord2f(1, 0);	glVertex3f(0, record->width, 0);
+		} else {
+			glTexCoord2f(0, 1);	glVertex3f(0, 0, 0);
+			glTexCoord2f(1, 1);	glVertex3f(0, 0, -record->width);
+			glTexCoord2f(1, 0);	glVertex3f(0, record->width, -record->width);
+			glTexCoord2f(0, 0);	glVertex3f(0, record->width, 0);
+		}
+		
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 
