@@ -31,6 +31,8 @@ float	 _scrollTime=200;	// total scrolling time (per push)
 int	 _scrollUpdateInterval=10;	// scrolling time increment
 int	 _bScrolling=0;		// scrolling boolean: 1=true; 0=false
 
+int middle = 21/2;
+
 // function prototypes
 void initRecords	(int recordCount);
 void initGL		();
@@ -44,8 +46,6 @@ void drawRecords	();
 void drawRecord		(Record *record);
 void quit		();
 int  readPPM		(char*, int&, int&, unsigned char *&);
-
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // main:
@@ -261,6 +261,10 @@ void scrollTimer(int value)
 	// last iteration
 	if(fabs(_scrollOffset) >= 1 ||
 	   counter >= _scrollTime/(_scrollUpdateInterval)) {
+		if(_scrollDir < 0)
+			middle += 1;
+		else 
+			middle -= 1;
 		 counter	= 0;
 		_scrollDir	= 0;
 		_scrollOffset	= 0;
@@ -281,7 +285,8 @@ void scrollTimer(int value)
 //
 void drawRecords()
 {
-	int	 i, middle, incoming, outgoing;
+	//static int middle = _recordCount / 2;
+	int	 i, incoming, outgoing;
 	float	 front, center_dist, w2;
 	vector3f pos;
 
@@ -294,14 +299,15 @@ void drawRecords()
 	glTranslatef(pos[0], pos[1], pos[2]);
 	front	    = 2.0;
 	center_dist = 5.0;
-	middle	    = _recordCount  / 2;
+	//middle	    = _recordCount  / 2;
 	if(_scrollOffset > 0) {		// scroll right
 		incoming = middle-1;
-		outgoing = middle;
+		outgoing = middle;		
 	} else {			// scroll left
 		incoming = middle+1;
 		outgoing = middle;
 	}
+
 
 	// leftmost record position
 	pos[0] = -middle - center_dist + _scrollOffset - 1;
@@ -311,7 +317,7 @@ void drawRecords()
 	glTranslatef(pos[0], pos[1], pos[2]);
 
 	// draw all shifting (non-rotating) records
-	for(i= 0; i<_recordCount; i++) {
+	for(i= 0; i < _recordCount; i++) {
 		// move over records that do not purely translate
 		if(i == incoming || i == outgoing) {
 			glTranslatef(1 + center_dist, 0, 0);
@@ -370,6 +376,7 @@ void drawRecords()
 		glRotatef(-90.0*_scrollOffset, 0, 1, 0);
 		drawRecord(&_records[outgoing]);
 	}
+	
 }
 
 
