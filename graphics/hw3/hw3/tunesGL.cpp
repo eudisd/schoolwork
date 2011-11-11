@@ -351,7 +351,7 @@ void drawRecords()
 			 (  _scrollOffset) * (center_dist+1);
 		pos[1] =  0;
 		pos[2] = (1-_scrollOffset) * front;
-		_records[middle].flag = 1;
+		_records[middle].flag = 0;
 		printf("Right\n");
 	}
 	glPushMatrix();
@@ -377,9 +377,9 @@ void drawRecords()
 		pos[2] = _scrollOffset * -front;
 		_records[incoming].flag = 0;
 		glPushMatrix();
-		glTranslatef(pos[0], pos[1], pos[2]);
-		glRotatef(-90.0*_scrollOffset, 0, 1, 0);
-		drawRecord(&_records[incoming]);
+			glTranslatef(pos[0], pos[1], pos[2]);
+			glRotatef(-90.0*_scrollOffset, 0, 1, 0);
+			drawRecord(&_records[incoming]);
 		glPopMatrix();
 	} else {
 		pos[0] = -w2*_scrollOffset - (center_dist+1)*(1-_scrollOffset);
@@ -387,9 +387,9 @@ void drawRecords()
 		pos[2] = _scrollOffset * front;
 		_records[incoming].flag = 1;
 		glPushMatrix();
-		glTranslatef(pos[0], pos[1], pos[2]);
-		glRotatef(-90.0*_scrollOffset, 0, 1, 0);
-		drawRecord(&_records[incoming]);
+			glTranslatef(pos[0], pos[1], pos[2]);
+			glRotatef(-90.0*_scrollOffset, 0, 1, 0);
+			drawRecord(&_records[incoming]);
 		glPopMatrix();
 	}
 	
