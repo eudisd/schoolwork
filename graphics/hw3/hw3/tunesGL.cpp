@@ -326,9 +326,12 @@ void drawRecords()
 			}
 
 			glTranslatef(1, 0, 0);
+
 			if(i < middle){
 				_records[i].flag = 1;
-			} 
+			} else {
+				_records[i].flag = 0;
+			}
 			drawRecord(&_records[i]);
 		}
 	glPopMatrix();
@@ -340,11 +343,16 @@ void drawRecords()
 			 (  _scrollOffset) * (center_dist+1);
 		pos[1] =  0;
 		pos[2] = (1+_scrollOffset) * front;
+		_records[middle].flag = 0;
+		printf("Left\n");
+	// Right Scroll (Incorrect)
 	} else {
 		pos[0] = (1-_scrollOffset) *   w2 +
 			 (  _scrollOffset) * (center_dist+1);
 		pos[1] =  0;
 		pos[2] = (1-_scrollOffset) * front;
+		_records[middle].flag = 1;
+		printf("Right\n");
 	}
 	glPushMatrix();
 		glTranslatef(pos[0], pos[1], pos[2]);
@@ -356,8 +364,10 @@ void drawRecords()
 		// translate so that it rotates around the other edge
 		if(_scrollOffset <= 0)
 			glTranslatef(0, 0, _records[middle].width);
-
+		
 		drawRecord(&_records[middle]);
+	
+		
 	glPopMatrix();
 
 	// draw central outgoing rotating record
@@ -365,7 +375,7 @@ void drawRecords()
 		pos[0] = -w2*_scrollOffset + (center_dist+1)*(1+_scrollOffset);
 		pos[1] =  0;
 		pos[2] = _scrollOffset * -front;
-
+		_records[incoming].flag = 0;
 		glPushMatrix();
 		glTranslatef(pos[0], pos[1], pos[2]);
 		glRotatef(-90.0*_scrollOffset, 0, 1, 0);
@@ -375,11 +385,11 @@ void drawRecords()
 		pos[0] = -w2*_scrollOffset - (center_dist+1)*(1-_scrollOffset);
 		pos[1] =  0;
 		pos[2] = _scrollOffset * front;
-
+		_records[incoming].flag = 1;
 		glPushMatrix();
 		glTranslatef(pos[0], pos[1], pos[2]);
 		glRotatef(-90.0*_scrollOffset, 0, 1, 0);
-		drawRecord(&_records[outgoing]);
+		drawRecord(&_records[incoming]);
 		glPopMatrix();
 	}
 	
@@ -407,12 +417,14 @@ void drawRecord(Record *record)
 			glTexCoord2f(0, 1);	glVertex3f(0, 0, -record->width);
 			glTexCoord2f(0, 0);	glVertex3f(0, record->width, -record->width);
 			glTexCoord2f(1, 0);	glVertex3f(0, record->width, 0);
-		} else {
+		// Fixes the drawings of quads on the left of middle
+		} else if (record->flag == 1) {
 			glTexCoord2f(0, 1);	glVertex3f(0, 0, 0);
 			glTexCoord2f(1, 1);	glVertex3f(0, 0, -record->width);
 			glTexCoord2f(1, 0);	glVertex3f(0, record->width, -record->width);
 			glTexCoord2f(0, 0);	glVertex3f(0, record->width, 0);
-		}
+		// Draws the center frame with the correct texture mapping
+		} 
 		
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
