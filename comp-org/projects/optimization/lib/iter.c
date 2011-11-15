@@ -1,9 +1,10 @@
 #include "iter.h"
 
 void iter(void){
-    int i;
+    int i = 0;
     char array[10];
-    for(i = 0; i < 10; i++){
+    while(i < 10){
         array[i] = 0;
+        i++;
     }
 }
