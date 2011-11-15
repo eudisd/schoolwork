@@ -8,7 +8,12 @@
 double microsecs(void);
 
 int main(void){
-    double t1, t2, t3, t4;
+    double t1, t2, t3, t4,
+           opt_t1, opt_t2, opt_t3, opt_t4;
+
+
+//    opt_iter();
+
 
     t1 = microsecs();
     iter();
@@ -19,8 +24,10 @@ int main(void){
     t4 = microsecs();
 
     printf("Unoptimized Iter() function call: %f\n", t2 - t1);
-
     printf("Unoptimized Ptr() function call: %f\n", t4 - t3);
+
+    
+    
     return 0;
 }
 
