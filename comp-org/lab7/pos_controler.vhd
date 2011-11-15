@@ -15,7 +15,37 @@ begin
 	Init_X <= std_logic_vector(x);
 	Init_Y <= std_logic_vector(Y);
 	Process(Move, reset)
+	
+	variable disp : integer := 4;
+	
 	begin
-		--Enter your code here
+		if (Move = '1') then
+			if(L = '1' and R = '0' and U = '0' and D = '0') then
+				x <= x - disp;
+			elsif(L = '0' and R = '1' and U = '0' and D = '0') then
+				x <= x + disp;
+			elsif(L = '0' and R = '0' and U = '1' and D = '0') then
+				y <= y - disp;
+			elsif(L = '0' and R = '0' and U = '0' and D = '1') then
+				y <= y + disp;
+				
+			elsif(L = '1' and R = '0' and U = '1' and D = '0') then
+				x <= x - disp;
+				y <= y - disp;
+				
+			elsif(L = '1' and R = '1' and U = '0' and D = '1') then
+				x <= x - disp;
+				y <= y + disp;
+				
+			elsif(L = '0' and R = '1' and U = '1' and D = '0') then
+				x <= x + disp;
+				y <= y - disp;
+				
+			elsif(L = '0' and R = '1' and U = '0' and D = '1') then
+				x <= x + disp;
+				y <= y + disp;
+				
+			end if;
+		end if;
 	end process;
 end arch;
