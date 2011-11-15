@@ -19,6 +19,14 @@ architecture arch of Object is
 begin
 	process(Pixel_X, Pixel_Y)
 	begin
-		--Enter your code here
+		if(unsigned(Pixel_X) < W and 
+		   unsigned(Pixel_X) >= unsigned(Init_X) and
+	       unsigned(Pixel_Y) < H and
+	       unsigned(Pixel_Y) >= unsigned(Init_Y)) then
+		
+			RGB <= Color;
+			Object_On <= '1';
+			
+		end if;
 	end process;
 end arch;
