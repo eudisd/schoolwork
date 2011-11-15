@@ -14,4 +14,16 @@ architecture arch of Mux_RGB is
 	signal r : std_logic_vector(2 downto 0);
 begin
 	--Enter your code here
+	process(Object_1_On, Video_On)
+	begin
+		if(Video_On = '1') then
+			if(Object_1_On = '1') then
+				RGB <= Object_1_RGB;
+			else
+				RGB <= Backgroun_RGB;
+			end if;
+		else 
+			RGB <= "000";
+		end if;
+	end process;
 end arch;
