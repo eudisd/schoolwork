@@ -6,54 +6,68 @@
 #include "lib/iter.h"
 #include "lib/ptr.h"
 
-#define RANGE 8000
+#define RANGE 8000000
 
+__uint64_t rdtsc();
 double microsecs(void);
 
 int main(void){
-    double t1, t2, diff;
+    __uint64_t t1, t2, diff = 0;
 
     int i;
     for(i = 0; i < RANGE; i++){
-        t1 = microsecs();
+        t1 = rdtsc();
         iter();
-        t2 = microsecs();
+        t2 = rdtsc();
         diff = diff + (t2 - t1);
     }
-    diff /= (double)RANGE;
+    diff /= (__uint64_t)RANGE;
     
-    printf("Unoptimized iter() function call: %0.10f\n", diff);
-   
-    for(i = 0; i < RANGE; i++){
-        t1 = microsecs();
+    printf("Unoptimized iter() function call: %u\n", diff);
+    for(i = 0, diff = 0; i < RANGE; i++){
+        t1 = rdtsc();
         ptr();
-        t2 = microsecs();
+        t2 = rdtsc();
         diff = diff + (t2 - t1);
     }
 
-    
-    printf("Unoptimized ptr() function call: %0.10f\n", diff);
+    diff /= (__uint64_t)RANGE;
+    printf("Unoptimized ptr() function call: %u\n", diff);
 
     // Optimized versions of these functinos 
     
-    opt_t1 = microsecs();
-    opt_iter();
-    opt_t2 = microsecs();
-
-    opt_t3 = microsecs();
-    opt_ptr();
-    opt_t4 = microsecs();
-
-
-
-
-    printf("Unoptimized opt_iter() function call: %0.10f\n", opt_t2 - opt_t1);
-    printf("Unoptimized opt_ptr() function call: %0.10f\n", opt_t4 - opt_t3);
+    for(i = 0, diff = 0; i < RANGE; i++){
+        t1 = rdtsc();
+        opt_iter();
+        t2 = rdtsc();
+        diff = diff + (t2 - t1);
+    }
+    diff /= (__uint64_t)RANGE;
+    printf("Unoptimized opt_iter() function call: %u\n", diff);
     
-    */
+    for(i = 0, diff = 0; i < RANGE; i++){
+        t1 = rdtsc();
+        opt_ptr();
+        t2 = rdtsc();
+        diff = diff + (t2 - t1);
+    }
+    diff /= (__uint64_t)RANGE;
+    printf("Unoptimized opt_ptr() function call: %u\n", diff);
+    
     return 0;
 }
+inline __uint64_t rdtsc(){
+    __uint32_t lo, hi;
+    asm volatile (
+            "xorl %%eax, %%eax\n"
+            "cpuid\n"
+            "rdtsc\n"
+            : "=a" (lo), "=d" (hi)
+            :
+            : "%ebx", "%ecx");
+    return (long)hi << 32 | lo;
 
+}
 double microsecs(){
     static struct timeval _t;
     static struct timezone tz;
