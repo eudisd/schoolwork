@@ -6,21 +6,33 @@
 #include "lib/iter.h"
 #include "lib/ptr.h"
 
+#define RANGE 8000
+
 double microsecs(void);
 
 int main(void){
-    double t1, t2, t3, t4,
-           opt_t1, opt_t2, opt_t3, opt_t4;
+    double t1, t2, diff;
 
+    int i;
+    for(i = 0; i < RANGE; i++){
+        t1 = microsecs();
+        iter();
+        t2 = microsecs();
+        diff = diff + (t2 - t1);
+    }
+    diff /= (double)RANGE;
+    
+    printf("Unoptimized iter() function call: %0.10f\n", diff);
+   
+    for(i = 0; i < RANGE; i++){
+        t1 = microsecs();
+        ptr();
+        t2 = microsecs();
+        diff = diff + (t2 - t1);
+    }
 
-    t1 = microsecs();
-    printf("Hi");
-    t2 = microsecs();
-
-    t3 = microsecs();
-    printf("Hiyo may friend");
-    t4 = microsecs();
-
+    
+    printf("Unoptimized ptr() function call: %0.10f\n", diff);
 
     // Optimized versions of these functinos 
     
@@ -32,13 +44,13 @@ int main(void){
     opt_ptr();
     opt_t4 = microsecs();
 
-    printf("Unoptimized iter() function call: %0.10f\n", t2 - t1);
-    printf("Unoptimized ptr() function call: %0.10f\n", t4 - t3);
+
+
 
     printf("Unoptimized opt_iter() function call: %0.10f\n", opt_t2 - opt_t1);
     printf("Unoptimized opt_ptr() function call: %0.10f\n", opt_t4 - opt_t3);
     
-    
+    */
     return 0;
 }
 
