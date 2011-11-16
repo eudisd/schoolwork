@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
@@ -13,11 +14,11 @@ int main(void){
 
 
     t1 = microsecs();
-    iter();
+    printf("Hi");
     t2 = microsecs();
 
     t3 = microsecs();
-    ptr();
+    printf("Hiyo may friend");
     t4 = microsecs();
 
 
@@ -42,8 +43,9 @@ int main(void){
 }
 
 double microsecs(){
-    struct timeval _t;
-    struct timezone tz;
+    static struct timeval _t;
+    static struct timezone tz;
     gettimeofday(&_t, &tz);
     return (double)_t.tv_sec + (double)_t.tv_usec/(1000*1000);
+    
 }
