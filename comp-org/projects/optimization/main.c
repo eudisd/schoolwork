@@ -5,7 +5,7 @@
 #include "lib/iter.h"
 #include "lib/ptr.h"
 
-#define RANGE 800000
+#define RANGE 10
 
 double microsecs(void);
 

@@ -1,38 +1,40 @@
 	.file	"iter.c"
 	.text
-	.p2align 4,,15
 	.globl	iter
 	.type	iter, @function
 iter:
 .LFB0:
-	rep
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$1000024, %esp
+	movl	%gs:20, %eax
+	movl	%eax, -12(%ebp)
+	xorl	%eax, %eax
+	movl	$0, -1000016(%ebp)
+	jmp	.L2
+.L3:
+	leal	-1000012(%ebp), %eax
+	addl	-1000016(%ebp), %eax
+	movb	$0, (%eax)
+	addl	$1, -1000016(%ebp)
+.L2:
+	cmpl	$999999, -1000016(%ebp)
+	jle	.L3
+	movl	-12(%ebp), %eax
+	xorl	%gs:20, %eax
+	je	.L4
+	call	__stack_chk_fail
+.L4:
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
 	ret
+	.cfi_endproc
 .LFE0:
 	.size	iter, .-iter
-	.section	.eh_frame,"a",@progbits
-.Lframe1:
-	.long	.LECIE1-.LSCIE1
-.LSCIE1:
-	.long	0
-	.byte	0x1
-	.string	""
-	.uleb128 0x1
-	.sleb128 -4
-	.byte	0x8
-	.byte	0xc
-	.uleb128 0x4
-	.uleb128 0x4
-	.byte	0x88
-	.uleb128 0x1
-	.align 4
-.LECIE1:
-.LSFDE1:
-	.long	.LEFDE1-.LASFDE1
-.LASFDE1:
-	.long	.LASFDE1-.Lframe1
-	.long	.LFB0
-	.long	.LFE0-.LFB0
-	.align 4
-.LEFDE1:
 	.ident	"GCC: (Ubuntu/Linaro 4.6.1-9ubuntu3) 4.6.1"
 	.section	.note.GNU-stack,"",@progbits

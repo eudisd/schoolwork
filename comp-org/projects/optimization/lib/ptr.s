@@ -10,21 +10,21 @@ ptr:
 	.cfi_offset 5, -8
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
-	subl	$40, %esp
+	subl	$1000024, %esp
 	movl	%gs:20, %eax
 	movl	%eax, -12(%ebp)
 	xorl	%eax, %eax
-	leal	-22(%ebp), %eax
-	movl	%eax, -28(%ebp)
+	leal	-1000012(%ebp), %eax
+	movl	%eax, -1000016(%ebp)
 	jmp	.L2
 .L3:
-	movl	-28(%ebp), %eax
+	movl	-1000016(%ebp), %eax
 	movb	$0, (%eax)
-	addl	$1, -28(%ebp)
+	addl	$1, -1000016(%ebp)
 .L2:
-	leal	-22(%ebp), %eax
-	addl	$10, %eax
-	cmpl	%eax, -28(%ebp)
+	leal	-1000012(%ebp), %eax
+	addl	$1000000, %eax
+	cmpl	%eax, -1000016(%ebp)
 	jb	.L3
 	movl	-12(%ebp), %eax
 	xorl	%gs:20, %eax
