@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
@@ -22,7 +21,7 @@ int main(void){
     }
     diff /= (double)RANGE;
     
-    printf("Unoptimized iter() function call: \n%0.8f\n", diff);
+    printf("Unoptimized iter() function call: \n%0.10f\n", diff);
     for(i = 0, diff = 0; i < RANGE; i++){
         t1 = microsecs();
         ptr();
@@ -31,7 +30,7 @@ int main(void){
     }
 
     diff /= (double)RANGE;
-    printf("Unoptimized ptr() function call: \n%0.8f\n", diff);
+    printf("Unoptimized ptr() function call: \n%0.10f\n", diff);
 
     // Optimized versions of these functinos 
     
@@ -42,7 +41,7 @@ int main(void){
         diff = diff + (t2 - t1);
     }
     diff /= (double)RANGE;
-    printf("Unoptimized opt_iter() function call: \n%0.8f\n", diff);
+    printf("Optimized opt_iter() function call: \n%0.10f\n", diff);
     
     for(i = 0, diff = 0; i < RANGE; i++){
         t1 = microsecs();
@@ -51,7 +50,7 @@ int main(void){
         diff = diff + (t2 - t1);
     }
     diff /= (double)RANGE;
-    printf("Unoptimized opt_ptr() function call: \n%0.8f\n", diff);
+    printf("Optimized opt_ptr() function call: \n%0.10f\n", diff);
     
     return 0;
 }
