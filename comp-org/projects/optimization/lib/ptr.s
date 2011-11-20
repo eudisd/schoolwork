@@ -1,16 +1,14 @@
-	.file	"ptr.c"
 	.text
 	.globl	ptr
 	.type	ptr, @function
 ptr:
 .LFB0:
-	.cfi_startproc
 	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
+.LCFI0:
 	movl	%esp, %ebp
-	.cfi_def_cfa_register 5
+.LCFI1:
 	subl	$1000024, %esp
+.LCFI2:
 	movl	%gs:20, %eax
 	movl	%eax, -12(%ebp)
 	xorl	%eax, %eax
@@ -32,11 +30,50 @@ ptr:
 	call	__stack_chk_fail
 .L4:
 	leave
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
+.LCFI3:
 	ret
-	.cfi_endproc
 .LFE0:
 	.size	ptr, .-ptr
+	.section	.eh_frame,"a",@progbits
+.Lframe1:
+	.long	.LECIE1-.LSCIE1
+.LSCIE1:
+	.long	0
+	.byte	0x1
+	.string	""
+	.uleb128 0x1
+	.sleb128 -4
+	.byte	0x8
+	.byte	0xc
+	.uleb128 0x4
+	.uleb128 0x4
+	.byte	0x88
+	.uleb128 0x1
+	.align 4
+.LECIE1:
+.LSFDE1:
+	.long	.LEFDE1-.LASFDE1
+.LASFDE1:
+	.long	.LASFDE1-.Lframe1
+	.long	.LFB0
+	.long	.LFE0-.LFB0
+	.byte	0x4
+	.long	.LCFI0-.LFB0
+	.byte	0xe
+	.uleb128 0x8
+	.byte	0x85
+	.uleb128 0x2
+	.byte	0x4
+	.long	.LCFI1-.LCFI0
+	.byte	0xd
+	.uleb128 0x5
+	.byte	0x4
+	.long	.LCFI3-.LCFI1
+	.byte	0xc5
+	.byte	0xc
+	.uleb128 0x4
+	.uleb128 0x4
+	.align 4
+.LEFDE1:
 	.ident	"GCC: (Ubuntu/Linaro 4.6.1-9ubuntu3) 4.6.1"
 	.section	.note.GNU-stack,"",@progbits
