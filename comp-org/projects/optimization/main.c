@@ -5,26 +5,28 @@
 #include "lib/iter.h"
 #include "lib/ptr.h"
 
-double microsecs(void);
-double getdiff(void(*func)(void));
+double microsecs(void);            // Returns the current time.
+double getdiff(void(*func)(void)); // Returns the measured time 
+								   // difference function call.
 
-const int RANGE = 10;
-double t1, t2, diff = 0;
-int i;
+const int RANGE = 10;              // Average function call time
+double t1, t2, diff = 0; 
+int i;							   // Global iterator
 
 int main(void){
 
+	// Unoptimized versions 
 	diff = getdiff(iter);
-    printf("Unoptimized iter() function call: \n%0.10f\n", diff);
+    printf("Unoptimized iter() function call time: \n%0.10f secs\n", diff);
     diff = getdiff(ptr);
-    printf("Unoptimized ptr() function call: \n%0.10f\n", diff);
+    printf("Unoptimized ptr() function call time: \n%0.10f secs\n", diff);
 
     // Optimized versions of these functinos 
     
     diff = getdiff(opt_iter);
-    printf("Optimized opt_iter() function call: \n%0.10f\n", diff);
+    printf("Optimized opt_iter() function call time: \n%0.10f secs\n", diff);
     diff = getdiff(opt_ptr);
-    printf("Optimized opt_ptr() function call: \n%0.10f\n", diff);
+    printf("Optimized opt_ptr() function call time: \n%0.10f secs\n", diff);
     
     return 0;
 }
