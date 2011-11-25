@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float printMat(float m, int n, int m);
+void printMat(float **matrix, int n, int m);
 float **matMultIter(float *m1, 
                  int m1_n,
                  int m1_m, 
@@ -13,27 +13,40 @@ int main(void){
     int i, j;
     int m1_n = 3, m1_m = 3;
     int m2_n = 3, m2_m = 3;
-    float m1[3][3] = {{0.0, 0.1, 1.0},
-                      {1.0, 2.0, 3.0},
-                      {30.0, 15.0, 1.0}};
+    
+    float **m1 = (float**)malloc(sizeof(float*)*3);  
+    float **m2 = (float**)malloc(sizeof(float*)*3);
 
-    float m2[3][3] = {{1.0, 1.0, 1.0},
-                      {1.0, 1.0, 1.0},
-                      {1.0, 1.0, 1.00}};
+    for(i = 0; i < m1_m; i++){
+        m1[i] = (float*)malloc(sizeof(float)*3); 
+        m2[i] = (float*)malloc(sizeof(float)*3);
+    }
+
+    m1[0][0] = 0.0; m1[0][1] = 1.0; m1[0][2] = 2.0;
+    m1[1][0] = 1.0; m1[1][1] = 0.1; m1[1][2] = 3.0;
+    m1[2][0] = 2.0; m1[2][1] = 0.2; m1[2][2] = 4.0;
+    
+    m2[0][0] = 0.0; m2[0][1] = 1.0; m2[0][2] = 2.0;
+    m2[1][0] = 1.0; m2[1][1] = 0.1; m2[1][2] = 3.0;
+    m2[2][0] = 2.0; m2[2][1] = 0.2; m2[2][2] = 4.0;
+
     printf("Printing matrices and result\nMatrix 1:\n");
-
+    printMat(m1, m1_n, m1_m);
+    printMat(m2, m2_n, m2_m);
     return EXIT_SUCCESS;
 }
 
 
-float printMat(float m, int n, int m){
-    for(i = 0; i < m1_n; i++){
+void printMat(float **matrix, int n, int m){
+    int i, j;
+    for(i = 0; i < n; i++){
         printf("|");
-        for(j = 0; j < m1_m; j++){
-            printf("%f ", m1[i][j]);
+        for(j = 0; j < m; j++){
+            printf("%f ", matrix[i][j]);
         }
         printf("|\n");
     }
+    printf("\n");
 }
 
 float **matMultIter(float *m1, 
