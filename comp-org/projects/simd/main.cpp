@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+float printMat(float m, int n, int m);
 float **matMultIter(float *m1, 
                  int m1_n,
                  int m1_m, 
@@ -16,16 +17,23 @@ int main(void){
                       {1.0, 2.0, 3.0},
                       {30.0, 15.0, 1.0}};
 
+    float m2[3][3] = {{1.0, 1.0, 1.0},
+                      {1.0, 1.0, 1.0},
+                      {1.0, 1.0, 1.00}};
     printf("Printing matrices and result\nMatrix 1:\n");
+
+    return EXIT_SUCCESS;
+}
+
+
+float printMat(float m, int n, int m){
     for(i = 0; i < m1_n; i++){
         printf("|");
         for(j = 0; j < m1_m; j++){
             printf("%f ", m1[i][j]);
         }
         printf("|\n");
-
     }
-    return EXIT_SUCCESS;
 }
 
 float **matMultIter(float *m1, 
