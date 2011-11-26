@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 void printMat(float **matrix, int n, int m);
-float **matMultIter(float *m1, 
+float **matMultIter(float **m1, 
                  int m1_n,
                  int m1_m, 
-                 float *m2,
+                 float **m2,
                  int m2_n,
                  int m2_m);
 
@@ -33,6 +33,9 @@ int main(void){
     printf("Printing matrices and result\nMatrix 1:\n");
     printMat(m1, m1_n, m1_m);
     printMat(m2, m2_n, m2_m);
+    printf("Matrix1 * Matrix2 = \n");
+    printMat(matMultIter(m1, m1_n, m1_m, m2, m2_n, m2_m),
+            m1_n, m2_m);
     return EXIT_SUCCESS;
 }
 
@@ -49,13 +52,13 @@ void printMat(float **matrix, int n, int m){
     printf("\n");
 }
 
-float **matMultIter(float *m1, 
+float **matMultIter(float **m1, 
                    int m1_n,
                    int m1_m,
-                   float *m2,
+                   float **m2,
                    int m2_n,
                    int m2_m){
-    int i, j;
+    int i, j, I, J;
     float **res;
 
     if( m1_m != m2_n || m1_n != m2_m ){
@@ -67,8 +70,11 @@ float **matMultIter(float *m1,
     for(i = 0; i < m1_n; i++)
         res[i] = (float*)malloc(sizeof(float)*m2_m);
 
-    for(i = 0; i < m1_m; i++)
-        for(j = 0; j < m2_n; j++){
-        }
+    for(i = 0; i < m1_n; i++)
+        for(j = 0; j < m2_m; j++)
+            for(I = 0; I < m1_n; I++)
+                for(J = 0; J < m2_m; J++) 
+                    res[i][j] = m1[I][J] + m2[J][I];
+        
     return res;
 }
