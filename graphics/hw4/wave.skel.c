@@ -15,6 +15,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <GL/glut.h>
+#include "texture.h"
 
 /* user-defined type definition */
 typedef int bool;
