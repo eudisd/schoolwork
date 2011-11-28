@@ -234,7 +234,7 @@ void scalDiv(float vec[3], float c)
  */
 void cross(float vec0[3], float vec1[3], float vec2[3])
 {
-	....
+	//....
 }
 
 
@@ -246,7 +246,7 @@ void cross(float vec0[3], float vec1[3], float vec2[3])
  */
 void norm(float vec[3])
 {
-	....
+	//....
 }
 
 
@@ -278,7 +278,7 @@ void set(float vec[3], float x, float y, float z)
  */
 void getFaceNorms(void)
 {
-	...
+	//...
 }
 
 
@@ -292,7 +292,7 @@ void getFaceNorms(void)
  */
 void getVertNorms(void)
 {
-	...
+	//...
 }
 
 
@@ -681,10 +681,10 @@ void drawSmoothShaded(void)
 	int	i, j;
 
 	/* set color to (.8,.2,.8) */
-	...
+	//...
 
 	/* draw triangular strip; include normal data with each vertex */ 
-	...
+	//...
 }
 
 
@@ -763,16 +763,16 @@ void drawHiddenLine(void)
 	int	i, j;
 
 	/* enable GL_POLYGON_OFFSET_FILL and set color to (.8,.2,.8) */
-	...
+	//...
 
 	/* draw triangular strip of constant colors triangles (filled) */
-	...
+	//...
 	
 	/* set color to white (for lines in triangular mesh) */
-	...
+	//...
 
 	/* draw triangular mesh lines */
-	...
+	//...
 }
 
 
@@ -787,7 +787,7 @@ void drawHiddenLine(void)
  */
 void loadImageTexture(void)
 {
-	...
+	//...
 }
 
 
@@ -802,7 +802,7 @@ void drawTextured(void)
 	glEnable(GL_TEXTURE_2D);
 
 	/* draw triangular strip; add normal/texture data with each vertex */ 
-	...
+	//...
 
 	glDisable(GL_TEXTURE_2D);
 }

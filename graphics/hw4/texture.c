@@ -6,7 +6,7 @@
 #include "texture.h"
 
 void
-bwtorgba(unsigned char *b,unsigned char *l,int n) {
+bwtorgba(unsigned char *b, unsigned char *l, int n) {
     while(n--) {
         l[0] = *b;
         l[1] = *b;
@@ -37,22 +37,6 @@ rgbatorgba(unsigned char *r,unsigned char *g,unsigned char *b,unsigned char *a,u
         l += 4; r++; g++; b++; a++;
     }
 }
-
-typedef struct _ImageRec {
-    unsigned short imagic;
-    unsigned short type;
-    unsigned short dim;
-    unsigned short xsize, ysize, zsize;
-    unsigned int min, max;
-    unsigned int wasteBytes;
-    char name[80];
-    unsigned long colorMap;
-    FILE *file;
-    unsigned char *tmp, *tmpR, *tmpG, *tmpB;
-    unsigned long rleEnd;
-    unsigned int *rowStart;
-    int *rowSize;
-} ImageRec;
 
 static void
 ConvertShort(unsigned short *array, unsigned int length) {
