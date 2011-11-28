@@ -235,7 +235,9 @@ void scalDiv(float vec[3], float c)
  */
 void cross(float vec0[3], float vec1[3], float vec2[3])
 {
-	//....
+	vec0[0] = vec1[1]*vec2[2] - vec2[1]*vec1[2];
+	vec0[1] = vec1[0]*vec2[2] - vec2[0]*vec1[2];
+	vec0[2] = vec1[0]*vec2[1] - vec2[0]*vec1[1];
 }
 
 
@@ -247,7 +249,10 @@ void cross(float vec0[3], float vec1[3], float vec2[3])
  */
 void norm(float vec[3])
 {
-	//....
+	float mag = sqrt(vec[0]*vec[0] + vec[1]*vec[1] + vec[2]*vec[2]);
+	vec[0] = vec[0]/mag;
+	vec[1] = vec[1]/mag;
+	vec[2] = vec[1]/mag;
 }
 
 
