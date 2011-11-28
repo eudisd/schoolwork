@@ -3,10 +3,7 @@
 
 /* read_texture is a simplistic routine for reading an SGI .rgb image file. */
 
-#include <stdio.h>
-#include <stdlib.h> 
-#include <string.h>
-#include <GL/glut.h>
+#include "texture.h"
 
 void
 bwtorgba(unsigned char *b,unsigned char *l,int n) {
