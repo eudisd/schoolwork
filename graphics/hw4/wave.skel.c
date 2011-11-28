@@ -790,10 +790,42 @@ void drawHiddenLine(void)
  * Set GL_TEXTURE_WRAP_S and GL_TEXTURE_WRAP_T to GL_CLAMP.
  * Set GL_TEXTURE_MAG_FILTER and GL_TEXTURE_MIN_FILTER to GL_LINEAR.
  * The images that are read in are in GL_RGBA (4-byte/pixel) format.
+
+ int	 TexWidth, TexHeight;
+int	 TexId1,   TexId2;
+GLubyte *TexData;
+char	*TexFilename1 = "texmap.rgb";
+char	*TexFilename2 = "envmap.rgb";
+float	 TexCoords[MAXGRID][MAXGRID][2];
+
  */
 void loadImageTexture(void)
 {
-	//...
+	GLfloat borderColor[] = {0, 0, 0, 0};  // Black and opaque
+
+	GLubyte *texmapImg;
+	GLubyte *envmapImg;
+
+	imgLoad(TexFilename1, 0, borderColor, &TexWidth, &TexHeight, &texmapImg);
+
+	glBindTexture(GL_TEXTURE_2D, TexId1);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexImage2D(GL_TEXTURE_2D, 0, 3, TexWidth, TexHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, texmapImg);
+
+	imgLoad(TexFilename2, 0, borderColor, &TexWidth, &TexHeight, &envmapImg);
+
+	glBindTexture(GL_TEXTURE_2D, TexId2);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexImage2D(GL_TEXTURE_2D, 0, 3, TexWidth, TexHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, envmapImg);
+
+	
+
 }
 
 
