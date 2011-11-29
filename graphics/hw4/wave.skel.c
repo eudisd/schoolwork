@@ -335,14 +335,19 @@ void getFaceNorms(void)
 
 void setVertNorms(float sum[3], int i, int j, int i1, int j1, int i2, int j2){
 	float p0[3], p1[3], p2[3], t0[3], t1[3], n[3];
-	set(p0, i, j, Posit[i][j]);
-	set(p1, i, j, Posit[i1][j1]);
-	set(p2, i, j, Posit[i2][j2]);
+	set(p0, (float)i, (float)j, Posit[i][j]);
+	set(p1, (float)i1, (float)j1, Posit[i1][j1]);
+	set(p2, (float)i2, (float)j2, Posit[i2][j2]);
+
 	sub(t0, p1, p0);
 	sub(t1, p2, p0);
 	cross(n, t0, t1);
-	norm(n);
-	add(sum, sum, n);
+	printf("t0: %f %f %f\n", t0[0], t0[1], t0[2]);
+	printf("t1: %f %f %f\n", t1[0], t1[1], t1[2]);
+	printf("n: %f %f %f\n", n[0], n[1], n[2]);
+	//norm(n);
+
+	//add(sum, sum, n);
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -355,7 +360,7 @@ void setVertNorms(float sum[3], int i, int j, int i1, int j1, int i2, int j2){
 
 void getVertNorms(void)
 {
-	float sum[3] = {0.0, 0.0, 0.0}, len[8][3] = {0.0,0.0,0.0};
+	float sum[3] = {0.0, 0.0, 0.0};
 	int i, j;	
 	for(i=0; i<Grid; i++) {
 		for(j=0; j<Grid; j++) {
@@ -380,17 +385,22 @@ void getVertNorms(void)
 				setVertNorms(sum, i, j, i, j - 1, i - 1, j - 1);
 				setVertNorms(sum, i, j, i - 1, j - 1, i - 1, j);
 				setVertNorms(sum, i, j, i - 1, j, i - 1, j + 1);
-
-				// Average 
 				
-				scalDiv(sum, sqrt(sum[0]*sum[0] + sum[1]*sum[1] + sum[2]*sum[2]));
+
+				printf("sum: %f %f %f\n", sum[0], sum[1], sum[2]);
+				// Average 
+				//scalDiv(sum, sqrt(sum[0]*sum[0] + sum[1]*sum[1] + sum[2]*sum[2]));
 				// Now, set the
-				set(vertNorms[i][j], sum[0], sum[1], sum[2]);
+				copy(vertNorms[i][j], sum);
 
 			}
 		}
 	}
-
+	/*
+	for(i = 0; i < Grid; i++)
+		for(j = 0; j < Grid; j++)
+			printf("verts: [%d][%d] = %f\n", i, j, vertNorms[i][j]);
+	*/
 }
 
 
