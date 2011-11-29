@@ -355,7 +355,7 @@ void setVertNorms(float sum[3], int i, int j, int i1, int j1, int i2, int j2){
 
 void getVertNorms(void)
 {
-	float sum[3] = {0.0, 0.0, 0.0};
+	float sum[3] = {0.0, 0.0, 0.0}, len[8][3] = {0.0,0.0,0.0};
 	int i, j;	
 	for(i=0; i<Grid; i++) {
 		for(j=0; j<Grid; j++) {
@@ -382,7 +382,8 @@ void getVertNorms(void)
 				setVertNorms(sum, i, j, i - 1, j, i - 1, j + 1);
 
 				// Average 
-				scalDiv(sum, 5);
+				
+				scalDiv(sum, sqrt(sum[0]*sum[0] + sum[1]*sum[1] + sum[2]*sum[2]));
 				// Now, set the
 				set(vertNorms[i][j], sum[0], sum[1], sum[2]);
 
@@ -778,6 +779,7 @@ void drawSmoothShaded(void)
 	int	i, j;
 
 	/* set color to (.8,.2,.8) */
+	glEnable (GL_POLYGON_OFFSET_FILL);
 	glColor3f(0.8, 0.2, 0.8);
 
 	/* draw triangular strip; include normal data with each vertex */ 
@@ -787,13 +789,14 @@ void drawSmoothShaded(void)
 		glVertex3f( i , 0., Posit[ i ][0]);
 		glVertex3f(i+1, 0., Posit[i+1][0]);
 		for(j=1; j<Grid; j++) {
-			glNormal3fv(FaceNorms[0][i][j-1] );
+			glNormal3fv(vertNorms[i][j-1] );
 			glVertex3f ( i,  j, Posit[i][ j ]);
-			glNormal3fv(FaceNorms[1][i][j-1] );
+			glNormal3fv(vertNorms[i][j-1] );
 			glVertex3f (i+1, j, Posit[i+1][j]);
 		}
 		glEnd();
-  }
+	}
+	glDisable(GL_POLYGON_OFFSET_FILL);
 }
 
 
