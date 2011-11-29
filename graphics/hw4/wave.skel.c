@@ -308,10 +308,10 @@ void getFaceNorms(void)
   for(i=0; i<Grid; i++) {
 		for(j=0; j<Grid; j++) {
 
-      set(p0, i, j, Posit[i][j]);
-      set(p1, i + 1, j, Posit[i+1][j]);
-      set(p2, i + 1, j + 1, Posit[i+1][j+1]);
-      set(p3, i, j + 1, Posit[i][j+1]);
+      set(p0, (float)i, (float)j, Posit[i][j]);
+      set(p1, (float)(i + 1), (float)j, Posit[i+1][j]);
+      set(p2, (float)(i + 1), (float)j + 1, Posit[i+1][j+1]);
+      set(p3, (float)i, (float)(j + 1), Posit[i][j+1]);
 			
       // Facet 0
       sub(t0, p1, p0);
@@ -342,12 +342,13 @@ void setVertNorms(float sum[3], int i, int j, int i1, int j1, int i2, int j2){
 	sub(t0, p1, p0);
 	sub(t1, p2, p0);
 	cross(n, t0, t1);
+	/*
 	printf("t0: %f %f %f\n", t0[0], t0[1], t0[2]);
 	printf("t1: %f %f %f\n", t1[0], t1[1], t1[2]);
-	printf("n: %f %f %f\n", n[0], n[1], n[2]);
-	//norm(n);
-
-	//add(sum, sum, n);
+	printf("n: %f %f %f\n", n[0], n[1], n[2]);*/
+	add(sum, sum, n);
+	norm(n);
+	
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -385,22 +386,16 @@ void getVertNorms(void)
 				setVertNorms(sum, i, j, i, j - 1, i - 1, j - 1);
 				setVertNorms(sum, i, j, i - 1, j - 1, i - 1, j);
 				setVertNorms(sum, i, j, i - 1, j, i - 1, j + 1);
-				
 
-				printf("sum: %f %f %f\n", sum[0], sum[1], sum[2]);
+				//printf("sum: %f %f %f\n", sum[0], sum[1], sum[2]);
 				// Average 
-				//scalDiv(sum, sqrt(sum[0]*sum[0] + sum[1]*sum[1] + sum[2]*sum[2]));
-				// Now, set the
+				scalDiv(sum, sqrt(sum[0]*sum[0] + sum[1]*sum[1] + sum[2]*sum[2]));
+				// Now, set the vertnorms
 				copy(vertNorms[i][j], sum);
 
 			}
 		}
 	}
-	/*
-	for(i = 0; i < Grid; i++)
-		for(j = 0; j < Grid; j++)
-			printf("verts: [%d][%d] = %f\n", i, j, vertNorms[i][j]);
-	*/
 }
 
 
@@ -981,34 +976,32 @@ void loadImageTexture(void)
 void drawTextured(void)
 {
   int i, j;
-	glEnable(GL_TEXTURE_2D);
-
+	//glEnable(GL_TEXTURE_2D);
+	//glBindTexture(GL_TEXTURE_2D, TexId1);
 	/* draw triangular strip; add normal/texture data with each vertex */ 
 	
 	for(i=0; i<Grid-1; i++) {
 		glBegin(GL_TRIANGLE_STRIP);
     
-        if(i == 0) 
-            glTexCoord2f(0.0, 1.0); // Bottom Left
+            //glTexCoord2f(i/(float)Grid*100.0, 0.0); // Bottom Left
 		    glVertex3f( i , 0., Posit[ i ][0]);
-        if((i + 1) == Grid)
-            glTexCoord2f(1.0, 1.0); // Bottom Right
+
+            //glTexCoord2f((i+1)/(float)Grid*100.0, 1.0); // Bottom Right
 		    glVertex3f(i+1, 0., Posit[i+1][0]);
 		    for(j=1; j<Grid; j++) {
-			      //glNormal3fv(FaceNorms[0][i][j-1] );
-            if(j == Grid && i == 0) 
-                glTexCoord2f(0.0, 0.0); // Top left
-			      glVertex3f ( i,  j, Posit[i][ j ]);
-			      //glNormal3fv(FaceNorms[1][i][j-1] );
-            if(j == Grid && (i + 1) == Grid)
-                glTexCoord2f(1.0, 0.0); // Top right
-			      glVertex3f (i+1, j, Posit[i+1][j]);
+
+				//glTexCoord2f(i/(float)Grid*100.0, j/(float)Grid*100.0); // Top left
+			    glVertex3f ( i,  j, Posit[i][ j ]);
+			 
+                //glTexCoord2f((i+1)/(float)Grid*100, j/(float)Grid*100.0); // Top right
+				glVertex3f (i+1, j, Posit[i+1][j]);
 		    }
 		glEnd();
+		
   }
 
 
-	glDisable(GL_TEXTURE_2D);
+	//glDisable(GL_TEXTURE_2D);
 }
 
 
