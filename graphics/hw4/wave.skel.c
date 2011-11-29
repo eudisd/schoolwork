@@ -850,12 +850,13 @@ void drawHiddenLine(void)
 	glColor3f(1.0, 1.0, 1.0);
 
 	/* draw triangular mesh lines */
-	
+  glDisable(GL_POLYGON_OFFSET_FILL);
+  glPolygonMode(GL_FRONT, GL_LINE);
 	for(i=0; i<Grid-1; i++) {
-		glBegin(GL_LINE_STRIP);
+		glBegin(GL_TRIANGLE_STRIP);
 		glVertex3f( i , 0., Posit[ i ][0]);
 		glVertex3f(i+1, 0., Posit[i+1][0]);
-		for(j=1; j<Grid; j++) {
+		for(j=1; j<Grid ; j++) {
 			//glNormal3fv(FaceNorms[0][i][j-1] );
 			glVertex3f ( i,  j, Posit[i][ j ]);
 			//glNormal3fv(FaceNorms[1][i][j-1] );
