@@ -282,9 +282,46 @@ void set(float vec[3], float x, float y, float z)
  * +--+
  * (i,j) refer to mesh node (i,j), where 0 <= i < Grid-1 and 0 <= j < Grid-1.
  */
+
+
+/*
+ 
+	for(i=0; i<Grid-1; i++) {
+		glBegin(GL_TRIANGLE_STRIP);
+		glVertex3f( i , 0., Posit[ i ][0]);
+		glVertex3f(i+1, 0., Posit[i+1][0]);
+		for(j=1; j<Grid; j++) {
+			glNormal3fv(FaceNorms[0][i][j-1] );
+			glVertex3f ( i,  j, Posit[i][ j ]);
+			glNormal3fv(FaceNorms[1][i][j-1] );
+			glVertex3f (i+1, j, Posit[i+1][j]);
+		}
+		glEnd();
+	}
+
+ */
+
 void getFaceNorms(void)
 {
-	//...
+	float p0[3], p1[3], p2[3], p3[3], n[3], t0[3], t1[3];
+  int i, j;	
+  for(i=0; i<Grid-1; i++) {
+		for(j=1; j<Grid; j++) {
+
+      set(p0, i, j, Posit[i][j]);
+      set(p1, i + 1, j, Posit[i+1][j]);
+      set(p2, i + 1, j + 1, Posit[i+1][j+1]);
+      set(p3, i, j + 1, Posit[i][j+1]);
+			
+      sub(t0, p1, p0);
+      sub(t1, p2, p0);
+      cross(n, t0, t1);
+      norm(n);
+
+      set(FaceNorms[0][i][j-1], n[0], n[1], n[2]);
+			set(FaceNorms[1][i][j-1], n[0], n[1], n[2]);
+		}
+  }
 }
 
 
@@ -690,7 +727,19 @@ void drawSmoothShaded(void)
 	//...
 
 	/* draw triangular strip; include normal data with each vertex */ 
-	//...
+	
+	for(i=0; i<Grid-1; i++) {
+		glBegin(GL_TRIANGLE_STRIP);
+		glVertex3f( i , 0., Posit[ i ][0]);
+		glVertex3f(i+1, 0., Posit[i+1][0]);
+		for(j=1; j<Grid; j++) {
+			glNormal3fv(FaceNorms[0][i][j-1] );
+			glVertex3f ( i,  j, Posit[i][ j ]);
+			glNormal3fv(FaceNorms[1][i][j-1] );
+			glVertex3f (i+1, j, Posit[i+1][j]);
+		}
+		glEnd();
+  }
 }
 
 
@@ -1045,7 +1094,7 @@ void main(int argc, char **argv)
 
 	setSize	  (MEDIUM);
 	setSpeed  (NORMAL);
-	setDisplay(HIDDENLINE);
+	setDisplay(FLATSHADED);
 	setOther  (ENVMAP);
 	reset	  (HILLFOUR);
 
