@@ -801,6 +801,7 @@ float	 TexCoords[MAXGRID][MAXGRID][2];
  */
 void loadImageTexture(void)
 {
+    
 	GLfloat borderColor[] = {0, 0, 0, 0};  // Black and opaque
 
 	GLubyte *texmapImg;
@@ -823,8 +824,6 @@ void loadImageTexture(void)
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, TexWidth, TexHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, envmapImg);
-
-	
 
 }
 
@@ -996,7 +995,7 @@ void main(int argc, char **argv)
 
 	setSize	  (MEDIUM);
 	setSpeed  (NORMAL);
-	setDisplay(TEXTURED);
+	setDisplay(WIREFRAME);
 	setOther  (ENVMAP);
 	reset	  (HILLFOUR);
 
