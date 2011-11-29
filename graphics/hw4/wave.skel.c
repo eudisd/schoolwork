@@ -252,7 +252,7 @@ void norm(float vec[3])
 	float mag = sqrt(vec[0]*vec[0] + vec[1]*vec[1] + vec[2]*vec[2]);
 	vec[0] = vec[0]/mag;
 	vec[1] = vec[1]/mag;
-	vec[2] = vec[1]/mag;
+	vec[2] = vec[2]/mag;
 }
 
 
