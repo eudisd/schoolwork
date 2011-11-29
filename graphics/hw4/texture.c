@@ -1,4 +1,3 @@
-
 /* texture.c - by David Blythe, SGI */
 
 /* read_texture is a simplistic routine for reading an SGI .rgb image file. */
