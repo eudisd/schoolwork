@@ -305,8 +305,8 @@ void getFaceNorms(void)
 {
 	float p0[3], p1[3], p2[3], p3[3], n[3], t0[3], t1[3];
   int i, j;	
-  for(i=0; i<Grid-1; i++) {
-		for(j=1; j<Grid; j++) {
+  for(i=0; i<Grid; i++) {
+		for(j=0; j<Grid; j++) {
 
       set(p0, i, j, Posit[i][j]);
       set(p1, i + 1, j, Posit[i+1][j]);
@@ -319,7 +319,7 @@ void getFaceNorms(void)
       cross(n, t0, t1);
       norm(n);
 
-      set(FaceNorms[0][i][j-1], n[0], n[1], n[2]);
+      set(FaceNorms[1][i][j], n[0], n[1], n[2]);
 			
       // Facet 1
       sub(t0, p2, p0);
@@ -327,7 +327,7 @@ void getFaceNorms(void)
       cross(n, t0, t1);
       norm(n);
 
-      set(FaceNorms[1][i][j-1], n[0], n[1], n[2]);
+      set(FaceNorms[0][i][j], n[0], n[1], n[2]);
 		}
   }
 }
