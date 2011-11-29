@@ -765,17 +765,17 @@ void drawWireframe(void)
 	glColor3f(1.0, 1.0, 1.0);
 
 	/* draw line strip to draw rows */
-	for(i=0; i<Grid-1; i++) {
+	for(i=0; i<Grid; i++) {
 		glBegin(GL_LINE_STRIP);
-		for(j=0; j<Grid-1; j++)
+		for(j=0; j<Grid; j++)
 			glVertex3f(i, j, Posit[i][j]);
 		glEnd();
 	}
 
 	/* draw line strip to draw columns */
-	for(i=0; i<Grid-1; i++) {
+	for(i=0; i<Grid; i++) {
 		glBegin(GL_LINE_STRIP);
-		for(j=0; j<Grid-1; j++)
+		for(j=0; j<Grid; j++)
 			glVertex3f(j, i, Posit[j][i]);
 		glEnd();
 	}
