@@ -770,15 +770,42 @@ void drawHiddenLine(void)
 
 	/* enable GL_POLYGON_OFFSET_FILL and set color to (.8,.2,.8) */
 	//...
+  glEnable(GL_POLYGON_OFFSET_FILL);
+  glColor3f(0.8, 0.2, 0.8);
 
 	/* draw triangular strip of constant colors triangles (filled) */
-	//...
-	
+	glPolygonMode(GL_FRONT, GL_FILL);
+   
+	for(i=0; i<Grid-1; i++) {
+		glBegin(GL_TRIANGLE_STRIP);
+		glVertex3f( i , 0., Posit[ i ][0]);
+		glVertex3f(i+1, 0., Posit[i+1][0]);
+		for(j=1; j<Grid; j++) {
+			//glNormal3fv(FaceNorms[0][i][j-1] );
+			glVertex3f ( i,  j, Posit[i][ j ]);
+			//glNormal3fv(FaceNorms[1][i][j-1] );
+			glVertex3f (i+1, j, Posit[i+1][j]);
+		}
+   glEnd();
+  }
+
 	/* set color to white (for lines in triangular mesh) */
-	//...
+	glColor3f(1.0, 1.0, 1.0);
 
 	/* draw triangular mesh lines */
-	//...
+	
+	for(i=0; i<Grid-1; i++) {
+		glBegin(GL_LINE_STRIP);
+		glVertex3f( i , 0., Posit[ i ][0]);
+		glVertex3f(i+1, 0., Posit[i+1][0]);
+		for(j=1; j<Grid; j++) {
+			//glNormal3fv(FaceNorms[0][i][j-1] );
+			glVertex3f ( i,  j, Posit[i][ j ]);
+			//glNormal3fv(FaceNorms[1][i][j-1] );
+			glVertex3f (i+1, j, Posit[i+1][j]);
+		}
+		glEnd();
+  }
 }
 
 
@@ -836,10 +863,33 @@ void loadImageTexture(void)
  */
 void drawTextured(void)
 {
+  int i, j;
 	glEnable(GL_TEXTURE_2D);
 
 	/* draw triangular strip; add normal/texture data with each vertex */ 
-	//...
+	
+	for(i=0; i<Grid-1; i++) {
+		glBegin(GL_TRIANGLE_STRIP);
+    
+        if(i == 0) 
+            glTexCoord2f(0.0, 1.0); // Bottom Left
+		    glVertex3f( i , 0., Posit[ i ][0]);
+        if((i + 1) == Grid)
+            glTexCoord2f(1.0, 1.0); // Bottom Right
+		    glVertex3f(i+1, 0., Posit[i+1][0]);
+		    for(j=1; j<Grid; j++) {
+			      //glNormal3fv(FaceNorms[0][i][j-1] );
+            if(j == Grid && i == 0) 
+                glTexCoord2f(0.0, 0.0); // Top left
+			      glVertex3f ( i,  j, Posit[i][ j ]);
+			      //glNormal3fv(FaceNorms[1][i][j-1] );
+            if(j == Grid && (i + 1) == Grid)
+                glTexCoord2f(1.0, 0.0); // Top right
+			      glVertex3f (i+1, j, Posit[i+1][j]);
+		    }
+		glEnd();
+  }
+
 
 	glDisable(GL_TEXTURE_2D);
 }
@@ -995,7 +1045,7 @@ void main(int argc, char **argv)
 
 	setSize	  (MEDIUM);
 	setSpeed  (NORMAL);
-	setDisplay(WIREFRAME);
+	setDisplay(HIDDENLINE);
 	setOther  (ENVMAP);
 	reset	  (HILLFOUR);
 
