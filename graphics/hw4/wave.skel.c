@@ -313,13 +313,21 @@ void getFaceNorms(void)
       set(p2, i + 1, j + 1, Posit[i+1][j+1]);
       set(p3, i, j + 1, Posit[i][j+1]);
 			
+      // Facet 0
       sub(t0, p1, p0);
       sub(t1, p2, p0);
       cross(n, t0, t1);
       norm(n);
 
       set(FaceNorms[0][i][j-1], n[0], n[1], n[2]);
-			set(FaceNorms[1][i][j-1], n[0], n[1], n[2]);
+			
+      // Facet 1
+      sub(t0, p2, p0);
+      sub(t1, p3, p0);
+      cross(n, t0, t1);
+      norm(n);
+
+      set(FaceNorms[1][i][j-1], n[0], n[1], n[2]);
 		}
   }
 }
