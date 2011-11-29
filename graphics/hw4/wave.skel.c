@@ -333,6 +333,17 @@ void getFaceNorms(void)
 }
 
 
+void setVertNorms(float sum[3], int i, int j, int i1, int j1, int i2, int j2){
+	float p0[3], p1[3], p2[3], t0[3], t1[3], n[3];
+	set(p0, i, j, Posit[i][j]);
+	set(p1, i, j, Posit[i1][j1]);
+	set(p2, i, j, Posit[i2][j2]);
+	sub(t0, p1, p0);
+	sub(t1, p2, p0);
+	cross(n, t0, t1);
+	norm(n);
+	add(sum, sum, n);
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * getVertNorms:
@@ -341,9 +352,44 @@ void getFaceNorms(void)
  * The normal at a vertex is computed as the average of the neighboring
  * face normals. This is to be used for smooth shading.
  */
+
 void getVertNorms(void)
 {
-	//...
+	float sum[3] = {0.0, 0.0, 0.0};
+	int i, j;	
+	for(i=0; i<Grid; i++) {
+		for(j=0; j<Grid; j++) {
+			// There are 8 edge cases
+
+			if( i == 0 && j == 0 ){                          // Bottom left
+			} else if (i == 0 && j == (Grid - 1)){           // Top left
+			} else if (i == (Grid - 1) && j == (Grid - 1)){  // Top Right
+			} else if (i == (Grid - 1) && j == 0){           // Bottom Right
+
+			} else if (i == 0){                    // Left Only
+			} else if (i == (Grid - 1)){           // Right Only
+			} else if (j == 0){                    // Bottom Only
+			} else if (j == (Grid - 1)){           // Top Only
+			} else {
+				
+				setVertNorms(sum, i, j, i - 1, j + 1, i, j - 1);
+				setVertNorms(sum, i, j, i, j - 1, i + 1, j + 1);
+				setVertNorms(sum, i, j, i + 1, j + 1, i + 1, j);
+				setVertNorms(sum, i, j, i + 1, j, i + 1, j - 1);
+				setVertNorms(sum, i, j, i + 1, j - 1, i, j - 1);
+				setVertNorms(sum, i, j, i, j - 1, i - 1, j - 1);
+				setVertNorms(sum, i, j, i - 1, j - 1, i - 1, j);
+				setVertNorms(sum, i, j, i - 1, j, i - 1, j + 1);
+
+				// Average 
+				scalDiv(sum, 5);
+				// Now, set the
+				set(vertNorms[i][j], sum[0], sum[1], sum[2]);
+
+			}
+		}
+	}
+
 }
 
 
@@ -732,7 +778,7 @@ void drawSmoothShaded(void)
 	int	i, j;
 
 	/* set color to (.8,.2,.8) */
-	glColor(0.8, 0.2, 0.8);
+	glColor3f(0.8, 0.2, 0.8);
 
 	/* draw triangular strip; include normal data with each vertex */ 
 	
