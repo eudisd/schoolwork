@@ -319,7 +319,7 @@ void getFaceNorms(void)
       cross(n, t0, t1);
       norm(n);
 
-      set(FaceNorms[1][i][j], n[0], n[1], n[2]);
+      set(FaceNorms[0][i][j], n[0], n[1], n[2]);
 			
       // Facet 1
       sub(t0, p2, p0);
@@ -327,7 +327,7 @@ void getFaceNorms(void)
       cross(n, t0, t1);
       norm(n);
 
-      set(FaceNorms[0][i][j], n[0], n[1], n[2]);
+      set(FaceNorms[1][i][j], n[0], n[1], n[2]);
 		}
   }
 }
@@ -732,7 +732,7 @@ void drawSmoothShaded(void)
 	int	i, j;
 
 	/* set color to (.8,.2,.8) */
-	//...
+	glColor(0.8, 0.2, 0.8);
 
 	/* draw triangular strip; include normal data with each vertex */ 
 	
