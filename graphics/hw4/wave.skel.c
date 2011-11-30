@@ -60,7 +60,7 @@ float	Dt	    = 0.004;
 
 /* global variable declarations for textures */
 int	 TexWidth, TexHeight;
-int	 TexId1,   TexId2;
+GLint   TexId1,   TexId2;
 GLubyte *TexData;
 char	*TexFilename1 = "texmap.rgb";
 char	*TexFilename2 = "envmap.rgb";
@@ -948,6 +948,7 @@ void loadImageTexture(void)
 
 	imgLoad(TexFilename1, 0, borderColor, &TexWidth, &TexHeight, &texmapImg);
 
+	glGenTextures  (1,&TexId2);
 	glBindTexture(GL_TEXTURE_2D, TexId1);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
@@ -957,6 +958,7 @@ void loadImageTexture(void)
 
 	imgLoad(TexFilename2, 0, borderColor, &TexWidth, &TexHeight, &envmapImg);
 
+	glGenTextures  (1,&TexId2);
 	glBindTexture(GL_TEXTURE_2D, TexId2);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
@@ -976,32 +978,39 @@ void loadImageTexture(void)
 void drawTextured(void)
 {
   int i, j;
-	//glEnable(GL_TEXTURE_2D);
-	//glBindTexture(GL_TEXTURE_2D, TexId1);
+	glEnable(GL_TEXTURE_2D);
+	//glBindTexture(GL_TEXTURE_2D, TexId2);
 	/* draw triangular strip; add normal/texture data with each vertex */ 
-	
+	/*
 	for(i=0; i<Grid-1; i++) {
 		glBegin(GL_TRIANGLE_STRIP);
     
-            //glTexCoord2f(i/(float)Grid*100.0, 0.0); // Bottom Left
+            glTexCoord2f(TexCoords[i][0][1], 0.0); // Bottom Left
 		    glVertex3f( i , 0., Posit[ i ][0]);
 
-            //glTexCoord2f((i+1)/(float)Grid*100.0, 1.0); // Bottom Right
+            glTexCoord2f(TexCoords[i + 1][0][1], 0.0); // Bottom Right
 		    glVertex3f(i+1, 0., Posit[i+1][0]);
 		    for(j=1; j<Grid; j++) {
 
-				//glTexCoord2f(i/(float)Grid*100.0, j/(float)Grid*100.0); // Top left
+				glTexCoord2f(TexCoords[i][j][1], TexCoords[i][j][0]); // Top left
 			    glVertex3f ( i,  j, Posit[i][ j ]);
 			 
-                //glTexCoord2f((i+1)/(float)Grid*100, j/(float)Grid*100.0); // Top right
+                glTexCoord2f(TexCoords[i+1][j][1], TexCoords[i+1][j][0]); // Top right
 				glVertex3f (i+1, j, Posit[i+1][j]);
 		    }
 		glEnd();
 		
-  }
+		
+	}
+	*/
+	glBegin(GL_POLYGON);
+		glTexCoord2f(0, 0); glVertex3f(0.0, 0.0, 0.0); // Top left V, Bottom Left of Pic 
+		glTexCoord2f(1, 0); glVertex3f(Grid-1, 0.0, 0.0);  // Bottom Left V, Bottom Right of Pic
+		glTexCoord2f(1, 1); glVertex3f(Grid-1, Grid-1, 0.0); // Bottom Right of V, Top Right of Pic
+		glTexCoord2f(0, 1); glVertex3f(0.0, Grid-1, 0.0); // Top Right, Top Left of Pic
+	glEnd();
 
-
-	//glDisable(GL_TEXTURE_2D);
+	glDisable(GL_TEXTURE_2D);
 }
 
 
