@@ -306,29 +306,6 @@ void getFaceNorms(void)
 	float p0[3], p1[3], p2[3], p3[3], n[3], t0[3], t1[3];
   int i, j;	
   for(i=0; i<Grid-1; i++) {
-
-      set(p0, (float)i, 1, Posit[i][0]);
-      set(p1, (float)(i), 0, Posit[i][0]);
-      set(p2, (float)(i + 1), 0, Posit[i+1][0]);
-      set(p3, (float)(i+1), 1, Posit[i+1][0]);
-			
-      // Facet 0
-      sub(t0, p3, p0);
-      sub(t1, p2, p0);
-      cross(n, t0, t1);
-      norm(n);
-      set(n, -n[0], -n[1], -n[2]);
-      copy(FaceNorms[0][i][0], n);
-			
-      // Facet 1
-      sub(t0, p2, p0);
-      sub(t1, p1, p0);
-      cross(n, t0, t1);
-      norm(n);
-     
-      set(n, -n[0], -n[1], -n[2]);
-      copy(FaceNorms[1][i][0], n);
-		
     for(j=1; j<Grid; j++) {
       set(p0, (float)i, (float)j, Posit[i][j]);
       set(p1, (float)(i), (float)(j-1), Posit[i][j-1]);
@@ -365,13 +342,8 @@ void setVertNorms(float sum[3], int i, int j, int i1, int j1, int i2, int j2){
 	sub(t0, p1, p0);
 	sub(t1, p2, p0);
 	cross(n, t0, t1);
-	/*
-	printf("t0: %f %f %f\n", t0[0], t0[1], t0[2]);
-	printf("t1: %f %f %f\n", t1[0], t1[1], t1[2]);
-	printf("n: %f %f %f\n", n[0], n[1], n[2]);*/
 	add(sum, sum, n);
 	norm(n);
-	
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -877,7 +849,11 @@ void drawFlatShaded(void)
 	/* draw triangular strip; include normal data with each vertex */ 
 	for(i=0; i<Grid-1; i++) {
 		glBegin(GL_TRIANGLE_STRIP);
+    
+    glNormal3fv(FaceNorms[0][i][0]);
 		glVertex3f( i , 0., Posit[ i ][0]);
+
+    glNormal3fv(FaceNorms[1][i][0]);
 		glVertex3f(i+1, 0., Posit[i+1][0]);
 		for(j=1; j<Grid; j++) {
 			glNormal3fv(FaceNorms[0][i][j-1] );
@@ -1003,37 +979,26 @@ void drawTextured(void)
 {
   int i, j;
 	glEnable(GL_TEXTURE_2D);
-	//glBindTexture(GL_TEXTURE_2D, TexId2);
 	/* draw triangular strip; add normal/texture data with each vertex */ 
-	/*
+	
 	for(i=0; i<Grid-1; i++) {
 		glBegin(GL_TRIANGLE_STRIP);
-    
-            glTexCoord2f(TexCoords[i][0][1], 0.0); // Bottom Left
-		    glVertex3f( i , 0., Posit[ i ][0]);
+		    for(j=0; j<Grid; j++) {
+				    glNormal3fv(vertNorms[i][j]);
+            glTexCoord2f(TexCoords[i][j][1], TexCoords[i][j][0]); // Top left
+            glVertex3f ( i,  j, Posit[i][ j ]);
 
-            glTexCoord2f(TexCoords[i + 1][0][1], 0.0); // Bottom Right
-		    glVertex3f(i+1, 0., Posit[i+1][0]);
-		    for(j=1; j<Grid; j++) {
-
-				glTexCoord2f(TexCoords[i][j][1], TexCoords[i][j][0]); // Top left
-			    glVertex3f ( i,  j, Posit[i][ j ]);
-			 
-                glTexCoord2f(TexCoords[i+1][j][1], TexCoords[i+1][j][0]); // Top right
-				glVertex3f (i+1, j, Posit[i+1][j]);
+             
+            glNormal3fv(vertNorms[i+1][j]);
+            glTexCoord2f(TexCoords[i+1][j][1], TexCoords[i+1][j][0]); // Top right
+				    glVertex3f (i+1, j, Posit[i+1][j]);
 		    }
 		glEnd();
-		
-		
 	}
-	*/
-	glBegin(GL_POLYGON);
-		glTexCoord2f(0, 0); glVertex3f(0.0, 0.0, 0.0); // Top left V, Bottom Left of Pic 
-		glTexCoord2f(1, 0); glVertex3f(Grid-1, 0.0, 0.0);  // Bottom Left V, Bottom Right of Pic
-		glTexCoord2f(1, 1); glVertex3f(Grid-1, Grid-1, 0.0); // Bottom Right of V, Top Right of Pic
-		glTexCoord2f(0, 1); glVertex3f(0.0, Grid-1, 0.0); // Top Right, Top Left of Pic
-	glEnd();
 
+  for(i = 0; i < Grid; i++)
+      for(j = 0; j < Grid; j++)
+          printf("I: %f, J: %f\n", TexCoords[i][j][1], TexCoords[i][j][0]);
 	glDisable(GL_TEXTURE_2D);
 }
 
