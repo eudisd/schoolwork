@@ -283,56 +283,38 @@ void set(float vec[3], float x, float y, float z)
  * (i,j) refer to mesh node (i,j), where 0 <= i < Grid-1 and 0 <= j < Grid-1.
  */
 
-
-/*
- 
-	for(i=0; i<Grid-1; i++) {
-		glBegin(GL_TRIANGLE_STRIP);
-		glVertex3f( i , 0., Posit[ i ][0]);
-		glVertex3f(i+1, 0., Posit[i+1][0]);
-		for(j=1; j<Grid; j++) {
-			glNormal3fv(FaceNorms[0][i][j-1] );
-			glVertex3f ( i,  j, Posit[i][ j ]);
-			glNormal3fv(FaceNorms[1][i][j-1] );
-			glVertex3f (i+1, j, Posit[i+1][j]);
-		}
-		glEnd();
-	}
-
- */
-
 void getFaceNorms(void)
 {
 	float p0[3], p1[3], p2[3], p3[3], n[3], t0[3], t1[3];
-  int i, j;	
-  for(i=0; i<Grid-1; i++) {
-    for(j=1; j<Grid; j++) {
-      set(p0, (float)i, (float)j, Posit[i][j]);
-      set(p1, (float)(i), (float)(j-1), Posit[i][j-1]);
-      set(p2, (float)(i + 1), (float)(j - 1), Posit[i+1][j-1]);
-      set(p3, (float)(i+1), (float)(j), Posit[i+1][j]);
+    int i, j;	
+	for(i=0; i<Grid-1; i++) {
+		for(j=1; j<Grid; j++) {
+		  set(p0, (float)i, (float)j, Posit[i][j]);
+		  set(p1, (float)(i), (float)(j-1), Posit[i][j-1]);
+		  set(p2, (float)(i + 1), (float)(j - 1), Posit[i+1][j-1]);
+		  set(p3, (float)(i+1), (float)(j), Posit[i+1][j]);
 			
-      // Facet 0
-      sub(t0, p3, p0);
-      sub(t1, p2, p0);
-      cross(n, t0, t1);
-      norm(n);
-      set(n, -n[0], -n[1], -n[2]);
-      copy(FaceNorms[0][i][j], n);
+		  // Facet 0
+		  sub(t0, p3, p0);
+		  sub(t1, p2, p0);
+		  cross(n, t0, t1);
+		  norm(n);
+		  set(n, -n[0], -n[1], -n[2]);
+		  copy(FaceNorms[0][i][j], n);
 			
-      // Facet 1
-      sub(t0, p2, p0);
-      sub(t1, p1, p0);
-      cross(n, t0, t1);
-      norm(n);
+		  // Facet 1
+		  sub(t0, p2, p0);
+		  sub(t1, p1, p0);
+		  cross(n, t0, t1);
+		  norm(n);
      
-      set(n, -n[0], -n[1], -n[2]);
-      copy(FaceNorms[1][i][j], n);
+		  set(n, -n[0], -n[1], -n[2]);
+		  copy(FaceNorms[1][i][j], n);	
 		}
-  }
+	}
 }
 
-
+/* New Function: sets the normal sum of a set of normals */
 void setVertNorms(float sum[3], int i, int j, int i1, int j1, int i2, int j2){
 	float p0[3], p1[3], p2[3], t0[3], t1[3], n[3];
 	set(p0, (float)i, (float)j, Posit[i][j]);
@@ -382,12 +364,13 @@ void getVertNorms(void)
 				setVertNorms(sum, i, j, i - 1, j - 1, i - 1, j);
 				setVertNorms(sum, i, j, i - 1, j, i - 1, j + 1);
 
-				//printf("sum: %f %f %f\n", sum[0], sum[1], sum[2]);
 				// Average 
 				scalDiv(sum, sqrt(sum[0]*sum[0] + sum[1]*sum[1] + sum[2]*sum[2]));
-				// Now, set the vertnorms
+
 				set(sum, -sum[0], -sum[1], -sum[2]);
-        copy(vertNorms[i][j], sum);
+
+				// Now, set the vertnorms
+				copy(vertNorms[i][j], sum);
 
 			}
 		}
@@ -880,44 +863,46 @@ void drawHiddenLine(void)
 	int	i, j;
 
 	/* enable GL_POLYGON_OFFSET_FILL and set color to (.8,.2,.8) */
-	//...
-  glEnable(GL_POLYGON_OFFSET_FILL);
-  glColor3f(0.8, 0.2, 0.8);
+	glEnable(GL_POLYGON_OFFSET_FILL);
+	glColor3f(0.8, 0.2, 0.8);
 
 	/* draw triangular strip of constant colors triangles (filled) */
-	glPolygonMode(GL_FRONT, GL_FILL);
-   
+
 	for(i=0; i<Grid-1; i++) {
 		glBegin(GL_TRIANGLE_STRIP);
-		glVertex3f( i , 0., Posit[ i ][0]);
-		glVertex3f(i+1, 0., Posit[i+1][0]);
-		for(j=1; j<Grid; j++) {
-			//glNormal3fv(FaceNorms[0][i][j-1] );
-			glVertex3f ( i,  j, Posit[i][ j ]);
-			//glNormal3fv(FaceNorms[1][i][j-1] );
-			glVertex3f (i+1, j, Posit[i+1][j]);
-		}
-   glEnd();
-  }
+			glVertex3f( i , 0., Posit[ i ][0]);
+			glVertex3f(i+1, 0., Posit[i+1][0]);
+			for(j=1; j<Grid; j++) {
+				//glNormal3fv(FaceNorms[0][i][j] );
+				glVertex3f ( i,  j, Posit[i][ j ]);
+				//glNormal3fv(FaceNorms[1][i+1][j] );
+				glVertex3f (i+1, j, Posit[i+1][j]);
+			}
+		glEnd();
+	}
 
 	/* set color to white (for lines in triangular mesh) */
 	glColor3f(1.0, 1.0, 1.0);
 
 	/* draw triangular mesh lines */
-  glDisable(GL_POLYGON_OFFSET_FILL);
-  glPolygonMode(GL_FRONT, GL_LINE);
+	glDisable(GL_POLYGON_OFFSET_FILL);
+
+    glPolygonMode(GL_FRONT, GL_LINE);
+
 	for(i=0; i<Grid-1; i++) {
 		glBegin(GL_TRIANGLE_STRIP);
-		glVertex3f( i , 0., Posit[ i ][0]);
-		glVertex3f(i+1, 0., Posit[i+1][0]);
-		for(j=1; j<Grid ; j++) {
-			//glNormal3fv(FaceNorms[0][i][j-1] );
-			glVertex3f ( i,  j, Posit[i][ j ]);
-			//glNormal3fv(FaceNorms[1][i][j-1] );
-			glVertex3f (i+1, j, Posit[i+1][j]);
-		}
-		glEnd();
-  }
+			glVertex3f( i , 0., Posit[ i ][0]);
+			glVertex3f(i+1, 0., Posit[i+1][0]);
+			for(j=1; j<Grid ; j++) {
+				//glNormal3fv(FaceNorms[0][i][j-1] );
+				glVertex3f ( i,  j, Posit[i][ j ]);
+				//glNormal3fv(FaceNorms[1][i][j-1] );
+				glVertex3f (i+1, j, Posit[i+1][j]);
+			}
+			glEnd();
+  
+	}
+	glPolygonMode(GL_FRONT, GL_FILL);
 }
 
 
@@ -995,13 +980,8 @@ void drawTextured(void)
 		    }
 		glEnd();
 	}
-
-  for(i = 0; i < Grid; i++)
-      for(j = 0; j < Grid; j++)
-          printf("I: %f, J: %f\n", TexCoords[i][j][1], TexCoords[i][j][0]);
 	glDisable(GL_TEXTURE_2D);
 }
-
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
