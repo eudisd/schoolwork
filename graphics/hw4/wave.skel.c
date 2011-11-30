@@ -306,7 +306,30 @@ void getFaceNorms(void)
 	float p0[3], p1[3], p2[3], p3[3], n[3], t0[3], t1[3];
   int i, j;	
   for(i=0; i<Grid-1; i++) {
-		for(j=1; j<Grid; j++) {
+
+      set(p0, (float)i, 1, Posit[i][0]);
+      set(p1, (float)(i), 0, Posit[i][0]);
+      set(p2, (float)(i + 1), 0, Posit[i+1][0]);
+      set(p3, (float)(i+1), 1, Posit[i+1][0]);
+			
+      // Facet 0
+      sub(t0, p3, p0);
+      sub(t1, p2, p0);
+      cross(n, t0, t1);
+      norm(n);
+      set(n, -n[0], -n[1], -n[2]);
+      copy(FaceNorms[0][i][0], n);
+			
+      // Facet 1
+      sub(t0, p2, p0);
+      sub(t1, p1, p0);
+      cross(n, t0, t1);
+      norm(n);
+     
+      set(n, -n[0], -n[1], -n[2]);
+      copy(FaceNorms[1][i][0], n);
+		
+    for(j=1; j<Grid; j++) {
       set(p0, (float)i, (float)j, Posit[i][j]);
       set(p1, (float)(i), (float)(j-1), Posit[i][j-1]);
       set(p2, (float)(i + 1), (float)(j - 1), Posit[i+1][j-1]);
@@ -391,7 +414,8 @@ void getVertNorms(void)
 				// Average 
 				scalDiv(sum, sqrt(sum[0]*sum[0] + sum[1]*sum[1] + sum[2]*sum[2]));
 				// Now, set the vertnorms
-				copy(vertNorms[i][j], sum);
+				set(sum, -sum[0], -sum[1], -sum[2]);
+        copy(vertNorms[i][j], sum);
 
 			}
 		}
@@ -794,9 +818,9 @@ void drawSmoothShaded(void)
 		glVertex3f( i , 0., Posit[ i ][0]);
 		glVertex3f(i+1, 0., Posit[i+1][0]);
 		for(j=1; j<Grid; j++) {
-			glNormal3fv(vertNorms[i][j-1] );
+			glNormal3fv(vertNorms[i][j] );
 			glVertex3f ( i,  j, Posit[i][ j ]);
-			glNormal3fv(vertNorms[i][j-1] );
+			glNormal3fv(vertNorms[i+1][j] );
 			glVertex3f (i+1, j, Posit[i+1][j]);
 		}
 		glEnd();
