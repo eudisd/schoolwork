@@ -60,7 +60,7 @@ float	Dt	    = 0.004;
 
 /* global variable declarations for textures */
 int	 TexWidth, TexHeight;
-GLint   TexId1,   TexId2;
+GLuint   TexId1,   TexId2;
 GLubyte *TexData;
 char	*TexFilename1 = "texmap.rgb";
 char	*TexFilename2 = "envmap.rgb";
@@ -894,9 +894,7 @@ void drawHiddenLine(void)
 			glVertex3f( i , 0., Posit[ i ][0]);
 			glVertex3f(i+1, 0., Posit[i+1][0]);
 			for(j=1; j<Grid ; j++) {
-				//glNormal3fv(FaceNorms[0][i][j-1] );
 				glVertex3f ( i,  j, Posit[i][ j ]);
-				//glNormal3fv(FaceNorms[1][i][j-1] );
 				glVertex3f (i+1, j, Posit[i+1][j]);
 			}
 			glEnd();
