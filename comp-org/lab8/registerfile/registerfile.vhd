@@ -18,12 +18,13 @@ use ieee.std_logic_1164.all;
 
 entity registerfile is
 	port ( clock4: in std_logic;
-		   w_addr: in std_logic_vector(1 downto 0);
-		   datain: in std_logic_vector(3 downto 0);
-		   r_addr_a: in std_logic_vector(1 downto 0);
-		   r_addr_b: in std_logic_vector(1 downto 0);
-		   dataouta: out std_logic_vector(3 downto 0);
-		   dataoutb: out std_logic_vector(3 downto 0));
+		   w_addr: in std_logic_vector(2 downto 0);
+		   datain: in std_logic_vector(15 downto 0);
+		   r_addr_a: in std_logic_vector(2 downto 0);
+		   r_addr_b: in std_logic_vector(2 downto 0);
+		   dataouta: out std_logic_vector(15 downto 0);
+		   --dataoutb: out std_logic_vector(15 downto 0)
+		   );
 end registerfile;
 
 architecture struct of registerfile is
@@ -35,13 +36,13 @@ architecture struct of registerfile is
 	
 	component reg
 		port ( clock: in std_logic;
-			   d: in std_logic_vector(3 downto 0);
-			   q: out std_logic_vector(3 downto 0));
+			   d: in std_logic_vector(15 downto 0);
+			   q: out std_logic_vector(15 downto 0));
 	end component;
 
 	component decoder
-		port ( i: in std_logic_vector(1 downto 0);
-			   o: out std_logic_vector(3 downto 0));
+		port ( i: in std_logic_vector(2 downto 0);
+			   o: out std_logic_vector(15 downto 0));
 	end component;
 
 	component multiplexer4
