@@ -20,34 +20,127 @@ entity control_unit is
 end control_unit;
 
 architecture control_arch of control_unit is
+	component decoder 
+		port (i: in std_logic_vector(2 downto 0);
+			  o: out std_logic_vector(7 downto 0));
+	end component;
 	type state_type is (cpu_wait, cpu_off, fetch, decode, mov, 
 	                   movi, operation, storeA, AddG, SubG, finished);
 					   
 	signal current_state : state_type;
 	signal next_state : state_type := cpu_wait;
+	signal Rx_out : std_logic_vector(7 downto 0);
+	signal Ry_out : std_logic_vector(7 downto 0);
 begin
-
+	
+	Rx : decoder port map( i => IR(5 downto 3),
+							 o => Rx_out);
+	Ry : decoder port map( i => IR(2 downto 0),
+						   o => Ry_out);
 	-- States Process
 	process(clock, reset, current_state, Run, IR)
 	begin
-			case current_state is
-				when cpu_wait =>
-				when cpu_off =>
-				when fetch =>
-				when decode =>
-				when mov =>
-				when movi =>
-				when operation =>
-				when storeA =>
-				when AddG =>
-				when SubG =>
-				when finished =>
-			end case;
+			current_state <= next_state;
+			if(rising_edge(clock)) then
+				case current_state is
+					when cpu_wait =>
+						if(run = '1') then
+							next_state <= fetch;
+						elsif (run = '0') then
+							next_state <= cpu_off;
+						end if;
+						
+						done <= '0';
+						IR_in <= '0';
+						R_out <= "00000000";
+						G_out <= '0';
+						DIN_out <= '0';
+						R_in <= "00000000";
+						A_in <= '0';
+						AddSub <= '0';
+							
+					when cpu_off =>
+						if(run = '1' or reset = '1') then
+							-- Change State here
+							next_state <= cpu_wait;
+						end if;
+						-- All Outputs
+						done <= '0';
+						IR_in <= '0';
+						R_out <= "00000000";
+						G_out <= '0';
+						DIN_out <= '0';
+						R_in <= "00000000";
+						A_in <= '0';
+						AddSub <= '0';
+						
+					when fetch =>
+						if(run = '1') then
+							next_state <= decode;
+							IR_in <= '1';
+						elsif(run = '0') then
+							next_state <= cpu_off;
+							IR_in <= '0';
+						elsif(reset = '1') then
+							next_state <= cpu_wait;
+							IR_in <= '0';
+						end if;
+						done <= '0';
+						R_out <= "00000000";
+						G_out <= '0';
+						DIN_out <= '0';
+						R_in <= "00000000";
+						A_in <= '0';
+						AddSub <= '0';
+						
+					when decode =>
+						if(run = '1') then
+							if( IR(8 downto 6) = "000" ) then -- Mov
+								next_state <= mov;
+								done <= '0';
+								
+								R_out <= Ry_out;
+								G_out <= '0';
+								DIN_out <= '0';
+								R_in <= Rx_out;
+								A_in <= '0';
+								AddSub <= '0';
+								
+							elsif ( IR(8 downto 6) = "001") then -- Movi 
+								next_state <= movi;
+							elsif ( IR(8 downto 6) = "010") then -- Add or Sub
+								next_state <= operation;
+							end if;
+						end if;
+						
+						
+						
+					when mov =>
+						if(run = '1') then
+							next_state <= finished;
+							done <= '1';
+							
+						end if;
+					when movi =>
+					when operation =>
+					when storeA =>
+					when AddG =>
+					when SubG =>
+					when finished =>
+						if(run = '1') then
+							next_state <= cpu_wait;
+							done <= '0';
+							IR_in <= '0';
+							R_out <= "00000000";
+							G_out <= '0';
+							DIN_out <= '0';
+							R_in <= "00000000";
+							A_in <= '0';
+							AddSub <= '0';
+						end if;
+				end case;
+			end if;
 	end process;
 	
-	-- CPU read/write process
-	process (Clock, Reset)
-	begin
-		current_state <= next_state;
-	end process;
+	
 end control_arch;

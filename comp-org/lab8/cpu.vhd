@@ -66,6 +66,7 @@ architecture cpu_arch of cpu is
 	end component;
 	
 	signal R0_in, R1_in, R2_in, R3_in, R4_in, R5_in, R6_in, R7_in : std_logic;
+	signal R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out : std_logic;
 	signal R0_output, R1_output, R2_output, R3_output, R4_output,
            R5_output, R6_output, R7_output	: std_logic_vector(15 downto 0);
 		   
@@ -80,8 +81,8 @@ architecture cpu_arch of cpu is
 	signal IRControl: std_logic_vector(8 downto 0);
 	signal G_out : std_logic;
 	signal DIN_out : std_logic;
-	signal R_in : std_logic_vector(7 downto 0);
-	signal R_out : std_logic_vector(7 downto 0);
+	--signal R_in : std_logic_vector(7 downto 0);
+	--signal R_out : std_logic_vector(7 downto 0);
 
 	
 begin
@@ -138,7 +139,8 @@ begin
 						  DIN_in => DIN(15 downto 7),
 						  DIN_out => IRControl);
 		
-	muxComp : mux port map (R0 => R0_output,
+	muxComp : mux port map (
+					R0 => R0_output,
 					R1 => R1_output,
 					R2 => R2_output,
 					R3 => R3_output,
@@ -148,7 +150,14 @@ begin
 					R7 => R7_output,
 					DIN => DIN,
 					AddSubResult => AddSubResult,
-					SR => R_out,
+					SR(0) => R0_out,
+					SR(1) => R1_out,
+					SR(2) => R2_out,
+					SR(3) => R3_out,
+					SR(4) => R4_out,
+					SR(5) => R5_out,
+					SR(6) => R6_out,
+					SR(7) => R7_out,
 					SG => G_out,
 					SDIN => DIN_out,
 					MuxOut => cpu_bus);
@@ -157,10 +166,24 @@ begin
 									 Reset => Reset,
 									 IR => IRControl,
 									 IR_in => IR_out,
-									 R_out => R_out,
+									 R_out(0) => R0_out,
+									 R_out(1) => R1_out,
+									 R_out(2) => R2_out,
+									 R_out(3) => R3_out,
+									 R_out(4) => R4_out,
+									 R_out(5) => R5_out,
+									 R_out(6) => R6_out,
+									 R_out(7) => R7_out,
 									 G_out => G_out,
 									 DIN_out => DIN_out,
-									 R_in => R_in,
+									 R_in(0) => R0_in,
+									 R_in(1) => R1_in,
+									 R_in(2) => R2_in,
+									 R_in(3) => R3_in,
+									 R_in(4) => R4_in,
+									 R_in(5) => R5_in,
+									 R_in(6) => R6_in,
+									 R_in(7) => R7_in,
 									 A_in => A_in,
 									 G_in => G_in,
 									 AddSub => AddSubFlag,
