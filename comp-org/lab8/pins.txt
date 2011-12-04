@@ -1,0 +1,4 @@
+To, Location
+Clock, PIN_N2
+Reset, PIN_V2
+
