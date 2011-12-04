@@ -53,6 +53,18 @@ architecture cpu_arch of cpu is
 			 DIN_out : out std_logic_vector(8 downto 0));
 	end component;
 	
+	-- MUX
+	component mux 
+		port( R0, R1, R2, R3, R4, R5, R6, R7 : in std_logic_vector(15 downto 0);
+			  DIN : in std_logic_vector(15 downto 0);
+			  AddSubResult : in std_logic_vector(15 downto 0);
+			  SR : in std_logic_vector(7 downto 0);
+			  SG : in std_logic;
+			  SDIN : in std_logic;
+			  MuxOut : out std_logic_vector(15 downto 0)
+		);
+	end component;
+	
 	signal R0_in, R1_in, R2_in, R3_in, R4_in, R5_in, R6_in, R7_in : std_logic;
 	signal R0_output, R1_output, R2_output, R3_output, R4_output,
            R5_output, R6_output, R7_output	: std_logic_vector(15 downto 0);
@@ -125,7 +137,22 @@ begin
 						  IR_in => IR_out,
 						  DIN_in => DIN(15 downto 7),
 						  DIN_out => IRControl);
-
+		
+	muxComp : mux port map (R0 => R0_output,
+					R1 => R1_output,
+					R2 => R2_output,
+					R3 => R3_output,
+					R4 => R4_output,
+					R5 => R5_output,
+					R6 => R6_output,
+					R7 => R7_output,
+					DIN => DIN,
+					AddSubResult => AddSubResult,
+					SR => R_out,
+					SG => G_out,
+					SDIN => DIN_out,
+					MuxOut => cpu_bus);
+					
 	control : control_unit port map( Run => Run,
 									 Reset => Reset,
 									 IR => IRControl,
