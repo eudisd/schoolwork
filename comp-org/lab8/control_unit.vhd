@@ -7,7 +7,7 @@ entity control_unit is
 		  Clock : in std_logic;
 		  IR : in std_logic_vector(8 downto 0);  -- 9 bits
 		  
-		  IR_in : out : std_logic;
+		  IR_in : out std_logic;
 		  R_out : out std_logic_vector(7 downto 0);
 		  G_out : out std_logic;
 		  DIN_out : out std_logic;
@@ -15,7 +15,7 @@ entity control_unit is
 		  A_in : out std_logic;
 		  G_in : out std_logic;
 		  AddSub : out std_logic;
-		  Dont : out std_logic;
+		  Done : out std_logic
 	);
 end control_unit;
 
@@ -23,4 +23,4 @@ architecture control_arch of control_unit is
 
 begin
 
-end contro_arch;
+end control_arch;
