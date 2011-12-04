@@ -1,9 +1,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-
 entity cpu is
-	port();
+	port( Clock, Run, Reset : in std_logic;
+		  DIN : in std_logic_vector(15 downto 0);
+		  Bus : out std_logic_vector(15 downto 0);
+		  Done : out std_logic
+ 		  );
 end cpu;
 
 
