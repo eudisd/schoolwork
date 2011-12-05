@@ -18,7 +18,7 @@ begin
 	begin	
 		if(SR = "00000000" and (SG = '1' or SDIN = '1')) then -- Handle SG or SDIN cases
 			if(SG = '0' and SDIN = '1') then 
-				MuxOut <= DIN;
+				MuxOut <= "000000" & DIN(9 downto 0); -- We must not store the instruction, only DIN (2^10) = 1024 possible values
 			elsif (SG = '1' and SDIN = '0') then
 				MuxOut <= AddSubResult;
 			end if;

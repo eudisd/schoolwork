@@ -150,11 +150,10 @@ begin
 						if(run = '1') then
 							next_state <= storeA;
 							A_in <= '1';
-							R_out <= Rx_out;
+							R_out <= Rx_out;  -- Store Rx in A
 						end if;
 						
 						done <= '0';
-						R_out <= "00000000";
 						G_out <= '0';
 						DIN_out <= '0';
 						R_in <= "00000000";
@@ -183,24 +182,33 @@ begin
 							next_state <= finished;
 							done <= '1';
 							G_out <= '1';
+							R_in <= Rx_out;
 						end if;
+						
+						--IR_in <= '0';
+						--R_out <= "00000000";
+						--DIN_out <= '0';
+						--A_in <= '0';
+						--AddSub <= '0';
+							
 					when SubG =>
 						if(run = '1') then
 							next_state <= finished;
 							done <= '1';
 							G_out <= '1';
+							R_in <= Rx_out;
 						end if;
+						
+						IR_in <= '0';
+						R_out <= "00000000";
+						DIN_out <= '0';
+						A_in <= '0';
+						AddSub <= '0';
+							
 					when finished =>
 						if(run = '1') then
 							next_state <= cpu_wait;
 							done <= '0';
-							IR_in <= '0';
-							R_out <= "00000000";
-							G_out <= '0';
-							DIN_out <= '0';
-							R_in <= "00000000";
-							A_in <= '0';
-							AddSub <= '0';
 						end if;
 				end case;
 			end if;
