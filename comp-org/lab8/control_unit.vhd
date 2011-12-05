@@ -149,8 +149,8 @@ begin
 					when operation =>
 						if(run = '1') then
 							next_state <= storeA;
-							A_in = '1';
-							R_out = Rx_out;
+							A_in <= '1';
+							R_out <= Rx_out;
 						end if;
 						
 						done <= '0';
@@ -181,13 +181,13 @@ begin
 					when AddG =>
 						if(run = '1') then
 							next_state <= finished;
-							done = '1';
+							done <= '1';
 							G_out <= '1';
 						end if;
 					when SubG =>
 						if(run = '1') then
 							next_state <= finished;
-							done = '1';
+							done <= '1';
 							G_out <= '1';
 						end if;
 					when finished =>
