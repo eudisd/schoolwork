@@ -184,7 +184,6 @@ begin
 							G_out <= '1';
 							R_in <= Rx_out;
 						end if;
-						
 						--IR_in <= '0';
 						--R_out <= "00000000";
 						--DIN_out <= '0';
