@@ -5,7 +5,8 @@ entity cpu is
 	port( Clock, Run, Reset : in std_logic;
 		  DIN : in std_logic_vector(15 downto 0);
 		  cpu_bus : inout std_logic_vector(15 downto 0);
-		  Done : out std_logic
+		  Done : out std_logic;
+		  display: out std_logic_vector(55 downto 0) 
  		  );
 end cpu;
 
@@ -65,6 +66,20 @@ architecture cpu_arch of cpu is
 		);
 	end component;
 	
+	-- HEX TO SEVEN DISPLAY
+	component hex_to_seven port(
+		en : in std_logic;
+		input : in std_logic_vector(31 downto 0);
+		hex0 : out std_logic_vector(6 downto 0);
+		hex1 : out std_logic_vector(6 downto 0);
+		hex2 : out std_logic_vector(6 downto 0);
+		hex3 : out std_logic_vector(6 downto 0);
+		hex4 : out std_logic_vector(6 downto 0);
+		hex5 : out std_logic_vector(6 downto 0);
+		hex6 : out std_logic_vector(6 downto 0);
+		hex7 : out std_logic_vector(6 downto 0));
+	end component;
+	
 	signal R0_in, R1_in, R2_in, R3_in, R4_in, R5_in, R6_in, R7_in : std_logic;
 	signal R0_out, R1_out, R2_out, R3_out, R4_out, R5_out, R6_out, R7_out : std_logic;
 	signal R0_output, R1_output, R2_output, R3_output, R4_output,
@@ -81,11 +96,14 @@ architecture cpu_arch of cpu is
 	signal IRControl: std_logic_vector(8 downto 0);
 	signal G_out : std_logic;
 	signal DIN_out : std_logic;
-	--signal R_in : std_logic_vector(7 downto 0);
-	--signal R_out : std_logic_vector(7 downto 0);
+
+	signal dis_input : std_logic_vector(31 downto 0);
 
 	
 begin
+	-- Setup for display in the 7 segment 	
+	dis_input <=  "0000000" & IRControl & R1_output(7 downto 0) & R0_output(7 downto 0);
+	
 	R0 : reg port map( d => cpu_bus,
 					   clock => Clock,
 					   R_in => R0_in,
@@ -189,7 +207,18 @@ begin
 									 AddSub => AddSubFlag,
 									 Done => Done,
 									 Clock => Clock);
-	
+	sev : hex_to_seven port map(
+		en => '1',
+		input => dis_input,
+		hex0 => display(6 downto 0),
+		hex1 => display(13 downto 7),
+		hex2 => display(20 downto 14),
+		hex3 => display(27 downto 21),
+		hex4 => display(34 downto 28),
+		hex5 => display(41 downto 35),
+		hex6 => display(48 downto 42),
+		hex7 => display(55 downto 49)
+	);
 								
 				
 	
