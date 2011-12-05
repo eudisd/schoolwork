@@ -57,6 +57,7 @@ begin
 						DIN_out <= '0';
 						R_in <= "00000000";
 						A_in <= '0';
+						G_in <= '0';
 						AddSub <= '0';
 							
 					when cpu_off =>
@@ -72,6 +73,7 @@ begin
 						DIN_out <= '0';
 						R_in <= "00000000";
 						A_in <= '0';
+						G_in <= '0';
 						AddSub <= '0';
 						
 					when fetch =>
@@ -91,6 +93,7 @@ begin
 						DIN_out <= '0';
 						R_in <= "00000000";
 						A_in <= '0';
+						G_in <= '0';
 						AddSub <= '0';
 						
 					when decode =>
@@ -104,10 +107,20 @@ begin
 								DIN_out <= '0';
 								R_in <= Rx_out;
 								A_in <= '0';
+								G_in <= '0';
 								AddSub <= '0';
 								
 							elsif ( IR(8 downto 6) = "001") then -- Movi 
 								next_state <= movi;
+
+								done <= '0';								
+								R_out <= "00000000";
+								G_out <= '0';
+								DIN_out <= '1';
+								R_in <= Rx_out;
+								A_in <= '0';
+								G_in <= '0';
+								AddSub <= '0';
 							elsif ( IR(8 downto 6) = "010") then -- Add or Sub
 								next_state <= operation;
 							end if;
@@ -122,6 +135,11 @@ begin
 							
 						end if;
 					when movi =>
+						if(run = '1') then
+							next_state <= finished;
+							done <= '1';
+							
+						end if;
 					when operation =>
 					when storeA =>
 					when AddG =>
