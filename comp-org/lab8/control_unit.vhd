@@ -121,12 +121,18 @@ begin
 								A_in <= '0';
 								G_in <= '0';
 								AddSub <= '0';
-							elsif ( IR(8 downto 6) = "010") then -- Add or Sub
+							elsif ( IR(8 downto 6) = "010" or IR(8 downto 6) = "011") then -- Add or Sub
 								next_state <= operation;
+								done <= '0';
+								R_out <= "00000000";
+								G_out <= '0';
+								DIN_out <= '0';
+								R_in <= "00000000";
+								A_in <= '0';
+								G_in <= '0';
+								AddSub <= '0';
 							end if;
 						end if;
-						
-						
 						
 					when mov =>
 						if(run = '1') then
@@ -141,9 +147,49 @@ begin
 							
 						end if;
 					when operation =>
+						if(run = '1') then
+							next_state <= storeA;
+							A_in = '1';
+							R_out = Rx_out;
+						end if;
+						
+						done <= '0';
+						R_out <= "00000000";
+						G_out <= '0';
+						DIN_out <= '0';
+						R_in <= "00000000";
+						G_in <= '0';
+						AddSub <= '0';
+						
 					when storeA =>
+						if(run = '1' and IR(8 downto 6) = "010") then -- Add
+							next_state <= AddG;
+							AddSub <= '1';
+						elsif (run = '1' and IR(8 downto 6) = "011") then -- Sub
+							next_state <= SubG;
+							AddSub <= '0';
+						end if;
+						
+						done <= '0';
+						R_out <= Ry_out;
+						G_out <= '0';
+						DIN_out <= '0';
+						R_in <= "00000000";
+						A_in <= '0';
+						G_in <= '1';
+						
 					when AddG =>
+						if(run = '1') then
+							next_state <= finished;
+							done = '1';
+							G_out <= '1';
+						end if;
 					when SubG =>
+						if(run = '1') then
+							next_state <= finished;
+							done = '1';
+							G_out <= '1';
+						end if;
 					when finished =>
 						if(run = '1') then
 							next_state <= cpu_wait;
