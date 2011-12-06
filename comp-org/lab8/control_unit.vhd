@@ -68,10 +68,10 @@ begin
 						-- All Outputs
 						done <= '0';
 						IR_in <= '0';
-						R_out <= "00000000";
+						--R_out <= "00000000";
 						G_out <= '0';
 						DIN_out <= '0';
-						R_in <= "00000000";
+						--R_in <= "00000000";
 						A_in <= '0';
 						G_in <= '0';
 						AddSub <= '0';
@@ -101,7 +101,7 @@ begin
 							if( IR(8 downto 6) = "000" ) then -- Mov
 								next_state <= mov;
 								done <= '0';
-								
+								--IR_in <= '0';  -- Do not allow the current IR to be modified!
 								R_out <= Ry_out;
 								G_out <= '0';
 								DIN_out <= '0';
@@ -112,7 +112,7 @@ begin
 								
 							elsif ( IR(8 downto 6) = "001") then -- Movi 
 								next_state <= movi;
-
+								--IR_in <= '0';  -- Do not allow the current IR to be modified!
 								done <= '0';								
 								R_out <= "00000000";
 								G_out <= '0';
@@ -138,13 +138,16 @@ begin
 						if(run = '1') then
 							next_state <= finished;
 							done <= '1';
+							R_out <= "00000000";
+							R_in <= "00000000";
 							
 						end if;
 					when movi =>
 						if(run = '1') then
 							next_state <= finished;
 							done <= '1';
-							
+							R_out <= "00000000";
+							R_in <= "00000000";
 						end if;
 					when operation =>
 						if(run = '1') then
