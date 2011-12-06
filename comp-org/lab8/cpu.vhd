@@ -48,10 +48,10 @@ architecture cpu_arch of cpu is
 	
 	-- IR
 	component IR 
-		port(Clock : in std_logic;
-			 IR_in : in std_logic;
-			 DIN_in : in std_logic_vector(8 downto 0);
-			 DIN_out : out std_logic_vector(8 downto 0));
+		port(  d : in std_logic_vector(8 downto 0);
+			   clock : in std_logic;
+			   R_in : in std_logic;
+			   q : out std_logic_vector(8 downto 0));
 	end component;
 	
 	-- MUX
@@ -152,10 +152,10 @@ begin
 								 AddSub => AddSubFlag,
 								 res => AddSubResult);
 								 
-	IRComp : IR port map( Clock => Clock,
-						  IR_in => IR_out,
-						  DIN_in => DIN(15 downto 7),
-						  DIN_out => IRControl);
+	IRComp : IR port map( clock => Clock,
+						  R_in => IR_out,
+						  d => DIN(15 downto 7),
+						  q => IRControl);
 		
 	muxComp : mux port map (
 					R0 => R0_output,

@@ -171,7 +171,7 @@ begin
 						
 						done <= '0';
 						R_out <= Ry_out;
-						G_out <= '0';
+						G_out <= '0';  -- G_in????
 						DIN_out <= '0';
 						R_in <= "00000000";
 						A_in <= '0';
@@ -198,11 +198,11 @@ begin
 							R_in <= Rx_out;
 						end if;
 						
-						IR_in <= '0';
-						R_out <= "00000000";
-						DIN_out <= '0';
-						A_in <= '0';
-						AddSub <= '0';
+						--IR_in <= '0';
+						--R_out <= "00000000";
+						--DIN_out <= '0';
+						--A_in <= '0';
+						--AddSub <= '0';
 							
 					when finished =>
 						if(run = '1') then
