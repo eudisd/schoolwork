@@ -123,14 +123,17 @@ begin
 								AddSub <= '0';
 							elsif ( IR(8 downto 6) = "010" or IR(8 downto 6) = "011") then -- Add or Sub
 								next_state <= operation;
+								-- Store A Here
+
+								A_in <= '1';
+								R_out <= Rx_out;  -- Store Rx in A
+								
 								done <= '0';
-								R_out <= "00000000";
 								G_out <= '0';
 								DIN_out <= '0';
 								R_in <= "00000000";
-								A_in <= '0';
 								G_in <= '0';
-								AddSub <= '0';
+								
 							end if;
 						end if;
 						
@@ -138,74 +141,59 @@ begin
 						if(run = '1') then
 							next_state <= finished;
 							done <= '1';
+							
 							R_out <= "00000000";
+							G_out <= '0';  
+							DIN_out <= '0';
 							R_in <= "00000000";
+							A_in <= '0';
+							G_in <= '0';
+							
 							
 						end if;
 					when movi =>
 						if(run = '1') then
 							next_state <= finished;
 							done <= '1';
+							
 							R_out <= "00000000";
+							G_out <= '0';  
+							DIN_out <= '0';
 							R_in <= "00000000";
+							A_in <= '0';
+							G_in <= '0';
+							
 						end if;
 					when operation =>
-						if(run = '1') then
-							next_state <= storeA;
-							A_in <= '1';
-							R_out <= Rx_out;  -- Store Rx in A
-						end if;
-						
-						done <= '0';
-						G_out <= '0';
-						DIN_out <= '0';
-						R_in <= "00000000";
-						G_in <= '0';
-						AddSub <= '0';
-						
-					when storeA =>
 						if(run = '1' and IR(8 downto 6) = "010") then -- Add
-							next_state <= AddG;
 							AddSub <= '1';
 						elsif (run = '1' and IR(8 downto 6) = "011") then -- Sub
-							next_state <= SubG;
 							AddSub <= '0';
 						end if;
+						next_state <= storeA;
 						
 						done <= '0';
 						R_out <= Ry_out;
-						G_out <= '0';  -- G_in????
+						G_out <= '0';  
 						DIN_out <= '0';
 						R_in <= "00000000";
 						A_in <= '0';
 						G_in <= '1';
 						
-					when AddG =>
+					when storeA =>
 						if(run = '1') then
-							next_state <= finished;
-							done <= '1';
-							G_out <= '1';
-							R_in <= Rx_out;
-						end if;
-						--IR_in <= '0';
-						--R_out <= "00000000";
-						--DIN_out <= '0';
-						--A_in <= '0';
-						--AddSub <= '0';
-							
-					when SubG =>
-						if(run = '1') then
-							next_state <= finished;
-							done <= '1';
+							next_state <= AddG;
+							done <= '0';
 							G_out <= '1';
 							R_in <= Rx_out;
 						end if;
 						
-						--IR_in <= '0';
-						--R_out <= "00000000";
-						--DIN_out <= '0';
-						--A_in <= '0';
-						--AddSub <= '0';
+					when AddG =>
+						next_state <= finished;
+						done <= '1';
+						
+					when SubG =>
+						
 							
 					when finished =>
 						if(run = '1') then
