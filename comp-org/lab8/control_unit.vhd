@@ -25,7 +25,7 @@ architecture control_arch of control_unit is
 			  o: out std_logic_vector(7 downto 0));
 	end component;
 	type state_type is (cpu_wait, cpu_off, fetch, decode, mov, 
-	                   movi, operation, storeA, AddG, SubG, finished);
+	                   movi, operation, StoreOpRes, StoreOpResFollowUp, finished);
 					   
 	signal current_state : state_type;
 	signal next_state : state_type := cpu_wait;
@@ -38,7 +38,7 @@ begin
 	Ry : decoder port map( i => IR(2 downto 0),
 						   o => Ry_out);
 	-- States Process
-	process(clock, reset, current_state, Run, IR)
+	process(clock, reset)
 	begin
 			current_state <= next_state;
 			if(rising_edge(clock)) then
@@ -68,10 +68,10 @@ begin
 						-- All Outputs
 						done <= '0';
 						IR_in <= '0';
-						--R_out <= "00000000";
+						R_out <= "00000000";
 						G_out <= '0';
 						DIN_out <= '0';
-						--R_in <= "00000000";
+						R_in <= "00000000";
 						A_in <= '0';
 						G_in <= '0';
 						AddSub <= '0';
@@ -124,11 +124,9 @@ begin
 							elsif ( IR(8 downto 6) = "010" or IR(8 downto 6) = "011") then -- Add or Sub
 								next_state <= operation;
 								-- Store A Here
-
+								done <= '0';
 								A_in <= '1';
 								R_out <= Rx_out;  -- Store Rx in A
-								
-								done <= '0';
 								G_out <= '0';
 								DIN_out <= '0';
 								R_in <= "00000000";
@@ -170,7 +168,7 @@ begin
 						elsif (run = '1' and IR(8 downto 6) = "011") then -- Sub
 							AddSub <= '0';
 						end if;
-						next_state <= storeA;
+						next_state <= StoreOpRes;
 						
 						done <= '0';
 						R_out <= Ry_out;
@@ -180,25 +178,42 @@ begin
 						A_in <= '0';
 						G_in <= '1';
 						
-					when storeA =>
+					when StoreOpRes =>
 						if(run = '1') then
-							next_state <= AddG;
+							next_state <= StoreOpResFollowUp;
 							done <= '0';
-							G_out <= '1';
 							R_in <= Rx_out;
+							G_out <= '1';
+							R_out <= "00000000"; 
+							DIN_out <= '0';
+							A_in <= '0';
+							G_in <= '0';
 						end if;
 						
-					when AddG =>
-						next_state <= finished;
-						done <= '1';
-						
-					when SubG =>
-						
+					when StoreOpResFollowUp =>
+						if(run = '1') then
+							next_state <= finished;
+							done <= '1';
+							IR_in <= '0';
+							R_in <= Rx_out;
+							G_out <= '1';
+							R_out <= "00000000"; 
+							DIN_out <= '0';
+							A_in <= '0';
+							G_in <= '0';
+						end if;
+
 							
 					when finished =>
 						if(run = '1') then
 							next_state <= cpu_wait;
 							done <= '0';
+							R_in <= "00000000";
+							G_out <= '0';
+							R_out <= "00000000"; 
+							DIN_out <= '0';
+							A_in <= '0';
+							G_in <= '0';
 						end if;
 				end case;
 			end if;

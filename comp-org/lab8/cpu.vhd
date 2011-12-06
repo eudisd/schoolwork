@@ -167,7 +167,7 @@ begin
 					R6 => R6_output,
 					R7 => R7_output,
 					DIN => DIN,
-					AddSubResult => AddSubResult,
+					AddSubResult => G_output,
 					SR(0) => R0_out,
 					SR(1) => R1_out,
 					SR(2) => R2_out,

@@ -39,6 +39,8 @@ begin
 				MuxOut <= R6;
 			elsif (SR = "10000000") then
 				MuxOut <= R7;
+			else 
+				MuxOut <= (others => '0');
 			end if;
 		end if;
 	end process;
