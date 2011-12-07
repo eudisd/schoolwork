@@ -134,12 +134,14 @@ begin
 		if(rising_edge(clock)) then
 			if(R_in = '1') then
 				itemp <= d;
-				q <= qtemp;
+				--q <= qtemp;
 			elsif(R_in = '0') then
 				itemp <= qtemp;
-				q <= qtemp;
+				
 			end if;
 		end if;
 	end process;
+	
+	q <= qtemp;
 	
 end arch;
