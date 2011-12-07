@@ -51,7 +51,6 @@ begin
 						end if;
 						
 						done <= '0';
-						IR_in <= '0';
 						R_out <= "00000000";
 						G_out <= '0';
 						DIN_out <= '0';
@@ -62,7 +61,6 @@ begin
 							
 					when cpu_off =>
 						if(run = '1' or reset = '1') then
-							-- Change State here
 							next_state <= cpu_wait;
 						end if;
 						-- All Outputs
@@ -182,7 +180,8 @@ begin
 						if(run = '1') then
 							next_state <= StoreOpResFollowUp;
 							done <= '0';
-							R_in <= Rx_out;
+							-- Leaving this part uncommented results in a CPU bus of UUUUUU
+							R_in <= Rx_out;  
 							G_out <= '1';
 							R_out <= "00000000"; 
 							DIN_out <= '0';
@@ -194,13 +193,13 @@ begin
 						if(run = '1') then
 							next_state <= finished;
 							done <= '1';
-							IR_in <= '0';
-							R_in <= Rx_out;
-							G_out <= '1';
-							R_out <= "00000000"; 
-							DIN_out <= '0';
-							A_in <= '0';
-							G_in <= '0';
+							--IR_in <= '0';
+							--R_in <= Rx_out;
+							--G_out <= '0';
+							--R_out <= "00000000"; 
+							--DIN_out <= '0';
+							--A_in <= '0';
+							--G_in <= '0';
 						end if;
 
 							
@@ -208,12 +207,12 @@ begin
 						if(run = '1') then
 							next_state <= cpu_wait;
 							done <= '0';
-							R_in <= "00000000";
-							G_out <= '0';
-							R_out <= "00000000"; 
-							DIN_out <= '0';
-							A_in <= '0';
-							G_in <= '0';
+							--R_in <= "00000000";
+							--G_out <= '0';
+							--R_out <= "00000000"; 
+							--DIN_out <= '0';
+							--A_in <= '0';
+							--G_in <= '0';
 						end if;
 				end case;
 			end if;
