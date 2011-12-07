@@ -25,7 +25,7 @@ architecture control_arch of control_unit is
 			  o: out std_logic_vector(7 downto 0));
 	end component;
 	type state_type is (cpu_wait, cpu_off, fetch, decode, mov, 
-	                   movi, operation, StoreOpRes, StoreOpResFollowUp, finished);
+	                   movi, operation, StoreOpRes, StoreOpResFollowUp, StoreOpResFollowUp2, finished);
 					   
 	signal current_state : state_type;
 	signal next_state : state_type := cpu_wait;
@@ -181,25 +181,31 @@ begin
 							next_state <= StoreOpResFollowUp;
 							done <= '0';
 							-- Leaving this part uncommented results in a CPU bus of UUUUUU
-							R_in <= Rx_out;  
+							--R_in <= Rx_out;  
+							--G_out <= '1';
+							--R_out <= "00000000"; 
+							--DIN_out <= '0';
+							--A_in <= '0';
+							--G_in <= '0';
+						end if;
+						
+					when StoreOpResFollowUp =>
+						if(run = '1') then
+							next_state <= StoreOpResFollowUp2;
+							done <= '0';
+						end if;
+						
+					when StoreOpResFollowUp2 =>
+						if(run = '1') then
+							next_state <= finished;
+							done <= '1';
+							
+							R_in <= Rx_out;
 							G_out <= '1';
 							R_out <= "00000000"; 
 							DIN_out <= '0';
 							A_in <= '0';
 							G_in <= '0';
-						end if;
-						
-					when StoreOpResFollowUp =>
-						if(run = '1') then
-							next_state <= finished;
-							done <= '1';
-							--IR_in <= '0';
-							--R_in <= Rx_out;
-							--G_out <= '0';
-							--R_out <= "00000000"; 
-							--DIN_out <= '0';
-							--A_in <= '0';
-							--G_in <= '0';
 						end if;
 
 							
@@ -207,12 +213,7 @@ begin
 						if(run = '1') then
 							next_state <= cpu_wait;
 							done <= '0';
-							--R_in <= "00000000";
-							--G_out <= '0';
-							--R_out <= "00000000"; 
-							--DIN_out <= '0';
-							--A_in <= '0';
-							--G_in <= '0';
+							
 						end if;
 				end case;
 			end if;
