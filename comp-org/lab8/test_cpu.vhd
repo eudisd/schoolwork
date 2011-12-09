@@ -7,4 +7,4 @@ end test_cpu;
 
 architecture test_arch of test_cpu is
 begin
-end test_cpu;
+end test_arch;
