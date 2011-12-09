@@ -14,18 +14,77 @@ architecture test_arch of test_cpu is
  		  );
 	end component;
 	
-	signal myclock, myrun, myreset, mydone : std_logic;
-	signal MYDIN : std_logic_vector(15 downto 0);
+	signal clock, run, reset, done : std_logic;
+	signal display : std_logic_vector(55 downto 0);
+	signal DIN : std_logic_vector(15 downto 0);
 begin
 	
-	my_cpu : cpu port map(Clock => myclock,
-						  Run => myrun,
-						  Reset => myreset,
-						  Done => mydone,
-						  DIN => MYDIN
+	my_cpu : cpu port map(Clock => clock,
+						  Run => run,
+						  Reset => reset,
+						  Done => done,
+						  DIN => DIN,
+						  display => display
 						  );
 	process
 	begin
+		run <= '1';
+		reset <= '0';
+		clock <= '0';
+		-- Movi test (movi R0, 1)
+		DIN <= "0010000000000001";
+		
+		wait for 100 ns;
+		
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		 
+		-- Mov test  (mov R1, R0)
+		DIN <= "0000010000000000";
+		
+		wait for 100 ns;
+		
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		
+		
+		report "Test successful!" severity failure;
 		
 	end process;
 end test_arch;
