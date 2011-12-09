@@ -2,6 +2,7 @@ To, Location
 Clock, PIN_N23
 Reset, PIN_G26
 Run, PIN_V2
+Done, PIN_AD12
 
 DIN[0], PIN_N25
 DIN[1], PIN_N26

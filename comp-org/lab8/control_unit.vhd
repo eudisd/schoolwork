@@ -40,6 +40,9 @@ begin
 	-- States Process
 	process(clock, reset)
 	begin
+			if(reset = '0') then
+					next_state <= cpu_wait;
+			elsif(reset = '1') then
 			current_state <= next_state;
 			if(rising_edge(clock)) then
 				case current_state is
@@ -60,7 +63,7 @@ begin
 						AddSub <= '0';
 							
 					when cpu_off =>
-						if(run = '1' or reset = '1') then
+						if(run = '1') then
 							next_state <= cpu_wait;
 						end if;
 						-- All Outputs
@@ -80,9 +83,6 @@ begin
 							IR_in <= '1';
 						elsif(run = '0') then
 							next_state <= cpu_off;
-							IR_in <= '0';
-						elsif(reset = '1') then
-							next_state <= cpu_wait;
 							IR_in <= '0';
 						end if;
 						done <= '0';
@@ -163,10 +163,12 @@ begin
 					when operation =>
 						if(run = '1' and IR(8 downto 6) = "010") then -- Add
 							AddSub <= '1';
+							next_state <= StoreOpRes;
 						elsif (run = '1' and IR(8 downto 6) = "011") then -- Sub
 							AddSub <= '0';
+							next_state <= StoreOpRes;
 						end if;
-						next_state <= StoreOpRes;
+						
 						
 						done <= '0';
 						R_out <= Ry_out;
@@ -216,8 +218,15 @@ begin
 							
 						end if;
 				end case;
+			
 			end if;
+			end if;
+			
+			
 	end process;
+	
+	
+	
 	
 	
 end control_arch;
