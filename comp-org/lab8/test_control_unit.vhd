@@ -24,6 +24,8 @@ component control_unit
 	);
 end component;
 
+	signal error : std_logic := '0';
+	
 	signal Run : std_logic;
 	signal Reset : std_logic;
 	signal Clock : std_logic;
@@ -53,7 +55,29 @@ begin
 							 
 	process
 	begin
-	
+		-- mov
+		IR <= "000000000";
+		IR_in <= '1';
+		
+		-- movi
+		IR <= "001000000";
+		IR_in <= '1';
+		
+		-- add
+		IR <= "010000000";
+		IR_in <= '1';
+		
+		-- sub
+		IR <= "011000000";
+		IR_in <= '1';
+		
+		
+		if (signal = '1') then
+			report "FAILURE" severity failure;
+		elsif (signal = '0') then
+			report "SUCCESS" severity failure;
+		end if;
+		
 	end process;
 
 end test_arch;
