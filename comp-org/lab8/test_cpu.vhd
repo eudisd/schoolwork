@@ -84,6 +84,59 @@ begin
 		wait for 50 ns;
 		
 		
+		-- add  (add R0, R1)
+		DIN <= "0100000010000000";
+		
+		wait for 100 ns;
+		
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		
+		
+		-- Sub test  (sub R0, R1)
+		DIN <= "0110000000000000";
+		
+		wait for 100 ns;
+		
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		clock <= not clock;
+		wait for 50 ns;
+		
 		report "Test successful!" severity failure;
 		
 	end process;
