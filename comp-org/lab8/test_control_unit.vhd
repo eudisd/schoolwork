@@ -10,7 +10,7 @@ component control_unit
 	port( Run : in std_logic;
 	      Reset : in std_logic;
 		  Clock : in std_logic;
-		  IR : in std_logic_vector(8 downto 0);  -- 9 bits
+		  IR : in std_logic_vector(8 downto 0);  
 		  
 		  IR_in : out std_logic;
 		  R_out : out std_logic_vector(7 downto 0);
@@ -24,20 +24,19 @@ component control_unit
 	);
 end component;
 
-	signal Run : in std_logic;
-	signal Reset : in std_logic;
-	signal Clock : in std_logic;
-	signal IR : in std_logic_vector(8 downto 0);  -- 9 bits
-		  
-	signal IR_in : out std_logic;
-	signal R_out : out std_logic_vector(7 downto 0);
-	signal G_out : out std_logic;
-	signal DIN_out : out std_logic;
-	signal R_in : out std_logic_vector(7 downto 0);
-	signal A_in : out std_logic;
-	signal G_in : out std_logic;
-	signal AddSub : out std_logic;
-	signal Done : out std_logic;
+	signal Run : std_logic;
+	signal Reset : std_logic;
+	signal Clock : std_logic;
+	signal IR : std_logic_vector(8 downto 0); 
+	signal IR_in : std_logic;
+	signal R_out : std_logic_vector(7 downto 0);
+	signal G_out : std_logic;
+	signal DIN_out : std_logic;
+	signal R_in : std_logic_vector(7 downto 0);
+	signal A_in : std_logic;
+	signal G_in : std_logic;
+	signal AddSub : std_logic;
+	signal Done : std_logic;
 begin
 	cu : control_unit port map(Run => Run,
 							   Reset => Reset,
@@ -51,6 +50,11 @@ begin
 							   A_in => A_in, 
 							   AddSub => AddSub,
 							   Done => Done);
+							 
+	process
+	begin
+	
+	end process;
 
 end test_arch;
 
