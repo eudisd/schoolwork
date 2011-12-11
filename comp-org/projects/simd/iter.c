@@ -3,37 +3,38 @@
 #include <math.h>
 #include <time.h>
 
+typedef float **mat4x4;
+
 // Multiply 2 4x4 matrices, and store the result in res
-void mult4x4(float **res, float **a, float **b);
+void mult4x4(mat4x4 res, mat4x4 a, mat4x4 b);
 
 // Return a random 4x4 matrix
-float **create4x4(void);
+
+mat4x4 create4x4(void);
 
 // Return a clear 4x4 matrix (zero'ed out)
-float **create4x4Clear(void);
+mat4x4 create4x4Clear(void);
 
 // Helper function to print matrices
-void print4x4(float **m);
+void print4x4(mat4x4 m);
 
 int main(void)
 {
     
     srand(time(NULL)); // seed the rand number generator
-    float **a = create4x4();
-    float **b = create4x4();
-    float **res = create4x4Clear();
+    mat4x4 a = create4x4();
+    mat4x4 b = create4x4();
+    mat4x4 res = create4x4Clear();
     
     print4x4(a);
     print4x4(b);
-
     mult4x4(res, a, b);
-
     print4x4(res);
 
     return 0;
 }
 
-void mult4x4(float **res, float **a, float **b)
+void mult4x4(mat4x4 res, mat4x4 a, mat4x4 b)
 {
     int i, j, l, m;
     
@@ -46,10 +47,10 @@ void mult4x4(float **res, float **a, float **b)
     }
 }
 
-float **create4x4(void)
+mat4x4 create4x4(void)
 {
     int i, j;
-    float **res = (float**)malloc(sizeof(float*)*4);
+    mat4x4 res = (mat4x4)malloc(sizeof(float*)*4);
     for(i = 0; i < 4; i++){
         res[i] = (float*)malloc(sizeof(float)*4);
     }
@@ -61,10 +62,10 @@ float **create4x4(void)
     return res;
 }
 
-float **create4x4Clear(void)
+mat4x4 create4x4Clear(void)
 {
     int i, j;
-    float **res = (float**)malloc(sizeof(float*)*4);
+    mat4x4 res = (mat4x4)malloc(sizeof(float*)*4);
     for(i = 0; i < 4; i++){
         res[i] = (float*)malloc(sizeof(float)*4);
     }
@@ -76,7 +77,7 @@ float **create4x4Clear(void)
     return res;
 }
 
-void print4x4(float **m)
+void print4x4(mat4x4 m)
 {
     int i, j;
     for(i = 0; i < 4; i++){
