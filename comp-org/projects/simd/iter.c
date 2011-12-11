@@ -40,7 +40,7 @@ void mult4x4(float **res, float **a, float **b)
     for(i = 0; i < 4; i++){
         for(j = 0; j < 4; j++){
             for(l = 0; l < 4; l++){
-                res[i][j] += a[l][j] + b[i][l];
+                res[i][j] += (a[i][l] * b[l][j]);
             }
         }
     }
