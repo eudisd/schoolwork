@@ -24,7 +24,7 @@ void mult4x4SIMD(mat4x4 res, mat4x4 a, mat4x4 b)
 	int i, j;
 	for(i = 0; i < 4; i++){
 		for(j = 0; j < 4; j++){	
-			if(j = 0){
+			if(j == 0){
 				A.f[0] = a[i][0];
 				A.f[1] = a[i][1];
 				A.f[2] = a[i][2];
@@ -37,7 +37,8 @@ void mult4x4SIMD(mat4x4 res, mat4x4 a, mat4x4 b)
 				Res.v = A.v * B.v;
 				res[i][j] = Res.f[0] + Res.f[1] + Res.f[2] + Res.f[2];
 			}
-		}
+	  
+    }
 	}
 	
 }

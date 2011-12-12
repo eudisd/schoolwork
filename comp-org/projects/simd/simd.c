@@ -22,10 +22,15 @@ int main(void)
 	
 	print4x4(a);
 	print4x4(b);
-	mult4x4SIMD(res, a, b);
+  mult4x4SIMD(res, a, b);
 	print4x4(res);
-
-    return 0;
+/*
+    union v4 a, b, c;
+    a.f[0] = 1; a.f[1] = 1; a.f[2]=2;a.f[3]=2;
+    b.f[0] = 1; b.f[1] = 0; b.f[2]=2;b.f[3]=3;
+    c.v = a.v * b.v;
+    printf("%f %f %f %f\n", c.f[0], c.f[1], c.f[2], c.f[3]);
+ */   return 0;
 }
 
 
