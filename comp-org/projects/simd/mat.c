@@ -21,7 +21,7 @@ void mult4x4(mat4x4 res, mat4x4 a, mat4x4 b)
 
 void mult4x4SIMD(mat4x4 res, mat4x4 a, mat4x4 b)
 {
-	union v4 A, B, Res;
+	//union v4 A, B, Res;
 	int i, j;
 	for(i = 0; i < 4; i++){
 		for(j = 0; j < 4; j++){	
