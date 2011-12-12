@@ -40,4 +40,9 @@ void multBigMat(mat4x4 *res, int size, mat4x4 *a, mat4x4 *b);
 
 // Multiply the two massive mats using SIMD!
 void multBigMatSIMD(mat4x4 *res, int size, mat4x4 *a, mat4x4 *b);
+
+// Some timer function
+
+double microsecs(void);            // Returns the current time.
+	
 #endif
