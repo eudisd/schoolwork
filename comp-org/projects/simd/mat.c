@@ -105,7 +105,7 @@ mat4x4 *create4x4ClearArray(int size)
 	return res;
 }
 
-void multBigMat(mat4x4 *res, int size, mat4x4 *a, mat4x4 *b)
+inline void multBigMat(mat4x4 *res, int size, mat4x4 *a, mat4x4 *b)
 {
 	int i;
 	for(i = 0; i < size; i++){
@@ -113,7 +113,7 @@ void multBigMat(mat4x4 *res, int size, mat4x4 *a, mat4x4 *b)
 	}
 }
 
-void multBigMatSIMD(mat4x4 *res, int size, mat4x4 *a, mat4x4 *b)
+inline void multBigMatSIMD(mat4x4 *res, int size, mat4x4 *a, mat4x4 *b)
 {
 	int i;
 	for(i = 0; i < size; i++){
