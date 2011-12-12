@@ -2,6 +2,13 @@
 #define _MAT_H_
 
 typedef float **mat4x4; // This needs allocation!!!
+typedef float v4sf __attribute__((mode(V4SF)));
+
+union v4 
+{
+	v4sf v;
+	float f[4];
+};
 
 // Multiply 2 4x4 matrices, and store the result in res
 void mult4x4(mat4x4 res, mat4x4 a, mat4x4 b);

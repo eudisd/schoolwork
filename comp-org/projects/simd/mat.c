@@ -5,7 +5,6 @@
 
 #include "mat.h"
 
-
 void mult4x4(mat4x4 res, mat4x4 a, mat4x4 b)
 {
     int i, j, l, m;
@@ -21,14 +20,16 @@ void mult4x4(mat4x4 res, mat4x4 a, mat4x4 b)
 
 void mult4x4SIMD(mat4x4 res, mat4x4 a, mat4x4 b)
 {
-    
+	union v4 A, B, Res;
 	int i, j;
-	// Need to visit every element anyway, lower bound O(n^2)
 	for(i = 0; i < 4; i++){
 		for(j = 0; j < 4; j++){
 			
+			Res.v = A.v * B.v;
+			res[i][j] = Res.f[0] + Res.f[1] + Res.f[2] + Res.f[2];
 		}
 	}
+	
 }
 
 mat4x4 create4x4(void)
